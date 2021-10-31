@@ -1,0 +1,39 @@
+
+<table style="text-align:center"><caption><strong>TABLE: COVID-19 new cases (2 week lag) and GreenZone certification</strong></caption>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="4"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="4" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="4">log(nofcases + 1)</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">log(cumGZ + 1)</td><td>-0.103<sup>***</sup></td><td>-0.119<sup>***</sup></td><td>-0.115<sup>***</sup></td><td>-0.116<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.011)</td><td>(0.021)</td><td>(0.021)</td><td>(0.023)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(infectious_lag2 + 1)</td><td>0.573<sup>***</sup></td><td>0.583<sup>***</sup></td><td>0.579<sup>***</sup></td><td>0.580<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.037)</td><td>(0.033)</td><td>(0.030)</td><td>(0.031)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">emergency</td><td>0.065</td><td>0.159</td><td>0.104</td><td>0.107</td></tr>
+<tr><td style="text-align:left"></td><td>(0.239)</td><td>(0.213)</td><td>(0.176)</td><td>(0.167)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(noftestst.2 + 1)</td><td>0.009</td><td>0.009</td><td>0.009</td><td>0.009</td></tr>
+<tr><td style="text-align:left"></td><td>(0.012)</td><td>(0.014)</td><td>(0.013)</td><td>(0.014)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(customers_per)</td><td></td><td>0.472</td><td>0.409</td><td>0.410</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.405)</td><td>(0.421)</td><td>(0.422)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(avg_temp_q)</td><td></td><td></td><td>0.039<sup>*</sup></td><td>0.039<sup>*</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(0.015)</td><td>(0.016)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(rain + 1)</td><td></td><td></td><td>-0.104</td><td>-0.104</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(0.058)</td><td>(0.057)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(susceptible)</td><td></td><td></td><td></td><td>15.806</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td>(78.787)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Intercept</td><td>0.885</td><td>-1.732</td><td>-1.44</td><td>-230.798</td></tr>
+<tr><td style="text-align:left"></td><td>(0.148)</td><td>(1.906)</td><td>(2.023)</td><td>(965.667)</td></tr>
+<tr><td style="text-align:left">Prefecture FE</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td style="text-align:left">Week FE</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td style="text-align:left">Observations</td><td>396</td><td>396</td><td>396</td><td>396</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.929</td><td>0.929</td><td>0.929</td><td>0.930</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.912</td><td>0.912</td><td>0.912</td><td>0.912</td></tr>
+<tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="4" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>

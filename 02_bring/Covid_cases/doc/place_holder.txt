@@ -1,0 +1,6 @@
+Daily new cases of COVID-19 in Yamanashi Pref. is available on this website(https://www.pref.yamanashi.jp/koucho/coronavirus/info_coronavirus_data.html). Downloaded on 12 May.(yousei20210512.xlsx)
+
+The city of residence of the infected is not publicly available(only available by region or pref). A new case 1 is apportioned to all cities in the region/pref by ratio of city population.(yousei20210512 copy.xlsx) This data cleaning was conducted via Yousei.R in 03_build folder as well as via Google spread sheet(yousei20210512Final.csv). The whole cleaning process was completed in Yousei2.R.
+
+
+Link to NHK's covid-19 cases dataset is here (https://www3.nhk.or.jp/news/special/coronavirus/data-widget/).

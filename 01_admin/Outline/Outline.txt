@@ -1,0 +1,70 @@
+
+
+02_bring
+
+- GZlist
+- Google_mobility
+- Pop
+- Vresas
+- Weather
+- Covid_cases
+- MLIT
+- Papilio_mobility
+- PCRtest
+- Agoop
+- Postas
+- Selfrestraint
+- Rt
+- Agoop_add
+
+
+
+03_build
+
+- GZlist
+- Case_positive
+- GZ_covid
+- Weather
+- Vresas
+- GZ_covid_MLITmobility
+- Pref_covid
+- Controls
+- Papilio_mobility
+- Agoop
+- weekSIR
+- Postas
+- Counterfactual
+- Robusetness_check
+- Rt
+- Selfrestraint
+
+
+04_analyze
+
+- GZlist_mapping
+- GZlist_cum
+- GZlist_reg
+- Case_positive_plot
+- Vresas
+- Covid_cases_plot
+- Covid_reg
+- Covid_reg_papilio
+- infectious_plot
+- weekSIR
+- Covid_reg_papilio_infectious
+- Comparison_coef
+- Google Mobility
+- Res_view
+- Appendix
+- Counterfactual
+- Postas_plot
+- Postas_reg
+- Covid_reg_postas
+- Rt
+- Robustness
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+Excel data of GZ are all offered by a relevant department of Yamanashi Prefecture.
+
+These excel data are combined into a dataset as "GZlist_raw.csv".
+
+"GZlist.csv" is the dataset made from "GZlist_raw.csv" via the website of Center for Spatial Information Science of the University of Tokyo (https://geocode.csis.u-tokyo.ac.jp/home/csv-admatch/).

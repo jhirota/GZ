@@ -1,0 +1,48 @@
+
+<table style="text-align:center"><caption><strong>TABLE: COVID-19 new cases (2 week lag) and GreenZone certification</strong></caption>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="6"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="6" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="6">log(nofcases + 1)</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td><td>(4)</td><td>(5)</td><td>(6)</td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">log(cumGZ + 1)</td><td>-0.119<sup>***</sup></td><td>-0.121<sup>***</sup></td><td>-0.137<sup>***</sup></td><td>-0.139<sup>***</sup></td><td>-0.134<sup>***</sup></td><td>-0.132<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.019)</td><td>(0.021)</td><td>(0.026)</td><td>(0.026)</td><td>(0.025)</td><td>(0.027)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(susceptible)</td><td></td><td>43.821</td><td>16.033</td><td>32.139</td><td>26.474</td><td>-2.947</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(67.455)</td><td>(100.148)</td><td>(95.292)</td><td>(86.814)</td><td>(99.236)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(agrgt_potecovid_lag2 + 1)</td><td>0.588<sup>***</sup></td><td>0.591<sup>***</sup></td><td>0.601<sup>***</sup></td><td>0.599<sup>***</sup></td><td>0.597<sup>***</sup></td><td>0.593<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.030)</td><td>(0.031)</td><td>(0.028)</td><td>(0.028)</td><td>(0.025)</td><td>(0.029)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">lsales</td><td>0.298</td><td>0.313</td><td>0.123</td><td>0.085</td><td>0.143</td><td>0.107</td></tr>
+<tr><td style="text-align:left"></td><td>(0.426)</td><td>(0.428)</td><td>(0.460)</td><td>(0.493)</td><td>(0.448)</td><td>(0.461)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">lcustomers</td><td>0.253</td><td>0.245</td><td>0.359</td><td>0.368</td><td>0.285</td><td>0.311</td></tr>
+<tr><td style="text-align:left"></td><td>(0.235)</td><td>(0.231)</td><td>(0.263)</td><td>(0.263)</td><td>(0.270)</td><td>(0.233)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(mobility)</td><td></td><td></td><td></td><td>1.771</td><td></td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td>(2.693)</td><td></td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(avg_temp_q)</td><td></td><td></td><td></td><td></td><td>0.037<sup>*</sup></td><td>0.039<sup>*</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td>(0.015)</td><td>(0.016)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(rain + 1)</td><td></td><td></td><td></td><td></td><td>-0.105</td><td>-0.103</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td>(0.064)</td><td>(0.061)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">resview</td><td></td><td></td><td>0.010<sup>**</sup></td><td>0.010<sup>**</sup></td><td>0.010<sup>**</sup></td><td>0.010<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(0.004)</td><td>(0.003)</td><td>(0.003)</td><td>(0.004)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">emergency</td><td>0.119</td><td>0.137</td><td>0.139</td><td>0.141</td><td>0.089</td><td>0.138</td></tr>
+<tr><td style="text-align:left"></td><td>(0.221)</td><td>(0.214)</td><td>(0.209)</td><td>(0.204)</td><td>(0.181)</td><td>(0.167)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">log(noftestst.2 + 1)</td><td></td><td></td><td></td><td></td><td></td><td>0.008</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td>(0.014)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Intercept</td><td>-6.714</td><td>-642.797</td><td>-237.161</td><td>-496.038</td><td>-388.348</td><td>38.881</td></tr>
+<tr><td style="text-align:left"></td><td>(7.248)</td><td>(840.876)</td><td>(1318.382)</td><td>(1259.07)</td><td>(1177.465)</td><td>(1268)</td></tr>
+<tr><td style="text-align:left">Prefecture FE</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td style="text-align:left">Week FE</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+<tr><td style="text-align:left">Observations</td><td>396</td><td>396</td><td>396</td><td>396</td><td>396</td><td>396</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.929</td><td>0.929</td><td>0.930</td><td>0.930</td><td>0.930</td><td>0.930</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.912</td><td>0.912</td><td>0.912</td><td>0.912</td><td>0.913</td><td>0.912</td></tr>
+<tr><td colspan="7" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="6" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
