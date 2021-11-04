@@ -40,7 +40,7 @@ gg <- ggplot(data = Selfrest,
 
 
 
-write.csv(Selfrest, "03_build/Selfrestraint/output/selfrestraint.csv", row.names=FALSE)
+write_csv(Selfrest, "03_build/Selfrestraint/output/selfrestraint.csv")
 
 
 

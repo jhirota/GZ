@@ -220,11 +220,12 @@ prefweek2felm0201html <- stargazer(covid_5.03, covid_5.13, covid_5.23, covid_5.3
 #covid
 covid_30 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
 covid_30.2 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_30.3 <- felm(log(newcaset.2 + 1) ~ cumrandom_ymns + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
-covid_30.4 <- felm(log(newcaset.2 + 1) ~ cumrandomnew + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
-covid_30.5 <- felm(log(newcaset.2 + 1) ~ cumrandomnew + cumrandomnew:factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
-covid_30.6 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + cumrandomnew:factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
-covid_30.7 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + cumrandomnew + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.3 <- felm(log(newcaset.2 + 1) ~ log(linear_rand_ymns + 1) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.4 <- felm(log(newcaset.2 + 1) ~ log(linear_rand + 1) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.5 <- felm(log(newcaset.2 + 1) ~ log(linear_rand + 1) + log(linear_rand + 1):factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
+covid_30.6 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + log(linear_rand + 1):factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
+covid_30.7 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + log(linear_rand + 1) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.8 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + log(linear_rand_ymns + 1) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
 
 
 intercept30 <- tail(getfe(covid_30, ef="zm2", se = TRUE), 1)
@@ -234,8 +235,9 @@ intercept30.4 <- tail(getfe(covid_30.4, ef="zm2", se = TRUE), 1)
 intercept30.5 <- tail(getfe(covid_30.5, ef="zm2", se = TRUE), 1)
 intercept30.6 <- tail(getfe(covid_30.6, ef="zm2", se = TRUE), 1)
 intercept30.7 <- tail(getfe(covid_30.7, ef="zm2", se = TRUE), 1)
+intercept30.8 <- tail(getfe(covid_30.8, ef="zm2", se = TRUE), 1)
 
-prefweek30felmhtml <- stargazer(covid_30, covid_30.2, covid_30.3, covid_30.4, covid_30.5, covid_30.6, covid_30.7,
+prefweek30felmhtml <- stargazer(covid_30, covid_30.2, covid_30.3, covid_30.4, covid_30.5, covid_30.6, covid_30.7, covid_30.8,
                                 dep.var.labels = "log(nofcases + 1)",
                                 title = "TABLE: Robustness check",
                                 digits = 3,
@@ -249,7 +251,8 @@ prefweek30felmhtml <- stargazer(covid_30, covid_30.2, covid_30.3, covid_30.4, co
                                                  round(intercept30.4[1][[1]], digits = 3),
                                                  round(intercept30.5[1][[1]], digits = 3),
                                                  round(intercept30.6[1][[1]], digits = 3),
-                                                 round(intercept30.7[1][[1]], digits = 3)),
+                                                 round(intercept30.7[1][[1]], digits = 3),
+                                                 round(intercept30.8[1][[1]], digits = 3)),
                                                c(" ",
                                                  paste0("(", round(intercept30[4][[1]],digits = 3),")"),
                                                  paste0("(", round(intercept30.2[4][[1]],digits = 3),")"),
@@ -257,10 +260,64 @@ prefweek30felmhtml <- stargazer(covid_30, covid_30.2, covid_30.3, covid_30.4, co
                                                  paste0("(", round(intercept30.4[4][[1]],digits = 3),")"),
                                                  paste0("(", round(intercept30.5[4][[1]],digits = 3),")"),
                                                  paste0("(", round(intercept30.6[4][[1]],digits = 3),")"),
-                                                 paste0("(", round(intercept30.7[4][[1]],digits = 3),")")),
-                                               c("Prefecture FE", rep("X", 4), "", "","X"),
-                                               c("Week FE", rep("X", 7))),
+                                                 paste0("(", round(intercept30.7[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.8[4][[1]],digits = 3),")")),
+                                               c("Prefecture FE", rep("X", 4), "", "","X", "X"),
+                                               c("Week FE", rep("X", 8))),
                                 omit.stat=c("f", "ser"))
+
+
+# reg with dummy_gathering_restriction and dummy_school_closure ---------
+
+covid_31 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_31.2 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_31.3 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_school_closure | pref+week | 0 | pref, data = weekSIR_rob)
+covid_31.4 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_gathering_restriction | pref+week | 0 | pref, data = weekSIR_rob)
+covid_31.5 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_school_closure + dummy_gathering_restriction | pref+week | 0 | pref, data = weekSIR_rob)
+
+
+intercept31 <- tail(getfe(covid_31, ef="zm2", se = TRUE), 1)
+intercept31.2 <- tail(getfe(covid_31.2, ef="zm2", se = TRUE), 1)
+intercept31.3 <- tail(getfe(covid_31.3, ef="zm2", se = TRUE), 1)
+intercept31.4 <- tail(getfe(covid_31.4, ef="zm2", se = TRUE), 1)
+intercept31.5 <- tail(getfe(covid_31.5, ef="zm2", se = TRUE), 1)
+
+prefweek31felmhtml <- stargazer(covid_31, covid_31.2, covid_31.3, covid_31.4, covid_31.5,
+                                dep.var.labels = "log(nofcases + 1)",
+                                title = "TABLE: Robustness check",
+                                digits = 3,
+                                digits.extra = 0,
+                                type = "html",
+                                out = "04_analyze/Robustness/output/with_new_dummy_vars.html",
+                                add.lines=list(c("Intercept",
+                                                 round(intercept31[1][[1]], digits = 3),
+                                                 round(intercept31.2[1][[1]], digits = 3),
+                                                 round(intercept31.3[1][[1]], digits = 3),
+                                                 round(intercept31.4[1][[1]], digits = 3),
+                                                 round(intercept31.5[1][[1]], digits = 3)),
+                                               c(" ",
+                                                 paste0("(", round(intercept31[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept31.2[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept31.3[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept31.4[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept31.5[4][[1]],digits = 3),")")),
+                                               c("Prefecture FE", rep("X", 5)),
+                                               c("Week FE", rep("X", 5))),
+                                omit.stat=c("f", "ser"))
+
+
+# reg with self-restraint rates ------
+
+
+
+
+
+
+
+
+
+
+
 
 
 

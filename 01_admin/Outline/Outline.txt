@@ -16,7 +16,7 @@
 - Selfrestraint
 - Rt
 - Agoop_add
-
+- Dummy_vars
 
 
 03_build
@@ -34,10 +34,9 @@
 - weekSIR
 - Postas
 - Counterfactual
-- Robusetness_check
 - Rt
 - Selfrestraint
-
+- Robustness_check
 
 04_analyze
 
