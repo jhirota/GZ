@@ -25,12 +25,19 @@ weekSIR_rob$cumGZFoodHotel <- weekSIR_rob$cumGZFood + weekSIR_rob$cumGZHotel
 # data clean (add a variable which increases linear by random amount) --------
 
 weekSIR_rob$randomnew <- 0
-weekSIR_rob$randomnew[weekSIR_rob$pref == "Yamanashi"][27:68] <- as.integer(rnorm(n = 42,
-                                                                                  mean = 10,
-                                                                                  sd = 5))
-weekSIR_rob$randomnew <- ifelse(weekSIR_rob$randomnew < 0,0,weekSIR_rob$randomnew)
-weekSIR_rob$cumrandomnew <- ave(weekSIR_rob$randomnew, weekSIR_rob$pref, FUN = cumsum)
+
+for (i in unique(weekSIR_rob$pref)) {
+  weekSIR_rob$randomnew[weekSIR_rob$pref == i] <- rnorm(n = 68, mean = 10, sd = 5)
+  beforeGZ <- "2020-07-17"
+  weekSIR_rob$randomnew[weekSIR_rob$pref == i][weekSIR_rob$week < as.Date(beforeGZ)] <- 0
+}
+weekSIR_rob$randomnew <- ifelse(weekSIR_rob$randomnew < 0, 0, weekSIR_rob$randomnew)
+
+
+weekSIR_rob <- weekSIR_rob %>% 
+  mutate(cumrandomnew = ave(randomnew, pref, FUN = cumsum)) %>% 
+  mutate(cumrandom_ymns = ifelse(pref == "Yamanashi", ave(randomnew, pref, FUN = cumsum), 0))
 
 
 
-write.csv(weekSIR_rob, "03_build/Robustness_check/output/weekSIR_robustness.csv")
+write.csv(weekSIR_rob, "03_build/Robustness_check/output/weekSIR_robustness.csv", row.names = FALSE)

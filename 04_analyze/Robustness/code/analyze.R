@@ -1,5 +1,6 @@
 library(tidyverse)
 library(lfe)
+library(stargazer)
 
 # data load ------
 weekSIR_rob <- read_csv("03_build/Robustness_check/output/weekSIR_robustness.csv")
@@ -83,7 +84,7 @@ prefweek22.2felmhtml <- stargazer(covid_22.4, covid_22.5, covid_22.6, covid_22.7
 # reg in different ranges of dates -------
 colnames(weekSIR3)[which(colnames(weekSIR3) == "susceptable")] <- "susceptible"
 
-# covid analysis since 2020/07/17 ------
+# covid analysis since 2020/07/17 
 covid_5.01 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18460))
 covid_5.11 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18460))
 covid_5.21 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + resview + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18460))
@@ -126,7 +127,7 @@ prefweek2felm0717html <- stargazer(covid_5.01, covid_5.11, covid_5.21, covid_5.3
                                    omit.stat=c("f", "ser"))
 
 
-# covid analysis since 2020/11/01 ------
+# covid analysis since 2020/11/01 
 covid_5.02 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18567))
 covid_5.12 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18567))
 covid_5.22 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + resview + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week >= 18567))
@@ -171,7 +172,7 @@ prefweek2felm1101html <- stargazer(covid_5.02, covid_5.12, covid_5.22, covid_5.3
 
 
 
-# covid analysis until 2021/02/01 ------
+# covid analysis until 2021/02/01 
 covid_5.03 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week <= 18628))
 covid_5.13 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week <= 18628))
 covid_5.23 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + resview + emergency| pref+week | 0 | pref, data = weekSIR3%>% filter(week <= 18628))
@@ -214,9 +215,52 @@ prefweek2felm0201html <- stargazer(covid_5.03, covid_5.13, covid_5.23, covid_5.3
                                    omit.stat=c("f", "ser"))
 
 
+# Reg to check the interaction term with a linear variable --------
+
+#covid
+covid_30 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.2 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.3 <- felm(log(newcaset.2 + 1) ~ cumrandom_ymns + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.4 <- felm(log(newcaset.2 + 1) ~ cumrandomnew + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
+covid_30.5 <- felm(log(newcaset.2 + 1) ~ cumrandomnew + cumrandomnew:factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
+covid_30.6 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + cumrandomnew:factor(pref) + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | week | 0 | pref, data = weekSIR_rob)
+covid_30.7 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1) + cumrandomnew + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) | pref+week | 0 | pref, data = weekSIR_rob)
 
 
+intercept30 <- tail(getfe(covid_30, ef="zm2", se = TRUE), 1)
+intercept30.2 <- tail(getfe(covid_30.2, ef="zm2", se = TRUE), 1)
+intercept30.3 <- tail(getfe(covid_30.3, ef="zm2", se = TRUE), 1)
+intercept30.4 <- tail(getfe(covid_30.4, ef="zm2", se = TRUE), 1)
+intercept30.5 <- tail(getfe(covid_30.5, ef="zm2", se = TRUE), 1)
+intercept30.6 <- tail(getfe(covid_30.6, ef="zm2", se = TRUE), 1)
+intercept30.7 <- tail(getfe(covid_30.7, ef="zm2", se = TRUE), 1)
 
+prefweek30felmhtml <- stargazer(covid_30, covid_30.2, covid_30.3, covid_30.4, covid_30.5, covid_30.6, covid_30.7,
+                                dep.var.labels = "log(nofcases + 1)",
+                                title = "TABLE: Robustness check",
+                                digits = 3,
+                                digits.extra = 0,
+                                type = "html",
+                                out = "04_analyze/Robustness/output/pref_linear_interaction.html",
+                                add.lines=list(c("Intercept",
+                                                 round(intercept30[1][[1]], digits = 3),
+                                                 round(intercept30.2[1][[1]], digits = 3),
+                                                 round(intercept30.3[1][[1]], digits = 3),
+                                                 round(intercept30.4[1][[1]], digits = 3),
+                                                 round(intercept30.5[1][[1]], digits = 3),
+                                                 round(intercept30.6[1][[1]], digits = 3),
+                                                 round(intercept30.7[1][[1]], digits = 3)),
+                                               c(" ",
+                                                 paste0("(", round(intercept30[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.2[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.3[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.4[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.5[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.6[4][[1]],digits = 3),")"),
+                                                 paste0("(", round(intercept30.7[4][[1]],digits = 3),")")),
+                                               c("Prefecture FE", rep("X", 4), "", "","X"),
+                                               c("Week FE", rep("X", 7))),
+                                omit.stat=c("f", "ser"))
 
 
 
