@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 
-00_cover
+# private directory
+00_cover/
