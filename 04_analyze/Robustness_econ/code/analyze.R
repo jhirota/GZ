@@ -7,7 +7,7 @@ library(stargazer)
 postas_rob <- read_csv("03_build/Robustness_econ/output/postas_rob.csv")
 
 
-# reg Night_se;frest
+# reg Night_selfrest
 nightself1 <- felm(Night_selfrest ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency| pref+date | 0 | pref, data = postas_rob)
 nightself2 <- felm(Night_selfrest ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain| pref+date | 0 | pref, data = postas_rob)
 nightself3 <- felm(Night_selfrest ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain + log(cumGZ + 1):log(newcase_day + 1)| pref+date | 0 | pref, data = postas_rob)

@@ -1,13 +1,13 @@
+library(tidyverse)
 library(lfe)
 
 #data load -------
-Gmobdata <- read_csv("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv")
-Gmobdata$date <- as.Date(Gmobdata$date)
+Gmobdata <- read_csv("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv") %>% 
+  mutate(date = as.Date(date))
 
 
-pref_weather <- read_csv("03_build/Weather/output/weather_pref.csv") 
-pref_weather$date <- as.Date(pref_weather$date)
-pref_weather <- pref_weather[-which(colnames(pref_weather) == "X1")]
+pref_weather <- read_csv("03_build/Weather/output/weather_pref.csv") %>% 
+  mutate(date = as.Date(date))
 
 Gmobdata <- left_join(x = Gmobdata,
                       y = pref_weather,

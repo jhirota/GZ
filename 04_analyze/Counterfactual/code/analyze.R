@@ -193,7 +193,7 @@ ggsave("04_analyze/Counterfactual/output/counterfactual_customers_week.png", CoF
 
 
 # [UPDATE] covid counterfactual graph with no GZ certification (2 weeks lag)------------
-newYamanashiTrend2 <- read_csv("03_build/Counterfactual/output/cofa_covid2.csv")
+newYamanashiTrend2 <- read_csv("03_build/Counterfactual/output/cofa_covid2.csv")[-1]
 
 #Plot
 CoFa2 <- ggplot(data = newYamanashiTrend2,
@@ -229,6 +229,11 @@ CoFa2
 # c <- covidsinceGZ$nofcases[covidsinceGZ$type == "actual"] -
 #   covidsinceGZ$nofcases[covidsinceGZ$type == "counterfactual"]
 # sum(c, na.rm = TRUE) ##単純計算で調査期間の9ヶ月で1122人の感染を防いだ
+# 
+# rate <- sum(covidsinceGZ$nofcases[covidsinceGZ$type == "actual"]) /
+#   sum(covidsinceGZ$nofcases[covidsinceGZ$type == "counterfactual"])
+# rate #調査期間の9ヶ月で49.7%減少させた。
+
 
 
 ggsave("04_analyze/Counterfactual/output/counterfactual_covid2.png", CoFa2, width = 10, height = 8, dpi = 300)

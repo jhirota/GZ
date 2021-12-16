@@ -1,0 +1,43 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Thu, Dec 16, 2021 - 17:55:13
+\begin{table}[!htbp] \centering 
+  \caption{The night-time self-restraint rate and the Green Zone certification} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{Night\_selfrest} \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ log(cumGZ + 1) & $-$0.003$^{**}$ & $-$0.003$^{**}$ & $-$0.004$^{***}$ \\ 
+  & (0.001) & (0.001) & (0.001) \\ 
+  & & & \\ 
+ log(newcase\_day + 1) & 0.005 & 0.005 & 0.005 \\ 
+  & (0.003) & (0.003) & (0.003) \\ 
+  & & & \\ 
+ emergency & 0.085$^{***}$ & 0.084$^{***}$ & 0.085$^{***}$ \\ 
+  & (0.014) & (0.014) & (0.014) \\ 
+  & & & \\ 
+ avg\_temp\_q &  & $-$0.000 & $-$0.000 \\ 
+  &  & (0.000) & (0.000) \\ 
+  & & & \\ 
+ sum\_rain &  & 0.001$^{***}$ & 0.001$^{***}$ \\ 
+  &  & (0.000) & (0.000) \\ 
+  & & & \\ 
+ log(cumGZ + 1):log(newcase\_day + 1) &  &  & 0.001$^{***}$ \\ 
+  &  &  & (0.000) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Prefecture FE & X & X & X \\ 
+Day FE & X & X & X \\ 
+Observations & 2,724 & 2,724 & 2,724 \\ 
+R$^{2}$ & 0.947 & 0.948 & 0.948 \\ 
+Adjusted R$^{2}$ & 0.937 & 0.937 & 0.937 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

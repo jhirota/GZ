@@ -1,0 +1,57 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Thu, Dec 16, 2021 - 17:04:13
+\begin{table}[!htbp] \centering 
+  \caption{The COVID-19 new infection cases (2 week lag) and the Green Zone certification} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{log(nofcases + 1)} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ log(cumGZ + 1) & $-$0.103$^{***}$ & $-$0.119$^{***}$ & $-$0.115$^{***}$ &  & $-$0.116$^{***}$ \\ 
+  & (0.011) & (0.021) & (0.021) &  & (0.020) \\ 
+  & & & & & \\ 
+ log(cumGZ(Hotel included) + 1) &  &  &  & $-$0.112$^{***}$ &  \\ 
+  &  &  &  & (0.020) &  \\ 
+  & & & & & \\ 
+ log(infectious\_lag2 + 1) & 0.573$^{***}$ & 0.583$^{***}$ & 0.579$^{***}$ & 0.579$^{***}$ & 0.568$^{***}$ \\ 
+  & (0.037) & (0.033) & (0.030) & (0.031) & (0.027) \\ 
+  & & & & & \\ 
+ emergency & 0.065 & 0.159 & 0.104 & 0.117 & 0.073 \\ 
+  & (0.239) & (0.213) & (0.176) & (0.177) & (0.176) \\ 
+  & & & & & \\ 
+ log(noftestst.2 + 1) & 0.009 & 0.009 & 0.009 & 0.009 & 0.012 \\ 
+  & (0.012) & (0.014) & (0.013) & (0.013) & (0.015) \\ 
+  & & & & & \\ 
+ log(customers\_per) &  & 0.472 & 0.409 & 0.472 & 0.488 \\ 
+  &  & (0.405) & (0.421) & (0.418) & (0.435) \\ 
+  & & & & & \\ 
+ log(avg\_temp\_q) &  &  & 0.039$^{*}$ & 0.040$^{**}$ & 0.040$^{**}$ \\ 
+  &  &  & (0.015) & (0.015) & (0.015) \\ 
+  & & & & & \\ 
+ log(rain + 1) &  &  & $-$0.104 & $-$0.101 & $-$0.113 \\ 
+  &  &  & (0.058) & (0.058) & (0.061) \\ 
+  & & & & & \\ 
+ school\_closure\_dummy &  &  &  &  & $-$0.198 \\ 
+  &  &  &  &  & (0.263) \\ 
+  & & & & & \\ 
+ gathering\_restriction\_dummy &  &  &  &  & 0.108 \\ 
+  &  &  &  &  & (0.061) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Intercept & 0.885 & -1.732 & -1.44 & -1.79 & -1.831 \\ 
+ & (0.143) & (1.808) & (2.179) & (2.12) & (1.908) \\ 
+Prefecture FE & X & X & X & X & X \\ 
+Week FE & X & X & X & X & X \\ 
+Observations & 396 & 396 & 396 & 396 & 384 \\ 
+R$^{2}$ & 0.929 & 0.929 & 0.929 & 0.930 & 0.924 \\ 
+Adjusted R$^{2}$ & 0.912 & 0.912 & 0.912 & 0.913 & 0.905 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

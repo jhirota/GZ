@@ -1,12 +1,12 @@
 library(tidyverse)
 library(lfe)
+library(stargazer)
 
 # data load ------
-weekSIR3 <- read_csv("03_build/Postas/output/weekSIR3.csv")
+weekSIR3 <- read_csv("03_build/Postas/output/weekSIR3.csv") %>% 
+  rename(susceptible = susceptable)
 
 # covid analysis with postas -------
-
-colnames(weekSIR3)[which(names(weekSIR3) == "susceptable")] <- "susceptible"
 
 covid_8.0 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + lsales + lcustomers + emergency| pref+week | 0 | pref, data = weekSIR3)
 covid_8.1 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(susceptible) + log(agrgt_potecovid_lag2 + 1) + lsales + lcustomers + emergency| pref+week | 0 | pref, data = weekSIR3)
@@ -95,7 +95,6 @@ prefweek9felmhtml <- stargazer(covid_9.0, covid_9.1, covid_9.2, covid_9.3, covid
 
 
 # covid analysis with postas (for report on the web)------
-colnames(weekSIR3)[which(names(weekSIR3) == "susceptable")] <- "susceptible"
 
 # lag2
 covid_20.0 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1)| pref+week | 0 | pref, data = weekSIR3)
@@ -164,3 +163,6 @@ prefweek21felmhtml <- stargazer(covid_21.0, covid_21.1, covid_21.2, covid_21.3,
                                                c("Prefecture FE", rep("X", 4)),
                                                c("Week FE", rep("X", 4))),
                                 omit.stat=c("f", "ser"))
+
+
+

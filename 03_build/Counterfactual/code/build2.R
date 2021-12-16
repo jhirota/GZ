@@ -6,9 +6,9 @@ library(ggeffects)
 
 postas_day1 <- read_csv("03_build/Postas/output/postas_daily_data.csv")
 
-# same as dlmpostas3
+# same as dlmpostas2
 postas_model <- lm(log(sales_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain + factor(pref) + factor(date), data = postas_day1)
-#same as dlmpostas.cus3
+#same as dlmpostas.cus2
 postas.cus_model <- lm(log(customers_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain + factor(pref) + factor(date), data = postas_day1)
 
 postas_day1$pred_sales <- NA
@@ -113,11 +113,14 @@ write.csv(YamanashiTrend.cus, "03_build/Counterfactual/output/customers_daily_da
 #   sinceGZ$Sales[sinceGZ$type == "counterfactual"]
 # sum(a, na.rm = TRUE)##単純計算で調査期間の2020年8月-2021年4月で1店舗あたり267万円の売上
 # sum(a, na.rm = TRUE)/9 ##1店舗1月あたり最大29.6万円
-# 
-# 
-# b <- YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "actual"] -
-#   YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "counterfactual"]
-# sum(b, na.rm = TRUE) ##1店舗あたり2286人増加をもたらした。
+# rate <- sum(sinceGZ$Sales[sinceGZ$type == "actual"], na.rm = TRUE) /
+#   sum(sinceGZ$Sales[sinceGZ$type == "counterfactual"], na.rm = TRUE)
+# rate #調査期間の9ヶ月で11.0%増加させた。
+
+
+b <- YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "actual"] -
+  YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "counterfactual"]
+sum(b, na.rm = TRUE) ##1店舗あたり2286人増加をもたらした。
 
 
 # For postas counterfactual plot (daily) -------

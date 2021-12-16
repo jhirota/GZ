@@ -47,7 +47,7 @@ weekSIR_rob <- weekSIR_rob %>%
 # data clean (add school disclosure and gathering-ban dummy vars) --------
 
 #data load and clean
-dummy <- read_excel("02_bring/Dummy_vars/data/Dummies.xlsx")
+dummy <- read_excel("02_bring/Dummy_vars/data/Dummies_edited1115.xlsx")
 colnames(dummy)[which(colnames(dummy) == c("Pref", "day"))] <- c("pref", "date")
 dummy$date <- as.Date(dummy$date)
 dummy$pref <- gsub("Ibaraki", "Ibaragi", dummy$pref)
@@ -97,3 +97,27 @@ weekSIR_rob <- left_join(x = weekSIR_rob,
                          by = c("week", "pref"))
 
 write_csv(weekSIR_rob, "03_build/Robustness_check/output/weekSIR_robustness.csv")
+
+
+
+# df <- data.frame(cum = weekSIR_rob$cumGZ[weekSIR$pref == "Yamanashi"],
+#                  linear = weekSIR_rob$linear_rand_ymns[weekSIR$pref == "Yamanashi"],
+#                  week = weekSIR_rob$week[weekSIR$pref == "Yamanashi"])
+# df2 <- df %>% 
+#   pivot_longer(cols = c(cum, linear),
+#                names_to = "name",
+#                values_to = "value")
+# df2$week <- as.Date(df2$week)
+# 
+# g <- ggplot(data = df2,
+#             mapping = aes(x = week,
+#                           y = value,
+#                           color = name))+
+#   geom_line()
+# g
+
+
+
+
+
+
