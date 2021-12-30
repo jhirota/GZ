@@ -47,7 +47,7 @@ weekSIR_rob <- weekSIR_rob %>%
 # data clean (add school disclosure and gathering-ban dummy vars) --------
 
 #data load and clean
-dummy <- read_excel("02_bring/Dummy_vars/data/Dummies_edited1115.xlsx")
+dummy <- read_excel(here::here("02_bring/Dummy_vars/data/Dummies_edited1115.xlsx"))
 colnames(dummy)[which(colnames(dummy) == c("Pref", "day"))] <- c("pref", "date")
 dummy$date <- as.Date(dummy$date)
 dummy$pref <- gsub("Ibaraki", "Ibaragi", dummy$pref)

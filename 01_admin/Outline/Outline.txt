@@ -8,14 +8,14 @@
 - Vresas
 - Weather
 - Covid_cases
-- MLIT
-- Papilio_mobility
+- (MLIT)
+- (Papilio_mobility)
 - PCRtest
 - Agoop
 - Postas
 - Selfrestraint
-- Rt
-- Agoop_add
+- (Rt)
+- (Agoop_add)
 - Dummy_vars
 
 
@@ -26,41 +26,44 @@
 - GZ_covid
 - Weather
 - Vresas
-- GZ_covid_MLITmobility
+- (GZ_covid_MLITmobility)
 - Pref_covid
 - Controls
-- Papilio_mobility
+- (Papilio_mobility)
 - Agoop
 - weekSIR
 - Postas
 - Counterfactual
-- Rt
+- (Rt)
 - Selfrestraint
 - Robustness_check
+- Robustness_econ
 
 04_analyze
 
-- GZlist_mapping
-- GZlist_cum
-- GZlist_reg
-- Case_positive_plot
+- (GZlist_mapping)
+- (GZlist_cum)
+- (Case_positive_plot)
 - Vresas
 - Covid_cases_plot
-- Covid_reg
-- Covid_reg_papilio
-- infectious_plot
-- weekSIR
-- Covid_reg_papilio_infectious
-- Comparison_coef
+- (Covid_reg)
+- (Covid_reg_papilio)
+- (infectious_plot)
+- (weekSIR)
+- (Covid_reg_papilio_infectious)
+- (Comparison_coef)
 - Google Mobility
 - Res_view
-- Appendix
+- (Appendix)
 - Counterfactual
 - Postas_plot
 - Postas_reg
 - Covid_reg_postas
-- Rt
+- Covid_reg_postas2
+- (Rt)
 - Robustness
+- Robustness_econ
+- Summary_stat
 
 
 

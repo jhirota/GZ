@@ -3,5 +3,42 @@
 .RData
 .Ruserdata
 
-# private directory
+# Private directory
 00_cover/
+05_report/
+
+# DS_Store and swp
+*.DS_Store
+*.swp
+
+# Analysis and data (not related to the essence of our reports)
+## common name
+Rt/
+Papilio_mobility/
+
+## 02_bring
+MLIT/
+Agoop_add/
+
+#03_build
+GZ_covid_MLITmobility/
+
+#04_analyze
+GZlist_mapping/
+Case_positive_plot/
+Covid_reg/
+Covid_reg_papilio/
+infectious_plot/
+/04_analyze/weekSIR/
+Covid_reg_papilio_infectious/
+Comparison_coef/
+Appendix/
+Tradeoff_curve/
+
+
+
+
+
+
+
+

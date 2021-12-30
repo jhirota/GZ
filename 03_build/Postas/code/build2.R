@@ -1,5 +1,6 @@
 library(tidyverse)
 library(lubridate)
+library(readxl)
 
 # data load ------
 
@@ -58,8 +59,24 @@ postas_day1$customers_per[postas_day1$pref == "Ibaragi"] <- postas_day1$customer
 postas_day1$customers_per[postas_day1$pref == "Nagano"] <- postas_day1$customers[postas_day1$pref == "Nagano"] / 68
 postas_day1$customers_per[postas_day1$pref == "Shizuoka"] <- postas_day1$customers[postas_day1$pref == "Shizuoka"] / 116
 
+# newdummy
+dummy <- read_excel(here::here("02_bring/Dummy_vars/data/Dummies_edited1115.xlsx")) %>% 
+  rename(pref = Pref,
+         date = day) %>% 
+  mutate(date = as.Date(date)) %>% 
+  mutate_if(is.character, 
+            str_replace_all, pattern = "Ibaraki", replacement = "Ibaragi")
 
-write.csv(postas_day1, "03_build/Postas/output/postas_daily_data.csv", row.names = FALSE)
+# data merge
+
+postas_day1 <- left_join(x = postas_day1,
+                         y = dummy, 
+                         by = c("date", "pref")) %>% 
+  mutate(dummy_school_closure = replace_na(dummy_school_closure, 0),
+         dummy_gathering_restriction = replace_na(dummy_gathering_restriction, 0))
+
+
+write_csv(postas_day1, "03_build/Postas/output/postas_daily_data.csv")
 
 # weekly data making (2019-2021)----------
 

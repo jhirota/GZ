@@ -4,7 +4,7 @@ library(stargazer)
 
 
 # Infection prevention effects --------
-# source("04_analyze/Publication/code/analyze.R")
+# source("04_analyze/Covid_reg_postas2/code/analyze.R")
 # prefweek50felmhtml
 # exported to output folder as well
 
@@ -29,7 +29,7 @@ dpostashtml <- stargazer(dlmpostas1, dlmpostas2, dlmpostas3, dlmpostas.cus1, dlm
 
 # 1 week lag ------------
 
-# source("04_analyze/Publication/code/analyze.R")
+# source("04_analyze/Covid_reg_postas2/code/analyze.R")
 # prefweek51felmhtml
 # exported to output folder as well
 
