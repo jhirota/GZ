@@ -29,11 +29,12 @@ Case_positive_plot/
 Covid_reg/
 Covid_reg_papilio/
 infectious_plot/
-/04_analyze/weekSIR/
+04_analyze/weekSIR/
 Covid_reg_papilio_infectious/
 Comparison_coef/
 Appendix/
 Tradeoff_curve/
+coef_with_CI_plot2/
 
 
 
