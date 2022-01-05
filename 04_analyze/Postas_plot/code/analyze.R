@@ -74,9 +74,9 @@ newpostasplot <- ggplot(data = posplotdata %>% filter(week <= 18805),
 
 newpostasplot
 
-ggsave("04_analyze/Postas_plot/output/sales_plot2.png", newpostasplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Postas_plot/output/sales_plot2.png", newpostasplot, width = 10, height = 8, dpi = 300)
 
-#客数
+#customers
 newpostascusplot <- ggplot(data = posplotdata%>% filter(week <= 18805),
                            mapping = aes(x = week,
                                          y = customers_per,
@@ -109,6 +109,6 @@ newpostascusplot <- ggplot(data = posplotdata%>% filter(week <= 18805),
 
 newpostascusplot
 
-ggsave("04_analyze/Postas_plot/output/customers_plot2.png", newpostascusplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Postas_plot/output/customers_plot2.png", newpostascusplot, width = 10, height = 8, dpi = 300)
 
 

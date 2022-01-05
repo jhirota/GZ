@@ -1,8 +1,6 @@
 library(tidyverse)
 library(lfe)
 library(stargazer)
-library(plm)
-library(CausalImpact)
 
 weekSIR <- read.csv("03_build/Pref_covid/output/weekSIR.csv", header =TRUE)
 

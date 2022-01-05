@@ -13,9 +13,14 @@ build <- function(){
 }
 
 analyze <- function(){
-  folders <- subset(outline, outline$Verb == "analyze")
-  for (i in nrow(folders)) {
-    source(here::here("04_analyze", folders$Folder[i], "code", "analyze.R"))
+  foldersR <- subset(outline, (outline$Verb == "analyze" & outline$Script == "R"))
+  for (i in nrow(foldersR)) {
+    source(here::here("04_analyze", foldersR$Folder[i], "code", "analyze.R"))
+  }
+  
+  foldersPy <- subset(outline, (outline$Verb == "analyze" & outline$Script == "py"))
+  for (i in nrow(foldersPy)) {
+    reticulate::source_python(here::here("04_analyze", foldersPy$Folder[i], "code", "analyze.py"))
   }
 }
 

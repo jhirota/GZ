@@ -65,7 +65,7 @@ COVID_caseplot2 <- ggplot(data = wPrefCovid,
 
 COVID_caseplot2 ##感染者推移比較
 
-ggsave("04_analyze/Covid_cases_plot/output/Cases_by_week_log.png", COVID_caseplot2, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Covid_cases_plot/output/Cases_by_week_log.png", COVID_caseplot2, width = 10, height = 8, dpi = 300)
 
 
 COVID_caseplot <- ggplot(data = wPrefCovid,
@@ -117,4 +117,4 @@ COVID_caseplot <- ggplot(data = wPrefCovid,
 
 COVID_caseplot ##感染者推移比較
 
-ggsave("04_analyze/Covid_cases_plot/output/Cases_by_week.png", COVID_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Covid_cases_plot/output/Cases_by_week.png", COVID_caseplot, width = 10, height = 8, dpi = 300)
