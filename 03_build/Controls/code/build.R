@@ -2,80 +2,88 @@ library(tidyverse)
 library(lubridate)
 
 # Data load----------
-pop47 <- read.csv("02_bring/Pop/data/Population_JPN.csv") 
-covid47 <- read.csv("03_build/GZ_covid/output/GZ_covid.csv")
-mob6_47 <- read.csv("03_build/Agoop/output/sixpref.csv")
+pop47 <- read_csv(here::here("02_bring/Pop/data/Population_JPN.csv")) 
+covid47 <- read_csv(here::here("03_build/GZ_covid/output/GZ_covid.csv"))
+mob6_47 <- read_csv(here::here("03_build/Agoop/output/sixpref.csv"))
 
-ymob_city47_2020 <- read.csv("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2020のコピー.csv")
-ymob_city47_2021 <- read.csv("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2021のコピー.csv")
-ymob_city47 <- rbind(ymob_city47_2020, ymob_city47_2021)
+ymob_city47 <- rbind(read_csv(here::here("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2020のコピー.csv")),
+                     read_csv(here::here("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2021のコピー.csv")))
 
 
-# Data wrangling mob---------
+# Data clean ---------
 
-for (i in 1:nrow(mob6_47)) {
-  mob6_47$居住都道府県[i] <- unlist(strsplit(mob6_47$居住都道府県[i], split = ':', fixed=TRUE))[2]
+cutfunc <- function(x){
+  str_split(x, "[:]")[[1]][2]
 }
 
-for (i in 1:nrow(mob6_47)) {
-  mob6_47$都道府県[i] <- unlist(strsplit(mob6_47$都道府県[i], split = ':', fixed=TRUE))[2]
-}
-
-weektype <- levels(factor(ppmob$週)) ##ppmob is from Agoop.R
-weektype1 <- levels(factor(ppmob$week))
-wkdf <- data.frame(weektype, weektype1)
-wkdf[129,] <- c("202106_W3","2021-06-14")
-
-for (i in 1:nrow(mob6_47)){
-  for(j in 1:nrow(wkdf)){
-    if(mob6_47$週[i] == wkdf$weektype[j]){
-      mob6_47$week[i] <- wkdf$weektype1[j]
-    }else{
-    } 
-  }
-}
-
-mob6_47$week <- as.Date(mob6_47$week)
+mob6_47 <- mob6_47 %>% 
+  select(-week) %>% 
+  mutate(week = as.Date(ymd(start_day)),
+         pref =  map(pref, cutfunc),
+         pref = as.character(pref) %>% str_replace_all(c(山梨県 = "Yamanashi",
+                                                             茨城県 = "Ibaraki",
+                                                             栃木県 = "Tochigi",
+                                                             群馬県 = "Gunma",
+                                                             長野県 = "Nagano",
+                                                             静岡県 = "Shizuoka")),
+         pref_resid = map(pref_resid, cutfunc),
+         pref_resid = as.character(pref_resid) %>% str_replace_all(c(山梨県 = "Yamanashi",
+                                                                       茨城県 = "Ibaraki",
+                                                                       栃木県 = "Tochigi",
+                                                                       群馬県 = "Gunma",
+                                                                       長野県 = "Nagano",
+                                                                       静岡県 = "Shizuoka"))) %>% 
+  select(-start_day)
 
 
 # Data wrangling covid -----
 
-covid47$日付 <- as.Date(covid47$日付)
-
-covid47$week <- floor_date(covid47$日付, "week",
-                          week_start = getOption("lubridate.week.start", 1)) 
-
-covid47_wk <- covid47 %>% 
-  group_by(都道府県名, week) %>% 
-  summarize_at(vars(3, 5), funs(sum(., na.rm=TRUE))) %>%
-  arrange(week) %>% 
+covid47 <- covid47 %>%
+  mutate(week = floor_date(covid47$date, "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
+  group_by(pref, week) %>% 
+  summarize(across(c(newcase_day, newdeath_day),
+                   sum)) %>%
   ungroup()
 
 
-names(covid47_wk)[1] <- "居住都道府県"
-
 # pop data cleaning --------
 
-pop47$Population.千人. <- as.numeric(sub(",","", pop47$Population.千人.))
-pop47$Population.千人. <- pop47$Population.千人. * 1000
-names(pop47)[2] <- "pop"
+pop47 <- pop47 %>% 
+  rename(pref = 1,
+         pop = 2) %>% 
+  mutate(pop = pop * 1000,
+         pref = str_replace_all(pref,
+                                c(山梨県 = "Yamanashi",
+                                  茨城県 = "Ibaraki",
+                                  栃木県 = "Tochigi",
+                                  群馬県 = "Gunma",
+                                  長野県 = "Nagano",
+                                  静岡県 = "Shizuoka")))
+
 
 # New data merge and wrangling ----------
 
 newmob6_47 <- left_join(x = mob6_47,
-                        y = covid47_wk,
-                        by = c("居住都道府県", "week"))
+                        y = covid47,
+                        by = c("pref", "week")) %>% 
+  left_join(y = pop47, by = "pref") %>% 
+  mutate(newcases_per = newcase_day / pop) %>%
+  complete(pref_resid, nesting(pref, week)) %>% 
+  group_by(pref) %>% 
+  mutate(week_lead1 = lead(week, order_by = week, n = 48),
+         newcase_lead1 = if_else(week + 7 == week_lead1,
+                                 lead(newcase_day, order_by = week, n = 48),
+                                 NA_real_),
+         week_lead2 = lead(week, order_by = week, n = 95),
+         newcase_lead2 = if_else(week + 14 == week_lead2,
+                                 lead(newcase_day, order_by = week, n = 95),
+                                 NA_real_)) %>% 
+  ungroup()
 
-for (i in 1:nrow(newmob6_47)) {
-  Pref = newmob6_47$居住都道府県[i]
-  Row = which(pop47$Pref == Pref)
-  newmob6_47$居住都道府県の人口[i] <- pop47[Row,2]
-  newmob6_47$newcases_per[i] <- newmob6_47$newcases_week_announced[i] / newmob6_47$居住都道府県の人口[i] #公表数を人口で割ったもの。
-}
 
 
-names(newmob6_47)[6] <- "newcases_week_announced"
-names(newmob6_47)[7] <- "newdeath_week_announced"
+#####ここから再開
 
 # newmob6_47$newexposed_lag1w <- sapply(1:nrow(newmob6_47), function(x) newmob6_47$newcases_week_announced[x-47])#一週間後の公表数(暴露が一週間前と想定)
 # newmob6_47$newexposed_lag2w <- sapply(1:nrow(newmob6_47), function(x) newmob6_47$newcases_week_announced[x-94])#二週間後の公表数(暴露が二週間前と想定)
@@ -134,7 +142,7 @@ newmob6_47$Scaled_agrgt潜感人流_lag2 <- newmob6_47$agrgt潜在的感染者�
 
 
 
-write.csv(format(newmob6_47, scientific = FALSE), "03_build/Controls/output/47都道府県から６県への潜在的感染者人流.csv", row.names = FALSE)
+write_csv(format(newmob6_47, scientific = FALSE), "03_build/Controls/output/47都道府県から６県への潜在的感染者人流.csv")
 
 ## 潜在的感染者人流aggregate 用 (県別)-------
 Agrgt <- newmob6_47 %>% 

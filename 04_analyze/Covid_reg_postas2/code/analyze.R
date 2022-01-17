@@ -8,18 +8,18 @@ weekSIR_rob <- read_csv(here::here("03_build/Robustness_check/output/weekSIR_rob
 
 
 # lag2
-covid_50.0 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_50.1 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_50.2 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_50.3 <- felm(log(newcaset.2 + 1) ~ log(cumGZFoodHotel + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_50.4 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob)
+covid_50.0 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + log(susceptible + 1) + emergency + log(noftestst.2 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_50.1 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + log(susceptible + 1) + emergency + log(noftestst.2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_50.2 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + log(susceptible + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_50.3 <- felm(log(newcaset.2 + 1) ~ log(cumGZFoodHotel + 1)  + log(agrgt_potecovid_lag2 + 1) + log(susceptible + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_50.4 <- felm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + log(susceptible + 1) + emergency + log(noftestst.2 + 1) + log(customers_per) + log(avg_temp) + log(rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob)
 
 
-intercept50.0 <- tail(getfe(covid_50.0, ef="zm2", se = TRUE), 1)
-intercept50.1 <- tail(getfe(covid_50.1, ef="zm2", se = TRUE), 1)
-intercept50.2 <- tail(getfe(covid_50.2, ef="zm2", se = TRUE), 1)
-intercept50.3 <- tail(getfe(covid_50.3, ef="zm2", se = TRUE), 1)
-intercept50.4 <- tail(getfe(covid_50.4, ef="zm2", se = TRUE), 1)
+# intercept50.0 <- tail(getfe(covid_50.0, ef="zm2", se = TRUE), 1)
+# intercept50.1 <- tail(getfe(covid_50.1, ef="zm2", se = TRUE), 1)
+# intercept50.2 <- tail(getfe(covid_50.2, ef="zm2", se = TRUE), 1)
+# intercept50.3 <- tail(getfe(covid_50.3, ef="zm2", se = TRUE), 1)
+# intercept50.4 <- tail(getfe(covid_50.4, ef="zm2", se = TRUE), 1)
 
 
 # prefweek50felmhtml <- stargazer(covid_50.0, covid_50.1, covid_50.2, covid_50.3, covid_50.4,
@@ -49,11 +49,11 @@ intercept50.4 <- tail(getfe(covid_50.4, ef="zm2", se = TRUE), 1)
 #                                 omit.stat=c("f", "ser"))
 
 # lag1
-covid_51.0 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + emergency + log(noftestst.1 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_51.1 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + emergency + log(noftestst.1 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_51.2 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_51.3 <- felm(log(newcaset.1 + 1) ~ log(cumGZFoodHotel + 1)  + log(agrgt_potecovid_lag1 + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
-covid_51.4 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob)
+covid_51.0 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + log(susceptible + 1) + emergency + log(noftestst.1 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_51.1 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + log(susceptible + 1) + emergency + log(noftestst.1 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_51.2 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + log(susceptible + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_51.3 <- felm(log(newcaset.1 + 1) ~ log(cumGZFoodHotel + 1)  + log(agrgt_potecovid_lag1 + 1) + log(susceptible + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1)| pref+week | 0 | pref, data = weekSIR_rob)
+covid_51.4 <- felm(log(newcaset.1 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag1 + 1) + log(susceptible + 1) + emergency + log(noftestst.1 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob)
 
 intercept51.0 <- tail(getfe(covid_51.0, ef="zm2", se = TRUE), 1)
 intercept51.1 <- tail(getfe(covid_51.1, ef="zm2", se = TRUE), 1)

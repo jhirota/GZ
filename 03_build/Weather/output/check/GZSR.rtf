@@ -1,0 +1,209 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset128 HiraginoSans-W3;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[fleqn,10pt]\{wlscirep\}\
+\\usepackage[utf8]\{inputenc\}\
+\\usepackage[T1]\{fontenc\}\
+\\usepackage\{amsmath\}\
+\
+\\title\{Investigating the epidemiological and economic effects of a third-party certification for restaurants and bars with COVID-19 prevention measures\}\
+\
+\\author[1,*]\{Kazuya Hirokawa\}\
+\\author[2]\{Jumpei Hirota\}\
+\\author[3]\{Daiji Kawaguchi\}\
+\\author[4]\{Yusuke Masaki\}\
+\\author[5]\{Chiaki Onita\}\
+\\affil[1]\{Graduate School of Public Policy, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan\}\
+\\affil[2]\{Graduate School of Public Policy, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan\}\
+\\affil[3]\{Graduate School of Public Policy, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan\}\
+\\affil[4]\{Graduate School of Public Policy, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan\}\
+\\affil[5]\{Graduate School of Public Policy, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo, 113-8656, Japan\}\
+\
+\\affil[*]\{kazuyahirokawa@email.example\}\
+\
+\
+\\keywords\{Keyword1, Keyword2, Keyword3\}\
+\
+\\begin\{abstract\}\
+This study investigates the effects of indoor infectious disease control measures for restaurants and bars on new Covid-19 cases and economic activities. We focus on the case of Yamanashi prefecture in Japan, which introduced a third-party certification system that accredits indoor dining facilities that comply with the designated guidelines. The system is considered highly credible as facilities need to pass onsite inspections to be certified. We employed a Difference-in-Difference design for each of our epidemiological and economic analyses exploiting a staggered rollout of the program. The estimation results show the prefecture-wide introduction of the certification reduced new infection cases by approximately 49.7\\text\{\\%\} (total 1,122 new cases) while increasing restaurants\'92 sales by approximately 11.0\\text\{\\%\} in total (approximately 2.67 million Japanese Yen (\\text\{\\$26,700\}) per restaurant). The results suggest that a third-party certification system is effective in reducing the spread of infection while maintaining economic activities. During the pandemic, such a system can be an effective policy for mitigating the trade-off between economic activities and infection prevention.\
+\\end\{abstract\}\
+\\begin\{document\}\
+\
+\\flushbottom\
+\\maketitle\
+\
+\\section*\{Introduction\}\
+The non-pharmaceutical intervention to prevent the spread of covid-19 created a substantial economic loss. A paramount policy measure as the non-pharmaceutical intervention is shutting down the restaurants and bars because eating and drinking in indoor restaurants are associated with high COVID-19 transmission risks (Jin et al., 2020; Yip, Huang, and Liang, 2021; Chang et al., 2021; Lu et al., 2020; Kwon et al., 2020). Consequently, the food and beverage industry has been one of the most activity-restricted and economically damaged industries in countries facing COVID-19 outbreaks (Song, Yeon, and Lee, 2021; Chen, Qian, and Wen, 2021). This is due to both direct restrictions on businesses, such as curfews and cease-and-desist orders, and the tendency for people to refrain from going out without necessity (Andersen, Hansen, Johannesen, and Sheridan, 2020; Fukui, Kikuchi, and Goalist Co, Ltd, 2020).\
+To mitigate the sharp tradeoff between infection prevention and economic activities, some governments implement measures to decrease transmission possibility per human contact instead of eliminating the contact opportunities in the first place. One example is indoor infectious disease control by setting guidelines on ventilation, facility disinfection, mask wearing, indoor social distance, and actions after transmission cases are detected at the facility. Such measures allow restaurants to operate while minimizing infection risks in their facilities. In Japan, prefectural governments have established third-party certification systems to recognize businesses that comply with designated COVID-19 safety measures. Although prior research has indicated the effectiveness of indoor infectious disease control measures through simulation such as wearing masks, regularly ventilating the facility, taking distance between seats, and setting maximum occupancy load limit (Chang et al., 2021; Kaufman et al., 2020; Chiba, 2021; Kurahashi et al., 2021; Wan, Yao, and Martin, 2021; Wei, Chen, and Lee, 2021), few studies empirically examine the effect of a third-party certification system on new cases and the economy. With this backdrop, this paper assesses the impact of a covid-19 safety certification policy for restaurants and bars on new infections and economic activities, taking up the case of Yamanashi Prefecture in Japan as an example.\
+In July 2020, Yamanashi Prefecture introduced the Yamanashi Green Zone Certification (GZ), a third-party certification system for infection prevention measures. The purpose of this system is to allow consumers to use facilities with peace of mind by officially certifying restaurants, hotels, wineries, breweries, and other businesses that comply with infection control guidelines (Yamanashi Prefecture, 2020ab). Certification is conditional on passing a rigorous on-site inspection. Once a violation is found, the certification may be revoked. As a general rule, certified businesses are exempted from the prefectural government\'92s requests to close or shorten hours. In the unlikely event that such a request is necessary, they are given priority in receiving financial assistance. Other prefectures later introduced similar systems, but their credibility was questionable as they granted certification based only on self-reporting documents submitted by businesses (See supplementary information). The number of certified restaurants increased gradually since the first approvals on July 20, 2020.  As of April 30, 2021, more than 4,000 restaurants in Yamanashi are GZ certified, and the acquisition rate is around 96\\text\{\\%\} (Yamanashi Prefecture, 2016 and 2021). Since the introduction of the system, Yamanashi Prefecture has never declared a state of emergency. Also, infection cases and economic damage in restaurants and bars seem to be under control compared to neighboring prefectures (See Graph 1 and 2).\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/placeholder.png\}\
+\\end\{figure\}\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/Figure2.png\}\
+\\end\{figure\}\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/Figure3.png\}\
+\\end\{figure\}\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/Figure4.png\}\
+\\end\{figure\}\
+\
+\
+In our study, we separately evaluate the epidemiological and economic effects of the GZ certification  for each outcome by a difference in differences design exploiting the incremental introduction of the certification. Our analysis covers data from January 16, 2020, to April 30, 2021. The epidemiological model analyzes the effect of an increase in the number of certified restaurants on the rate of change in the number of new COVID-19 cases. Incorporating the SIR model, the model captures the number of both susceptible and infected populations in a given time period to account for the area\'92s infection status. Concerning the economic effect, we analyze the effect of an increase in the number of certified restaurants on the average daily restaurant POS transactions and customers in the prefecture. \
+\
+\
+\
+\\section*\{Results\}\
+\
+It is highly likely that the GZ certification system decreased the number of new infection cases in Yamanashi and considerably increased restaurants\'92 sales and the number of customers. Over the nine months from July 2020 to April 2021, the GZ certification reduced new infection cases by approximately 49.7\\text\{\\%\} (total 1,122 new cases) compared to the counterfactual scenario (the model in the column (3) of Supplementary Information D.1). In terms of the economic effect, the GZ certification system increased restaurants\'92 sales by approximately 11.0\\text\{\\%\} in total (approximately total 2.67 million Japanese Yen (\\text\{\\$\}26,700) per restaurant over the nine months) compared to the counterfactual scenario (the model in the column (2) of Supplementary Information D.3). \
+\
+\\subsection*\{Non-intervention scenario\}\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/Figure5.png\}\
+\\end\{figure\}\
+\
+\\begin\{figure\}[ht]\
+\\centering\
+\\includegraphics[width=30mm]\{Figures/Figure6.png\}\
+\\end\{figure\}\
+\
+\\subsection*\{Statistical testing\}\
+The counterfactual scenarios are calculated based on a statistical analysis. The assumptions for the analysis are justified as follows. For both epidemiological and economic analysis, we use the t-test because the estimated OLS coefficients for the number of new infections, restaurants\'92 sales, and customers are known to follow a normal distribution, and when the data is standardized, it follows a t-distribution. The t-test is conducted with two-tailed. We compare Yamanashi Prefecture, the treatment group, with its surrounding prefectures with similar external conditions for infection spread. Since we include two fixed effects: time-invariant prefecture effect (e.g., population) and prefecture-invariant time effect (e.g., infection spread period), the comparison of prefectures focuses on the degree of infection spread, not the absolute value of infection cases. Further details of analysis are discussed in the methods section and in each table of supplementary information.\
+To compute the magnitude of effect, we conduct regression analyses that estimate the elasticity of correlation between the number of cumulative GZ-certified restaurants and each outcome variable for epidemiological and economic effects. As a result of panel data regression, we observed considerable correlations for both effects, and thereby detailed description follows in order. First, for the infection cases, our regression analysis shows a consistent and significant negative correlation between the cumulative number of GZ certified restaurants and the new infection cases with a two-week lag. The time lag is set because previous studies demonstrated that the time lag between the infection and the announcement of the disease is 6 days to 12 days (He et al., 2020; Hosono, 2021). We still can find an equivalent correlation with a one-week lag (Supplementary Table S.2). According to regression results, a 1\\text\{\\%\} increase in the number of cumulative GZ certified restaurants is accompanied by 0.103\\text\{\\%\} decrease in the infection cases (column (1)). The correlation is statistically significant at the 1\\text\{\\%\} level with its p-value 0.000282. For the estimation, we controlled for the estimated number of potentially infected people, emergency declaration dummies, weather, school closure dummies, large gathering dummies, and the number of COVID-19 tests. Since economic variables are not controlled, the results imply that infection cases had dropped by reducing the probability of infection even with the higher economic performance (i.e., more contact opportunities) than neighboring prefectures. In fact, when we control for restaurants\'92 customers (i.e., contact opportunities), the magnitude of negative correlation becomes larger, at 0.119\\text\{\\%\}. This difference indicates that the probability of infection decreased considerably as to offset the potential increase in contact opportunities in restaurants. When we use the cumulative number of GZ-certified hotels along with certified restaurants in the same period, the coefficient decreases but is still statistically significant with its p-value 0.00272 (column (4)). We do not treat the number of hotel certifications as a control variable but add it to the total number of restaurants because guidelines for GZ certification in hotels mainly target restaurants in hotels. Thus, we assume that the same infection prevention mechanism works. \
+Second, for economic effects, our regression analysis shows a consistent and significant positive correlation between the cumulative number of GZ-certified restaurants and the restaurants\'92 sales and customers. According to regression results, a 1\\text\{\\%\} increase in cumulative GZ certified restaurants is accompanied by 0.016\\text\{\\%\} and 0.036\\text\{\\%\} increases in the restaurant sales and customers respectively (column (1)&(5)). The correlation is statistically significant at the 1\\text\{\\%\} level with its p-value 0.00741 and 0.000686. We controlled for emergency declaration dummies, weather, school closure dummies, and large gathering dummies. Since the number of infection cases are not controlled, smaller infection cases brought by GZ certification resulted in fewer consumers refraining from going out and fewer stores to refrain from doing business. Even when we control for infection cases, the magnitude of positive correlation remains at 0.14\\text\{\\%\} and 0.33\\text\{\\%\} respectively. Therefore, the GZ certification may have motivated customers to visit restaurants by lowering the psychological hurdle of possible infection. Moreover, since the elasticity of the number of customers is greater than that of sales, the per-customer spending might have been lower than before the COVID-19 crisis due to a decrease in time spent and consumption of alcoholic beverages as part of infection prevention measures. Even if we replace restaurants\'92 sales and visitors with the percentage increase in restaurant website visits, the positive correlation with GZ-certified restaurants is robust (supplementary info). \
+\
+\\subsection*\{Mechanism and heterogeneity of economic effects\}\
+The economic impact of the GZ certification system has not resulted in the increasing visit of all facilities, but only in food and beverage-related human flows. Furthermore, it has likely increased the number of people coming from outside the prefecture, and the users differ in terms of age and sex. We regress (i) human mobility by facility type, (ii) human mobility by resident type, and (iii) the stay home rate by age on the number of cumulative GZ-certified restaurants. The analysis using Google mobility data showed a positive correlation between the number of cumulative GZ-certified restaurants and human mobility in retail and recreation, transit stations, and parks, which are related to the GZ-certified facilities, and no correlation with GZ-unrelated grocery and pharmacy (Supplementary Table S.2). In terms of human mobility by resident type, it is positively correlated with residents from outside the prefecture, suggesting that tourists from outside the prefecture may have visited the restaurants (Supplementary Table D.). Finally, by age, there is a statistically significant positive correlation only with the 40s-60s age group for males and the 60s-70s age group for females (Supplementary Table S.2). It suggests that the male workforce may have used restaurants after work and that retired women may have used restaurants for social meetings. In addition, there is a positive correlation with the percentage of people going out at night, suggesting that the number of people going out at night as well as during the daytime may have increased after the introduction of the GZ certification (Supplementary Table .2).\
+\
+\\section*\{Discussion\}\
+\
+Government has several policy options in reducing the number of COVID-19 infections. Vaccinations decrease the number of susceptible populations, and lockdown policies slash contact opportunities. Despite the instant effect of lockdown, business costs substantially pile up. Therefore, alternatively, the GZ certification policy cut down the probability of infection while maintaining contact opportunities. Our analysis is in line with the objectives. The policy likely dropped the infection cases while maintaining restaurant\'92s sales and customers. These findings are summarized in the following two points. \
+First finding is that the GZ certification likely reduced the cumulative number of infection cases in Yamanashi Prefecture by approximately 49.7% (total 1,122 new cases). This result implies the effectiveness of the measure in considerably cutting down the probability of infection per contact opportunity while maintaining the contact opportunities. Then why was it possible to reduce the possibility substantially compared with other prefectures? We reason that the certification has dramatically increased the percentage of restaurants that comply with the infection prevention guidelines, compared to the scenario where prevention is entrusted to each restaurant. \
+As for mechanisms, we assume multiple factors that incentivize restaurants to apply and keep abiding by the certification guidelines. For example, subsidies on necessary equipment to certified restaurants have lowered the investment cost for the measures. Also, the certification reduced information asymmetry about infection prevention between restaurants and customers. More restaurants applied for the recognition, as consumers are more likely to choose certified restaurants that take measures. Additionally, third-party inspections have lowered restaurants\'92 incentives to deviate from compliance to the guidelines. Without a certification system, infectious disease control in restaurants would be a collective action problem. In such a case, restaurants do not know other restaurants' compliance. If one complies while others do not, one suffers economic losses as the number of cases hike, exposing the restaurant equally to business closure requests. Therefore, restaurants choose to deviate from compliance to avoid sales damage. Since the certification secures a clear commitment of individual restaurants' conformity, restaurants switch to abide by the rules. As a result, the commitment rate increased and the possibility of infection diminished.\
+The second finding is that the GZ certification likely increased restaurant sales and customers by 11.0\\text\{\\%\} in total. The results imply the effectiveness of the measures in maintaining the number of customers. We assume epidemiological measures brought spillovers in the following two ways. First, the small infection cases supported the prefectural decision to maintain restaurants\'92 usual operating hours, allowing them to make sales while restaurants without proper measures faced shortened operation hours. Indeed, the number of business closure requests in Yamanashi prefecture was smaller than that of the neighboring prefectures (Supplementary Table S2). Second, the policy reduced the infectious concerns that consumers feel when using the restaurants. Consequently, consumers continued to use restaurants and bars nearly at the pre-pandemic level, which helped businesses to survive under the pandemic.\
+Taken together, these two effects suggest the possibility of mitigating the trade-off between maintaining restaurant operations and preventing the spread of infection. The certification system could help to both sustain the economy and prevent infection. \
+This research has three main contributions. First, the paper addresses the compatibility between infection prevention and economic sustainability by assessing the effects of a policy on both aspects simultaneously. Most previous studies have demonstrated the infection prevention and economic effects of non-pharmaceutical interventions individually, and only a few pieces of research have empirically investigated the compatibility. Given the uncertain prospects of the pandemic and finite administrative budget, policymakers are increasingly required to seek balance between infection risks and economic sustainability in the long run. To this end, some countries such as Japan and Singapore have implemented third-party certification policies. However, little is known for their effectiveness. As far as we know, this paper is the first evidence that evaluates the policy impacts from the compatibility points of view. The results can help policymakers envision a new potential model that achieves both infection prevention and economic sustainability. \
+Second, this research implies the broad applicability of a third-party certification system in mitigating the impact of the pandemic. Regardless of the country, governments have struggled to strike a balance between economic activity and infection prevention in the absence of effective vaccines. This is because, in many cases, when the economy resumes, the infection spreads again. For example, in the U.K., policies to promote eating out at restaurants were criticized for catalyzing infection transmission. The GZ third-party certification policy, estimated in this article, can be a solution, as its guideline and government\'92s screening are replicable in other regions (Supplementary Table). For example, the rules include setting up disinfectants at the entrance of restaurants, installing partitions between seats, and ensuring regular ventilation. By reviewing and authorizing these commitments, restaurants are incentivized to comply. Once publicized, consumers begin to choose certified ones, and thereby cumulative probability of infection drops in the area. These measures can be implemented regardless of the country or the characteristics of rural or urban areas. \
+The final contribution is the application of the SIR model, a classical mathematical model of epidemiology, to policy evaluation in a form that removes endogeneity. Many studies have utilized the SIR model to simulate the policy effect. Nonetheless, only a few examine the actual policy effect by exploiting a natural experiment. Even when they do exist, the results are likely to be biased because they often do not control for factors that can significantly affect the way infection spreads, such as population density, distance from urban areas, and the number of infected people that would have existed in an area at a given time. In this paper, we have made four efforts to overcome endogeneity. First, we include prefecture and time fixed effects to control for the heterogeneity across prefectures and time periods. Second, we limit our sample to prefectures with similar population density and distance from metropolitan areas, the epicenters of infection, to construct the control group. Third, we take into account the potential migration of infected people between prefectures by deploying the method developed by Kurahashi, et al. (2021). Their model enables us to fix the number of potentially infected people, and therefore we can examine the extent to which infection spreads. Lastly, we control other policies that could influence the outcome variables as much as possible. For example, we introduce school closure dummies and large assembly ban dummies. We also confirm the similarity in the policies of the treatment and control prefectures except for the presence of the GZ certification by qualitatively studying restaurant-related policies.\
+To sum up, our study suggests the effectiveness of a third-party certification system on infectious disease control in restaurants. The policy effect is not slight, which is better than nothing, but large enough to prevent collapsing healthcare by reducing the number of infections roughly by 49\\text\{\\%\}. Furthermore, these measures successfully maintained restaurants\'92 sales and the number of customers, keeping the economic cost low. In this way, the policy could be a compatible model to secure both infection prevention and economic operation. We hope that the findings of this study will be used in policy planning to balance the infection prevention and economic sustainability in the context of ongoing and future pandemics. \
+\
+\
+\\section*\{Methods\}\
+\\subsection*\{Main Data Set\}\
+In this section, data for the main explanatory and dependent variables are described. (Data for control variables are explained in the supplementary information.)\
+\
+\\begin\{itemize\}\
+\\item*\{Green-zone certification\}\
+The explanatory variable is the cumulative number of GZ-certified restaurants. The certification policy targets various types of facilities, such as restaurants, hotels, breweries, and wineries. In this paper, we focused on restaurants, which are deemed to be the main route of infection (citation?). The dataset of individual establishments\'92 GZ certification acquisition dates was provided by the department in charge of the certification policy at the Yamanashi Prefectural Government.\
+\
+\\item*\{COVID-19 cases\}\
+The number of daily new COVID-19 cases in each prefecture was obtained from NHK\'92s "Special site: New coronaviruses - Number of cases by prefecture." The dataset contains the number of publicly announced new infections and deaths since January 16, 2020, when the first cases in Japan were discovered. In order to exclude the influence of new variants and vaccination, the analysis covers the data published until April 30, 2021.\
+\
+\\item*\{Restaurants sales & the number of customers\}\
+Restaurant sales and the number of customers are used as proxy variables for restaurant economic status. The dataset was provided by Postas Corporation, and it contains  daily sales and the number of customers of restaurants that have installed the cloud POS register "Postas" provided by the corporation, which covers the period from January 1, 2019 to April 30, 2021.
+\f1 \'81\'40
+\f0 \
+\
+\\end\{itemize\}\
+\
+\
+\\subsection*\{Estimation Methods\}\
+The estimation model in this study is a two-way fixed effects model with prefecture as the regional unit and week as the time series unit. The first reason is that prefecture is the unit of data representing the economic activity of restaurants. The second reason is that the prefectural unit is the smallest unit that can ensure credibility, as the city-level or zip code-level new infection cases are not disclosed to ensure anonymity. The third reason is that the new infection cases calculated on a weekly basis rather than a daily basis reflect infection dynamics more accurately by minimizing errors such as discrepancies in the number of tests and reports.\
+\
+The equations for estimating the infection prevention effect and the economic effect are as follows.\
+First, the infection prevention effect is estimated by the following two-way fixed effects model that applies the SIR model. The derivation process of the equation (1) from the SIR model is included in the Supplementary Information.\
+\
+\\begin\{equation\}\
+\\begin\{split\}\
+\\ln\{\\left(COVID_\{p,t\}+1\\right)\}=\\beta_1\\ln\{\\left(GZ_\{p,t-2\}+1\\right)\}+\\beta_2\\ln\{\\left(Susceptible_\{p.t-2\}+1\\right)\}+\\beta_3\\ln\{\\left(Infected_\{p,t-2\}+1\\right)\}\\\\+\\beta_4\\ln\{\\left(customer_\{p,t-2\}\\right)\}+\\sum_\{i=1\}^\{k\}\{\\gamma^i\\ln\{\\left(Control_\{p,t-2\}^i\\right)\}\}+c_p+\\tau_t+u_\{pt\}\
+\\end\{split\}\
+\\end\{equation\}\
+\
+\\begin\{equation\}\
+Susceptible_\{p,t-2\}=pop_p-\\sum_\{k=1\}^\{n\}\{Infectown_\{p,k\}\}\
+\\end\{equation\}\
+\
+\\begin\{equation\}\
+\\begin\{split\}\
+Infected_\{p,t-2\}=Infectown_\{p,t-2\}+Infectflow_\{p,t-2\}\\bigm=\\sum_\{k=1\}^\{2\}\{Infectown_\{p,t-k\}\}+\\sum_\{i=1,i\\neq p\}^\{47\}\\frac\{\\sum_\{k=1\}^\{2\}\{Infectown_\{i,t-k\}\}\\ast flow_\{i,p,t-k\}\}\{pop_i\}\
+\\end\{split\}\
+\\end\{equation\}\
+\
+\\begin\{math\}p\\end\{math\} and \\begin\{math\}t\\end\{math\} denotes  prefecture and week, respectively. For variables whose absolute value contains 0, 1 is added and then transformed into a logarithm. This process aims to follow the SIR model and to estimate the elasticity of effect. The outcome variable, \\begin\{math\}COVID_\{pt\}\\end\{math\} is the published number of new infections at time \\begin\{math\}t\\end\{math\} in prefecture \\begin\{math\}p\\end\{math\}. The variables in the right-hand side are the values at \\begin\{math\}t-2\\end\{math\}. This is because it takes about 6 to 12 days from exposure to the virus, through the incubation period, to onset of symptoms, testing, and publication (He et al., 2020; Hosono, 2021). Since the lag between exposure and announcement may vary depending on the region and time of year, analyses will be conducted with a lag of one week as well as two weeks. \\begin\{math\}COVID_\{p, t-2\}\\end\{math\}  is the cumulative number of restaurants that have received GZ certification. \\begin\{math\}\\beta_1\\end\{math\} is the treatment effect, and if this coefficient is negative and significant, it implies a high possibility of infection prevention effect.  As described in equation (2), \\begin\{math\}Susceptible_\{p, t-2\}\\end\{math\}  is the susceptible population that can potentially  be infected, and is defined as the population in a prefecture (\\begin\{math\}Pop_p\\end\{math\} ) minus the total number of infected people in p (\\begin\{math\}Infectown_\{p, k\}\\end\{math\}). In Japan\'92s context, since the total number of infected people is small, \\begin\{math\}Susceptible_\{p, t-2\}\\end\{math\} remains to be approximately 1. Variables without significant variation are highly correlated with prefecture fixed effects, thus we exclude the variable from the estimation equation. \
+\
+\\begin\{math\}Infected_\{p, t-2\}\\end\{math\} is not the number of newly infected people two weeks ago, but the estimated total number of infectious people who can infect others in \\begin\{math\}p\\end\{math\} at \\begin\{math\}t-2\\end\{math\}. The derivation process is described in (3), but it is the sum of the total number of infected people who existed in Yamanashi Prefecture at \\begin\{math\}t-2\\end\{math\} and \\begin\{math\}t-1\\end\{math\} (the first term) and the total number of infected people who flowed in from other prefectures (the second term). The second term comprises of the sum at \\begin\{math\}t-2\\end\{math\} and \\begin\{math\}t-1\\end\{math\} for the ratio of the number of newly infected people in prefecture \\begin\{math\}i\\end\{math\} (\\begin\{math\}Infectown_\{i, t-k\}\\end\{math\}) divided by the population (\\begin\{math\}Pop_i\\end\{math\}) multiplied by the number of people flowing into prefecture \\begin\{math\}p\\end\{math\} from prefecture \\begin\{math\}i\\end\{math\} (\\begin\{math\}flow_\{i, p, t-k\}\\end\{math\}). This is based on a previous study by Kurahashi et al. (2021), and is used to accurately measure the potential number of infected persons, who can infect others at a given point in time, in order to more strictly control the infection situation.\
+Since this paper assumes a trade-off relationship in which increased economic activities weaken infection prevention measures, we also control the number of restaurant\'92s customer, \\begin\{math\}Customer_\{p, t-2\}\\end\{math\} . For control variables, we include a dummy for the declaration of a state of emergency, a dummy for school closure, a dummy for the ban on large assembly, the mean temperature, mean precipitation, and the test cases for infections. Lastly, \\begin\{math\}c_p\\end\{math\} and \\begin\{math\}\\tau_t\\end\{math\}  represent prefecture and week fixed effect, respectively, and \\begin\{math\}u_\{pt\}\\end\{math\} is an error term. \
+\
+Second, the economic effect is estimated by the following fixed-effects model.\
+\
+%we will update equation here\
+\\begin\{equation\}\
+\\begin\{split\}\
+Y_\{pt\}=\\beta_1 \\ln\{GZ_\{p,t+1\}\} + \\beta_2 \\ln\{Infectown_\{p,t+1\}\} + \\beta_3 \\ln\{GZ_\{p,t+1\}\}:\\ln\{Infectown_\{p,t+1\}\} +i=1kiln Controlp,t-2i +cp+t+upt\
+\\end\{split\}\
+\\end\{equation\}\
+%we will update equation here\
+\
+Same as infection prevention estimation, variables whose absolute value contains 0 are added 1 and transformed into logarithmic form. For the outcome variable, \\begin\{math\}Y_\{pt\}\\end\{math\}, the main variable is (i) restaurant sales and customers per  restaurant. For robustness and mechanism check, (ii) the rate of increase in restaurant website visits, (iii) the rate of change in human flow by facility type, (iv) the rate of change in human flow in residential areas, and (v) the stay-home rate by age group are additionally used. \\begin\{math\}GZ_\{p, t-2\}\\end\{math\} is the cumulative number of restaurants that have received GZ certification. \\begin\{math\}\\beta_1\\end\{math\} is the treatment effect, and if this coefficient is positive and significant, it implies a high possibility of positive economic effects. \\begin\{math\}Infectown_\{pt\}\\end\{math\} is new infection cases in prefecture \\begin\{math\}p\\end\{math\} at time \\begin\{math\}t\\end\{math\}, which we aim to remove the effect of people voluntarily refraining from going out due to the spread of infection. \
+% we need to change expression around here.\
+The interaction term between GZp,t-2 and infectownpt is introduced to test whether the economic effect of GZ certification varies with infection status. If 3 is negatively significant, it is inferred that the economic effect of GZ certification decreases as the infection spreads. For control variables, we include a dummy for the declaration of a state of emergency, a dummy for school closure, a dummy for the ban on large assembly, the squared term of mean temperature, mean precipitation, and  test cases for infections. Lastly, cp and t represent prefecture and week fixed effect respectively, and upt is an error term. \
+% we need to change expression around here.\
+\
+\\subsection*\{Treatment and Control\}\
+To eliminate endogeneity as much as possible, the control group was selected from five neighboring prefectures with similar population density and distance from Tokyo, the epicenter of infection (Supplementary Information Table S2).\
+The treatment effect of the infection prevention is to have the restaurants comply with the comprehensive infection prevention guidelines through on-site checks. It is worth noting that the estimated effect is not a comparison with the scenario when no infection prevention or economic measures were taken at all. As shown in the table (Supplementary Information Table S2), certification systems and subsidy policies for restaurants existed in other prefectures, but they had lower infection prevention standards and did not require on-site checks by the government.\
+The infection prevention guidelines include the following five categories. The details are described in the Supplementary Information, but the main items are introduced below. The first is measures for customers, which can be divided into two scenes: (i) entering the store, ordering, and paying, and (ii) dining and in-store use. For the rules of (i) entering, ordering, and paying, disinfection equipment should be installed at the entrance of the store, partitions should be set up to separate clerks and customers at the cash register, and people should be reminded to wear masks except when eating or drinking. For (ii) dining and in-store use, there should be a space between one group and another group, and also between seats within a group. The space should be at least 1 meter, but the partitions at all intervals can substitute for the space. Other restrictions include length of stay and serving food to individual customers rather than on platters. The Second is measures for employees. It includes wearing masks at all times, checking temperature and health conditions before starting work, and regular hand disinfection and hand washing. The third is measures to ensure the hygiene of facilities and equipment. There should be constant ventilation through ventilation equipment or open windows, and the use of hand dryers should be prohibited. The fourth is the creation and publication of a checklist. It mandates the facility administrators to make a checklist to check the above infection prevention measures and publicize the daily checks. The last is measures in the case of infection outbreak.  The guidelines stipulate that employees who are suspected of being infected should refrain from coming to work until the test results turn out to be negative. Besides, if necessary, information to prevent the spread of infection, such as business days for possible infection, should be disclosed.\
+The treatment effect of economic activity is twofold for supply and demand side: (1) Due to the low number of infected cases, restaurant operation will be maintained because  the government will not require them to close or shorten their operation hours. In fact, except for the time of the explosive spread of the infection from December 2020 to January 2021, Yamanashi Prefecture has not declared business suspension requests compared to other prefectures (Supplementary Information Table S3). (2) customer demand will be maintained because consumers will not refrain from going out due to the low number of infected people. \
+\
+\
+\
+\\bibliography\{GZ\}\
+ \\cite\{jin2020a\}\
+ \\cite\{yip2021a\}\
+ \\cite\{chang2021a\}\
+ \\cite\{lu2020a\}\
+ \\cite\{kwon2020a\}\
+ \\cite\{song2021a\}\
+ \\cite\{chen2021a\}\
+ \\cite\{andersen2020a\}\
+ \\cite\{fukui2020a\}\
+ \\cite\{chang2021b\}\
+ \\cite\{kaufman2020a\}\
+ \\cite\{chiba2021a\}\
+ \\cite\{kurahashi2021a\}\
+ \\cite\{wang2021a\}\
+ \\cite\{wei2021a\}\
+ \\cite\{prefecture2021a\}\
+ \\cite\{prefecture2021b\}\
+ \\cite\{prefecture2021c\}\
+ \\cite\{unknown2016a\}\
+ \\cite\{he2020a\}\
+ \\cite\{hosono2021a\}\
+\
+\\section*\{Acknowledgements\}\
+\
+We thank Daisuke Fujii, PhD., for providing us constructive advice on our manuscript. We also thank Mr. Kashiwagi from Yamanashi Prefectural Office and Postas Co., for providing us datasets. \
+\
+\\section*\{Author contributions statement\}\
+Conceptualization, K.H., J.H., and C.O.; research design, K.H., J.H., D.K., Y.M. and C.O.; data collection on COVID-19 and weather, K.H. and J.H.l; data collection on prefecture-wise policies, C.O.; formal analysis, K.H. and J.H.; visualization, J.H.; manuscript writing, K.H., J.H., and C.O.; editing, K.H. and C.O.; comments on the manuscript, D.K. and Y.M.\
+\
+\\section*\{Additional information\}\
+The authors declare no competing interests. \
+\
+\
+\\end\{document\}}

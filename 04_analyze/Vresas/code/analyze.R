@@ -39,7 +39,7 @@ mob3.2 <- felm(out_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg
 
 
 # 7.2.(i). 山梨県と周辺５都道府県のレストラン閲覧増加率　時系列推移 from plot.R-------
-resplotdata <- read_csv("03_build/weekSIR/output/weekSIR2.csv") %>% 
+resplotdata <- read_csv(here::here("03_build/weekSIR/output/weekSIR2.csv")) %>% 
   arrange(week)
 
 resplotdata$treat <- ifelse(resplotdata$pref == "Yamanashi", "山梨県", "近隣5県")
@@ -81,7 +81,7 @@ res_week_caseplot <- ggplot(data = resplotdata1,
 
 res_week_caseplot
 
-ggsave("04_analyze/Vresas/output/resview_plot.png", res_week_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Vresas/output/resview_plot.png", res_week_caseplot, width = 10, height = 8, dpi = 300)
 
 
 # 7.2.(ii) 山梨県と周辺５都道府県の小売・娯楽施設における人流変化率　時系列推移 from pref_bet_day_analyzing.R----------
@@ -128,7 +128,7 @@ gmob_caseplot <- ggplot(data = data_google,
 
 gmob_caseplot
 
-ggsave("04_analyze/Vresas/output/Google_mobility_plot.png", gmob_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Vresas/output/Google_mobility_plot.png", gmob_caseplot, width = 10, height = 8, dpi = 300)
 
 # 7.2.(iii) 山梨県と周辺５都道府県における県外からの人流変化率　時系列推移 Vresus from plot.R---------
 vresasdata <- read_csv("03_build/weekSIR/output/weekSIR2.csv") %>%
@@ -170,7 +170,7 @@ vrmob_outpref_caseplot <- ggplot(data = vresasdata,
 
 vrmob_outpref_caseplot
 
-ggsave("04_analyze/Vresas/output/outpref_mob_plot.png", vrmob_outpref_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Vresas/output/outpref_mob_plot.png", vrmob_outpref_caseplot, width = 10, height = 8, dpi = 300)
 
 #(in_pref)
 
@@ -205,7 +205,7 @@ vrmob_inpref_caseplot <- ggplot(data = vresasdata,
 
 vrmob_inpref_caseplot
 
-ggsave("04_analyze/Vresas/output/inpref_mob_plot.png", vrmob_inpref_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Vresas/output/inpref_mob_plot.png", vrmob_inpref_caseplot, width = 10, height = 8, dpi = 300)
 
 
 #(in_city)
@@ -240,6 +240,6 @@ vrmob_incity_caseplot <- ggplot(data = vresasdata,
 
 vrmob_incity_caseplot
 
-ggsave("04_analyze/Vresas/output/incity_mob_plot.png", vrmob_incity_caseplot, width = 10, height = 8, dpi = 300)
+# ggsave("04_analyze/Vresas/output/incity_mob_plot.png", vrmob_incity_caseplot, width = 10, height = 8, dpi = 300)
 
 

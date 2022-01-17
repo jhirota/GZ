@@ -16,63 +16,68 @@ Shizuoka_mob <- read_csv("02_bring/Vresas/data/静岡県の滞在人口の動向
 
 #data clean mobility ------
 clean_mob <- function(data){
-  data <- data[,-2]
-  colnames(data) <- c("pref", "week", "kind", "ratio")
-  newdata <- data %>% 
+  data <- data %>% 
+    select(-2) %>% 
+    rename(pref = 1,
+           week = 2,
+           kind = 3,
+           ratio = 4) %>% 
     pivot_wider(names_from = "kind",
-                values_from = "ratio")
-  colnames(newdata)[3:5] <- c("in_city", "in_pref", "out_pref")
-  return(newdata)
+                values_from = "ratio") %>% 
+    rename(in_city = 3,
+           in_pref = 4,
+           out_pref = 5)
+  return(data)
 }
 
-Yamanashi_mob2 <- clean_mob(Yamanashi_mob)
-Gunma_mob2 <- clean_mob(Gunma_mob)
-Ibaraki_mob2 <- clean_mob(Ibaraki_mob)
-Tochigi_mob2 <- clean_mob(Tochigi_mob)
-Nagano_mob2 <- clean_mob(Nagano_mob)
-Shizuoka_mob2 <- clean_mob(Shizuoka_mob)
+VRmob <- rbind(clean_mob(Yamanashi_mob),
+               clean_mob(Gunma_mob), 
+               clean_mob(Ibaraki_mob), 
+               clean_mob(Tochigi_mob), 
+               clean_mob(Nagano_mob), 
+               clean_mob(Shizuoka_mob)) %>% 
+  mutate(pref = str_replace_all(pref,
+                                c(山梨県全体 = "Yamanashi",
+                                  茨城県全体 = "Ibaraki",
+                                  栃木県全体 = "Tochigi",
+                                  群馬県全体 = "Gunma",
+                                  長野県全体 = "Nagano",
+                                  静岡県全体 = "Shizuoka"))) %>% 
+  mutate(weeknum = rep(1:93, 6))
 
-VRmob <- rbind(Yamanashi_mob2, Gunma_mob2, Ibaraki_mob2, Tochigi_mob2, Nagano_mob2, Shizuoka_mob2)
-
-VRmob$pref <- gsub("群馬県全体", "Gunma", VRmob$pref)
-VRmob$pref <- gsub("山梨県全体", "Yamanashi", VRmob$pref)
-VRmob$pref <- gsub("栃木県全体", "Tochigi", VRmob$pref)
-VRmob$pref <- gsub("茨城県全体", "Ibaragi", VRmob$pref)
-VRmob$pref <- gsub("長野県全体", "Nagano", VRmob$pref)
-VRmob$pref <- gsub("静岡県全体", "Shizuoka", VRmob$pref)
-
-# write.csv(VRmob, "03_build/Vresas/output/VRESAS_mobility.csv")
+# write_csv(VRmob, "03_build/Vresas/output/VRESAS_mobility.csv")
 
 #data clean restaurant ------
 
 clean_res <- function(data){
-  colnames(data) <- c("pref", "week", "kind", "ratio")
-  newdata <- data %>% 
-    filter(kind == "すべて")
-  newdata <- newdata[,-3]
-  return(newdata)
+  data <- data %>% 
+    rename(pref = 1,
+           week = 2,
+           kind = 3,
+           ratio = 4) %>% 
+    filter(kind == "すべて") %>% 
+    select(-kind)
+
+  return(data)
 }
 
-Yamanashi_res2 <- clean_res(Yamanashi_res)
-Gunma_res2 <- clean_res(Gunma_res)
-Ibaraki_res2 <- clean_res(Ibaraki_res)
-Tochigi_res2 <- clean_res(Tochigi_res)
-Nagano_res2 <- clean_res(Nagano_res)
-Shizuoka_res2 <- clean_res(Shizuoka_res)
-
-VRres <- rbind(Yamanashi_res2, Gunma_res2, Ibaraki_res2, Tochigi_res2, Nagano_res2, Shizuoka_res2)
-
-VRres$pref <- gsub("群馬県全体", "Gunma", VRres$pref)
-VRres$pref <- gsub("山梨県全体", "Yamanashi", VRres$pref)
-VRres$pref <- gsub("栃木県全体", "Tochigi", VRres$pref)
-VRres$pref <- gsub("茨城県全体", "Ibaragi", VRres$pref)
-VRres$pref <- gsub("長野県全体", "Nagano", VRres$pref)
-VRres$pref <- gsub("静岡県全体", "Shizuoka", VRres$pref)
-
-VRres <- VRres %>% 
+VRres <- rbind(clean_res(Yamanashi_res),
+               clean_res(Gunma_res),
+               clean_res(Ibaraki_res), 
+               clean_res(Tochigi_res), 
+               clean_res(Nagano_res), 
+               clean_res(Shizuoka_res)) %>% 
+  mutate(pref = str_replace_all(pref,
+                                c(山梨県全体 = "Yamanashi",
+                                  茨城県全体 = "Ibaraki",
+                                  栃木県全体 = "Tochigi",
+                                  群馬県全体 = "Gunma",
+                                  長野県全体 = "Nagano",
+                                  静岡県全体 = "Shizuoka"))) %>% 
   pivot_wider(names_from = "pref",
               values_from = "ratio")
+  
 
-write.csv(VRres, "03_build/Vresas/output/restraunt_all_genre.csv", row.names = FALSE)
+# write_csv(VRres, "03_build/Vresas/output/restaurant_all_genre.csv")
 
 

@@ -1,76 +1,46 @@
-setwd("/Users/kazuyahirokawa/OneDrive - The University of Tokyo/university-related/1S/事例研究/月5 政策評価のための因果推論/データ分析/0627分析/Papilio mobility 6 prefectures")
 library(tidyverse)
 library(reshape2)
 
-yama2020 <- read.csv("市区町村_prefecture_chart_data_yamanashi2020.csv", header = TRUE)
-yama2021 <- read.csv("市区町村_prefecture_chart_data_yamanashi2021.csv", header = TRUE)
-shizu2020 <- read.csv("市区町村_prefecture_chart_data_shizuoka2020.csv", header = TRUE)
-shizu2021 <- read.csv("市区町村_prefecture_chart_data_shizuoka2021.csv", header = TRUE)
-nagano2020 <- read.csv("市区町村_prefecture_chart_data_nagano2020.csv", header = TRUE)
-nagano2021 <- read.csv("市区町村_prefecture_chart_data_nagano2021.csv", header = TRUE)
-gunma2020 <- read.csv("市区町村_prefecture_chart_data_gunma2020.csv", header = TRUE)
-gunma2021 <- read.csv("市区町村_prefecture_chart_data_gunma2021.csv", header = TRUE)
-tochi2020 <- read.csv("市区町村_prefecture_chart_data_tochigi2020.csv", header = TRUE)
-tochi2021 <- read.csv("市区町村_prefecture_chart_data_tochigi2021.csv", header = TRUE)
-ibaragi2020 <- read.csv("市区町村_prefecture_chart_data_ibaragi2020.csv", header = TRUE)
-ibaragi2021 <- read.csv("市区町村_prefecture_chart_data_ibaragi2021.csv", header = TRUE)
+yama2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_yamanashi2020.csv")
+yama2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_yamanashi2021.csv")
+shizu2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_shizuoka2020.csv")
+shizu2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_shizuoka2021.csv")
+nagano2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_nagano2020.csv")
+nagano2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_nagano2021.csv")
+gunma2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_gunma2020.csv")
+gunma2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_gunma2021.csv")
+tochi2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_tochigi2020.csv")
+tochi2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_tochigi2021.csv")
+ibaragi2020 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_ibaragi2020.csv")
+ibaragi2021 <- read_csv("02_bring/Agoop/data/市区町村_prefecture_chart_data_ibaragi2021.csv")
 
 #
-yama2020_1 <- yama2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
+cleanfunc <- function(data){
+  data <- data %>% 
+    rename(week = 1,
+           weekday_flag = 2,
+           daytime_flag = 3,
+           pref_resid = 6,
+           city = 7,
+           pref = 8) %>% 
+    group_by(week, pref, pref_resid, start_day) %>% 
+    summarize(sum_pop = sum(as.integer(population_inflow))) %>% 
+    ungroup()
+}
 
-yama2021_1 <- yama2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
+sixpref <- rbind(cleanfunc(yama2020),
+                 cleanfunc(yama2021),
+                 cleanfunc(shizu2020),
+                 cleanfunc(shizu2021),
+                 cleanfunc(nagano2020), 
+                 cleanfunc(nagano2021),
+                 cleanfunc(gunma2020),
+                 cleanfunc(gunma2021),
+                 cleanfunc(tochi2020),
+                 cleanfunc(tochi2021),
+                 cleanfunc(ibaragi2020),
+                 cleanfunc(ibaragi2021))
 
-shizu2020_1 <- shizu2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
 
-shizu2021_1 <- shizu2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
+# write_csv(sixpref, "03_build/Agoop/output/sixpref.csv")
 
-nagano2020_1 <- nagano2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-nagano2021_1 <- nagano2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-gunma2020_1 <- gunma2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-gunma2021_1 <- gunma2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-tochi2020_1 <- tochi2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-tochi2021_1 <- tochi2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-ibaragi2020_1 <- ibaragi2020 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-ibaragi2021_1 <- ibaragi2021 %>% 
-  group_by(週, 都道府県, 居住都道府県) %>% 
-  summarize(sum_pop = sum(as.integer(population_inflow)))
-
-sixpref <- rbind(yama2020_1, yama2021_1, shizu2020_1, shizu2021_1, nagano2020_1, nagano2021_1, 
-      gunma2020_1, gunma2021_1, tochi2020_1, tochi2021_1, ibaragi2020_1, ibaragi2021_1)
-
-length(sixpref$sum_pop[sixpref$sum_pop == NA])
-
-write_csv(sixpref, "sixpref.csv", row.names = FALSE)
-
-# sixpref_rev <- dcast(sixpref, 週 + 都道府県 ~ 居住都道府県, value.var = "sum_pop")
-# 
-# write_csv(sixpref_rev, "sixpref_rev.csv")
