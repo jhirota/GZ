@@ -14,14 +14,14 @@ outpref_nonyama_mean <- mean(mob_vresas$out_pref[mob_vresas$pref != "Yamanashi"]
 
 #intercept出さなくても良さげなので、felmで回す。
 mob1.0 <- felm(in_city ~ log(cumGZ + 1)| pref + week | 0 | pref, data = mob_vresas)
-mob1.1 <- felm(in_city ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain| pref + week | 0 | pref, data = mob_vresas)
-mob1.2 <- felm(in_city ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
+mob1.1 <- felm(in_city ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain| pref + week | 0 | pref, data = mob_vresas)
+mob1.2 <- felm(in_city ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
 mob2.0 <- felm(in_pref ~ log(cumGZ + 1)| pref + week | 0 | pref, data = mob_vresas)
-mob2.1 <- felm(in_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain| pref + week | 0 | pref, data = mob_vresas)
-mob2.2 <- felm(in_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
+mob2.1 <- felm(in_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain| pref + week | 0 | pref, data = mob_vresas)
+mob2.2 <- felm(in_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
 mob3.0 <- felm(out_pref ~ log(cumGZ + 1)| pref + week | 0 | pref, data = mob_vresas)
-mob3.1 <- felm(out_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain| pref + week | 0 | pref, data = mob_vresas)
-mob3.2 <- felm(out_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp_q + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
+mob3.1 <- felm(out_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain| pref + week | 0 | pref, data = mob_vresas)
+mob3.2 <- felm(out_pref ~ log(cumGZ + 1) + log(newcaseday + 1) + emergency + avg_temp + rain + log(cumGZ + 1):log(newcaseday + 1)| pref + week | 0 | pref, data = mob_vresas)
 
 
 # mobplm2html <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, mob3.1, mob3.2,
@@ -87,7 +87,7 @@ res_week_caseplot
 # 7.2.(ii) 山梨県と周辺５都道府県の小売・娯楽施設における人流変化率　時系列推移 from pref_bet_day_analyzing.R----------
 
 
-Gmobdata <- read.csv("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv", header =TRUE) 
+Gmobdata <- read_csv(here::here("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv")) 
 
 Gmobdata$treat <- ifelse(Gmobdata$pref == "Yamanashi", "山梨県", "近隣5県")
 Gmobdata$date <- as.Date(Gmobdata$date) 
@@ -131,7 +131,7 @@ gmob_caseplot
 # ggsave("04_analyze/Vresas/output/Google_mobility_plot.png", gmob_caseplot, width = 10, height = 8, dpi = 300)
 
 # 7.2.(iii) 山梨県と周辺５都道府県における県外からの人流変化率　時系列推移 Vresus from plot.R---------
-vresasdata <- read_csv("03_build/weekSIR/output/weekSIR2.csv") %>%
+vresasdata <- read_csv(here::here("03_build/weekSIR/output/weekSIR2.csv")) %>%
   mutate(treat = ifelse(pref == "Yamanashi", "山梨県", "近隣5県")) %>% 
   group_by(week, treat) %>% 
   summarize_at(c("in_pref", "out_pref", "in_city"), mean, na.rm=TRUE) %>% 

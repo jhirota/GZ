@@ -1,21 +1,41 @@
 library(tidyverse)
 library(ggeffects)
 
-# covid-19 counterfactual plot-----
-weekSIR3 <- read_csv("03_build/Postas/output/weekSIR3.csv") %>% 
-  arrange(week)
+# data load-----
+weekSIR3 <- read_csv("03_build/Postas/output/weekSIR3.csv")
 
-covidmodel <- lm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency +
-                   log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + 
-                   factor(pref) + factor(week), data = weekSIR3)
+# data build-------
 
+pred_covid <- function(data){
+  data <- data %>% arrange(week)
+  covidmodel <- lm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency +
+                     log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + 
+                     factor(pref) + factor(week),
+                   data = data)
+  pred_value <- exp(fitted(covidmodel))
+  return(pred_value)
+} 
 
-weekSIR3$pred_covid <- NA
-weekSIR3$pred_covid[1:nrow(weekSIR3)] <- exp(fitted(covidmodel))
+weekSIR3 <- weekSIR3 %>% 
+  arrange(week) %>% 
+  mutate(pred_covid = c(pred_covid(weekSIR3),
+                        rep(NA, nrow(weekSIR3) - length(pred_covid(weekSIR3)))))
+
 
 # counterfactual
-Yamapred <- rep(NA, 68)
+
+
+
+cofa_pred_covid <- function(data, model){
+  Yamapred <- rep(NA, 68)
+} 
+
+
 j <- 1
+covidmodel <- lm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency +
+                   log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + 
+                   factor(pref) + factor(week),
+                 data = weekSIR3)
 
 for (i in 1:nrow(weekSIR3)){
   if (weekSIR3$pref[i] == "Yamanashi"){

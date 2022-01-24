@@ -19,7 +19,7 @@ clean_mob <- function(data){
   data <- data %>% 
     select(-2) %>% 
     rename(pref = 1,
-           week = 2,
+           week_JP = 2,
            kind = 3,
            ratio = 4) %>% 
     pivot_wider(names_from = "kind",
@@ -45,14 +45,14 @@ VRmob <- rbind(clean_mob(Yamanashi_mob),
                                   静岡県全体 = "Shizuoka"))) %>% 
   mutate(weeknum = rep(1:93, 6))
 
-# write_csv(VRmob, "03_build/Vresas/output/VRESAS_mobility.csv")
+write_csv(VRmob, "03_build/Vresas/output/VRESAS_mobility.csv")
 
 #data clean restaurant ------
 
 clean_res <- function(data){
   data <- data %>% 
     rename(pref = 1,
-           week = 2,
+           week_JP = 2,
            kind = 3,
            ratio = 4) %>% 
     filter(kind == "すべて") %>% 
@@ -78,6 +78,6 @@ VRres <- rbind(clean_res(Yamanashi_res),
               values_from = "ratio")
   
 
-# write_csv(VRres, "03_build/Vresas/output/restaurant_all_genre.csv")
+write_csv(VRres, "03_build/Vresas/output/restaurant_all_genre.csv")
 
 

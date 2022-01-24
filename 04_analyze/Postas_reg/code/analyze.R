@@ -11,11 +11,11 @@ postas_day1 <- read_csv(here::here("03_build/Postas/output/postas_daily_data.csv
 dlmpostas1 <- felm(log(sales_per) ~ log(cumGZ + 1)  + emergency| pref+date | 0 | pref, data = postas_day1)
 dlmpostas2 <- felm(log(sales_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) | pref+date | 0 | pref, data = postas_day1)
 dlmpostas3 <- felm(log(sales_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) + avg_temp + sum_rain| pref+date | 0 | pref, data = postas_day1)
-dlmpostas4 <- felm(log(sales_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp + sum_rain + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_day1)
+dlmpostas4 <- felm(log(sales_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) + avg_temp + sum_rain + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_day1)
 dlmpostas.cus1 <- felm(log(customers_per) ~ log(cumGZ + 1)  + emergency| pref+date | 0 | pref, data = postas_day1)
 dlmpostas.cus2 <- felm(log(customers_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) | pref+date | 0 | pref, data = postas_day1)
 dlmpostas.cus3 <- felm(log(customers_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) + avg_temp + sum_rain| pref+date | 0 | pref, data = postas_day1)
-dlmpostas.cus4 <- felm(log(customers_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp + sum_rain + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_day1)
+dlmpostas.cus4 <- felm(log(customers_per) ~ log(cumGZ + 1)  + emergency + log(newcase_day + 1) + avg_temp + sum_rain + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_day1)
 
 # dpostashtml <- stargazer(dlmpostas1, dlmpostas2, dlmpostas3, dlmpostas4, dlmpostas.cus1, dlmpostas.cus2, dlmpostas.cus3, dlmpostas.cus4,
 #                          title = "TABLE: POSTAS data (sales and customers) and GreenZone certification (daily)",

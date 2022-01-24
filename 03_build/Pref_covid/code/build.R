@@ -2,9 +2,9 @@ library(lubridate)
 library(tidyverse)
 
 #load data--------
-GZdata <- read_csv("03_build/GZlist/output/GZlist_timeseries.csv")
-preresdata <- read_csv("03_build/Vresas/output/restraunt_all_genre.csv")
-preCOVID <- read_csv("03_build/GZ_covid/output/GZ_covid.csv")
+GZdata <- read_csv(here::here("03_build/GZlist/output/GZlist_timeseries.csv"))
+preresdata <- read_csv(here::here("03_build/Vresas/output/restaurant_all_genre.csv"))
+preCOVID <- read_csv(here::here("03_build/GZ_covid/output/GZ_covid.csv"))
 vresas <- read_csv(here::here("03_build/Vresas/output/VRESAS_Mobility.csv"))
 
 #clean & merge data--------
@@ -20,10 +20,9 @@ GZdata2 <- GZdata%>%
 
 ## restaurant data-----------
 preresdata2 <- preresdata %>% 
-  pivot_longer(-c(week, ...1), names_to = "pref", values_to = "resview") %>% 
-  select(-1) %>% 
+  pivot_longer(-week_JP, names_to = "pref", values_to = "resview") %>% 
   mutate(weeknum = rep(1:93, each = 6))
-# write_csv(preresdata2, "03_build/Pref_covid/output/V-RESAS_restaurant.csv")
+write_csv(preresdata2, here::here("03_build/Pref_covid/output/V-RESAS_restaurant.csv"))
 
 ##COVID ------------
 
@@ -54,25 +53,28 @@ preCOVID_GZ <- preCOVID %>%
   mutate(weeknum = c(rep(3, 4*6),rep(4:69, each = 7*6), rep(70, 5*6)))
 
 
-# write_csv(preCOVID_GZ, "03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv")
+write_csv(preCOVID_GZ, here::here("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv"))
 
 
 # Merge Vresas data ------
 
 
 newdata <- preCOVID_GZ %>% 
-  group_by(weeknum, pref) %>% 
-  summarize(across(c(newcase_day, newdeath_day, GZnew, newcaseday14),
-                   sum)) %>% 
+  group_by(week, pref) %>% 
+  summarize(across(c(newcase_day, newdeath_day, GZnew, newcaseday14, emergency),
+                   sum),
+            across(c(weeknum),
+                   unique)) %>% 
   ungroup() %>% 
+  mutate(emergency = if_else(emergency >= 1, 1, 0)) %>% 
   left_join(y = vresas,
             by = c("pref", "weeknum")) %>% 
   mutate(cumGZ = cumsum(GZnew)) %>% 
   left_join(y = preresdata2 %>% select(pref, resview, weeknum),
             by = c("pref", "weeknum")) %>% 
-  select(week, weeknum, pref, newcase_day, newdeath_day,
+  select(week, week_JP, weeknum, pref, newcase_day, newdeath_day, emergency,
          GZnew, cumGZ, newcaseday14, resview, in_city,
          in_pref, out_pref)
 
 
-# write_csv(newdata, "03_build/Pref_covid/output/weekly_vresas.csv")
+write_csv(newdata, here::here("03_build/Pref_covid/output/weekly_vresas.csv"))
