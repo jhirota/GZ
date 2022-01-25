@@ -5,11 +5,7 @@ library(lubridate)
 pop47 <- read_csv(here::here("02_bring/Pop/data/Population_JPN.csv")) 
 covid47 <- read_csv(here::here("02_bring/Covid_cases/data/nhk_news_covid19_prefectures_daily_data(1).csv"))
 mob6_47 <- read_csv(here::here("03_build/Agoop/output/sixpref.csv"))
-
-ymob_city47 <- rbind(read_csv(here::here("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2020のコピー.csv")),
-                     read_csv(here::here("02_bring/Papilio_mobility/data/市区町村_prefecture_chart_data_yamanashi2021のコピー.csv")))
-
-Testmerge <- read_csv(here::here("02_bring/PCRtest/data/testmerge.csv"))
+Testmerge <- read_csv(here::here("02_bring/Tests/data/testmerge.csv"))
 
 # Data clean ---------
 
@@ -118,10 +114,6 @@ newmob6_47 <- left_join(x = mob6_47,
          infectious_l2 = inflow_l2_lag1 + inflow_l2_lag2) %>% 
   ungroup()
 
-
-
-
-write_csv(newmob6_47, here::here("03_build/Controls/output/47都道府県から６県への潜在的感染者人流.csv"))
 
 ## 潜在的感染者人流aggregate 用 (県別)-------
 Aggregate <- newmob6_47 %>%
