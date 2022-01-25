@@ -5,7 +5,6 @@
 
 # Private directory
 00_cover/
-05_report/
 
 # DS_Store and swp
 *.DS_Store
