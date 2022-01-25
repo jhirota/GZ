@@ -2,15 +2,23 @@ library(readxl)
 library(lubridate)
 library(tidyverse)
 
-# Infection prevention effects-------
-## data load ----
+
+# data load -------------
 GZall_list4 <- read_csv(here::here("03_build/GZlist/output/GZalllist_week.csv"))
 weekSIR2 <- read_csv(here::here("03_build/Postas/output/weekSIR2.csv"))
 postas_day <- read_csv(here::here("03_build/Postas/output/postas_daily_data.csv"))
 
 dummy <- read_excel(here::here("02_bring/Dummy_vars/data/Dummies_edited0125.xlsx"))
-SHR <- read_csv(here::here("03_build/Stayhome_rate/output/Stayhome_rate.csv"))
 
+data_genage <- here::here("02_bring/Stayhome_rate/data/gender_age_self-restraint_rate_202001_202103") %>% 
+  list.files(full.names = T) %>% 
+  lapply(read.csv)
+
+data_night <- here::here("02_bring/Stayhome_rate/data/night_self-restraint_rate_202001_202103") %>% 
+  list.files(full.names = T) %>% 
+  lapply(read_csv, locale = locale(encoding = "shift-jis"))
+
+# Infection prevention effects-------
 ## data clean (Different types of GZ) --------
 
 NA20 <- function(x){
@@ -50,6 +58,46 @@ dummy_w <- dummy %>%
 
 
 ##data clean (SHR) -------------
+
+credit_delete <- function(data){
+  if (any(colnames(data) %in% "state")){
+    data <- data %>% 
+      filter(is.na(state) == FALSE)
+  }else{
+    data <- data %>%
+      filter(is.na(M70) == FALSE)
+  }
+  
+  return(data)
+}
+
+Night <- tibble()
+Genage <- tibble()
+
+for (i in 1:length(data_night)){
+  cleaned <- credit_delete(data_night[[i]])
+  Night <- rbind(Night, cleaned)
+}
+
+for (i in 1:length(data_genage)){
+  cleaned <- credit_delete(data_genage[[i]])
+  Genage <- rbind(Genage, cleaned)
+}
+
+Night <- Night %>% 
+  rename(pref = 2,
+         NSHR = 3) %>% 
+  mutate(date = as.Date(date)) %>% 
+  complete(date, pref)
+
+Genage <- Genage %>% 
+  mutate(date = strptime(as.character(date), "%m/%d/%y") %>% 
+           as.Date()) %>% 
+  rename(pref = 2)
+
+SHR <- left_join(x = Night,
+                 y = Genage,
+                 by = c("pref", "date"))
 
 SHR_w <- SHR %>% 
   mutate(week = floor_date(date,

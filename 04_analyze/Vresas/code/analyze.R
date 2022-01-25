@@ -5,7 +5,7 @@ library(stargazer)
 
 # data load -----
 weekSIR_rob <- read_csv(here::here("03_build/Robust_check/output/weekSIR_robustness.csv"))
-vresasdata <- read_csv(here::here("03_build/GZ_covid/output/weekly_vresas_plot.csv"))
+vresasdata <- read_csv(here::here("03_build/weekSIR/output/weekly_vresas_plot.csv"))
 data_google <- read_csv(here::here("03_build/GZ_covid/output/Gmob_plot.csv")) 
 
 # Vresas time series analysis --------------

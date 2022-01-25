@@ -37,5 +37,5 @@ gz_week_caseplot <- ggplot(data = GZcumplot,
 
 gz_week_caseplot
 
-ggsave(here::here("04_analyze/GZlist_cum/output/cumGZ_timeseries.png"), gz_week_caseplot, width = 10, height = 5, dpi = 300)
+ggsave(here::here("04_analyze/GZlist/output/cumGZ_timeseries.png"), gz_week_caseplot, width = 10, height = 5, dpi = 300)
 

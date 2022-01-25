@@ -2,18 +2,43 @@ library(tidyverse)
 library(lubridate)
 
 # Data load----------
+Agoop_list <- here::here("02_bring/Agoop/data") %>% 
+  list.files(full.names = T) %>% 
+  lapply(read.csv)
 pop47 <- read_csv(here::here("02_bring/Pop/data/Population_JPN.csv")) 
 covid47 <- read_csv(here::here("02_bring/Covid_cases/data/nhk_news_covid19_prefectures_daily_data(1).csv"))
-mob6_47 <- read_csv(here::here("03_build/Agoop/output/sixpref.csv"))
 Testmerge <- read_csv(here::here("02_bring/Tests/data/testmerge.csv"))
 
-# Data clean ---------
+# Agoop clean ---------
+cleanfunc <- function(data){
+  data <- data %>% 
+    rename(week = 1,
+           weekday_flag = 2,
+           daytime_flag = 3,
+           pref_resid = 6,
+           city = 7,
+           pref = 8) %>% 
+    group_by(week, pref, pref_resid, start_day) %>% 
+    summarize(sum_pop = sum(as.integer(population_inflow))) %>% 
+    ungroup()
+}
 
 cutfunc <- function(x){
   str_split(x, "[:]")[[1]][2]
 }
 
-mob6_47 <- mob6_47 %>% 
+mob6_47 <- rbind(cleanfunc(Agoop_list[[1]]),
+                 cleanfunc(Agoop_list[[2]]),
+                 cleanfunc(Agoop_list[[3]]),
+                 cleanfunc(Agoop_list[[4]]),
+                 cleanfunc(Agoop_list[[5]]), 
+                 cleanfunc(Agoop_list[[6]]),
+                 cleanfunc(Agoop_list[[7]]),
+                 cleanfunc(Agoop_list[[8]]),
+                 cleanfunc(Agoop_list[[9]]),
+                 cleanfunc(Agoop_list[[10]]),
+                 cleanfunc(Agoop_list[[11]]),
+                 cleanfunc(Agoop_list[[12]])) %>% 
   select(-week) %>% 
   mutate(week = as.Date(ymd(start_day)),
          pref =  map(pref, cutfunc),
@@ -33,7 +58,7 @@ mob6_47 <- mob6_47 %>%
   select(-start_day)
 
 
-# Data wrangling covid -----
+# Covid data clean -----
 
 covid47 <- covid47 %>%
   rename(date = 1,
@@ -58,7 +83,7 @@ covid47 <- covid47 %>%
 
 
 
-# pop data cleaning --------
+# Population data clean --------
 
 pop47 <- pop47 %>% 
   rename(pref_resid = 1,
@@ -73,7 +98,7 @@ pop47 <- pop47 %>%
                                   静岡県 = "Shizuoka")))
 
 
-# New data merge and wrangling ----------
+# Infectious data merge and build ----------
 
 newmob6_47 <- left_join(x = mob6_47,
                         y = covid47,
@@ -115,7 +140,8 @@ newmob6_47 <- left_join(x = mob6_47,
   ungroup()
 
 
-## 潜在的感染者人流aggregate 用 (県別)-------
+## Infectious by pref -------
+
 Aggregate <- newmob6_47 %>%
   mutate(infectious_l1 = replace_na(infectious_l1, 0),
          infectious_l2 = replace_na(infectious_l2, 0),
@@ -130,9 +156,7 @@ Aggregate <- newmob6_47 %>%
 write_csv(Aggregate, here::here("03_build/Controls/output/県別流入リスク.csv"))
 
 
-## Test data cleaning ----
-
-
+## Test data clean ----
 
 Testdata <- Testmerge %>% 
   select(Date, Pref, noftests) %>% 

@@ -21,7 +21,7 @@ table6.1 <- stargazer(NSHR1, NSHR2, NSHR3,
                                      c("Day FE", rep("X",3))),
                       omit.stat=c("f", "ser"),
                       header = FALSE,
-                      out = "04_analyze/Robustness_econ/output/night_stayhome.tex")
+                      out = "04_analyze/Stayhome_rate/output/night_stayhome.tex")
 
 
 # reg selfrest by age (male)---------
@@ -43,7 +43,7 @@ table6.2 <- stargazer(male15, male20, male30, male40, male50, male60, male70,
                       omit.stat=c("f", "ser"),
                       header = FALSE,
                       column.sep.width = "-15pt",
-                      out = "04_analyze/Robustness_econ/output/SHR_by_age_male.tex")
+                      out = "04_analyze/Stayhome_rate/output/SHR_by_age_male.tex")
 
 
 
@@ -66,4 +66,4 @@ table6.3 <- stargazer(female15, female20, female30, female40, female50, female60
                       omit.stat=c("f", "ser"),
                       header = FALSE,
                       column.sep.width = "-15pt",
-                      out = "04_analyze/Robustness_econ/output/SHR_by_age_female.tex")
+                      out = "04_analyze/Stayhome_rate/output/SHR_by_age_female.tex")

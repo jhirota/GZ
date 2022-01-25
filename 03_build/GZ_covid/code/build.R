@@ -9,9 +9,9 @@ Gmobility_2021 <- read_csv("02_bring/Google_mobility/2021_JP_Region_Mobility_Rep
 emergency <- read_csv("02_bring/Covid_cases/data/GZ_COVID.csv")
 
 GZdata <- read_csv(here::here("03_build/GZlist/output/GZlist_timeseries.csv"))
-vresas <- read_csv(here::here("03_build/Vresas/output/VRESAS.csv"))
-weatherdata <- read_csv(here::here("03_build/Weather/output/weather_pref.csv"))
 
+weather2019 <- read_csv("02_bring/Weather/data/weather_data_6pref2019_rev.csv")
+weather2020 <- read_csv("02_bring/Weather/data/weather_data_6pref2020_rev.csv")
 
 # NHK data clean ----
 
@@ -66,7 +66,7 @@ Gmobility_2021 <- Gmob_clean(Gmobility_2021)
 Gmob <- rbind(Gmobility_2020, Gmobility_2021)
 
 
-# emergency data clean------
+# Emergency data clean------
 
 emergency <- emergency %>% 
   select(Pref, Date, emergency) %>% 
@@ -93,6 +93,70 @@ GZdata2 <- GZdata %>%
   group_by(pref) %>% 
   mutate(cumGZ = cumsum(GZnew))
 
+# weather data clean -------------
+
+weatherclean <- function(data){
+  data <- data %>% 
+    rename(date = 1) %>% 
+    slice(-1)
+  
+  cutfunc <- function(x){
+    strsplit(x, "[...]")[[1]][1]
+  }
+  
+  temperature <- data %>% 
+    pivot_longer(cols = seq(3,33, by = 2),
+                 names_to = "city",
+                 values_to = "temp") %>% 
+    select(date, city, temp) %>% 
+    mutate(city = map(city, cutfunc))
+  
+  rain <- data %>% 
+    pivot_longer(cols = seq(4,34, by = 2),
+                 names_to = "city",
+                 values_to = "rain") %>% 
+    select(date, city, rain)%>% 
+    mutate(city = map(city, cutfunc))
+  
+  weatherdata <- left_join(temperature, rain, by = c("date", "city")) %>% 
+    mutate(date = as.Date(date),
+           temp = as.numeric(temp),
+           rain = as.numeric(rain))
+  
+  return(weatherdata)
+}
+
+city2pref <- function(data){
+  data$city <- gsub("(前橋|前橋.1)", "Gunma", data$city)
+  data$city <- gsub("(伊勢崎|伊勢崎.1)", "Gunma", data$city)
+  data$city <- gsub("(長野|長野.1)", "Nagano", data$city)
+  data$city <- gsub("(松本|松本.1)", "Nagano", data$city)
+  data$city <- gsub("(上田|上田.1)", "Nagano", data$city)
+  data$city <- gsub("(飯田|飯田.1)", "Nagano", data$city)
+  data$city <- gsub("(甲府|甲府.1)", "Yamanashi", data$city)
+  data$city <- gsub("(河口湖|河口湖.1)", "Yamanashi", data$city)
+  data$city <- gsub("(浜松|浜松.1)", "Shizuoka", data$city)
+  data$city <- gsub("(静岡|静岡.1)", "Shizuoka", data$city)
+  data$city <- gsub("(富士|富士.1)", "Shizuoka", data$city)
+  data$city <- gsub("(つくば.館野.|つくば.館野..1)", "Ibaraki", data$city)
+  data$city <- gsub("(水戸|水戸.1)", "Ibaraki", data$city)
+  data$city <- gsub("(日立|日立.1)", "Ibaraki", data$city)
+  data$city <- gsub("(宇都宮|宇都宮.1)", "Tochigi", data$city)
+  data$city <- gsub("(小山|小山.1)", "Tochigi", data$city)
+  
+  data <- rename(data, pref = "city")
+  return(data)
+}
+
+weatherdata <- rbind(weatherclean(weather2019) %>% 
+                        city2pref(),
+                      weatherclean(weather2020) %>% 
+                        city2pref()) %>% 
+  group_by(date, pref) %>% 
+  summarise(avg_temp = mean(temp),
+            avg_rain = mean(rain))
+
+write_csv(weatherdata, here::here("03_build/GZ_covid/output/weather_pref.csv"))
 
 # data merge (GZ&COVID)------------
 
@@ -146,33 +210,3 @@ Gmobdata_plot <- preCOVID_GZ %>%
 
 write_csv(Gmobdata_plot, here::here("03_build/GZ_covid/output/Gmob_plot.csv"))
 
-# Merge Vresas data ------
-
-newdata <- preCOVID_GZ %>% 
-  group_by(week, pref) %>% 
-  summarize(across(c(newcase_day, newdeath_day, GZnew, newcaseday14, emergency),
-                   sum),
-            across(c(weeknum),
-                   unique)) %>% 
-  ungroup() %>% 
-  mutate(emergency = if_else(emergency >= 1, 1, 0)) %>% 
-  left_join(y = vresas,
-            by = c("pref", "weeknum")) %>% 
-  group_by(pref) %>% 
-  mutate(cumGZ = cumsum(GZnew)) %>% 
-  ungroup() %>% 
-  select(week, week_JP, weeknum, pref, newcase_day, newdeath_day, emergency,
-         GZnew, cumGZ, newcaseday14, resview, in_city,
-         in_pref, out_pref, treat)
-
-
-write_csv(newdata, here::here("03_build/GZ_covid/output/weekly_vresas.csv"))
-
-## weekly vresas for plot ---------
-
-newdata_plot <- newdata %>% 
-  group_by(week, treat) %>% 
-  summarize_at(c("in_pref", "out_pref", "in_city", "resview"), mean, na.rm=TRUE) %>% 
-  ungroup()
-
-write_csv(newdata_plot, here::here("03_build/GZ_covid/output/weekly_vresas_plot.csv"))

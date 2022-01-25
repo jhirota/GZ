@@ -82,13 +82,13 @@ Hirota-san will bring code here.
 # D   Statistical Testing 
 
 ## D.1  Infection Prevention Effects
-\input{../../../04_analyze/Covid_reg/output/covid_reg.tex}
+\input{../../../04_analyze/Covid/output/covid_reg.tex}
 
 ## D.2  Economic Effects
 \input{../../../04_analyze/Postas/output/postas_pref_week.tex}
 
 ## D.3 1 week lag analysis
-\input{../../../04_analyze/Covid_reg/output/covid_reg_lag1.tex}
+\input{../../../04_analyze/Covid/output/covid_reg_lag1.tex}
 
 ## D.4 Restaurants' view 
 \input{../../../04_analyze/Vresas/output/resview_reg.tex}

@@ -1,0 +1,50 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{TABLE: COVID-19 new cases (1 week lag) and the Green Zone certification} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{New infection cases (1 week lag), log} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log & $-$0.079$^{***}$ & $-$0.095$^{**}$ & $-$0.093$^{**}$ &  \\ 
+  & (0.017) & (0.029) & (0.031) &  \\ 
+  & & & & \\ 
+ Cumulative GZ-certified restaurants and hotels, log &  &  &  & $-$0.088$^{**}$ \\ 
+  &  &  &  & (0.028) \\ 
+  & & & & \\ 
+ Infectious, log & 0.567$^{***}$ & 0.582$^{***}$ & 0.581$^{***}$ & 0.579$^{***}$ \\ 
+  & (0.041) & (0.034) & (0.029) & (0.029) \\ 
+  & & & & \\ 
+ Susceptible, log & 6.724 & 2.749 & 2.743 & 4.552 \\ 
+  & (6.892) & (8.490) & (10.859) & (10.134) \\ 
+  & & & & \\ 
+ State of Emergency & 0.044 & 0.117 & 0.116 & 0.127 \\ 
+  & (0.194) & (0.216) & (0.242) & (0.242) \\ 
+  & & & & \\ 
+ Tests (1 week lag), log & 0.043$^{*}$ & 0.047$^{*}$ & 0.048$^{*}$ & 0.047$^{*}$ \\ 
+  & (0.021) & (0.021) & (0.023) & (0.023) \\ 
+  & & & & \\ 
+ Customers per restaurant, log &  & 0.375 & 0.342 & 0.380 \\ 
+  &  & (0.450) & (0.466) & (0.462) \\ 
+  & & & & \\ 
+ Average temperature, log &  &  & 0.378 & 0.375 \\ 
+  &  &  & (0.423) & (0.427) \\ 
+  & & & & \\ 
+ Average rainfall, log &  &  & $-$0.010 & $-$0.009 \\ 
+  &  &  & (0.120) & (0.119) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Prefecture FE & X & X & X & X \\ 
+Week FE & X & X & X & X \\ 
+Observations & 402 & 402 & 402 & 402 \\ 
+R$^{2}$ & 0.932 & 0.932 & 0.932 & 0.932 \\ 
+Adjusted R$^{2}$ & 0.916 & 0.916 & 0.916 & 0.916 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
