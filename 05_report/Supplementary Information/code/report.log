@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.25)  25 JAN 2022 18:07
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.25)  25 JAN 2022 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,20 +881,98 @@ Overfull \hbox (23.55188pt too wide) in paragraph at lines 435--435
 []|\TU/lmr/m/n/12 Ibaraki|  
  []
 
-[15] [16] (./report.aux)
+[15] [16] [17] [18] [19]
+Overfull \hbox (71.109pt too wide) in paragraph at lines 742--746
+\TU/lmr/m/n/12 __________________________________________________________ 
+ []
+
+[20]
+Overfull \hbox (110.20502pt too wide) in paragraph at lines 817--819
+[]\TU/lmr/m/n/12 Describe in detail: _______________________________________________________ 
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 833--838
+\TU/lmr/m/n/12 infections. []$[][][][][] [] [] [] [][][][] [] [][][] [] [][] [] [][] [] [][][][] [] [][][][][][][] [] [][][][][][][][][][][] [] [][][][][][][][][][] [] [][][][][] []
+ []
+
+[21]
+Underfull \hbox (badness 1259) in paragraph at lines 846--850
+[]\TU/lmr/m/n/12 Agoop Corp. Population flow data. []$[][][][][] [] [] [] [][][] [] [][][][][] [] [][] [] [][] [] [][][][][][][] [] [][][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 868--873
+[]\TU/lmr/m/n/12 Nihon Keizai Shimbun. Yamanashi tops the list with 98% of restaurants
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 868--873
+\TU/lmr/m/n/12 certified; 7 prefectures have less than 10%. []$[][][][][] [] [] [] [][][] [] [][][][][][] [] [][][] [] [][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 6094) in paragraph at lines 903--908
+\TU/lmr/m/n/12 coronavirus. []$[][][][][] [] [] [] [][][] [] [][][][] [] [][][][][][] [] [][][][][][] [] [][] [] [][][][] [] [][][][][][][] [][] [][][][] [] [][][][][][] [] [][][][]$[].
+ []
+
+[22]
+Missing character: There is no 【 (U+3010) in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no 】 (U+3011) in font [lmroman12-regular]:mapping=tex-text;!
+
+Underfull \hbox (badness 1248) in paragraph at lines 933--938
+[]\TU/lmr/m/n/12 Nihon Keizai Shimbun. City subsidizes lunch box delivery by cab in Mae-
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 933--938
+\TU/lmr/m/n/12 bashi, taking advantage of deregulation. []$[][][][][] [] [] [] [][][] [] [][][][][][] [] [][][] [] [][][][][][][] []
+ []
+
+
+Overfull \hbox (25.81848pt too wide) in paragraph at lines 938--943
+\TU/lmr/m/n/12 corona infection. []$[][][][][] [] [] [] [][][] [] [][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[].
+ []
+
+
+Overfull \hbox (6.23448pt too wide) in paragraph at lines 992--997
+\TU/lmr/m/n/12 ness hours. []$[][][][][] [] [] [] [][][] [] [][][][][][] [] [][][] [] [][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[].
+ []
+
+[23]
+Underfull \hbox (badness 2970) in paragraph at lines 1018--1023
+\TU/lmr/m/n/12 from events, corona measures. []$[][][][][] [] [] [] [][][][] [] [][][] [] [][] [] [][] [] [][][][] [] [][][][] [] [][][][][][][][] []
+ []
+
+
+Overfull \hbox (16.33057pt too wide) in paragraph at lines 1072--1077
+\TU/lmr/m/n/12 ture. []$[][][][][] [] [] [] [][][] [] [][][][] [] [][][][][][][] [] [][] [] [][][][][][][] [] [][][][] [][] [][][][] [] [][][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+[24]
+Underfull \hbox (badness 2277) in paragraph at lines 1082--1087
+[]\TU/lmr/m/n/12 Ibaraki Prefecture. List of Governor’s press conferences in 2020 regarding
+ []
+
+
+Underfull \hbox (badness 6542) in paragraph at lines 1082--1087
+\TU/lmr/m/n/12 the “novel coronavirus infection.” []$[][][][][] [] [] [] [][][] [] [][][][] [] [][][][][][][] [] [][] [] [][][][][][][] [] [][][][] [][]
+ []
+
+[25] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: D4414C62DB8DB926EF9B5577222067E8;4886.
+(rerunfilecheck)             Checksum: 5E9BF2681FB848E924470971B0326C12;10313.
  ) 
 Here is how much of TeX's memory you used:
- 17213 strings out of 478190
- 319444 string characters out of 5853397
- 870673 words of memory out of 5000000
- 37566 multiletter control sequences out of 15000+600000
+ 17229 strings out of 478190
+ 320370 string characters out of 5853397
+ 875121 words of memory out of 5000000
+ 37582 multiletter control sequences out of 15000+600000
  475672 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,12n,121p,434b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,12n,121p,1357b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (16 pages).
+Output written on report.pdf (25 pages).

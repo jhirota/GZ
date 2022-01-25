@@ -136,3 +136,192 @@ Notes: Prepared by the authors with reference to prefectures' press releases and
 | Ibaraki   | April 18 - May 17<br>(bars and nightclubs only)                                                                                             | November 30 - December 20, January 6 - 17<br>(in specified cities)<br>January 18 - February 22<br>(entire Prefecture) | April 22 - June 16<br>(in specified cities)                      |
 Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 31-59). 
 
+## E.4 GZ Certification criteria 
+Standards pertaining to measures for prevention of infectious diseases (Restaurant industry)
+
+### E.4.1. Prevention of infectious diseases among visitors
+(1) Store entry, order, and payment
+* Disinfection equipment shall be installed at the entrance of the store, and hand sanitization shall be indicated at the entrance.
+* When there is a queue due to waiting for a turn, etc., a minimum distance of 1 meter (2 meters if no mask is worn) shall be maintained between visitors.
+* When serving customers face-to-face at the cash register, etc., use acrylic panels, transparent vinyl curtains, partitions, etc. to shield the customers. In addition, use coin trays or introduce cashless payment.
+* Those with fever (e.g., 1 degree above normal), cold symptoms (e.g., cough, sore throat), vomiting, diarrhea, etc., even if they have mild symptoms, should not be admitted.
+* Make it known that people should wear masks except when eating or drinking, and request that people wash their hands and disinfect their hands regularly.
+* Remind people to practice good cough etiquette.
+* If there is an elevator, limit the number of passengers by adjusting the weight sensor of the elevator.  Capacity:____, Passenger limit:___
+* If there is a pick-up truck, shield the driver's seat and rear seat of the pick-up truck with an acrylic plate or transparent vinyl curtain.
+
+(2) Meals and in-store use
+
+---
+
+[One of these must be met for placement between tables] 
+
+* Tables used by the same group and tables used by other groups should be placed so that there is at least 1 meter of interpersonal distance between them. 
+  + Table-to-table distance: ___ m 
+* Use acrylic panels, transparent plastic curtains, partitions, etc. to shield the space between tables used by the same group and tables used by other groups.
+
+---
+
+---
+
+[One of the following conditions must be met for placement on the same table]
+
+Exclude cases where a small number of family members, elderly people with caregivers, infants, disabled people, etc. wish to sit face-to-face.
+
+* Do not place seating directly in front of each other. Seating should be arranged so that the distance between seats is at least 1 meter. Seat-to-seat distance: ___m.
+* Install partitions on tables to shield them.
+---
+* Avoid having too many people at the same time by limiting the length of stay* and using a reservation system. (*Approximately 2 hours).
+* Avoid large plates and serve food individually, or have employees serve the food.
+---
+[In buffet style, one of the following must be met] 
+* A new small plate should be used by each user for each serving, and food and drinks should be protected by covers to prevent splashing, and masks, disposable gloves, etc. should be worn when serving. When serving, make sure to wear masks, disposable gloves, etc., and do not share tongs or chopsticks for serving.
+* Serve food on small plates or have staff serve food.
+---
+* Avoid setting up common tabletop condiments, pots, etc., or disinfect them when changing customers.
+* Remind customers not to share or use spoons, chopsticks, or other utensils.
+* Reduce the volume of background music in the store and remind customers to avoid loud conversations.
+* Coughing etiquette should be strictly observed. (For ventilation standards, see "3. Hygiene Management of Facilities and Equipment" for ventilation standards).
+If the toilet has a lid, indicate that waste should be flushed after the lid is closed.
+* Indicate that people should wash their hands and disinfect their hands after using the restroom.
+* If there is a smoking area, reduce the number of people using it at one time, and keep a distance between people. If there is a smoking area, request that the three densities be avoided by reducing the number of people using the area at once, keeping a good distance between people, etc.
+  + Size of the smoking space: _____ $m^2$   Maximum capacity: _____
+
+### E.4.2. Prevention of infectious diseases among employees
+
+* Make sure to wear masks.
+* Take your temperature and check your physical condition before starting work.
+* If there are multiple rooms, limit per smoking space. If you have a fever (e.g., more than 1 degree above normal), a cold (cough, sore throat, etc.), vomiting, diarrhea, or other symptoms, even if they are mild. symptoms such as vomiting or diarrhea.
+* Employees who are infected or suspected to be infected, or who are judged to be in close contact with infected employees, are prohibited from working. Employees who are infected, suspected to be infected, or determined to be a close contact shall not be allowed to work.
+* Hand disinfection and hand washing are to be performed regularly at the beginning of work, after touching areas or items that come into contact with others, after cleaning, and after using the toilet.
+* When accepting orders from users or serving food, be careful not to stand in front of users and maintain a safe distance from them.
+* In the break area, reduce the number of people taking a break at one time, and avoid eating and talking face-to-face.
+* Ventilate the break area at all times (for ventilation standards, refer to "3. Thorough hygiene management of facilities and equipment”) and disinfect shared items on a regular basis.
+* Employees' uniforms should be laundered regularly after work on the day in question.
+  + Frequency of uniform washing: ________
+
+### E.4.3. Thorough hygiene management of facilities and equipment
+
+* For facilities subject to the Building Management Law*, check whether they meet the standards for air quality control based on the law, and if not, maintain and manage the ventilation equipment appropriately, including cleaning and maintenance.
+  + * Law Concerning the Protection of Sanitary Environments in Buildings
+
+---
+
+ [For facilities not covered by the Building Management Law, one of the following must be met] 
+
+* The required ventilation volume (30 m³ per hour per person) shall be secured by ventilation equipment. If the required ventilation volume is not enough, the ventilation system shall be installed.
+* If the required ventilation volume is not sufficient, adjust the number of people entering the store to secure the required ventilation volume per person, and properly maintain the ventilation equipment, including cleaning and maintenance.
+* For ventilation by opening windows, open all windows in two directions (or open the door if there is only one window) once every 30 minutes for about 5 minutes to ensure sufficient ventilation. 
+
+---
+
+---
+
+[Appeal items] This is not a mandatory requirement for certification, but it is an item that can be appealed as a voluntary effort by the business.
+
+* The details of ventilation (air flow) in common areas where people are crowded in the facility are clearly shown.
+* In order to secure the required amount of ventilation per person in a densely populated common area in the facility, the ventilation system should be designed for each area.
+  + (In the case of limiting the number of persons to ensure the required ventilation volume) Ventilation volume: $m^3$/hour ÷ 30 $m^3$/person/hour = ___person
+---
+* Prohibit the use of hand dryers and common towels, and provide paper towels or encourage the use of personal towels.
+* Wipe down and disinfect items shared with others and areas that are touched by multiple people regularly, such as when changing users, using disinfecting ethanol, sodium hypochlorite, or commercially available detergents containing surfactants.
+  + [areas shared with others in the restaurant industry and frequently touched]
+    - Tables, chairs, menu books, condiments, drink bars, doorknobs, light switches, touch panels, tabletop bells, cash registers, faucets, handrails, toilet seats, washing levers, coin trays, ticket vending machines, elevator buttons, etc.
+---
+[Appeal items]
+* In order to reduce the risk of contact and droplet infections, the following measures should be taken to avoid overlapping lines of flow for users.
+Describe in detail: __________________________________________________________
+
+---
+
+* Those who collect garbage should wear masks and gloves, and always wash their hands after work.
+* Garbage, hand towels, etc. that may have food residue, snot, saliva, etc. on them should be sealed in plastic bags. sealed in a plastic bag for disposal.
+
+
+### E.4.4. Preparation and publication of checklists
+
+* Each facility or business operator shall prepare a checklist that specifies specific methods and procedures, frequency of cleaning and disinfection, spacing between people, etc., after assessing the risks in the facility, and disclose the daily checks using the checklist.
+
+
+### E.4.5. Policy for dealing with an outbreak of infection
+
+* In the event that an employee of the facility is found to be infected, the facility will respond and cooperate with the public health center's instructions and investigations in a sincere and proactive manner, take measures to prevent the spread of infection from the facility, and if necessary, publicize information to prevent the spread of infection, such as business days when there is a possibility of infection.
+* Provide employees with training opportunities to ensure that they are taking appropriate actions to prevent the spread of infection, such as refraining from going to work if they are suspected of being infected until the test results are known.
+* If the results of a proactive epidemiological survey conducted by the public health center reveal that an infected person has been using the facility in question, take measures to prevent the spread of infection through the facility in question by responding and cooperating with the public health center's advice and instructions in good faith and proactively.
+
+---
+
+[Appeal Items]
+
+* In order to identify the risk of infection at an early stage, employees should be encouraged or required to use an application for notification of close contact provided by the government. 
+* In addition to the above, introduce a system for early identification of infection risk.
+
+Describe in detail: _______________________________________________________
+
+---
+
+
+## Reference
+
+1. Tottori Prefecture. Progress of the government's response. Special site for novel coronavirus infections. https://www.pref.tottori.lg.jp/289733.htm. (2021). 
+2. NHK. Record of all COVID-19 related articles. Special site for novel coronavirus infections. https://www3.nhk.or.jp/news/special/coronavirus/chronology/?mode=all&target=202003. (2021). 
+3. Yamanashi Prefecture. Statistical information on new coronavirus infections (outbreaks, testing status, number of consultations). https://www.pref.yamanashi.jp/koucho/coronavirus/info_coronavirus_emergencymeasures18.html. (2021).
+4. Cabinet Office, Government of Japan. V-RESAS. https://v-resas.go.jp/. (2021). 
+5. Agoop Corp. Population flow data. https://www.agoop.co.jp/service/dynamic-population-data/. (2021). 
+6. Google. COVID-19 community mobility reports. https://www.google.com/covid19/mobility/. (2020). 
+7. Japan Meteorological Agency. Past weather data search. https://www.data.jma.go.jp/obd/stats/etrn/. (2022). 
+8. Mizuno Laboratory. COVID-19 special site: Visualizing the stay-home rate. National Institute of Informatics, Sendai. http://research.nii.ac.jp/~mizuno/covid19.html. (2022). 
+9. Japan Statistics Bureau. 2014 Census. (2014).
+10. Japan Statistics Bureau. 2019 Census. (2019).
+11. Geospatial Information Authority of Japan. Distances between prefectural offices. https://www.gsi.go.jp/common/000195510.pdf. (2018).
+12. Nihon Keizai Shimbun. Yamanashi tops the list with 98% of restaurants certified; 7 prefectures have less than 10%. https://www.nikkei.com/article/DGXZQOCC144570U1A011C2000000/. (2021).
+13. Yamanashi Prefecture. Applying for certification. https://greenzone-ninsho.jp/apply/index.html. (2021).
+14. Hojokin Portal. Yamanashi Prefecture: Support for purchasing equipment to promote new lifestyles. https://hojyokin-portal.jp/subsidies/7115. (2021). 
+15. Toru City. Grant to support the catering industry in Toru City. https://www.city.tsuru.yamanashi.jp/soshiki/sangyo/shoko_t/6/11538.html. (2021).
+16. Kofu City. Ganbarou, Kofu! Delivery support grant (Kofu City food delivery service introduction support grant). https://www.city.kofu.yamanashi.jp/shoko/kofutakuhai/takuhai.html. (2021). 
+17. Shizuoka Prefecture. Subsidy for projects to promote the Fuji-no-Kuni Safety and Security Certification System  (restaurants). http://www.pref.shizuoka.jp/kinkyu/covid-19-anzen_anshin_ninsyo_hozyo.html. (2021). 
+18. Nihon Keizai Shimbun. novel coronavirus disease, Shizuoka Prefecture to subsidize small and medium-sized businesses for home delivery. https://www.nikkei.com/article/DGXMZO58203360X10C20A4L61000/. (2020). 
+19. Tochigi Prefecture. Tochigi Prefecture subsidy for supporting measures against infectious diseases at local companies. https://www.tochigi-kansentaisaku.com/. (2021). 
+20. Nagano City. About subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+21. Nagano Prefecture. Droplet prevention panels (acrylic panels) will be distributed free of charge to restaurants. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+22. Nagano Prefecture. About the “Support Project for Countermeasures against the Novel Coronavirus in the Restaurant and Service Industry.” https://www.pref.nagano.lg.jp/eigyo/ouenhojokin.html. (2021).
+23. Nagano City. Subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+24. Maebashi City. 【Registration Closed】FY2021 Maebashi City New Normal Support Subsidy. https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/nigiwaishogyo/shinseisho/30394.html. (2020).
+25. Itakura Town. FY2021 2nd Stop Corona in Itakura Town! Incentives for stores certified to take countermeasures. http://www.town.itakura.gunma.jp/cont/s021000/d021010/20201215141115.html. (2021). 
+26. Nihon Keizai Shimbun. City subsidizes lunch box delivery by cab in Maebashi, taking advantage of deregulation. https://www.nikkei.com/article/DGXMZO58728450R00C20A5L60000/. (2020). 
+27. Nihon Keizai Shimbun. Ibaraki Prefecture begins patrolling restaurants to prevent new corona infection. https://www.nikkei.com/article/DGXZQOCC14D990U1A410C2000000/. (2021).
+28. Hojokin Portal. Ibaraki Prefecture: Ibaraki Amabie-chan Business Registration Cooperation Fund. https://hojyokin-portal.jp/subsidies/7970. (2020).
+29. Hojokin Portal. Ibaraki Prefecture, Mito City: Delivery Service Emergency Relief Fund. https://hojyokin-portal.jp/subsidies/5293. (2020). 
+30. Hojokin Portal. Kashima City, Ibaraki Prefecture: Kashima City cooperative fund for countermeasures against new coronavirus infection (restaurant business, lodging business, cab, driving agency, sightseeing bus, travel business). https://hojyokin-portal.jp/subsidies/5306. (2020).
+31. Yamanashi Prefecture. Emergency measures in Yamanashi Prefecture to prevent the spread of new coronavirus infection. https://www.pref.yamanashi.jp/koucho/coronavirus/documents/measure_200419.pdf. (2020).
+32. Yamanashi Prefecture. FY2020 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r2.html. (2020).
+33. Yamanashi Prefecture. FY2021 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r3.html. (2021). 
+34. Yamanashi Prefecture. Request to shorten business hours for restaurants, etc. https://www.pref.yamanashi.jp/library_documents/insyokuten2.pdf. (2021). 
+35. Shizuoka Prefecture. Requests based on Article 24, Paragraph 9 of the Act on Special Measures against Pandemic Influenza, etc. https://www.pref.shizuoka.jp/kinkyu/covid-19-kyuugyouyousei.html. (2020).
+36. Shizuoka Prefecture. Message from Governor Kawakatsu to the People of the Prefecture. https://www.pref.shizuoka.jp/kinkyu/covid-19-tijikomennto.html. (2021). 
+37. Shizuoka Prefecture. Status of response to new coronavirus infections. http://www.pref.shizuoka.jp/bousai/event/documents/shiryou5.pdf. (2020). 
+38. Tokyo Shimbun. Shizuoka Prefecture asks Fuji City to shorten working hours from April 23, the first time in the prefecture under the special measures law. https://www.tokyo-np.co.jp/article/75871. (2020). 
+39. Nikkei Shimbun. Shizuoka Prefecture to ask restaurants in Kosai City to shorten business hours. https://www.nikkei.com/article/DGXZQOCC176WW0X10C21A5000000/. (2021). 
+40. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/20020427kinkyuujitaisochigaiyou.pdf. (2020). 
+41. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/kinkyujitaisoti05070510.pdf. (2020). 
+42. Tochigi Prefecture. List of facilities subject to facility use restrictions. https://www.pref.tochigi.lg.jp/e04/documents/20200427taisyousisetsu.pdf. (2020). 
+43. Tochigi Prefecture. Message from the Governor to the Citizens of the Prefecture and Others in Response to the Extension of the Period of the National Emergency Declaration. https://www.pref.tochigi.lg.jp/e04/r020507chijimesseiji.html. (May 5, 2020).
+44. NHK. Tochigi Prefecture to lift all requests for closure, no request to refrain from events, corona measures. https://www3.nhk.or.jp/news/html/20200515/k10012432051000.html. (May 15, 2020). 
+45. Shimotsuke Shimbun. Tochigi Prefecture declares state of emergency, urges restaurants to shorten hours across the region: governor “It is the last resort.” https://www.shimotsuke.co.jp/articles/-/406600. (January 14, 2021). 
+46. Tochigi Prefecture. Message from the Governor on Preventing the Spread of Infections after Emergency Measures (February 4). https://www.pref.tochigi.lg.jp/e04/20210204chijimesse-ji.html. (2021). 
+47. Nagano Prefecture. List of FY2020 Governor's Press Conference. https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2020/index.html. (2020). 
+48. Chunichi Shimbun. Nagano Prefecture raises alert level to 5 in Iida City, asks restaurants to shorten hours. https://www.chunichi.co.jp/article/186685. (January 17, 2021).
+49. Chunichi Shimbun. Nagano Prefecture asks Matsumoto City to close restaurants and shorten working hours, and Hakuba Village is on "5" alert.  https://www.chunichi.co.jp/article/189000. (January 21, 2021). 
+50. NHK. Nagano Prefecture to ask restaurants and other establishments in Nagano City to shorten hours or close April 2-9. https://www3.nhk.or.jp/news/html/20210331/k10012948491000.html. (March 31, 2021). 
+51. Gunma Prefecture. Emergency Measures in Gunma Prefecture to Prevent the Spread of New Coronavirus Infection. https://www.pref.gunma.jp/contents/100152402.pdf. (2020). 
+52. Gunma Prefecture. FY2020 Governor’s press conferences. https://www.pref.gunma.jp/chiji/z90g_00188.html. (2020). 
+53. Gunma Prefecture. FY2021 Governor’s press conferences. https://www.pref.gunma.jp/chiji/o7000001.html. (2021). 
+54. Jomo Shimbun. Gunma Prefecture's own guidelines for lifting the suspension of operations: Four-step decision-making process based on internal and external conditions. https://www.jomo-news.co.jp/articles/-/21226. (May 12, 2020). 
+55. Jomo Shimbun. Restaurants in five cities in Gunma Prefecture asked to refrain from operating after 10 p.m. https://www.jomo-news.co.jp/articles/-/18894. (December 11, 2021). 
+56. Ibaraki Prefecture. New Coronavirus Infection Emergency measures in Ibaraki Prefecture. https://www.pref.ibaraki.jp/1saigai/2019-ncov/documents/200417kinkyujitaisochi.pdf. (2020).
+57. Ibaraki Prefecture. Changes in the Ibaraki version of Corona Next Stage. https://www.pref.ibaraki.jp/1saigai/2019-ncov/stagesuii.html. (2020-2021). 
+58. Ibaraki Prefecture. List of Governor’s press conferences in 2020 regarding the “novel coronavirus infection.” https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2020.html. (2020)
+59. Ibaraki Prefecture. List of Governor's press conferences (related to the novel coronavirus infection). https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2.html. (2021).
+60. Yamanashi Prefecture. Standards pertaining to measures to prevent infectious diseases (restaurant industry). (2020).
+
+
