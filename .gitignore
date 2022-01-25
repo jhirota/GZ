@@ -5,7 +5,6 @@
 
 # Private directory
 00_cover/
-05_report/
 
 # DS_Store and swp
 *.DS_Store
@@ -31,6 +30,7 @@ GZlist_mapping/
 Case_positive_plot/
 Covid_reg/
 Covid_reg_papilio/
+Covid_reg_postas/
 infectious_plot/
 04_analyze/weekSIR/
 Covid_reg_papilio_infectious/

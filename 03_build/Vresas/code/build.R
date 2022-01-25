@@ -42,10 +42,9 @@ VRmob <- rbind(clean_mob(Yamanashi_mob),
                                   栃木県全体 = "Tochigi",
                                   群馬県全体 = "Gunma",
                                   長野県全体 = "Nagano",
-                                  静岡県全体 = "Shizuoka"))) %>% 
-  mutate(weeknum = rep(1:93, 6))
+                                  静岡県全体 = "Shizuoka")),
+         weeknum = rep(1:93, 6))
 
-write_csv(VRmob, "03_build/Vresas/output/VRESAS_mobility.csv")
 
 #data clean restaurant ------
 
@@ -54,7 +53,7 @@ clean_res <- function(data){
     rename(pref = 1,
            week_JP = 2,
            kind = 3,
-           ratio = 4) %>% 
+           resview = 4) %>% 
     filter(kind == "すべて") %>% 
     select(-kind)
 
@@ -67,17 +66,24 @@ VRres <- rbind(clean_res(Yamanashi_res),
                clean_res(Tochigi_res), 
                clean_res(Nagano_res), 
                clean_res(Shizuoka_res)) %>% 
+  arrange(pref) %>% 
   mutate(pref = str_replace_all(pref,
                                 c(山梨県全体 = "Yamanashi",
                                   茨城県全体 = "Ibaraki",
                                   栃木県全体 = "Tochigi",
                                   群馬県全体 = "Gunma",
                                   長野県全体 = "Nagano",
-                                  静岡県全体 = "Shizuoka"))) %>% 
-  pivot_wider(names_from = "pref",
-              values_from = "ratio")
+                                  静岡県全体 = "Shizuoka")),
+         weeknum = rep(1:93, 6)) 
   
+# data merge -------
 
-write_csv(VRres, "03_build/Vresas/output/restaurant_all_genre.csv")
+VRESASdata <- left_join(VRmob, VRres,
+                        by = c("pref", "weeknum", "week_JP")) %>% 
+  mutate(treat = if_else(pref == "Yamanashi",
+                         "Yamanashi",
+                         "Neighboring_prefs"))
+
+write_csv(VRESASdata, here::here("03_build/Vresas/output/VRESAS.csv"))
 
 

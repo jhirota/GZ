@@ -70,5 +70,8 @@ weather_pref <- rbind(weatherclean(weather2019) %>%
   summarise(avg_temp = mean(temp),
             avg_rain = mean(rain))
 
-write_csv(weather_pref, "03_build/Weather/output/weather_pref.csv")
+write_csv(weather_pref, here::here("03_build/Weather/output/weather_pref.csv"))
+
+
+
 

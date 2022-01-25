@@ -8,10 +8,10 @@ postas <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京�
 postas.cus <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京大学公共政策大学院データ提供.xlsx"),2)
 # postas4 <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京大学公共政策大学院データ提供.xlsx"),3)
 # postas.cus4 <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京大学公共政策大学院データ提供.xlsx"),4)
-wdata <- read_csv(here::here("03_build/Weather/output/weather data 6pref 2019_final.csv"))
-wloc <- read_csv(here::here("03_build/Weather/output/weather_location.csv"))
-pref_covid <- read_csv(here::here("03_build/Pref_covid/output/pref_bet_day_COVID_GZ.csv"))
-dummy <- read_excel(here::here("02_bring/Dummy_vars/data/Dummies_edited1115.xlsx"))
+wdata <- read_csv(here::here("02_bring/Weather/data/weather data 6pref 2019_final.csv"))
+wloc <- read_csv(here::here("02_bring/Weather/data/weather_location.csv"))
+GZ_daily <- read_csv(here::here("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.csv"))
+dummy <- read_excel(here::here("02_bring/Dummy_vars/data/Dummies_edited0125.xlsx"))
 
 #postas cleaning ------
 
@@ -65,7 +65,12 @@ postas.cus2_week <- postas.cus2 %>%
   ungroup()
 
 
-#postas data merge --------
+#postas data merge and clean --------
+
+C2F <- function(c){
+  f <- (9/5) * c + 32
+  return(f)
+}
 
 weekSIR2 <- weekSIR %>%
   left_join(postas2_week,
@@ -85,7 +90,8 @@ weekSIR2 <- weekSIR %>%
                                    pref == "Tochigi" ~ customers / 58,
                                    pref == "Ibaraki" ~ customers / 86,
                                    pref == "Nagano" ~ customers / 68,
-                                   pref == "Shizuoka" ~ customers / 116))
+                                   pref == "Shizuoka" ~ customers / 116),
+         avg_temp = C2F(avg_temp))
 
 
 write_csv(weekSIR2, here::here("03_build/Postas/output/weekSIR2.csv"))
@@ -97,7 +103,8 @@ Prefs <- c("Gunma", "Ibaraki", "Yamanashi", "Tochigi", "Nagano", "Shizuoka")
 postas_week <- postas2_week %>% 
   left_join(postas.cus2_week,
             by = c("week", "pref")) %>% 
-  filter(pref %in% Prefs) %>% 
+  filter(pref %in% Prefs,
+         week <= "2021-04-30") %>% 
   mutate(treat = if_else(pref == "Yamanashi",
                          "Yamanashi",
                          "Neighboring_prefs"),
@@ -112,7 +119,11 @@ postas_week <- postas2_week %>%
                                    pref == "Tochigi" ~ customers / 58,
                                    pref == "Ibaraki" ~ customers / 86,
                                    pref == "Nagano" ~ customers / 68,
-                                   pref == "Shizuoka" ~ customers / 116))
+                                   pref == "Shizuoka" ~ customers / 116)) %>% 
+  group_by(treat, week) %>% 
+  summarize(across(c("sales_per", "customers_per"),
+                   mean)) %>%
+  ungroup()
 
 write_csv(postas_week, here::here("03_build/Postas/output/postas_2019_2021.csv"))
 
@@ -132,11 +143,10 @@ weatherfinal <- rbind(wdata %>% rename(sum_rain = 5),
   ungroup() %>% 
   rename(avg_rain = sum_rain) 
 
-pref_covid <- pref_covid %>% 
+GZ_daily <- GZ_daily %>% 
   select(date, pref, newcase_day, total_case, newdeath_day, total_death, emergency, GZnew, cumGZ, newcaseday14) 
 
 
-##ここから再開
 NA20 <- function(x){
   newx <- replace_na(x , 0)
   return(newx)
@@ -145,14 +155,15 @@ NA20 <- function(x){
 postas_day <- left_join(postas2,
                         postas.cus2,
                         by = c("date", "pref")) %>% 
-  filter(pref %in% Prefs) %>% 
+  filter(pref %in% Prefs,
+         date <= "2021-04-30") %>% 
   select(date, pref, sales, customers) %>% 
   left_join(weatherfinal,
             by = c("date", "pref")) %>% 
-  left_join(pref_covid,
+  left_join(GZ_daily,
             by = c("date", "pref")) %>% 
   mutate_at(vars(7:14), NA20) %>% 
-  mutate(avg_temp_q = avg_temp^2,
+  mutate(avg_temp = C2F(avg_temp),
          lsales = log(sales),
          lcustomers = log(customers),
          sales_per = case_when(pref == "Yamanashi" ~ sales / 18,
@@ -170,13 +181,11 @@ postas_day <- left_join(postas2,
 
 
 
-# newdummy
+# new dummy variables -----
 dummy <- dummy %>% 
   rename(pref = Pref,
          date = day) %>% 
-  mutate(date = as.Date(date)) %>% 
-  mutate_if(is.character, 
-            str_replace_all, pattern = "Ibaraki", replacement = "Ibaragi")
+  mutate(date = as.Date(date)) 
 
 # data merge
 
@@ -200,16 +209,13 @@ postas_week2 <- postas_day %>%
                    mean),
             across(c(sales, customers),
                    sum)) %>% 
-  mutate(avg_temp_q = avg_temp^2) %>% 
+  mutate(avg_temp = C2F(avg_temp)) %>% 
   ungroup() %>% 
   left_join(weekSIR2 %>% select(week, pref, newcase_day, GZnew, cumGZ, emergency),
             by = c("week", "pref")) %>% 
-  mutate_at(vars(8:11), NA20)
+  mutate_at(vars(7:10), NA20)
     
 
 
 write_csv(postas_week2, "03_build/Postas/output/postas_weekly_data.csv")
-
-
-
 

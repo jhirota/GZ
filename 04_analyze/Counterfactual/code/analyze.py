@@ -24,9 +24,9 @@ fit2 = fit2['2020-03-01':'2021-04-30']
 # Plot
 fig, ax = plt.subplots()
 plt.xticks(rotation=45)
-ax.plot(cofa2.index, cofa2['Sales']/10000)
-ax.plot(obs2.index, obs2['Sales']/10000)
-ax.plot(fit2.index, fit2['Sales']/10000, color = "#fcc765")
+ax.plot(cofa2.index, cofa2['sales']/10000)
+ax.plot(obs2.index, obs2['sales']/10000)
+ax.plot(fit2.index, fit2['sales']/10000, color = "#fcc765")
 ax.axvline(pd.to_datetime('2020-07-17'), color='green', linestyle='dashed', lw=2)
 ax.text(pd.Timestamp("2020-07-25"), 40, "The GZ certification \n system started.", color = 'green')
 plt.legend(['The counterfactual scenario', "The actual sales", "The fitted value of the model"], loc='lower center')
@@ -38,7 +38,7 @@ plt.savefig("04_analyze/Counterfactual/output/cofa_sales.png", format="png", dpi
 # Counterfactual of Infection Prevention Effects ---------
 
 # Data load
-YamanashiTrendcovid = pd.read_csv("03_build/Counterfactual/output/cofa_covid2.csv")
+YamanashiTrendcovid = pd.read_csv("03_build/Counterfactual/output/cofa_covid.csv")
 YamanashiTrendcovid['week'] = pd.to_datetime(YamanashiTrendcovid['week'])
 
 # Data clean
