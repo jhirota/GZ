@@ -2,7 +2,8 @@
 \begin{table}[!htbp] \centering 
   \caption{The COVID-19 new infection cases (2 week lag) and the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\scriptsize 
+\begin{tabular}{@{\extracolsep{1pt}}lccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
@@ -10,47 +11,62 @@
 \\[-1.8ex] & \multicolumn{5}{c}{New infection cases (2 week lag), log} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
 \hline \\[-1.8ex] 
- Cumulative GZ-certified restaurants, log & $-$0.083$^{***}$ & $-$0.108$^{**}$ & $-$0.104$^{**}$ &  & $-$0.128$^{***}$ \\ 
-  & (0.015) & (0.030) & (0.030) &  & (0.029) \\ 
+ Cumulative GZ-certified restaurants, log & $-$0.088$^{***}$ & $-$0.105$^{***}$ & $-$0.107$^{***}$ &  & $-$0.126$^{***}$ \\ 
+  & (0.015) & (0.024) & (0.025) &  & (0.028) \\ 
   & & & & & \\ 
- Cumulative GZ-certified restaurants and hotels, log &  &  &  & $-$0.099$^{**}$ &  \\ 
-  &  &  &  & (0.027) &  \\ 
+ Cumulative GZ-certified restaurants and hotels, log &  &  &  & $-$0.104$^{***}$ &  \\ 
+  &  &  &  & (0.024) &  \\ 
   & & & & & \\ 
- Infectious, log & 0.557$^{***}$ & 0.573$^{***}$ & 0.566$^{***}$ & 0.564$^{***}$ & 0.561$^{***}$ \\ 
-  & (0.042) & (0.037) & (0.033) & (0.033) & (0.036) \\ 
+ Infectious, log & 0.558$^{***}$ & 0.569$^{***}$ & 0.566$^{***}$ & 0.565$^{***}$ & 0.544$^{***}$ \\ 
+  & (0.048) & (0.045) & (0.040) & (0.040) & (0.042) \\ 
   & & & & & \\ 
- Susceptible, log & 5.477 & $-$0.021 & 2.941 & 4.963 & $-$8.109 \\ 
-  & (6.643) & (7.455) & (6.841) & (6.193) & (6.516) \\ 
+ Susceptible, log & $-$45.353 & $-$45.843 & $-$44.997 & $-$61.487 & 32.518 \\ 
+  & (69.254) & (92.506) & (89.342) & (82.870) & (121.902) \\ 
   & & & & & \\ 
- State of Emergency & 0.048 & 0.156 & 0.095 & 0.108 & $-$0.105 \\ 
-  & (0.230) & (0.217) & (0.198) & (0.196) & (0.212) \\ 
+ State of Emergency & 0.030 & 0.141 & 0.085 & 0.096 & $-$0.183 \\ 
+  & (0.223) & (0.198) & (0.180) & (0.180) & (0.200) \\ 
   & & & & & \\ 
- Tests (2 week lag), log & 0.045$^{*}$ & 0.049$^{*}$ & 0.046$^{*}$ & 0.046$^{*}$ & 0.053$^{**}$ \\ 
-  & (0.021) & (0.022) & (0.020) & (0.020) & (0.019) \\ 
+ Tests (2 week lag), log & 0.047$^{*}$ & 0.051$^{*}$ & 0.049$^{**}$ & 0.050$^{**}$ & 0.052$^{**}$ \\ 
+  & (0.021) & (0.021) & (0.019) & (0.019) & (0.018) \\ 
   & & & & & \\ 
- Customers per restaurant, log &  & 0.550 & 0.522 & 0.568 & 0.637 \\ 
-  &  & (0.443) & (0.469) & (0.461) & (0.482) \\ 
+ Customers per restaurant, log &  & 0.550 & 0.548 & 0.612 & 0.540 \\ 
+  &  & (0.419) & (0.449) & (0.446) & (0.480) \\ 
   & & & & & \\ 
- Average temperature, log &  &  & $-$0.341 & $-$0.350 & $-$0.301 \\ 
-  &  &  & (0.503) & (0.495) & (0.542) \\ 
+ Average temperature, log &  &  & $-$0.342 & $-$0.344 & $-$0.317 \\ 
+  &  &  & (0.470) & (0.466) & (0.501) \\ 
   & & & & & \\ 
- Average rainfall, log &  &  & $-$0.110 & $-$0.108 & $-$0.108 \\ 
-  &  &  & (0.058) & (0.059) & (0.060) \\ 
+ Average rainfall, log &  &  & $-$0.107 & $-$0.104 & $-$0.115 \\ 
+  &  &  & (0.058) & (0.058) & (0.061) \\ 
   & & & & & \\ 
- School closure &  &  &  &  & $-$0.250 \\ 
-  &  &  &  &  & (0.270) \\ 
+ School closure &  &  &  &  & $-$0.252 \\ 
+  &  &  &  &  & (0.275) \\ 
   & & & & & \\ 
- Gathering restriction &  &  &  &  & 0.254$^{*}$ \\ 
-  &  &  &  &  & (0.102) \\ 
+ Gathering restriction &  &  &  &  & 0.336$^{**}$ \\ 
+  &  &  &  &  & (0.083) \\ 
   & & & & & \\ 
 \hline \\[-1.8ex] 
 Prefecture FE & X & X & X & X & X \\ 
 Week FE & X & X & X & X & X \\ 
 Observations & 396 & 396 & 396 & 396 & 396 \\ 
 R$^{2}$ & 0.929 & 0.930 & 0.930 & 0.930 & 0.931 \\ 
-Adjusted R$^{2}$ & 0.913 & 0.913 & 0.913 & 0.913 & 0.913 \\ 
+Adjusted R$^{2}$ & 0.913 & 0.913 & 0.913 & 0.913 & 0.914 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{6}{l} {\parbox[t]{15cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the log-transformed value of the number of new infection cases (2 week lag) plus one. 
+The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 66 weeks from January XX, 2020 to April 30, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels plus one.
+Infectious, log is the log-transformed value of the number of potentially infected people plus one.
+Susceptible, log is the log-transformed value of the total number of susceptible population.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+Tests (2 week lag), log is the log-transformed value of the number of COVID-19 tests plus one.
+Customers per restaurant, log is the log-transformed value of the number of customers per restaurant.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
 \end{table} 

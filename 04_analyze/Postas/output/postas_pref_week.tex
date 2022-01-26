@@ -1,8 +1,9 @@
 
-\begin{table}[!htbp] \centering 
+\begin{sidewaystable}[!htbp] \centering 
   \caption{Restaurants' sales and customers (POS) and the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{-15pt}}lcccccccc} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{1pt}}lcccccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{8}{c}{\textit{Dependent variable:}} \\ 
@@ -39,6 +40,17 @@ R$^{2}$ & 0.935 & 0.935 & 0.935 & 0.935 & 0.947 & 0.947 & 0.947 & 0.947 \\
 Adjusted R$^{2}$ & 0.921 & 0.922 & 0.922 & 0.922 & 0.936 & 0.936 & 0.937 & 0.937 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{9}{l} {\parbox[t]{22cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the log-transformed value of POS sales per restaurant and the number of customers per restaurant.
+The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 912 days from January XX, 2019 to April 30, 2021. 
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
-\end{table} 
+\end{sidewaystable} 

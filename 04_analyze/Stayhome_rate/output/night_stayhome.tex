@@ -2,7 +2,8 @@
 \begin{table}[!htbp] \centering 
   \caption{The night-time stay-home rate and the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{1pt}}lccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
@@ -10,25 +11,25 @@
 \\[-1.8ex] & \multicolumn{3}{c}{NSHR} \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- log(cumGZ + 1) & $-$0.004$^{***}$ & $-$0.003$^{**}$ & $-$0.004$^{***}$ \\ 
+ Cumulative GZ-certified restaurants, log & $-$0.004$^{***}$ & $-$0.003$^{**}$ & $-$0.004$^{***}$ \\ 
   & (0.001) & (0.001) & (0.001) \\ 
   & & & \\ 
- emergency & 0.086$^{***}$ & 0.088$^{***}$ & 0.070$^{***}$ \\ 
+ State of Emergency & 0.086$^{***}$ & 0.088$^{***}$ & 0.070$^{***}$ \\ 
   & (0.014) & (0.015) & (0.017) \\ 
   & & & \\ 
- log(newcase\_day + 1) &  & 0.005 & 0.004 \\ 
+ The number of new COVID-19 cases, log &  & 0.005 & 0.004 \\ 
   &  & (0.003) & (0.003) \\ 
   & & & \\ 
- log(avg\_temp) &  & 0.023 & 0.024 \\ 
+ Average temperature, log &  & 0.023 & 0.024 \\ 
   &  & (0.031) & (0.032) \\ 
   & & & \\ 
- log(avg\_rain + 1) &  & 0.009$^{***}$ & 0.009$^{***}$ \\ 
+ Average rainfall, log &  & 0.009$^{***}$ & 0.009$^{***}$ \\ 
   &  & (0.002) & (0.002) \\ 
   & & & \\ 
- dummy\_school\_closure &  &  & $-$0.001 \\ 
+ School closure &  &  & $-$0.001 \\ 
   &  &  & (0.004) \\ 
   & & & \\ 
- dummy\_gathering\_restriction &  &  & 0.021$^{*}$ \\ 
+ Gathering restriction &  &  & 0.021$^{*}$ \\ 
   &  &  & (0.010) \\ 
   & & & \\ 
 \hline \\[-1.8ex] 
@@ -39,6 +40,17 @@ R$^{2}$ & 0.947 & 0.948 & 0.948 \\
 Adjusted R$^{2}$ & 0.937 & 0.937 & 0.938 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{4}{l} {\parbox[t]{14cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the night-time (from 8pm to 0am) stay-home rate, which indicates the percentage of people who refrain from going out compared to the baseline value; the closer to 1, the more people refrain from going out, and the closer to 0, the more people go out.
+The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 454 days from January XX, 2020 to April 30, 2021. 
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
 \end{table} 

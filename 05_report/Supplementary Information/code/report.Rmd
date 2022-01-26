@@ -5,9 +5,39 @@ output:
     latex_engine: xelatex
     extra_dependencies: rotating
 fontsize: 12pt
+geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm" 
 ---
 
-    In this online appendix, we first present our data. We then demonstrate the robustness of the epidemiological regression analysis by assessing the volatility of the incubation period. Next, we provide supplementary information about the treatment effect.
+   In this online appendix, we summarize the sub-evidence for the main article. First, we present the data. Second, we describe the derivation of the estimating equation. Third, we cover basic statistics for each variable. Fourth, we cover regression tables for statistical testing. Finally, we provide supplementary information about the treatment effects.
+  
+# Table of Contents
+
+A. Data 
+  A.1. COVID-19 policy dummies
+  A.2. COVID-19 test cases
+  A.3. Restaurant website views
+  A.4. Mobility by residential type
+  A.5. Mobility inflow and outflow by prefecture
+  A.6. Mobility by facility type
+  A.7. Weather data
+  A.8. Stay-home rate
+B. Estimation Equation
+C. Basic Statistics
+  C.1. Table: COVID-19 infection cases
+  C.2. Figure: The number of cumulative GZ-certified restaurants
+D. Statistical Testing 
+  D.1.
+  D.2.
+  D.3.
+  D.4.
+  D.5.
+E. Treatment Effect
+  E.1. 
+  E.2.
+  E.3.
+  E.4.
+  
+\newpage
 
 # A   Data
 
@@ -41,10 +71,8 @@ The average values of these municipalities was set as the representative locatio
 We used the data on stay-home rate as a robustness check in the economic impact analysis. The Mizuno Laboratory of the National Institute of Informatics and the Graduate University for Advanced Studies publishes the data on stay-home. The data is collected by age group and time, based on the population data estimated in real-time from the information of about 78 million base stations of DOCOMO, a major Japanese telecommunication company. They defined the number of people going out from residential areas as 
 $$The\ number\ of\ people\ going\ out =daytime\ population - nighttime\ population$$
 and
-$$
-The\ Stay-home\ rate = \\
-\displaystyle 1-\frac{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ given\ day * average\ time\ spent\ out}{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ normal\ day * average\ time\ spent\ out}
-$$
+$$The\ Stay-home\ rate $$
+$$ = \displaystyle 1-\frac{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ given\ day * average\ time\ spent\ out}{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ normal\ day * average\ time\ spent\ out}$$
 
 # B   Estimation equation 
 The epidemiological analysis is based on the SIR-applied fixed effect model. This section shows the process of how the equation is derived from the SIR model. 
@@ -65,11 +93,9 @@ Previous studies have shown that the coefficients of the variables on the right-
 
 $$ln(COVID) =\delta_0 + \delta_1 ln\beta + \delta_2 lnS + \delta_3 lnI$$
 
-In order to adapt this basic estimation equation to changes in external circumstances that affect the infection cases, we add control variables such as economic activity variables and weather conditions. In addition, the purpose of the GZ certification policy that we want to estimate is to reduce the infectivity (β) that can be transferred from one infected person to another. Therefore, we redefine the infectivity (β) as follows to derive the main estimation model.
-$$
-ln\beta= \alpha_1lnGZ + u \\
-ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u
-$$
+In order to adapt this basic estimation equation to changes in external circumstances that affect the infection cases, we add control variables such as economic activity variables and weather conditions. In addition, the purpose of the GZ certification policy that we want to estimate is to reduce the infectivity ($\beta$) that can be transferred from one infected person to another. Therefore, we redefine the infectivity ($\beta$) as follows to derive the main estimation model.
+$$ln\beta= \alpha_1lnGZ + u $$
+$$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
 
 # C   Basic Statistics
 
@@ -79,31 +105,48 @@ $$
 ## C.2 Cumulative GZ linear
 Hirota-san will bring code here.
 
+\newpage
+
 # D   Statistical Testing 
 
 ## D.1  Infection Prevention Effects
 \input{../../../04_analyze/Covid/output/covid_reg.tex}
 
-## D.2  Economic Effects
+\newpage
+
+## D.2 Infection Prevention Effects(1 week lag analysis)
+\input{../../../04_analyze/Covid/output/covid_reg_lag1.tex}
+
+\newpage
+
+## D.3  Economic Effects
 \input{../../../04_analyze/Postas/output/postas_pref_week.tex}
 
-## D.3 1 week lag analysis
-\input{../../../04_analyze/Covid/output/covid_reg_lag1.tex}
+\newpage
 
 ## D.4 Restaurants' view 
 \input{../../../04_analyze/Vresas/output/resview_reg.tex}
 
+\newpage
+
 ## D.5 Google Mobility data
 \input{../../../04_analyze/Google_mobility/output/Google Mobility.tex}
 
-## D.6 Stay-home rate 
-\input{../../../04_analyze/Robustness_econ/output/night_stayhome.tex}
-\input{../../../04_analyze/Robustness_econ/output/SHR_by_age_female.tex}
-\input{../../../04_analyze/Robustness_econ/output/SHR_by_age_male.tex}
+\newpage
 
-## D.7 V-RESAS 
+## D.6 V-RESAS 
 \input{../../../04_analyze/Vresas/output/vresas_mob_reg.tex}
 
+\newpage
+
+## D.7 Stay-home rate 
+\input{../../../04_analyze/Stayhome_rate/output/night_stayhome.tex}
+\newpage
+\input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex}
+\newpage
+\input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex}
+
+\newpage
 
 # E   Treatment Effect 
 
@@ -170,19 +213,26 @@ Exclude cases where a small number of family members, elderly people with caregi
 
 * Do not place seating directly in front of each other. Seating should be arranged so that the distance between seats is at least 1 meter. Seat-to-seat distance: ___m.
 * Install partitions on tables to shield them.
+
 ---
+
 * Avoid having too many people at the same time by limiting the length of stay* and using a reservation system. (*Approximately 2 hours).
 * Avoid large plates and serve food individually, or have employees serve the food.
+
 ---
+
 [In buffet style, one of the following must be met] 
+
 * A new small plate should be used by each user for each serving, and food and drinks should be protected by covers to prevent splashing, and masks, disposable gloves, etc. should be worn when serving. When serving, make sure to wear masks, disposable gloves, etc., and do not share tongs or chopsticks for serving.
 * Serve food on small plates or have staff serve food.
+
 ---
+
 * Avoid setting up common tabletop condiments, pots, etc., or disinfect them when changing customers.
 * Remind customers not to share or use spoons, chopsticks, or other utensils.
 * Reduce the volume of background music in the store and remind customers to avoid loud conversations.
 * Coughing etiquette should be strictly observed. (For ventilation standards, see "3. Hygiene Management of Facilities and Equipment" for ventilation standards).
-If the toilet has a lid, indicate that waste should be flushed after the lid is closed.
+* If the toilet has a lid, indicate that waste should be flushed after the lid is closed.
 * Indicate that people should wash their hands and disinfect their hands after using the restroom.
 * If there is a smoking area, reduce the number of people using it at one time, and keep a distance between people. If there is a smoking area, request that the three densities be avoided by reducing the number of people using the area at once, keeping a good distance between people, etc.
   + Size of the smoking space: _____ $m^2$   Maximum capacity: _____
@@ -222,13 +272,18 @@ If the toilet has a lid, indicate that waste should be flushed after the lid is 
 * The details of ventilation (air flow) in common areas where people are crowded in the facility are clearly shown.
 * In order to secure the required amount of ventilation per person in a densely populated common area in the facility, the ventilation system should be designed for each area.
   + (In the case of limiting the number of persons to ensure the required ventilation volume) Ventilation volume: $m^3$/hour ÷ 30 $m^3$/person/hour = ___person
+  
 ---
+
 * Prohibit the use of hand dryers and common towels, and provide paper towels or encourage the use of personal towels.
 * Wipe down and disinfect items shared with others and areas that are touched by multiple people regularly, such as when changing users, using disinfecting ethanol, sodium hypochlorite, or commercially available detergents containing surfactants.
   + [areas shared with others in the restaurant industry and frequently touched]
     - Tables, chairs, menu books, condiments, drink bars, doorknobs, light switches, touch panels, tabletop bells, cash registers, faucets, handrails, toilet seats, washing levers, coin trays, ticket vending machines, elevator buttons, etc.
+    
 ---
+
 [Appeal items]
+
 * In order to reduce the risk of contact and droplet infections, the following measures should be taken to avoid overlapping lines of flow for users.
 Describe in detail: __________________________________________________________
 

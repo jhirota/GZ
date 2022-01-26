@@ -2,7 +2,8 @@
 \begin{table}[!htbp] \centering 
   \caption{Restaurant View (percentage change) and the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{-15pt}}lccc} 
+\small 
+\begin{tabular}{@{\extracolsep{1pt}}lccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
@@ -10,26 +11,26 @@
 \\[-1.8ex] & \multicolumn{3}{c}{Restaurant View (percentage change) } \\ 
 \\[-1.8ex] & (1) & (2) & (3)\\ 
 \hline \\[-1.8ex] 
- log(cumGZ + 1) & 1.900$^{***}$ & 1.497$^{***}$ & 1.431$^{***}$ \\ 
-  & (0.252) & (0.253) & (0.258) \\ 
+ Cumulative GZ-certified restaurants, log & 1.900$^{***}$ & 1.497$^{***}$ & 1.297$^{***}$ \\ 
+  & (0.252) & (0.253) & (0.308) \\ 
   & & & \\ 
- emergency & $-$3.842$^{**}$ & $-$4.281$^{**}$ & $-$8.328$^{**}$ \\ 
-  & (1.164) & (1.390) & (2.115) \\ 
+ State of Emergency & $-$3.842$^{**}$ & $-$4.281$^{**}$ & $-$8.499$^{**}$ \\ 
+  & (1.164) & (1.390) & (2.792) \\ 
   & & & \\ 
- log(newcase\_day + 1) &  & $-$1.709$^{**}$ & $-$1.945$^{***}$ \\ 
-  &  & (0.449) & (0.424) \\ 
+ The number of new COVID-19 cases, log &  & $-$1.709$^{**}$ & $-$1.984$^{***}$ \\ 
+  &  & (0.449) & (0.466) \\ 
   & & & \\ 
- log(avg\_temp) &  & $-$25.388 & $-$24.349 \\ 
-  &  & (17.074) & (17.874) \\ 
+ Average temperature, log &  & $-$25.388 & $-$24.386 \\ 
+  &  & (17.074) & (17.322) \\ 
   & & & \\ 
- log(avg\_rain + 1) &  & $-$0.372 & $-$0.517 \\ 
-  &  & (0.480) & (0.501) \\ 
+ Average rainfall, log &  & $-$0.372 & $-$0.517 \\ 
+  &  & (0.480) & (0.512) \\ 
   & & & \\ 
- dummy\_school\_closure &  &  & 6.709$^{**}$ \\ 
-  &  &  & (2.110) \\ 
+ School closure &  &  & 6.563$^{**}$ \\ 
+  &  &  & (2.242) \\ 
   & & & \\ 
- dummy\_gathering\_restriction &  &  & 4.643 \\ 
-  &  &  & (3.290) \\ 
+ Gathering restriction &  &  & 4.808 \\ 
+  &  &  & (4.042) \\ 
   & & & \\ 
 \hline \\[-1.8ex] 
 Restraurant View Yamanashi mean &  & -21.052 &  \\ 
@@ -38,9 +39,20 @@ Prefecture FE & X & X & X \\
 Week FE & X & X & X \\ 
 Observations & 408 & 408 & 408 \\ 
 R$^{2}$ & 0.947 & 0.950 & 0.953 \\ 
-Adjusted R$^{2}$ & 0.935 & 0.939 & 0.942 \\ 
+Adjusted R$^{2}$ & 0.935 & 0.939 & 0.941 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{4}{l} {\parbox[t]{15cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percent change of the number of restaurant-website views compared to the 2019 baseline (V-RESAS). 
+The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from January XX, 2020 to April 30, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
 \end{table} 

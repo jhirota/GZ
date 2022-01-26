@@ -2,7 +2,8 @@
 \begin{sidewaystable}[!htbp] \centering 
   \caption{Interregional Mobility and the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lccccccccc} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{1pt}}lccccccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{9}{c}{\textit{Dependent variable:}} \\ 
@@ -10,26 +11,26 @@
 \\[-1.8ex] & \multicolumn{3}{c}{incity} & \multicolumn{3}{c}{inpref} & \multicolumn{3}{c}{outpref} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9)\\ 
 \hline \\[-1.8ex] 
- log(cumGZ + 1) & $-$0.115$^{***}$ & $-$0.106$^{***}$ & $-$0.105$^{***}$ & 0.224$^{**}$ & 0.177$^{*}$ & 0.186$^{*}$ & 1.055$^{***}$ & 1.132$^{***}$ & 1.044$^{***}$ \\ 
-  & (0.022) & (0.026) & (0.026) & (0.060) & (0.081) & (0.083) & (0.163) & (0.148) & (0.116) \\ 
+ Cumulative GZ-certified restaurants, log & $-$0.115$^{***}$ & $-$0.106$^{***}$ & $-$0.109$^{***}$ & 0.224$^{**}$ & 0.177$^{*}$ & 0.204$^{*}$ & 1.055$^{***}$ & 1.132$^{***}$ & 0.788$^{***}$ \\ 
+  & (0.022) & (0.026) & (0.024) & (0.060) & (0.081) & (0.083) & (0.163) & (0.148) & (0.148) \\ 
   & & & & & & & & & \\ 
- emergency & 0.630$^{**}$ & 0.589$^{**}$ & 0.658$^{**}$ & $-$5.249$^{***}$ & $-$5.128$^{***}$ & $-$4.661$^{***}$ & $-$0.125 & $-$0.212 & $-$5.751$^{*}$ \\ 
-  & (0.240) & (0.166) & (0.237) & (0.585) & (0.459) & (0.615) & (2.457) & (2.680) & (2.685) \\ 
+ State of Emergency & 0.630$^{**}$ & 0.589$^{**}$ & 0.533$^{**}$ & $-$5.249$^{***}$ & $-$5.128$^{***}$ & $-$4.586$^{***}$ & $-$0.125 & $-$0.212 & $-$7.466$^{*}$ \\ 
+  & (0.240) & (0.166) & (0.190) & (0.585) & (0.459) & (0.589) & (2.457) & (2.680) & (2.932) \\ 
   & & & & & & & & & \\ 
- log(newcase\_day + 1) &  & 0.050 & 0.054 &  & $-$0.254 & $-$0.228 &  & 0.424 & 0.099 \\ 
-  &  & (0.050) & (0.047) &  & (0.177) & (0.176) &  & (0.466) & (0.376) \\ 
+ The number of new COVID-19 cases, log &  & 0.050 & 0.046 &  & $-$0.254 & $-$0.220 &  & 0.424 & $-$0.050 \\ 
+  &  & (0.050) & (0.047) &  & (0.177) & (0.178) &  & (0.466) & (0.371) \\ 
   & & & & & & & & & \\ 
- log(avg\_temp) &  & $-$1.461 & $-$1.480 &  & 6.131 & 6.092 &  & $-$10.450 & $-$8.811 \\ 
-  &  & (1.701) & (1.716) &  & (3.778) & (3.663) &  & (16.018) & (17.134) \\ 
+ Average temperature, log &  & $-$1.461 & $-$1.465 &  & 6.131 & 6.090 &  & $-$10.450 & $-$8.691 \\ 
+  &  & (1.701) & (1.705) &  & (3.778) & (3.707) &  & (16.018) & (16.521) \\ 
   & & & & & & & & & \\ 
- log(avg\_rain + 1) &  & 0.007 & 0.009 &  & $-$0.167 & $-$0.151 &  & 0.552 & 0.354 \\ 
-  &  & (0.107) & (0.106) &  & (0.317) & (0.319) &  & (0.735) & (0.739) \\ 
+ Average rainfall, log &  & 0.007 & 0.005 &  & $-$0.167 & $-$0.149 &  & 0.552 & 0.303 \\ 
+  &  & (0.107) & (0.108) &  & (0.317) & (0.319) &  & (0.735) & (0.743) \\ 
   & & & & & & & & & \\ 
- dummy\_school\_closure &  &  & $-$0.135 &  &  & 0.218 &  &  & 11.837$^{***}$ \\ 
-  &  &  & (0.174) &  &  & (0.836) &  &  & (1.353) \\ 
+ School closure &  &  & $-$0.124 &  &  & 0.231 &  &  & 11.736$^{***}$ \\ 
+  &  &  & (0.184) &  &  & (0.850) &  &  & (1.441) \\ 
   & & & & & & & & & \\ 
- dummy\_gathering\_restriction &  &  & $-$0.079 &  &  & $-$0.530 &  &  & 6.371$^{**}$ \\ 
-  &  &  & (0.178) &  &  & (0.347) &  &  & (2.182) \\ 
+ Gathering restriction &  &  & 0.062 &  &  & $-$0.611 &  &  & 8.271$^{**}$ \\ 
+  &  &  & (0.145) &  &  & (0.354) &  &  & (3.190) \\ 
   & & & & & & & & & \\ 
 \hline \\[-1.8ex] 
 Mean of Mobility in Yamanashi &  & 5.49 &  &  & -7.079 &  &  & -27.778 &  \\ 
@@ -37,10 +38,21 @@ Mean of Mobility in Control &  & 5.165 &  &  & -7.584 &  &  & -27.881 &  \\
 Prefecture FE & X & X & X & X & X & X & X & X & X \\ 
 Week FE & X & X & X & X & X & X & X & X & X \\ 
 Observations & 408 & 408 & 408 & 408 & 408 & 408 & 408 & 408 & 408 \\ 
-R$^{2}$ & 0.980 & 0.980 & 0.980 & 0.963 & 0.963 & 0.963 & 0.942 & 0.943 & 0.947 \\ 
-Adjusted R$^{2}$ & 0.975 & 0.975 & 0.975 & 0.954 & 0.955 & 0.955 & 0.929 & 0.929 & 0.934 \\ 
+R$^{2}$ & 0.980 & 0.980 & 0.980 & 0.963 & 0.963 & 0.963 & 0.942 & 0.943 & 0.949 \\ 
+Adjusted R$^{2}$ & 0.975 & 0.975 & 0.975 & 0.954 & 0.955 & 0.955 & 0.929 & 0.929 & 0.936 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{9}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\multicolumn{10}{l} {\parbox[t]{23cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percent change in interregional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
+The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from January XX, 2020 to April 30, 2021. 
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
 \end{sidewaystable} 

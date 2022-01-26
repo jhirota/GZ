@@ -28,11 +28,34 @@ Gmob <- stargazer(retrec1, retrec2, gropha1, gropha2, park1, park2,
                     digits = 3,
                     digits.extra = 0, 
                     type = "latex",
+                    covariate.labels = c("Cumulative GZ-certified restaurants, log",
+                                       "State of Emergency",
+                                       "The number of new COVID-19 cases, log",
+                                       "Average temperature, log",
+                                       "Average rainfall, log",
+                                       "School closure",
+                                       "Gathering restriction"),
                     add.lines=list(c("Prefecture FE", rep("X",12)),
                                    c("Date FE", rep("X",12))),
                     omit.stat=c("f", "ser"),
                     header = FALSE,
-                    column.sep.width = "-25pt",
+                    column.sep.width = "-12pt",
                     float.env = "sidewaystable",
-                    notes = c("Standard errors are clustered at the prefecture level. <br> *p<0.1; **p<0.05; ***p<0.01"),
-                    out = "04_analyze/Google_mobility/output/Google Mobility.tex")
+                    font.size = "footnotesize",
+                    notes.align = "l", notes.append = FALSE)
+
+Gmob.note <- "\\multicolumn{13}{l} {\\parbox[t]{23cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percent change in human flow for a given facility type compared to the January 2020 baseline (Google Mobility).
+The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 441 days from February XX, 2020 to April 30, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gmob[grepl("Note",Gmob)] <- Gmob.note
+cat (Gmob, sep = "\n")
+write(Gmob, here::here("04_analyze/Google_mobility/output/Google Mobility.tex"))

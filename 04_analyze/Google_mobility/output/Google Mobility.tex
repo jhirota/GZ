@@ -2,7 +2,8 @@
 \begin{sidewaystable}[!htbp] \centering 
   \caption{Mobility type (Google Mobility) the Green Zone certification} 
   \label{} 
-\begin{tabular}{@{\extracolsep{-25pt}}lcccccccccccc} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{-12pt}}lcccccccccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
  & \multicolumn{12}{c}{\textit{Dependent variable:}} \\ 
@@ -10,19 +11,19 @@
 \\[-1.8ex] & \multicolumn{2}{c}{retail and recreation} & \multicolumn{2}{c}{grocery and pharmacy} & \multicolumn{2}{c}{parks} & \multicolumn{2}{c}{transit stations} & \multicolumn{2}{c}{workplaces} & \multicolumn{2}{c}{residential} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) & (12)\\ 
 \hline \\[-1.8ex] 
- log(cumGZ + 1) & 0.372$^{***}$ & 0.366$^{***}$ & 0.051 & 0.099 & 2.804$^{***}$ & 3.138$^{***}$ & 0.448$^{***}$ & 0.548$^{**}$ & $-$0.029 & $-$0.003 & $-$0.061$^{***}$ & $-$0.060$^{***}$ \\ 
+ Cumulative GZ-certified restaurants, log & 0.372$^{***}$ & 0.366$^{***}$ & 0.051 & 0.099 & 2.804$^{***}$ & 3.138$^{***}$ & 0.448$^{***}$ & 0.548$^{**}$ & $-$0.029 & $-$0.003 & $-$0.061$^{***}$ & $-$0.060$^{***}$ \\ 
   & (0.042) & (0.045) & (0.038) & (0.062) & (0.101) & (0.346) & (0.051) & (0.180) & (0.051) & (0.048) & (0.013) & (0.006) \\ 
   & & & & & & & & & & & & \\ 
- emergency & $-$3.992$^{***}$ & $-$3.890$^{***}$ & $-$0.245 & $-$0.393 & 4.231 & 5.191 & $-$2.007 & $-$1.387 & $-$1.410$^{***}$ & $-$1.282$^{***}$ & 1.006$^{***}$ & 0.964$^{***}$ \\ 
+ State of Emergency & $-$3.992$^{***}$ & $-$3.890$^{***}$ & $-$0.245 & $-$0.393 & 4.231 & 5.191 & $-$2.007 & $-$1.387 & $-$1.410$^{***}$ & $-$1.282$^{***}$ & 1.006$^{***}$ & 0.964$^{***}$ \\ 
   & (0.583) & (0.421) & (0.468) & (0.357) & (4.044) & (3.188) & (2.514) & (2.132) & (0.343) & (0.258) & (0.234) & (0.171) \\ 
   & & & & & & & & & & & & \\ 
- log(newcase\_day + 1) &  & $-$0.180 &  & 0.121 &  & 0.538 &  & 0.127 &  & 0.031 &  & 0.060$^{*}$ \\ 
+ The number of new COVID-19 cases, log &  & $-$0.180 &  & 0.121 &  & 0.538 &  & 0.127 &  & 0.031 &  & 0.060$^{*}$ \\ 
   &  & (0.107) &  & (0.129) &  & (0.972) &  & (0.527) &  & (0.070) &  & (0.029) \\ 
   & & & & & & & & & & & & \\ 
- log(avg\_temp) &  & 8.489$^{**}$ &  & 5.912$^{**}$ &  & 74.310$^{***}$ &  & 27.060$^{**}$ &  & 6.769$^{**}$ &  & $-$3.482$^{**}$ \\ 
+ Average temperature, log &  & 8.489$^{**}$ &  & 5.912$^{**}$ &  & 74.310$^{***}$ &  & 27.060$^{**}$ &  & 6.769$^{**}$ &  & $-$3.482$^{**}$ \\ 
   &  & (2.193) &  & (1.679) &  & (7.775) &  & (7.974) &  & (1.881) &  & (0.989) \\ 
   & & & & & & & & & & & & \\ 
- log(avg\_rain + 1) &  & $-$0.769$^{***}$ &  & $-$1.084$^{***}$ &  & $-$4.338$^{***}$ &  & $-$0.653 &  & $-$0.261$^{***}$ &  & 0.298$^{***}$ \\ 
+ Average rainfall, log &  & $-$0.769$^{***}$ &  & $-$1.084$^{***}$ &  & $-$4.338$^{***}$ &  & $-$0.653 &  & $-$0.261$^{***}$ &  & 0.298$^{***}$ \\ 
   &  & (0.101) &  & (0.088) &  & (0.520) &  & (0.329) &  & (0.061) &  & (0.031) \\ 
   & & & & & & & & & & & & \\ 
 \hline \\[-1.8ex] 
@@ -33,7 +34,17 @@ R$^{2}$ & 0.965 & 0.967 & 0.897 & 0.910 & 0.837 & 0.860 & 0.899 & 0.905 & 0.991 
 Adjusted R$^{2}$ & 0.958 & 0.961 & 0.876 & 0.891 & 0.803 & 0.830 & 0.879 & 0.885 & 0.989 & 0.989 & 0.981 & 0.984 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{12}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
- & \multicolumn{12}{r}{Standard errors are clustered at the prefecture level. <br> *p<0.1; **p<0.05; ***p<0.01} \\ 
+\multicolumn{13}{l} {\parbox[t]{23cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percent change in human flow for a given facility type compared to the January 2020 baseline (Google Mobility).
+The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 441 days from February XX, 2020 to April 30, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\
 \end{tabular} 
 \end{sidewaystable} 
