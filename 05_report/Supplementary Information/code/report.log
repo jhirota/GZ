@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.18)  26 JAN 2022 17:58
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.18)  27 JAN 2022 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -861,23 +861,23 @@ text;!
 Missing character: There is no 　 (U+3000) in font [lmroman12-bold]:mapping=tex-
 text;!
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 224.
+(Font)              scaled to size 8.4pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 224.
+(Font)              scaled to size 6.0pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 224.
+(Font)              scaled to size 12.0011pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 224.
+(Font)              scaled to size 8.40076pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 224.
+(Font)              scaled to size 6.00055pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 224.
+(Font)              scaled to size 11.99872pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 224.
+(Font)              scaled to size 8.3991pt on input line 288.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 224.
+(Font)              scaled to size 5.99936pt on input line 288.
 
-Overfull \hbox (8.18901pt too wide) detected at line 226
+Overfull \hbox (8.18901pt too wide) detected at line 290
 [] [] [] []
  []
 
@@ -907,80 +907,80 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 ) [10] [11] (../../../04_analyze/Google_mobility/output/Google Mobility.tex) [1
 2] [13] (../../../04_analyze/Vresas/output/vresas_mob_reg.tex) [14] [15] (../..
 /../04_analyze/Stayhome_rate/output/night_stayhome.tex) [16] (../../../04_analy
-ze/Stayhome_rate/output/SHR_by_age_female.tex) [17] (../../../04_analyze/Stayho
-me_rate/output/SHR_by_age_male.tex) [18]
-Overfull \hbox (8.16165pt too wide) in paragraph at lines 387--388
+ze/Stayhome_rate/output/SHR_by_age_male.tex) [17] (../../../04_analyze/Stayhome
+_rate/output/SHR_by_age_female.tex) [18]
+Overfull \hbox (8.16165pt too wide) in paragraph at lines 451--452
 []\TU/lmr/m/n/12 Yamanashi|  
  []
 
 
-Overfull \hbox (8.16165pt too wide) in paragraph at lines 404--405
+Overfull \hbox (8.16165pt too wide) in paragraph at lines 468--469
 []\TU/lmr/m/n/12 Yamanashi 
  []
 
 
-Overfull \hbox (16.38165pt too wide) in paragraph at lines 404--405
+Overfull \hbox (16.38165pt too wide) in paragraph at lines 468--469
 \TU/lmr/m/n/12 Certification|  
  []
 
 
-Overfull \hbox (5.80064pt too wide) in paragraph at lines 406--407
+Overfull \hbox (5.80064pt too wide) in paragraph at lines 470--471
 \TU/lmr/m/n/12 Certification|  
  []
 
 
-Overfull \hbox (12.4281pt too wide) in paragraph at lines 408--409
+Overfull \hbox (12.4281pt too wide) in paragraph at lines 472--473
 []\TU/lmr/m/n/12 Tochimaru 
  []
 
 
-Overfull \hbox (21.6681pt too wide) in paragraph at lines 408--409
+Overfull \hbox (21.6681pt too wide) in paragraph at lines 472--473
 \TU/lmr/m/n/12 Certification|  
  []
 
 
-Overfull \hbox (17.24728pt too wide) in paragraph at lines 462--464
+Overfull \hbox (17.24728pt too wide) in paragraph at lines 526--528
 []\TU/lmr/m/n/12 Prefectural/municipal 
  []
 
 
-Overfull \hbox (45.18301pt too wide) in paragraph at lines 504--505
+Overfull \hbox (45.18301pt too wide) in paragraph at lines 568--569
 []\TU/lmr/m/n/12 Yamanashi|  
  []
 
 
-Overfull \hbox (35.451pt too wide) in paragraph at lines 514--515
+Overfull \hbox (35.451pt too wide) in paragraph at lines 578--579
 []\TU/lmr/m/n/12 Shizuoka|  
  []
 
 
-Overfull \hbox (26.535pt too wide) in paragraph at lines 523--524
+Overfull \hbox (26.535pt too wide) in paragraph at lines 587--588
 []\TU/lmr/m/n/12 Tochigi|  
  []
 
 
-Overfull \hbox (28.27501pt too wide) in paragraph at lines 532--533
+Overfull \hbox (28.27501pt too wide) in paragraph at lines 596--597
 []\TU/lmr/m/n/12 Nagano|  
  []
 
 
-Overfull \hbox (27.363pt too wide) in paragraph at lines 541--542
+Overfull \hbox (27.363pt too wide) in paragraph at lines 605--606
 []\TU/lmr/m/n/12 Gunma|  
  []
 
 
-Overfull \hbox (25.983pt too wide) in paragraph at lines 550--551
+Overfull \hbox (25.983pt too wide) in paragraph at lines 614--615
 []\TU/lmr/m/n/12 Ibaraki|  
  []
 
 [19] [20] [21] [22]
-Overfull \hbox (321.21266pt too wide) in paragraph at lines 888--892
+Overfull \hbox (321.21266pt too wide) in paragraph at lines 952--956
 \TU/lmr/m/n/12 to avoid overlapping lines of flow for users. Describe in detail
 : __________________________________________________________ 
  []
 
 [23]
-Overfull \hbox (49.25928pt too wide) in paragraph at lines 963--965
+Overfull \hbox (49.25928pt too wide) in paragraph at lines 1027--1029
 []\TU/lmr/m/n/12 Describe in detail: __________________________________________
 _____________ 
  []
@@ -998,7 +998,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18081 strings out of 476919
  324376 string characters out of 5821840
- 842964 words of memory out of 5000000
+ 842966 words of memory out of 5000000
  37754 multiletter control sequences out of 15000+600000
  412780 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

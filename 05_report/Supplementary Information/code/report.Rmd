@@ -13,33 +13,43 @@ geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm"
 # Table of Contents
 
 A. Data 
-  A.1. COVID-19 policy dummies
-  A.2. COVID-19 test cases
-  A.3. Restaurant website views
-  A.4. Mobility by residential type
-  A.5. Mobility inflow and outflow by prefecture
-  A.6. Mobility by facility type
-  A.7. Weather data
-  A.8. Stay-home rate
+
+  1. COVID-19 policy dummies 
+  2. COVID-19 test cases 
+  3. Restaurant website views 
+  4. Mobility by residential type 
+  5. Mobility inflow and outflow by prefecture 
+  6. Mobility by facility type 
+  7. Weather data 
+  8. Stay-home rate 
+
 B. Estimation Equation
+
 C. Basic Statistics
-  C.1. Table: COVID-19 infection cases
-  C.2. Figure: The number of cumulative GZ-certified restaurants
+
+  1. Table: COVID-19 infection cases
+  2. Figure: The number of cumulative GZ-certified restaurants
+  
 D. Statistical Testing 
-  D.1.
-  D.2.
-  D.3.
-  D.4.
-  D.5.
+
+  1. Infection Prevention Effects (2 week lag analysis)
+  2. Infection Prevention Effects (1 week lag analysis)
+  3. Economic Effects (Restaurants sales and customers)
+  4. Restaurant's view
+  5. Google Mobility 
+  6. Interregional Mobility 
+  7. Stay-home rate
+
 E. Treatment Effect
-  E.1. 
-  E.2.
-  E.3.
-  E.4.
+
+  1. Comparison of Treatment and Control prefecture
+  2. Comparison of policies in Treatment and Control prefecture
+  3. List of Business suspension request
+  4. GZ Certification criteria
   
 \newpage
 
-# A   Data
+# A.   Data
 
 Our data used for control variables come from multiple sources. We will list them one by one.
 
@@ -142,9 +152,9 @@ Hirota-san will bring code here.
 ## D.7 Stay-home rate 
 \input{../../../04_analyze/Stayhome_rate/output/night_stayhome.tex}
 \newpage
-\input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex}
-\newpage
 \input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex}
+\newpage
+\input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex}
 
 \newpage
 
