@@ -1,9 +1,7 @@
 library(tidyverse)
 
-
 # data load------
 postas_day1 <- read_csv(here::here("03_build/Postas/output/postas_daily_data.csv"))
-postas_week <- read_csv(here::here("03_build/Postas/output/postas_2019_2021.csv"))
 
 # postas regression --------
 
@@ -55,74 +53,5 @@ Gathering restriction is the dummy variable that takes the value 1 if the large-
 table3[grepl("Note",table3)] <- table3.note
 cat (table3, sep = "\n")
 write(table3, here::here("04_analyze/Postas/output/postas_pref_week.tex"))
-
-
-# postas plots --------
-
-
-sales_timeseries <- ggplot(data = postas_week %>% filter(week <= 18805),
-                           mapping = aes(x = week,
-                                         y = sales_per/10000,
-                                         color = treat))  +
-  xlab("Week") +
-  ylab("Weekly sales per restaurant [10000 JPY]") +
-  geom_point(size = 0.1) +
-  geom_line(size = 0.5)  +
-  scale_x_date(date_labels = "%Y-%m") +
-  ggtitle("Time series of weekly sales per restaurant") +
-  geom_vline(xintercept = as.Date("2020-07-17"), linetype = "dotdash", color = "forestgreen")+
-  annotate("text",
-           x = as.Date("2020-07-17"),
-           y = Inf,
-           label = "The GZ certification system",
-           size = 4,
-           vjust=5)+
-  scale_color_manual(name = " ",
-                     values = c("#339900","#ff9900"),
-                     labels = c("Yamanashi", "Neighboring \n Prefectures")) +
-  theme(title = element_text(size = 16),
-        axis.text.x = element_text(size = 12),
-        axis.title.x = element_text(size = 16),
-        axis.text.y = element_text(size = 12),
-        axis.title.y = element_text(size = 16),
-        legend.text = element_text(size = 14),
-        legend.key.size = unit(2, "cm"))
-
-sales_timeseries
-
-ggsave("04_analyze/Postas/output/sales_plot.png", sales_timeseries, width = 10, height = 8, dpi = 300)
-
-#customers
-customers_timeseries <- ggplot(data = postas_week %>% filter(week <= 18805),
-                               mapping = aes(x = week,
-                                             y = customers_per,
-                                             color = treat))  +
-  xlab("Week") +
-  ylab("Weekly customers per restaurant") +
-  geom_point(size = 0.1) +
-  geom_line(size = 0.5)  +
-  scale_x_date(date_labels = "%Y-%m") +
-  ggtitle("Time series of weekly customers per restaurant") +
-  geom_vline(xintercept = as.Date("2020-07-17"), linetype = "dotdash", color = "forestgreen")+
-  annotate("text",
-           x = as.Date("2020-07-17"),
-           y = Inf,
-           label = "The GZ certification system",
-           size = 4,
-           vjust=5)+
-  scale_color_manual(name = " ",
-                     values = c("#339900","#ff9900"),
-                     labels = c("Yamanashi", "Neighboring \n Prefectures")) +
-  theme(title = element_text(size = 16),
-        axis.text.x = element_text(size = 12),
-        axis.title.x = element_text(size = 16),
-        axis.text.y = element_text(size = 12),
-        axis.title.y = element_text(size = 16),
-        legend.text = element_text(size = 14),
-        legend.key.size = unit(2, "cm"))
-
-customers_timeseries
-
-ggsave("04_analyze/Postas/output/customers_plot.png", customers_timeseries, width = 10, height = 8, dpi = 300)
 
 

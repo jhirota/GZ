@@ -138,3 +138,4 @@ Gathering restriction is the dummy variable that takes the value 1 if the large-
 table6.3[grepl("Note",table6.3)] <- table6.3.note
 cat (table6.3, sep = "\n")
 write(table6.3, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_female.tex"))
+

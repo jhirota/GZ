@@ -113,14 +113,6 @@ VRweek <- COVID_GZ %>%
 
 write_csv(VRweek, here::here("03_build/weekSIR/output/weekly_vresas.csv"))
 
-## Vresas data for plot ---------
-
-VRweek_plot <- VRweek %>% 
-  group_by(week, treat) %>% 
-  summarize_at(c("in_pref", "out_pref", "in_city", "resview"), mean, na.rm=TRUE) %>% 
-  ungroup()
-
-write_csv(VRweek_plot, here::here("03_build/weekSIR/output/weekly_vresas_plot.csv"))
 
 # data merge (week SIR)--------
 weekSIR <- left_join(VRweek,

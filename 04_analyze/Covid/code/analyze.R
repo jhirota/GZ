@@ -5,7 +5,6 @@ library(stargazer)
 #data load ----------
 weekSIR_rob <- read_csv(here::here("03_build/Robust_check/output/weekSIR_robustness.csv")) 
 
-
 # lag2
 covid_50.0 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
 covid_50.1 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
@@ -58,6 +57,7 @@ table1[grepl("Note",table1)] <- table1.note
 cat (table1, sep = "\n")
 write(table1, here::here("04_analyze/Covid/output/covid_reg.tex"))
 
+
 # lag1
 covid_51.0 <- felm(log(newcase_lead1 + 1) ~ log(cumGZ + 1)  + log(infectious_l1 + 1) + log(susceptible + 1) + emergency + log(tests_lead1 + 1)| pref+week | 0 | pref, data = weekSIR_rob)
 covid_51.1 <- felm(log(newcase_lead1 + 1) ~ log(cumGZ + 1)  + log(infectious_l1 + 1) + log(susceptible + 1) + emergency + log(tests_lead1 + 1) + log(customers_per)| pref+week | 0 | pref, data = weekSIR_rob)
@@ -109,4 +109,3 @@ Gathering restriction is the dummy variable that takes the value 1 if the large-
 table2[grepl("Note",table2)] <- table3.note
 cat (table2, sep = "\n")
 write(table2, here::here("04_analyze/Covid/output/covid_reg_lag1.tex"))
-

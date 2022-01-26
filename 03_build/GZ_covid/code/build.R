@@ -200,13 +200,3 @@ preCOVID_GZ <- left_join(x = NHK,
 
 write_csv(preCOVID_GZ, here::here("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.csv"))
 
-# Gmob data for plot -------
-Gmobdata_plot <- preCOVID_GZ %>% 
-  group_by(treat,date) %>% 
-  summarize(across(c(retail_and_recreation, grocery_and_pharmacy, parks,
-                     transit_stations, workplaces, residential),
-                   mean)) %>% 
-  ungroup()
-
-write_csv(Gmobdata_plot, here::here("03_build/GZ_covid/output/Gmob_plot.csv"))
-
