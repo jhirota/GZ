@@ -55,8 +55,10 @@ Our data used for control variables come from multiple sources. We will list the
 
 ## A.1  COVID-19 policy dummies
 The emergency declaration dummy was created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new coronavirus infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
+
 School closure dummies were created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for new coronaviruses. The variable was set to 1 only when schools were closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
-Large-scale assembly dummies were created based on the governor's press conferences and updates on coronavirus in each prefecture. The criterion for variable 1 was defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and was set to 0 if either of these criteria was not met. In cases where the prefectural criteria were based on the guidelines of the respective industry, dummies were created based on the common guidelines of event-related industries.
+
+Large-scale assembly dummies were created based on the governor's press conferences and updates on coronavirus in each prefecture. The criterion for variable 1 was defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and was set to 0 if either of these criteria was not met. In cases where the prefectural criteria were based on the guidelines of the respective industry, dummies were created based on the common guidelines of event-related industries. For the references, see excel file in the github repository [PERSISTENT WEB LINK TO DATASETS].
 
 ## A.2  COVID-19 test cases
 In the analysis of the infection prevention effect, the number of COVID-19 test cases in each prefecture was added as a control variable. As of 2020, the number of tests in each prefecture varies in Japan, especially because of the capacity of each municipality to test. If the number of tests itself is small, the number of new infection cases may be underestimated. We referred to the data on the number of tests published on the website of each prefecture.
@@ -150,11 +152,11 @@ Hirota-san will bring code here.
 \newpage
 
 ## D.7 Stay-home rate 
-\input{../../../04_analyze/Stayhome_rate/output/night_stayhome.tex}
 \newpage
 \input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex}
 \newpage
 \input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex}
+\input{../../../04_analyze/Stayhome_rate/output/night_stayhome.tex}
 
 \newpage
 
@@ -176,7 +178,7 @@ Notes: Population and population density are from the 2019 and 2014 National Cen
 | Third-party onsite inspection requirements                             | Yes                                | Yes                                          | Yes                              | Yes                                         | Yes                                                | Yes (from April 14, 2021)                 |
 | Subsidies on indoor infection control measures                         | From July 10, 2020                 | Only in Hamamatsu City                       | From January 22, 2021            | From September 15, 2020 - December 28, 2020 | Only in Maebashi City                              | From October 2, 2020 to December 31, 2020 |
 | Prefectural/municipal support on the introduction of delivery services | In certain cities                  | From April 17, 2020                          | From January 22, 2021            | From September 15, 2020 - December 28, 2020 | Only in Maebashi City                              | In certain cities                         |
-Notes: Prepared by the authors with reference to prefectures' press releases and newspaper articles. Gunma Prefecture introduced a certification system around the same time as Yamanashi, but the penetration rate remains 21.6% as of October 2020 (see Reference List 12-30). 
+Notes: Prepared by the authors with reference to prefectures' press releases and newspaper articles. Gunma Prefecture introduced a certification system around the same time as Yamanashi, but the penetration rate remains 21.6% as of October 2020 (see Reference List 17-35). 
 
 ## E.3  List of Business suspension request 
 |           | First Emergency Declaration (April 2020 - May 2020)                                                                                         | Second Emergency Declaration (January 2021 - March 2021)                                                              | Third Emergency Declaration (April 2021 - June 2021)             |
@@ -187,7 +189,7 @@ Notes: Prepared by the authors with reference to prefectures' press releases and
 | Nagano    | April 23 - May 15                                                                                                                           | January 18 - February 4<br>(in specified cities)                                                                      | April 2 - 9 (Nagano City)<br>April 21 - 29 (in specified cities) |
 | Gunma     | April 18 - May 15                                                                                                                           | December 15 - March 1<br>(in specified cities)                                                                        | May 8 - June 20                                                  |
 | Ibaraki   | April 18 - May 17<br>(bars and nightclubs only)                                                                                             | November 30 - December 20, January 6 - 17<br>(in specified cities)<br>January 18 - February 22<br>(entire Prefecture) | April 22 - June 16<br>(in specified cities)                      |
-Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 31-59). 
+Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 36-64). 
 
 ## E.4 GZ Certification criteria 
 Standards pertaining to measures for prevention of infectious diseases (Restaurant industry)
@@ -331,62 +333,67 @@ Describe in detail: _______________________________________________________
 1. Tottori Prefecture. Progress of the government's response. Special site for novel coronavirus infections. https://www.pref.tottori.lg.jp/289733.htm. (2021). 
 2. NHK. Record of all COVID-19 related articles. Special site for novel coronavirus infections. https://www3.nhk.or.jp/news/special/coronavirus/chronology/?mode=all&target=202003. (2021). 
 3. Yamanashi Prefecture. Statistical information on new coronavirus infections (outbreaks, testing status, number of consultations). https://www.pref.yamanashi.jp/koucho/coronavirus/info_coronavirus_emergencymeasures18.html. (2021).
-4. Cabinet Office, Government of Japan. V-RESAS. https://v-resas.go.jp/. (2021). 
-5. Agoop Corp. Population flow data. https://www.agoop.co.jp/service/dynamic-population-data/. (2021). 
-6. Google. COVID-19 community mobility reports. https://www.google.com/covid19/mobility/. (2020). 
-7. Japan Meteorological Agency. Past weather data search. https://www.data.jma.go.jp/obd/stats/etrn/. (2022). 
-8. Mizuno Laboratory. COVID-19 special site: Visualizing the stay-home rate. National Institute of Informatics, Sendai. http://research.nii.ac.jp/~mizuno/covid19.html. (2022). 
-9. Japan Statistics Bureau. 2014 Census. (2014).
-10. Japan Statistics Bureau. 2019 Census. (2019).
-11. Geospatial Information Authority of Japan. Distances between prefectural offices. https://www.gsi.go.jp/common/000195510.pdf. (2018).
-12. Nihon Keizai Shimbun. Yamanashi tops the list with 98% of restaurants certified; 7 prefectures have less than 10%. https://www.nikkei.com/article/DGXZQOCC144570U1A011C2000000/. (2021).
-13. Yamanashi Prefecture. Applying for certification. https://greenzone-ninsho.jp/apply/index.html. (2021).
-14. Hojokin Portal. Yamanashi Prefecture: Support for purchasing equipment to promote new lifestyles. https://hojyokin-portal.jp/subsidies/7115. (2021). 
-15. Toru City. Grant to support the catering industry in Toru City. https://www.city.tsuru.yamanashi.jp/soshiki/sangyo/shoko_t/6/11538.html. (2021).
-16. Kofu City. Ganbarou, Kofu! Delivery support grant (Kofu City food delivery service introduction support grant). https://www.city.kofu.yamanashi.jp/shoko/kofutakuhai/takuhai.html. (2021). 
-17. Shizuoka Prefecture. Subsidy for projects to promote the Fuji-no-Kuni Safety and Security Certification System  (restaurants). http://www.pref.shizuoka.jp/kinkyu/covid-19-anzen_anshin_ninsyo_hozyo.html. (2021). 
-18. Nihon Keizai Shimbun. novel coronavirus disease, Shizuoka Prefecture to subsidize small and medium-sized businesses for home delivery. https://www.nikkei.com/article/DGXMZO58203360X10C20A4L61000/. (2020). 
-19. Tochigi Prefecture. Tochigi Prefecture subsidy for supporting measures against infectious diseases at local companies. https://www.tochigi-kansentaisaku.com/. (2021). 
-20. Nagano City. About subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
-21. Nagano Prefecture. Droplet prevention panels (acrylic panels) will be distributed free of charge to restaurants. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
-22. Nagano Prefecture. About the “Support Project for Countermeasures against the Novel Coronavirus in the Restaurant and Service Industry.” https://www.pref.nagano.lg.jp/eigyo/ouenhojokin.html. (2021).
-23. Nagano City. Subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
-24. Maebashi City. 【Registration Closed】FY2021 Maebashi City New Normal Support Subsidy. https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/nigiwaishogyo/shinseisho/30394.html. (2020).
-25. Itakura Town. FY2021 2nd Stop Corona in Itakura Town! Incentives for stores certified to take countermeasures. http://www.town.itakura.gunma.jp/cont/s021000/d021010/20201215141115.html. (2021). 
-26. Nihon Keizai Shimbun. City subsidizes lunch box delivery by cab in Maebashi, taking advantage of deregulation. https://www.nikkei.com/article/DGXMZO58728450R00C20A5L60000/. (2020). 
-27. Nihon Keizai Shimbun. Ibaraki Prefecture begins patrolling restaurants to prevent new corona infection. https://www.nikkei.com/article/DGXZQOCC14D990U1A410C2000000/. (2021).
-28. Hojokin Portal. Ibaraki Prefecture: Ibaraki Amabie-chan Business Registration Cooperation Fund. https://hojyokin-portal.jp/subsidies/7970. (2020).
-29. Hojokin Portal. Ibaraki Prefecture, Mito City: Delivery Service Emergency Relief Fund. https://hojyokin-portal.jp/subsidies/5293. (2020). 
-30. Hojokin Portal. Kashima City, Ibaraki Prefecture: Kashima City cooperative fund for countermeasures against new coronavirus infection (restaurant business, lodging business, cab, driving agency, sightseeing bus, travel business). https://hojyokin-portal.jp/subsidies/5306. (2020).
-31. Yamanashi Prefecture. Emergency measures in Yamanashi Prefecture to prevent the spread of new coronavirus infection. https://www.pref.yamanashi.jp/koucho/coronavirus/documents/measure_200419.pdf. (2020).
-32. Yamanashi Prefecture. FY2020 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r2.html. (2020).
-33. Yamanashi Prefecture. FY2021 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r3.html. (2021). 
-34. Yamanashi Prefecture. Request to shorten business hours for restaurants, etc. https://www.pref.yamanashi.jp/library_documents/insyokuten2.pdf. (2021). 
-35. Shizuoka Prefecture. Requests based on Article 24, Paragraph 9 of the Act on Special Measures against Pandemic Influenza, etc. https://www.pref.shizuoka.jp/kinkyu/covid-19-kyuugyouyousei.html. (2020).
-36. Shizuoka Prefecture. Message from Governor Kawakatsu to the People of the Prefecture. https://www.pref.shizuoka.jp/kinkyu/covid-19-tijikomennto.html. (2021). 
-37. Shizuoka Prefecture. Status of response to new coronavirus infections. http://www.pref.shizuoka.jp/bousai/event/documents/shiryou5.pdf. (2020). 
-38. Tokyo Shimbun. Shizuoka Prefecture asks Fuji City to shorten working hours from April 23, the first time in the prefecture under the special measures law. https://www.tokyo-np.co.jp/article/75871. (2020). 
-39. Nikkei Shimbun. Shizuoka Prefecture to ask restaurants in Kosai City to shorten business hours. https://www.nikkei.com/article/DGXZQOCC176WW0X10C21A5000000/. (2021). 
-40. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/20020427kinkyuujitaisochigaiyou.pdf. (2020). 
-41. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/kinkyujitaisoti05070510.pdf. (2020). 
-42. Tochigi Prefecture. List of facilities subject to facility use restrictions. https://www.pref.tochigi.lg.jp/e04/documents/20200427taisyousisetsu.pdf. (2020). 
-43. Tochigi Prefecture. Message from the Governor to the Citizens of the Prefecture and Others in Response to the Extension of the Period of the National Emergency Declaration. https://www.pref.tochigi.lg.jp/e04/r020507chijimesseiji.html. (May 5, 2020).
-44. NHK. Tochigi Prefecture to lift all requests for closure, no request to refrain from events, corona measures. https://www3.nhk.or.jp/news/html/20200515/k10012432051000.html. (May 15, 2020). 
-45. Shimotsuke Shimbun. Tochigi Prefecture declares state of emergency, urges restaurants to shorten hours across the region: governor “It is the last resort.” https://www.shimotsuke.co.jp/articles/-/406600. (January 14, 2021). 
-46. Tochigi Prefecture. Message from the Governor on Preventing the Spread of Infections after Emergency Measures (February 4). https://www.pref.tochigi.lg.jp/e04/20210204chijimesse-ji.html. (2021). 
-47. Nagano Prefecture. List of FY2020 Governor's Press Conference. https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2020/index.html. (2020). 
-48. Chunichi Shimbun. Nagano Prefecture raises alert level to 5 in Iida City, asks restaurants to shorten hours. https://www.chunichi.co.jp/article/186685. (January 17, 2021).
-49. Chunichi Shimbun. Nagano Prefecture asks Matsumoto City to close restaurants and shorten working hours, and Hakuba Village is on "5" alert.  https://www.chunichi.co.jp/article/189000. (January 21, 2021). 
-50. NHK. Nagano Prefecture to ask restaurants and other establishments in Nagano City to shorten hours or close April 2-9. https://www3.nhk.or.jp/news/html/20210331/k10012948491000.html. (March 31, 2021). 
-51. Gunma Prefecture. Emergency Measures in Gunma Prefecture to Prevent the Spread of New Coronavirus Infection. https://www.pref.gunma.jp/contents/100152402.pdf. (2020). 
-52. Gunma Prefecture. FY2020 Governor’s press conferences. https://www.pref.gunma.jp/chiji/z90g_00188.html. (2020). 
-53. Gunma Prefecture. FY2021 Governor’s press conferences. https://www.pref.gunma.jp/chiji/o7000001.html. (2021). 
-54. Jomo Shimbun. Gunma Prefecture's own guidelines for lifting the suspension of operations: Four-step decision-making process based on internal and external conditions. https://www.jomo-news.co.jp/articles/-/21226. (May 12, 2020). 
-55. Jomo Shimbun. Restaurants in five cities in Gunma Prefecture asked to refrain from operating after 10 p.m. https://www.jomo-news.co.jp/articles/-/18894. (December 11, 2021). 
-56. Ibaraki Prefecture. New Coronavirus Infection Emergency measures in Ibaraki Prefecture. https://www.pref.ibaraki.jp/1saigai/2019-ncov/documents/200417kinkyujitaisochi.pdf. (2020).
-57. Ibaraki Prefecture. Changes in the Ibaraki version of Corona Next Stage. https://www.pref.ibaraki.jp/1saigai/2019-ncov/stagesuii.html. (2020-2021). 
-58. Ibaraki Prefecture. List of Governor’s press conferences in 2020 regarding the “novel coronavirus infection.” https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2020.html. (2020)
-59. Ibaraki Prefecture. List of Governor's press conferences (related to the novel coronavirus infection). https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2.html. (2021).
-60. Yamanashi Prefecture. Standards pertaining to measures to prevent infectious diseases (restaurant industry). (2020).
+4. Shizuoka Prefecture. Shizuoka Prefecture Open Data: Trends of new coronavirus infections in the prefecture. https://opendata.pref.shizuoka.jp/dataset/8167.html. (2022).
+5. Nagano Prefecture. Trends of novel coronavirus infections in Nagano Prefecture. https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-doko.html. (2022).
+6. Gunma Prefecture.Latest trends in the prefecture. https://stopcovid19.pref.gunma.jp/. (2022). 
+7. Tochigi Prefecture. Outbreak and Testing Status of Novel Coronavirus Infections in Tochigi Prefecture. https://a01sa01to.com/opendata/covid19_ibaraki/test_people. (2022). 
+8. Asa. New Coronavirus Infections in Ibaraki Prefecture: Number of people tested (Prefectural Institute of Public Health and Mito City Public Health Center). https://a01sa01to.com/opendata/covid19_ibaraki/test_people. (2022). 
+9. Cabinet Office, Government of Japan. V-RESAS. https://v-resas.go.jp/. (2021). 
+10. Agoop Corp. Population flow data. https://www.agoop.co.jp/service/dynamic-population-data/. (2021).
+11. Google. COVID-19 community mobility reports. https://www.google.com/covid19/mobility/. (2020). 
+12. Japan Meteorological Agency. Past weather data search. https://www.data.jma.go.jp/obd/stats/etrn/. (2022). 
+13. Mizuno Laboratory. COVID-19 special site: Visualizing the stay-home rate. National Institute of Informatics, Sendai. http://research.nii.ac.jp/~mizuno/covid19.html. (2022). 
+14. Japan Statistics Bureau. 2014 Census. (2014).
+15. Japan Statistics Bureau. 2019 Census. (2019).
+16. Geospatial Information Authority of Japan. Distances between prefectural offices. https://www.gsi.go.jp/common/000195510.pdf. (2018).
+17. Nihon Keizai Shimbun. Yamanashi tops the list with 98% of restaurants certified; 7 prefectures have less than 10%. https://www.nikkei.com/article/DGXZQOCC144570U1A011C2000000/. (2021).
+18. Yamanashi Prefecture. Applying for certification. https://greenzone-ninsho.jp/apply/index.html. (2021).
+19. Hojokin Portal. Yamanashi Prefecture: Support for purchasing equipment to promote new lifestyles. https://hojyokin-portal.jp/subsidies/7115. (2021). 
+20. Toru City. Grant to support the catering industry in Toru City. https://www.city.tsuru.yamanashi.jp/soshiki/sangyo/shoko_t/6/11538.html. (2021).
+21. Kofu City. Ganbarou, Kofu! Delivery support grant (Kofu City food delivery service introduction support grant). https://www.city.kofu.yamanashi.jp/shoko/kofutakuhai/takuhai.html. (2021). 
+22. Shizuoka Prefecture. Subsidy for projects to promote the Fuji-no-Kuni Safety and Security Certification System  (restaurants). http://www.pref.shizuoka.jp/kinkyu/covid-19-anzen_anshin_ninsyo_hozyo.html. (2021). 
+23. Nihon Keizai Shimbun. novel coronavirus disease, Shizuoka Prefecture to subsidize small and medium-sized businesses for home delivery. https://www.nikkei.com/article/DGXMZO58203360X10C20A4L61000/. (2020). 
+24. Tochigi Prefecture. Tochigi Prefecture subsidy for supporting measures against infectious diseases at local companies. https://www.tochigi-kansentaisaku.com/. (2021). 
+25. Nagano City. About subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+26. Nagano Prefecture. Droplet prevention panels (acrylic panels) will be distributed free of charge to restaurants. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+27. Nagano Prefecture. About the “Support Project for Countermeasures against the Novel Coronavirus in the Restaurant and Service Industry.” https://www.pref.nagano.lg.jp/eigyo/ouenhojokin.html. (2021).
+28. Nagano City. Subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
+29. Maebashi City. 【Registration Closed】FY2021 Maebashi City New Normal Support Subsidy. https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/nigiwaishogyo/shinseisho/30394.html. (2020).
+30. Itakura Town. FY2021 2nd Stop Corona in Itakura Town! Incentives for stores certified to take countermeasures. http://www.town.itakura.gunma.jp/cont/s021000/d021010/20201215141115.html. (2021). 
+31. Nihon Keizai Shimbun. City subsidizes lunch box delivery by cab in Maebashi, taking advantage of deregulation. https://www.nikkei.com/article/DGXMZO58728450R00C20A5L60000/. (2020). 
+32. Nihon Keizai Shimbun. Ibaraki Prefecture begins patrolling restaurants to prevent new corona infection. https://www.nikkei.com/article/DGXZQOCC14D990U1A410C2000000/. (2021).
+33. Hojokin Portal. Ibaraki Prefecture: Ibaraki Amabie-chan Business Registration Cooperation Fund. https://hojyokin-portal.jp/subsidies/7970. (2020).
+34. Hojokin Portal. Ibaraki Prefecture, Mito City: Delivery Service Emergency Relief Fund. https://hojyokin-portal.jp/subsidies/5293. (2020). 
+35. Hojokin Portal. Kashima City, Ibaraki Prefecture: Kashima City cooperative fund for countermeasures against new coronavirus infection (restaurant business, lodging business, cab, driving agency, sightseeing bus, travel business). https://hojyokin-portal.jp/subsidies/5306. (2020).
+36. Yamanashi Prefecture. Emergency measures in Yamanashi Prefecture to prevent the spread of new coronavirus infection. https://www.pref.yamanashi.jp/koucho/coronavirus/documents/measure_200419.pdf. (2020).
+37. Yamanashi Prefecture. FY2020 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r2.html. (2020).
+38. Yamanashi Prefecture. FY2021 Governor’s press conference. https://www.pref.yamanashi.jp/chiji/kaiken/r3.html. (2021). 
+39. Yamanashi Prefecture. Request to shorten business hours for restaurants, etc. https://www.pref.yamanashi.jp/library_documents/insyokuten2.pdf. (2021). 
+40. Shizuoka Prefecture. Requests based on Article 24, Paragraph 9 of the Act on Special Measures against Pandemic Influenza, etc. https://www.pref.shizuoka.jp/kinkyu/covid-19-kyuugyouyousei.html. (2020).
+41. Shizuoka Prefecture. Message from Governor Kawakatsu to the People of the Prefecture. https://www.pref.shizuoka.jp/kinkyu/covid-19-tijikomennto.html. (2021). 
+42. Shizuoka Prefecture. Status of response to new coronavirus infections. http://www.pref.shizuoka.jp/bousai/event/documents/shiryou5.pdf. (2020). 
+43. Tokyo Shimbun. Shizuoka Prefecture asks Fuji City to shorten working hours from April 23, the first time in the prefecture under the special measures law. https://www.tokyo-np.co.jp/article/75871. (2020). 
+44. Nikkei Shimbun. Shizuoka Prefecture to ask restaurants in Kosai City to shorten business hours. https://www.nikkei.com/article/DGXZQOCC176WW0X10C21A5000000/. (2021). 
+45. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/20020427kinkyuujitaisochigaiyou.pdf. (2020). 
+46. Tochigi Prefecture. Overview of Tochigi Prefecture's emergency measures. https://www.pref.tochigi.lg.jp/e04/documents/kinkyujitaisoti05070510.pdf. (2020). 
+47. Tochigi Prefecture. List of facilities subject to facility use restrictions. https://www.pref.tochigi.lg.jp/e04/documents/20200427taisyousisetsu.pdf. (2020). 
+48. Tochigi Prefecture. Message from the Governor to the Citizens of the Prefecture and Others in Response to the Extension of the Period of the National Emergency Declaration. https://www.pref.tochigi.lg.jp/e04/r020507chijimesseiji.html. (May 5, 2020).
+49. NHK. Tochigi Prefecture to lift all requests for closure, no request to refrain from events, corona measures. https://www3.nhk.or.jp/news/html/20200515/k10012432051000.html. (May 15, 2020). 
+50. Shimotsuke Shimbun. Tochigi Prefecture declares state of emergency, urges restaurants to shorten hours across the region: governor “It is the last resort.” https://www.shimotsuke.co.jp/articles/-/406600. (January 14, 2021). 
+51. Tochigi Prefecture. Message from the Governor on Preventing the Spread of Infections after Emergency Measures (February 4). https://www.pref.tochigi.lg.jp/e04/20210204chijimesse-ji.html. (2021). 
+52. Nagano Prefecture. List of FY2020 Governor's Press Conference. https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2020/index.html. (2020). 
+53. Chunichi Shimbun. Nagano Prefecture raises alert level to 5 in Iida City, asks restaurants to shorten hours. https://www.chunichi.co.jp/article/186685. (January 17, 2021).
+54. Chunichi Shimbun. Nagano Prefecture asks Matsumoto City to close restaurants and shorten working hours, and Hakuba Village is on "5" alert.  https://www.chunichi.co.jp/article/189000. (January 21, 2021). 
+55. NHK. Nagano Prefecture to ask restaurants and other establishments in Nagano City to shorten hours or close April 2-9. https://www3.nhk.or.jp/news/html/20210331/k10012948491000.html. (March 31, 2021). 
+56. Gunma Prefecture. Emergency Measures in Gunma Prefecture to Prevent the Spread of New Coronavirus Infection. https://www.pref.gunma.jp/contents/100152402.pdf. (2020). 
+57. Gunma Prefecture. FY2020 Governor’s press conferences. https://www.pref.gunma.jp/chiji/z90g_00188.html. (2020). 
+58. Gunma Prefecture. FY2021 Governor’s press conferences. https://www.pref.gunma.jp/chiji/o7000001.html. (2021). 
+59. Jomo Shimbun. Gunma Prefecture's own guidelines for lifting the suspension of operations: Four-step decision-making process based on internal and external conditions. https://www.jomo-news.co.jp/articles/-/21226. (May 12, 2020). 
+60. Jomo Shimbun. Restaurants in five cities in Gunma Prefecture asked to refrain from operating after 10 p.m. https://www.jomo-news.co.jp/articles/-/18894. (December 11, 2021). 
+61. Ibaraki Prefecture. New Coronavirus Infection Emergency measures in Ibaraki Prefecture. https://www.pref.ibaraki.jp/1saigai/2019-ncov/documents/200417kinkyujitaisochi.pdf. (2020).
+62. Ibaraki Prefecture. Changes in the Ibaraki version of Corona Next Stage. https://www.pref.ibaraki.jp/1saigai/2019-ncov/stagesuii.html. (2020-2021). 
+63. Ibaraki Prefecture. List of Governor’s press conferences in 2020 regarding the “novel coronavirus infection.” https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2020.html. (2020)
+64. Ibaraki Prefecture. List of Governor's press conferences (related to the novel coronavirus infection). https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2.html. (2021).
+65. Yamanashi Prefecture. Standards pertaining to measures to prevent infectious diseases (restaurant industry). (2020).
 
 

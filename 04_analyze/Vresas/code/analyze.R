@@ -26,7 +26,7 @@ mob3.2 <- felm(out_pref ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + lo
 
 vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, mob3.1, mob3.2,
                     dep.var.labels = c("incity","inpref","outpref"),
-                    title = "Interregional Mobility and the Green Zone certification",
+                    title = "Inter-regional Mobility and the Green Zone certification",
                     digits = 3,
                     digits.extra = 0,
                     type = "latex",
@@ -55,14 +55,14 @@ vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, 
                     notes.align = "l",notes.append = FALSE)
 
 vresas_reg.note <- "\\multicolumn{10}{l} {\\parbox[t]{23cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the percent change in interregional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
+The dependent variable is the percent change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
-For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from January XX, 2020 to April 30, 2021. 
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021. 
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
 Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
 The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
-Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
 Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
@@ -108,12 +108,12 @@ resview_reg <- stargazer(resview1, resview2, resview3,
 resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change of the number of restaurant-website views compared to the 2019 baseline (V-RESAS). 
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
-For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from January XX, 2020 to April 30, 2021.
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
 Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
 The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
-Average temperature, log is the log-transformed value of the squared mean temperature (Celsius degrees).
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
 Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
