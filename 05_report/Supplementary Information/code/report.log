@@ -1,4 +1,5 @@
 This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.29)  29 JAN 2022 16:26
+
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -769,6 +770,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Missing character: There is no 　 (U+3000) in font [lmroman12-bold]:mapping=tex-text;!
 Missing character: There is no 　 (U+3000) in font [lmroman12-bold]:mapping=tex-text;!
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+<<<<<<< HEAD
 (Font)              scaled to size 8.4pt on input line 297.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 297.
@@ -786,6 +788,25 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 5.99936pt on input line 297.
 
 Overfull \hbox (8.18901pt too wide) detected at line 299
+=======
+(Font)              scaled to size 8.4pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.40076pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 8.3991pt on input line 293.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 293.
+
+Overfull \hbox (8.18901pt too wide) detected at line 295
+>>>>>>> 236859f9db4ff450df546becf55cfaa7e320453c
 [] [] [] []
  []
 
@@ -815,6 +836,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 LaTeX Warning: Float too large for page by 2.07271pt on input line 58.
 
+<<<<<<< HEAD
 ) [10] [11] (../../../04_analyze/Google_mobility/output/Google Mobility.tex) [12] [13] (../../../04_analyze/Vresas/output/vresas_mob_reg.tex) [14] [15] [16] (../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex) [17] (../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex) (../../../04_analyze/Stayhome_rate/output/night_stayhome.tex) [18] [19]
 Overfull \hbox (5.94469pt too wide) in paragraph at lines 466--467
 []\TU/lmr/m/n/12 Yamanashi  
@@ -868,6 +890,65 @@ Overfull \hbox (21.7765pt too wide) in paragraph at lines 537--537
 [20] [21] [22] [23]
 Overfull \hbox (322.97667pt too wide) in paragraph at lines 869--873
 \TU/lmr/m/n/12 to avoid overlapping lines of flow for users. Describe in detail: __________________________________________________________ 
+=======
+) [10] [11] (../../../04_analyze/Google_mobility/output/Google Mobility.tex) [1
+2] [13] (../../../04_analyze/Vresas/output/vresas_mob_reg.tex) [14] [15] [16] (
+../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex) [17] (../../../04
+_analyze/Stayhome_rate/output/SHR_by_age_female.tex) (../../../04_analyze/Stayh
+ome_rate/output/night_stayhome.tex) [18] [19]
+Overfull \hbox (8.16165pt too wide) in paragraph at lines 456--457
+[]\TU/lmr/m/n/12 Yamanashi|  
+ []
+
+
+Overfull \hbox (8.16165pt too wide) in paragraph at lines 473--474
+[]\TU/lmr/m/n/12 Yamanashi 
+ []
+
+
+Overfull \hbox (16.38165pt too wide) in paragraph at lines 473--474
+\TU/lmr/m/n/12 Certification|  
+ []
+
+
+Overfull \hbox (5.80064pt too wide) in paragraph at lines 475--476
+\TU/lmr/m/n/12 Certification|  
+ []
+
+
+Overfull \hbox (12.4281pt too wide) in paragraph at lines 477--478
+[]\TU/lmr/m/n/12 Tochimaru 
+ []
+
+
+Overfull \hbox (21.6681pt too wide) in paragraph at lines 477--478
+\TU/lmr/m/n/12 Certification|  
+ []
+
+
+Overfull \hbox (17.24728pt too wide) in paragraph at lines 531--533
+[]\TU/lmr/m/n/12 Prefectural/municipal 
+ []
+
+
+Overfull \hbox (45.18301pt too wide) in paragraph at lines 573--574
+[]\TU/lmr/m/n/12 Yamanashi|  
+ []
+
+
+Overfull \hbox (35.451pt too wide) in paragraph at lines 583--584
+[]\TU/lmr/m/n/12 Shizuoka|  
+ []
+
+
+Overfull \hbox (26.535pt too wide) in paragraph at lines 592--593
+[]\TU/lmr/m/n/12 Tochigi|  
+ []
+
+
+Overfull \hbox (28.27501pt too wide) in paragraph at lines 601--602
+[]\TU/lmr/m/n/12 Nagano|  
+>>>>>>> 236859f9db4ff450df546becf55cfaa7e320453c
  []
 
 [24]
@@ -875,6 +956,7 @@ Overfull \hbox (51.02328pt too wide) in paragraph at lines 944--946
 []\TU/lmr/m/n/12 Describe in detail: _______________________________________________________ 
  []
 
+<<<<<<< HEAD
 [25]
 Underfull \hbox (badness 3482) in paragraph at lines 1044--1049
 []\TU/lmr/m/n/12 Nihon Keizai Shimbun. novel coronavirus disease, Shizuoka Prefecture to subsidize
@@ -896,6 +978,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1073--1078
 
 Overfull \hbox (0.10861pt too wide) in paragraph at lines 1093--1097
 []\TU/lmr/m/n/12 Hojokin Portal. Ibaraki Prefecture: Ibaraki Amabie-chan Business Registration Cooperation Fund.
+=======
+Overfull \hbox (27.363pt too wide) in paragraph at lines 610--611
+[]\TU/lmr/m/n/12 Gunma|  
+ []
+
+
+Overfull \hbox (25.983pt too wide) in paragraph at lines 619--620
+[]\TU/lmr/m/n/12 Ibaraki|  
+ []
+
+[20] [21] [22] [23]
+Overfull \hbox (321.21266pt too wide) in paragraph at lines 957--961
+\TU/lmr/m/n/12 to avoid overlapping lines of flow for users. Describe in detail
+: __________________________________________________________ 
+ []
+
+[24]
+Overfull \hbox (49.25928pt too wide) in paragraph at lines 1032--1034
+[]\TU/lmr/m/n/12 Describe in detail: __________________________________________
+_____________ 
+>>>>>>> 236859f9db4ff450df546becf55cfaa7e320453c
  []
 
 [27] [28] [29] (./report.aux)
