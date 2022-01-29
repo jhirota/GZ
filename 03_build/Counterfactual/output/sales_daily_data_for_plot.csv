@@ -1,4 +1,4 @@
-date,type,sales
+date,type,sales_per
 2019-01-01,fitted,50181.48469476598
 2019-01-01,counterfactual,50181.48469477204
 2019-01-01,actual,85158.72222222222

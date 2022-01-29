@@ -12,32 +12,9 @@
 
 # Analysis and data (not related to the essence of our reports)
 ## common name
-Rt/
-Papilio_mobility/
-RENAME/
+doc/
 
-## 02_bring
-MLIT/
-Agoop_add/
 
-#03_build
-GZ_covid_MLITmobility/
-Case_positive/
-GZlist/code/build2.R/
-
-#04_analyze
-GZlist_mapping/
-Case_positive_plot/
-Covid_reg_papilio/
-Covid_reg_postas/
-infectious_plot/
-04_analyze/weekSIR/
-Covid_reg_papilio_infectious/
-Comparison_coef/
-Appendix/
-Tradeoff_curve/
-coef_with_CI_plot2/
-Robustness/
 
 
 

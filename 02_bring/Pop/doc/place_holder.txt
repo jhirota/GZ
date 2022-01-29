@@ -1,2 +1,0 @@
-Japan's population by prefecture is from this site(https://www.stat.go.jp/data/jinsui/2019np/index.html). See the excel file (総務省人口データ.xlsx) as well.
-

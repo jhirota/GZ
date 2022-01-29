@@ -54,4 +54,7 @@ table3[grepl("Note",table3)] <- table3.note
 cat (table3, sep = "\n")
 write(table3, here::here("04_analyze/Postas/output/postas_pref_week.tex"))
 
+#p-value
+# stargazer(dlmpostas1,  type="text", report=('vc*p'))
+# stargazer(dlmpostas.cus1,  type="text", report=('vc*p'))
 

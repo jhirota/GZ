@@ -59,7 +59,7 @@ male60 <- felm(M60 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg
 male70 <- felm(M70 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_rob)
 
 table8 <- stargazer(male15, male20, male30, male40, male50, male60, male70,
-                      title = "The self-restraint rate by male age group and the Green Zone certification",
+                      title = "The stay-home rate by male age group and the Green Zone certification",
                       digits = 3,
                       digits.extra = 0,
                       type = "latex",
@@ -104,7 +104,7 @@ female60 <- felm(F60 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(a
 female70 <- felm(F70 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_rob)
 
 table9 <- stargazer(female15, female20, female30, female40, female50, female60, female70,
-                      title = "The self-restraint rate by female age group and the Green Zone certification",
+                      title = "The stay-home rate by female age group and the Green Zone certification",
                       digits = 3,
                       digits.extra = 0,
                       type = "latex",

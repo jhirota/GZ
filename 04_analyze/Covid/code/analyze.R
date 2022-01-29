@@ -57,6 +57,10 @@ table1[grepl("Note",table1)] <- table1.note
 cat (table1, sep = "\n")
 write(table1, here::here("04_analyze/Covid/output/covid_reg.tex"))
 
+#p-value
+# stargazer(covid_50.0,  type="text", report=('vc*p'))
+# stargazer(covid_50.3,  type="text", report=('vc*p'))
+
 
 # lag1
 covid_51.0 <- felm(log(newcase_lead1 + 1) ~ log(cumGZ + 1)  + log(infectious_l1 + 1) + log(susceptible + 1) + emergency + log(tests_lead1 + 1)| pref+week | 0 | pref, data = weekSIR_rob)

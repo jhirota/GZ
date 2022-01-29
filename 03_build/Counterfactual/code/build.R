@@ -121,7 +121,7 @@ cofaplot_s <- FittedValue_s %>%
            pull(sales_per)) %>% 
   pivot_longer(!date,
                names_to = "type",
-               values_to = "sales")
+               values_to = "sales_per")
 
 
 write_csv(cofaplot_s, here::here("03_build/Counterfactual/output/sales_daily_data_for_plot.csv"))
@@ -176,47 +176,62 @@ cofaplot_c <- FittedValue_c %>%
            pull(customers_per)) %>% 
   pivot_longer(!date,
                names_to = "type",
-               values_to = "customers")
-
+               values_to = "customers_per")
 
 write_csv(cofaplot_c, here::here("03_build/Counterfactual/output/customers_daily_data_for_plot.csv"))
 
+## Findings (covid)--------
+
+GZeffect <- cofaplot %>% 
+  filter(week >= "2020-07-17" & week <= "2021-04-30") 
+
+diff <- GZeffect$nofcases[GZeffect$type == "actual"] -
+  GZeffect$nofcases[GZeffect$type == "counterfactual"]
+
+## Approximately 737 new infection cases were prevented during the period (2020-07-17 to 2021-04-30)
+sum(diff, na.rm = TRUE)
+
+#During the period (2020-07-17 to 2021-04-30), new infection cases decreased by approximately 39.4%. 
+rate <- sum(diff, na.rm = TRUE) / 
+  sum(GZeffect$nofcases[GZeffect$type == "counterfactual"], na.rm = TRUE)
+rate 
 
 ## Findings (sales)---------
 
 GZeffect_s <- cofaplot_s %>% 
   filter(date >= "2020-07-17" & date <= "2021-04-30") 
 
-diff <- GZeffect_s$sales[GZeffect_s$type == "actual"] -
-  GZeffect_s$sales[GZeffect_s$type == "counterfactual"]
+diffs <- GZeffect_s$sales_per[GZeffect_s$type == "actual"] -
+  GZeffect_s$sales_per[GZeffect_s$type == "counterfactual"]
 
 ## Approximately 3.52 million JPY in sale per restaurant was created during the period (2020-07-17 to 2021-04-30)
-sum(diff, na.rm = TRUE)
+sum(diffs, na.rm = TRUE)
 ## Approximately 371 thousand JPY in monthly sale per restaurant was created during the period (2020-07-17 to 2021-04-30)
-sum(diff, na.rm = TRUE)/9.5
+sum(diffs, na.rm = TRUE)/9.5
 
-#During the period (2020-07-17 to 2021-04-30), sales increased by approximately 14%. 
-rate <- sum(GZeffect_s$sales[GZeffect_s$type == "actual"], na.rm = TRUE) /
-  sum(GZeffect_s$sales[GZeffect_s$type == "counterfactual"], na.rm = TRUE)
-rate 
+#During the period (2020-07-17 to 2021-04-30), sales increased by approximately 14.1%. 
+rates <- sum(diffs, na.rm = TRUE)/
+  sum(GZeffect_s$sales_per[GZeffect_s$type == "counterfactual"], na.rm = TRUE)
+rates 
 
 ## Findings (customers)---------
 
 GZeffect_c <- cofaplot_c %>% 
   filter(date >= "2020-07-17" & date <= "2021-04-30") 
 
-diffc <- GZeffect_c$customers[GZeffect_c$type == "actual"] -
-  GZeffect_c$customers[GZeffect_c$type == "counterfactual"]
+diffc <- GZeffect_c$customers_per[GZeffect_c$type == "actual"] -
+  GZeffect_c$customers_per[GZeffect_c$type == "counterfactual"]
 
 ## Number of customers per restaurant increased by approximately 3099, during the period (2020-07-17 to 2021-04-30)
 sum(diffc, na.rm = TRUE)
 ## 326 customers was created per month
 sum(diffc, na.rm = TRUE)/9.5
 
-#During the period (2020-07-17 to 2021-04-30), number of customers increased by approximately 32%. 
-ratec <- sum(GZeffect_c$customers[GZeffect_c$type == "actual"], na.rm = TRUE) /
-  sum(GZeffect_c$customers[GZeffect_c$type == "counterfactual"], na.rm = TRUE)
+#During the period (2020-07-17 to 2021-04-30), number of customers increased by approximately 32.4% 
+ratec <- sum(diffc, na.rm = TRUE) /
+  sum(GZeffect_c$customers_per[GZeffect_c$type == "counterfactual"], na.rm = TRUE)
 ratec 
+
 
 
 # Economic effects (weeky)-------
@@ -227,7 +242,7 @@ cofaplot_sw <- cofaplot_s %>%
                            "week",
                            week_start = getOption("lubridate.week.start", 1))) %>% 
   group_by(week, type) %>% 
-  summarize(sales = sum(sales)) %>% 
+  summarize(sales_per = sum(sales_per)) %>% 
   ungroup()
   
   
@@ -236,7 +251,7 @@ cofaplot_cw <- cofaplot_c %>%
                            "week",
                            week_start = getOption("lubridate.week.start", 1))) %>% 
   group_by(week, type) %>% 
-  summarize(customers = sum(customers)) %>% 
+  summarize(customers_per = sum(customers_per)) %>% 
   ungroup()
 
 

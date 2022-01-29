@@ -4,8 +4,8 @@ library(tidyverse)
 #load data--------
 
 NHK <- read_csv("02_bring/Covid_cases/data/nhk_news_covid19_prefectures_daily_data(1).csv")
-Gmobility_2020 <- read_csv("02_bring/Google_mobility/2020_JP_Region_Mobility_Report(1).csv") 
-Gmobility_2021 <- read_csv("02_bring/Google_mobility/2021_JP_Region_Mobility_Report.csv") 
+Gmobility_2020 <- read_csv("02_bring/Google_mobility/data/2020_JP_Region_Mobility_Report(1).csv") 
+Gmobility_2021 <- read_csv("02_bring/Google_mobility/data/2021_JP_Region_Mobility_Report.csv") 
 emergency <- read_csv("02_bring/Covid_cases/data/GZ_COVID.csv")
 
 GZdata <- read_csv(here::here("03_build/GZlist/output/GZlist_timeseries.csv"))

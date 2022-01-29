@@ -1,4 +1,4 @@
-week,type,sales
+week,type,sales_per
 2018-12-31,actual,829769.4444444444
 2018-12-31,counterfactual,785147.6851524899
 2018-12-31,fitted,785147.6851524967
