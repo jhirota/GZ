@@ -2,7 +2,7 @@ library(readxl)
 library(tidyverse)
 library(lubridate)
 
-#data load
+#data load ----------
 weekSIR <- read_csv(here::here("03_build/weekSIR/output/weekSIR.csv"))
 postas <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京大学公共政策大学院データ提供.xlsx"))
 postas.cus <- read_excel(here::here("02_bring/Postas/data/国立大学法人東京大学公共政策大学院データ提供.xlsx"),2)
@@ -181,7 +181,7 @@ postas_day <- left_join(postas2,
 
 
 
-# new dummy variables -----
+# Merge new dummy variables -----
 dummy <- dummy %>% 
   rename(pref = Pref,
          date = day) %>% 

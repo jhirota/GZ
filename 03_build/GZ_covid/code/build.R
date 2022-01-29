@@ -1,7 +1,7 @@
 library(lubridate)
 library(tidyverse)
 
-#load data--------
+# data load --------
 
 NHK <- read_csv("02_bring/Covid_cases/data/nhk_news_covid19_prefectures_daily_data(1).csv")
 Gmobility_2020 <- read_csv("02_bring/Google_mobility/data/2020_JP_Region_Mobility_Report(1).csv") 
