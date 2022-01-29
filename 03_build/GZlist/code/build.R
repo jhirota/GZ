@@ -17,8 +17,8 @@ GZall_list <- GZ %>%
   complete(Date_approval = seq.Date(min(Date_approval), max(Date_approval), by="day"),
            fill = list(Approved = 0)) %>% 
   complete(Date_approval, Type, fill = list(Approved = 0, Type = "Food")) %>% 
-  mutate(week = lubridate::floor_date(Date_approval, "week",
-                                      week_start = getOption("lubridate.week.start", 1))) %>% 
+  mutate(week = floor_date(Date_approval, "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
   group_by(week, Type) %>% 
   summarize(GZnew = sum(Approved)) %>% 
   ungroup() %>% 

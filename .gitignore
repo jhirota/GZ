@@ -10,9 +10,16 @@
 *.DS_Store
 *.swp
 
-# Analysis and data (not related to the essence of our reports)
-## common name
+
+# common name
 doc/
+
+####### Not available in public ##########
+02_bring/GZlist/data/
+02_bring/Postas/data/
+02_bring/Agoop/data/
+03_build/Postas/output/
+##########################################
 
 
 
