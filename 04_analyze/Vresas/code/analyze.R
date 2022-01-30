@@ -49,13 +49,12 @@ vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, 
                                    c("Week FE", rep("X",9))),
                     omit.stat=c("f", "ser"),
                     header = FALSE,
-                    float.env = "sidewaystable",
                     column.sep.width = "1pt",
-                    font.size = "footnotesize",
+                    font.size = "scriptsize",
                     notes.align = "l",
                     notes.append = FALSE)
 
-vresas_reg.note <- "\\multicolumn{10}{l} {\\parbox[t]{23cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+vresas_reg.note <- "\\multicolumn{10}{l} {\\parbox[t]{20cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021. 
@@ -103,11 +102,11 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                         omit.stat = c("f", "ser"),
                         header = FALSE,
                         column.sep.width = "1pt",
-                        font.size = "small",
+                        font.size = "footnotesize",
                         notes.align = "l",
                         notes.append = FALSE)
 
-resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{14cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change of the number of restaurant-website views compared to the 2019 baseline (V-RESAS). 
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.

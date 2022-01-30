@@ -34,12 +34,11 @@ table3 <- stargazer(dlmpostas1, dlmpostas2, dlmpostas3, dlmpostas4,
                     omit.stat=c("f", "ser"),
                     header = FALSE,
                     column.sep.width = "1pt",
-                    float.env = "sidewaystable",
-                    font.size = "footnotesize",
+                    font.size = "scriptsize",
                     notes.align = "l",
                     notes.append = FALSE)
 
-table3.note <- "\\multicolumn{9}{l} {\\parbox[t]{22cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+table3.note <- "\\multicolumn{9}{l} {\\parbox[t]{19cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the log-transformed value of POS sales per restaurant and the number of customers per restaurant.
 The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 912 days from January 1st, 2019 to April 30th, 2021. 

@@ -40,7 +40,6 @@ Gmob <- stargazer(retrec1, retrec2, gropha1, gropha2, park1, park2,
                     omit.stat=c("f", "ser"),
                     header = FALSE,
                     column.sep.width = "-12pt",
-                    float.env = "sidewaystable",
                     font.size = "footnotesize",
                     notes.align = "l",
                     notes.append = FALSE)

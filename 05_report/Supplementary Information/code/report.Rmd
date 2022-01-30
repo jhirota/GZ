@@ -1,12 +1,26 @@
 ---
 title: "Supplementary Information"
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
 output: 
   pdf_document:
     latex_engine: xelatex
     extra_dependencies: rotating, float
+    
 fontsize: 12pt
 geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm" 
 ---
+
+\def\fillandplacepagenumber{%
+ \par\pagestyle{empty}%
+ \vbox to 0pt{\vss}\vfill
+ \vbox to 0pt{\baselineskip0pt
+   \hbox to\linewidth{\hss}%
+   \baselineskip\footskip
+   \hbox to\linewidth{%
+     \hfil\thepage\hfil}\vss}}
 
    In this online appendix, we summarize the sub-evidence for the main article. First, we present the data. Second, we describe the derivation of the estimating equation. Third, we cover basic statistics for each variable. Fourth, we cover regression tables for statistical testing. Finally, we provide supplementary information about the treatment effects.
   
@@ -37,7 +51,7 @@ D. Statistical Testing
   3. Economic Effects (Restaurants sales and customers)
   4. Restaurant's view
   5. Google Mobility 
-  6. Interregional Mobility 
+  6. Inter-regional Mobility 
   7. Stay-home rate
 
 E. Treatment Effect
@@ -132,9 +146,11 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 
 \newpage
 
+\blandscape
 ## D.3  Economic Effects
 \input{../../../04_analyze/Postas/output/postas_pref_week.tex}
-
+\fillandplacepagenumber
+\elandscape
 \newpage
 
 ## D.4 Restaurants' view 
@@ -142,18 +158,23 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 
 \newpage
 
+\blandscape
 ## D.5 Google Mobility data
 \input{../../../04_analyze/Google_mobility/output/Google Mobility.tex}
+\fillandplacepagenumber
+\elandscape
 
 \newpage
 
+\blandscape
 ## D.6 V-RESAS 
 \input{../../../04_analyze/Vresas/output/vresas_mob_reg.tex}
+\fillandplacepagenumber
+\elandscape
 
 \newpage
 
 ## D.7 Stay-home rate 
-\newpage
 \input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex}
 \newpage
 \input{../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex}
