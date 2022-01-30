@@ -42,7 +42,8 @@ Gmob <- stargazer(retrec1, retrec2, gropha1, gropha2, park1, park2,
                     column.sep.width = "-12pt",
                     float.env = "sidewaystable",
                     font.size = "footnotesize",
-                    notes.align = "l", notes.append = FALSE)
+                    notes.align = "l",
+                    notes.append = FALSE)
 
 Gmob.note <- "\\multicolumn{13}{l} {\\parbox[t]{23cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change in human flow for a given facility type compared to the January 2020 baseline (Google Mobility).

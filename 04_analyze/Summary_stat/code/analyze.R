@@ -18,7 +18,8 @@ stat <- stargazer::stargazer(weekSIR_rob %>%
                      covariate.labels = c("New cases per day", "Number of customers per restaurant",
                                           "Sales per restaurant", "Average temperature", "Average rainfall",
                                           "Infectious", "Susceptible", "Number of COVID-19 tests"),
-                     out = here::here("04_analyze/Summary_stat/output/summary_statistics.tex"))
+                     out = here::here("04_analyze/Summary_stat/output/summary_statistics.tex"),
+                     table.placement = "H")
 
 
 

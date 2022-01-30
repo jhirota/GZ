@@ -3,7 +3,7 @@ title: "Supplementary Information"
 output: 
   pdf_document:
     latex_engine: xelatex
-    extra_dependencies: rotating
+    extra_dependencies: rotating, float
 fontsize: 12pt
 geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm" 
 ---
@@ -115,6 +115,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 \input{../../../04_analyze/Summary_stat/output/summary_statistics.tex}
 
 ## C.2 Cumulative number of the GZ-certified restaurants
+
 ![](../../../04_analyze/GZlist/output/cumulative_GZ_plot.png)
 
 \newpage

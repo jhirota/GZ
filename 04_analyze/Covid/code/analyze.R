@@ -35,7 +35,8 @@ table1 <- stargazer(covid_50.0, covid_50.1, covid_50.2, covid_50.3, covid_50.4,
                     header = FALSE,
                     notes.align = "l",notes.append = FALSE,
                     column.sep.width = "1pt",
-                    font.size = "scriptsize")
+                    font.size = "scriptsize",
+                    table.placement = "H")
 
 table1.note <- "\\multicolumn{6}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the log-transformed value of the number of new infection cases (2 week lag) plus one. 
@@ -92,7 +93,8 @@ table2 <- stargazer(covid_51.0, covid_51.1, covid_51.2, covid_51.3, covid_51.4,
                     header = FALSE,
                     notes.align = "l",notes.append = FALSE,
                     column.sep.width = "1pt",
-                    font.size = "scriptsize")
+                    font.size = "scriptsize",
+                    table.placement = "H")
 
 table2.note <- "\\multicolumn{6}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the log-transformed value of the number of new infection cases (1 week lag) plus one. 

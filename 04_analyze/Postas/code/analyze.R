@@ -36,7 +36,8 @@ table3 <- stargazer(dlmpostas1, dlmpostas2, dlmpostas3, dlmpostas4,
                     column.sep.width = "1pt",
                     float.env = "sidewaystable",
                     font.size = "footnotesize",
-                    notes.align = "l",notes.append = FALSE)
+                    notes.align = "l",
+                    notes.append = FALSE)
 
 table3.note <- "\\multicolumn{9}{l} {\\parbox[t]{22cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the log-transformed value of POS sales per restaurant and the number of customers per restaurant.

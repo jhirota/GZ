@@ -31,7 +31,9 @@ table10 <- stargazer(NSHR1, NSHR2, NSHR3,
                       header = FALSE,
                       column.sep.width = "1pt",
                       font.size = "footnotesize",
-                      notes.align = "l", notes.append = FALSE)
+                      notes.align = "l",
+                      notes.append = FALSE,
+                      table.placement = "H")
 
 table10.note <- "\\multicolumn{4}{l} {\\parbox[t]{14cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the night-time (from 8pm to 0am) stay-home rate, which indicates the percentage of people who refrain from going out compared to the baseline value; the closer to 1, the more people refrain from going out, and the closer to 0, the more people go out.
@@ -76,7 +78,9 @@ table8 <- stargazer(male15, male20, male30, male40, male50, male60, male70,
                       header = FALSE,
                       column.sep.width = "-11pt",
                       font.size = "footnotesize",
-                      notes.align = "l", notes.append = FALSE)
+                      notes.align = "l", 
+                      notes.append = FALSE,
+                      table.placement = "H")
 
 table8.note <- "\\multicolumn{8}{l} {\\parbox[t]{16cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the day-time (from 9 am to 6 pm) stay-home rate for males, which indicates the percentage of people who refrain from going out compared to the baseline value; the closer to 1, the more people refrain from going out, and the closer to 0, the more people go out. 
@@ -121,7 +125,9 @@ table9 <- stargazer(female15, female20, female30, female40, female50, female60, 
                       header = FALSE,
                       column.sep.width = "-11pt",
                       font.size = "footnotesize",
-                      notes.align = "l", notes.append = FALSE)
+                      notes.align = "l", 
+                      notes.append = FALSE,
+                      table.placement = "H")
 
 table9.note <- "\\multicolumn{8}{l} {\\parbox[t]{16cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the day-time (from 9 am to 6 pm) stay-home rate for females, which indicates the percentage of people who refrain from going out compared to the baseline value; the closer to 1, the more people refrain from going out, and the closer to 0, the more people go out. 

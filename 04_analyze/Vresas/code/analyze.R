@@ -52,7 +52,8 @@ vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, 
                     float.env = "sidewaystable",
                     column.sep.width = "1pt",
                     font.size = "footnotesize",
-                    notes.align = "l",notes.append = FALSE)
+                    notes.align = "l",
+                    notes.append = FALSE)
 
 vresas_reg.note <- "\\multicolumn{10}{l} {\\parbox[t]{23cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
@@ -81,8 +82,8 @@ resview_yama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref == "Yamanashi"])
 resview_nonyama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref != "Yamanashi"])
 
 resview_reg <- stargazer(resview1, resview2, resview3,
-                        dep.var.labels = "Restaurant View (percentage change) ",
-                        title = "Restaurant View (percentage change) and the Green Zone certification",
+                        dep.var.labels = "Restaurants' View (percentage change) ",
+                        title = "Restaurants' View (percentage change) and the Green Zone certification",
                         digits = 3,
                         digits.extra = 0,
                         type = "latex",
@@ -93,9 +94,9 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                                              "Average rainfall, log",
                                              "School closure",
                                              "Gathering restriction"),
-                        add.lines=list(c("Restraurant View Yamanashi mean", "",
+                        add.lines=list(c("Restraurants' View Yamanashi mean", "",
                                          round(resview_yama_mean, digits = 3)),
-                                       c("Restraurant View Control mean", "",
+                                       c("Restraurants' View Control mean", "",
                                          round(resview_nonyama_mean, digits = 3)),
                                        c("Prefecture FE", "X", "X", "X"),
                                        c("Week FE", "X", "X","X")),
@@ -103,7 +104,8 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                         header = FALSE,
                         column.sep.width = "1pt",
                         font.size = "small",
-                        notes.align = "l",notes.append = FALSE)
+                        notes.align = "l",
+                        notes.append = FALSE)
 
 resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
 The dependent variable is the percent change of the number of restaurant-website views compared to the 2019 baseline (V-RESAS). 
