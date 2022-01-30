@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.18)  30 JAN 2022 23:18
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.4.18)  31 JAN 2022 00:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,89 +925,46 @@ alyze/Postas/output/postas_pref_week.tex) [8
 ] (../../../04_analyze/Stayhome_rate/output/SHR_by_age_male.tex) [12
 
 ] (../../../04_analyze/Stayhome_rate/output/SHR_by_age_female.tex) (../../../04
-_analyze/Stayhome_rate/output/night_stayhome.tex) [13] [14]
-Overfull \hbox (8.16165pt too wide) in paragraph at lines 500--501
-[]\TU/lmr/m/n/12 Yamanashi|  
- []
-
-
-Overfull \hbox (8.16165pt too wide) in paragraph at lines 517--518
-[]\TU/lmr/m/n/12 Yamanashi 
- []
-
-
-Overfull \hbox (16.38165pt too wide) in paragraph at lines 517--518
+_analyze/Stayhome_rate/output/night_stayhome.tex) [13] [14] [15]
+Overfull \hbox (2.17007pt too wide) in paragraph at lines 520--521
 \TU/lmr/m/n/12 Certification|  
  []
 
 
-Overfull \hbox (5.80064pt too wide) in paragraph at lines 519--520
+Overfull \hbox (9.0348pt too wide) in paragraph at lines 524--525
 \TU/lmr/m/n/12 Certification|  
  []
 
+[16
 
-Overfull \hbox (12.4281pt too wide) in paragraph at lines 521--522
-[]\TU/lmr/m/n/12 Tochimaru 
- []
-
-
-Overfull \hbox (21.6681pt too wide) in paragraph at lines 521--522
-\TU/lmr/m/n/12 Certification|  
- []
-
-
-Overfull \hbox (17.24728pt too wide) in paragraph at lines 575--577
-[]\TU/lmr/m/n/12 Prefectural/municipal 
- []
+]
+Missing character: There is no 　 (U+3000) in font [lmroman12-regular]:mapping=t
+ex-text;!
+Missing character: There is no 　 (U+3000) in font [lmroman12-regular]:mapping=t
+ex-text;!
+[17
 
 
-Overfull \hbox (45.18301pt too wide) in paragraph at lines 617--618
-[]\TU/lmr/m/n/12 Yamanashi|  
- []
+] [18
 
-
-Overfull \hbox (35.451pt too wide) in paragraph at lines 627--628
-[]\TU/lmr/m/n/12 Shizuoka|  
- []
-
-
-Overfull \hbox (26.535pt too wide) in paragraph at lines 636--637
-[]\TU/lmr/m/n/12 Tochigi|  
- []
-
-
-Overfull \hbox (28.27501pt too wide) in paragraph at lines 645--646
-[]\TU/lmr/m/n/12 Nagano|  
- []
-
-
-Overfull \hbox (27.363pt too wide) in paragraph at lines 654--655
-[]\TU/lmr/m/n/12 Gunma|  
- []
-
-
-Overfull \hbox (25.983pt too wide) in paragraph at lines 663--664
-[]\TU/lmr/m/n/12 Ibaraki|  
- []
-
-[15] [16] [17] [18]
-Overfull \hbox (321.21266pt too wide) in paragraph at lines 1001--1005
+] [19]
+Overfull \hbox (321.21266pt too wide) in paragraph at lines 1033--1037
 \TU/lmr/m/n/12 to avoid overlapping lines of flow for users. Describe in detail
 : __________________________________________________________ 
  []
 
-[19]
-Overfull \hbox (49.25928pt too wide) in paragraph at lines 1076--1078
+[20]
+Overfull \hbox (49.25928pt too wide) in paragraph at lines 1108--1110
 []\TU/lmr/m/n/12 Describe in detail: __________________________________________
 _____________ 
  []
 
-[20]
+[21]
 Missing character: There is no 【 (U+3010) in font [lmroman12-regular]:mapping=t
 ex-text;!
 Missing character: There is no 】 (U+3011) in font [lmroman12-regular]:mapping=t
 ex-text;!
-[21] [22] [23] (./report.aux)
+[22] [23] [24] (./report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1015,10 +972,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18166 strings out of 476919
  325701 string characters out of 5821840
- 862910 words of memory out of 5000000
+ 853911 words of memory out of 5000000
  37829 multiletter control sequences out of 15000+600000
  411802 words of font info for 92 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,10n,122p,511b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (23 pages).
+Output written on report.pdf (24 pages).

@@ -192,6 +192,9 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 | Distance to Tokyo ($km$)    | 101.7     | 142.8    | 172.8   | 96.4   | 98.8  | 99.3    |
 Notes: Population and population density are from the 2019 and 2014 National Census, respectively. For distance to Tokyo, see "Distance between Prefectural Offices" by the Geospatial Information Authority of Japan. *In prefectures in the Tokyo metropolitan area that were excluded from the control group, population density is about two to three times that of Yamanashi. In particular, the population densities of Tokyo, Kanagawa, Saitama, and Chiba prefectures are 12,022, 8,979, 8,340, and 7,145 persons/$km^2$, respectively.
 
+
+\newpage
+\blandscape
 ## E.2  Comparison of policies in Treatment and Control prefecture
 |                                                                        | Yamanashi                          | Shizuoka                                     | Tochigi                          | Nagano                                      | Gunma                                              | Ibaraki                                   |
 | ---------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------- | -------------------------------- | ------------------------------------------- | -------------------------------------------------- | ----------------------------------------- |
@@ -202,16 +205,26 @@ Notes: Population and population density are from the 2019 and 2014 National Cen
 | Prefectural/municipal support on the introduction of delivery services | In certain cities                  | From April 17, 2020                          | From January 22, 2021            | From September 15, 2020 - December 28, 2020 | Only in Maebashi City                              | In certain cities                         |
 Notes: Prepared by the authors with reference to prefectures' press releases and newspaper articles. Gunma Prefecture introduced a certification system around the same time as Yamanashi, but the penetration rate remains 21.6% as of October 2020 (see Reference List 17-35). 
 
+\fillandplacepagenumber
+\elandscape
+
+\newpage
+\blandscape
 ## E.3  List of Business suspension request 
-|           | First Emergency Declaration (April 2020 - May 2020)                                                                                         | Second Emergency Declaration (January 2021 - March 2021)                                                              | Third Emergency Declaration (April 2021 - June 2021)             |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Yamanashi | April 20 - May 14<br>(business closure on bars and nightclubs)<br>May 15 - February 12<br>(qualified facilities were individually exempted) | January 25 - February 7                                                                                               | No                                                               |
-| Shizuoka  | April 25 - May 17<br>(bars and nightclubs only)                                                                                             | December 23 - January 5<br>(only in Fuji City)                                                                        | May 19 - June 1<br>(only in Kosai City)                          |
-| Tochigi   | April 18 - May 15<br>(restriction on alcohol service hours only)                                                                            | January 8 - February 21<br>(in specified cities until January 12)                                                     | No                                                               |
-| Nagano    | April 23 - May 15                                                                                                                           | January 18 - February 4<br>(in specified cities)                                                                      | April 2 - 9 (Nagano City)<br>April 21 - 29 (in specified cities) |
-| Gunma     | April 18 - May 15                                                                                                                           | December 15 - March 1<br>(in specified cities)                                                                        | May 8 - June 20                                                  |
-| Ibaraki   | April 18 - May 17<br>(bars and nightclubs only)                                                                                             | November 30 - December 20, January 6 - 17<br>(in specified cities)<br>January 18 - February 22<br>(entire Prefecture) | April 22 - June 16<br>(in specified cities)                      |
+|           | First Emergency Declaration \newline (April 2020 - May 2020)                                                                                         | Second Emergency Declaration \newline (January 2021 - March 2021)                                                              | Third Emergency Declaration \newline(April 2021 - June 2021)             |
+| ----------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------  | ---------------------------------------------------------------- |
+| Yamanashi | April 20 - May 14　\newline　(business closure on bars and nightclubs) \newline May 15 - February 12 \newline (qualified facilities were individually exempted) | January 25 - February 7                                                                                               | No                                                               |
+| Shizuoka  | April 25 - May 17 \newline (bars and nightclubs only)                                                                                             | December 23 - January 5 \newline (only in Fuji City)                                                                        | May 19 - June 1 \newline (only in Kosai City)                          |
+| Tochigi   | April 18 - May 15 \newline (restriction on alcohol service hours only)                                                                            | January 8 - February 21 \newline (in specified cities until January 12)                                                     | No                                                               |
+| Nagano    | April 23 - May 15                                                                                                                           | January 18 - February 4 \newline (in specified cities)                                                                      | April 2 - 9 (Nagano City) \newline April 21 - 29 (in specified cities) |
+| Gunma     | April 18 - May 15                                                                                                                           | December 15 - March 1 \newline (in specified cities)                                                                        | May 8 - June 20                                                  |
+| Ibaraki   | April 18 - May 17 \newline (bars and nightclubs only)                                                                                             | November 30 - December 20, January 6 - 17 \newline (in specified cities) \newline January 18 - February 22 \newline (entire Prefecture) | April 22 - June 16 \newline (in specified cities)                      |
 Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 36-64). 
+
+\fillandplacepagenumber
+\elandscape
+
+\newpage
 
 ## E.4 GZ Certification criteria 
 Standards pertaining to measures for prevention of infectious diseases (Restaurant industry)
