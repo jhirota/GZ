@@ -3,11 +3,11 @@
 ## About this repository
 We publish the data　and codes for analyses of the policy effects of the Yamanashi Green Zone Certification System, which was implemented as a countermeasure against new coronavirus infections in Yamanashi Prefecture since July 2020. The effects to be verified are (1) economic effects (increase or decrease in sales and number of customers per restaurant) and (2) infection control effects (increase or decrease in the number of new cases of novel coronavirus infection) resulting from the spread of the Green Zone Certification in restaurants and bars in Yamanashi Prefecture.
 
-### 01_admin
+## 01_admin
 * An outline of the folder structure for 02_bring, 03_build, and 04_analyze.
 * Master code (Run.R)
 
-### 02_bring
+## 02_bring
 All raw data used for analyses is stored here.
 
 * Google_mobility <br>
@@ -28,7 +28,7 @@ Data on changes in the amount of human mobility compared to normal human mobilit
 Data on dummy variables of gathering restriction and school closure
 
 
-### 03_build
+## 03_build
 This folder process the raw data and make it available for analysis.
 
 * GZlist <br>
@@ -38,7 +38,7 @@ Number of GZ-certified places by city in Yamanashi Prefecture, and by facility
 Cleaned data on number of COVID-19 tests, weather, and infectious mobility from 47 prefectures in Japan into prefectures concerned
 
 * GZ_covid <br>
-Dataset on number of GZ-certified restaurants and new infections cases by date
+Dataset on number of the GZ-certified restaurants and new infections cases by date
 
 * weekSIR <br>
 Dataset combined with 3 built data above by weeek
@@ -49,11 +49,11 @@ Dataset to create non-intervention scenario plots
 * Robust_check <br>
 Dataset to implement robustness check (stayhome-rate, mobility, restraunts' views etc.)
 
-### 04_analyze
+## 04_analyze
 This folder performs regression analysis and data visualization by using built data.
 
 * GZlist <br>
-Visualizing the cumulative number of GZ-certified restaurants
+Visualizing the cumulative number of the GZ-certified restaurants
 * Vresas <br>
 Performing regression analyses on restraunts' views and human mobility
 * Google Mobility <br>
@@ -69,6 +69,6 @@ Performing regression analyses on the stay-home rate
 * Summary_stat <br>
 Formatting summary statistics of key variables
 
-### 05_report
+## 05_report
 Reporting Supplementary Information
 
