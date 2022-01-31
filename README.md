@@ -41,7 +41,7 @@ Cleaned data on number of COVID-19 tests, weather, and infectious mobility from 
 Dataset on number of the GZ-certified restaurants and new infections cases by date
 
 * weekSIR <br>
-Dataset combined with 3 built data above by weeek
+Dataset combined with 3 built data above by week
 
 * Counterfactual <br>
 Dataset to create non-intervention scenario plots
