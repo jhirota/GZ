@@ -9,6 +9,10 @@
 # DS_Store and swp
 *.DS_Store
 *.swp
+# tex
+*.aux
+*.log
+*.out
 
 
 # common name
