@@ -1,14 +1,14 @@
 # Investigating the epidemiological and economic effects of a third-party certification for restaurants and bars with COVID-19 prevention measures
 
 ## About this repository
-We publish the data　and codes for analyses of the policy effects of the Yamanashi Green Zone Certification System, which was implemented as a countermeasure against COVID-19 infections in Yamanashi Prefecture since July 2020. The effects to be verified are (1) economic effects (increase or decrease in sales and number of customers per restaurant) and (2) infection prevention effects (increase or decrease in the number of new cases of COVID-19 infection) resulting from the spread of the Green Zone Certification in restaurants and bars in Yamanashi Prefecture.
+We publish the data and codes for analyses of the policy effects of the Yamanashi Green Zone Certification System, which was implemented as a countermeasure against COVID-19 infections in Yamanashi Prefecture since July 2020. The effects to be verified are (1) economic effects (increase or decrease in sales and number of customers per restaurant) and (2) infection prevention effects (increase or decrease in the number of new cases of COVID-19 infection) resulting from the spread of the Green Zone Certification in restaurants and bars in Yamanashi Prefecture.
 
 ## 01_admin
 * An outline of the folder structure for 02_bring, 03_build, and 04_analyze.
 * Master code (Run.R)
 
 ## 02_bring
-All raw data used for analyses is stored here.
+All raw data used for analyses is stored in this folder.
 
 * Google_mobility <br>
 Human mobility data for each facility
@@ -29,7 +29,7 @@ Data on dummy variables of gathering restriction and school closure
 
 
 ## 03_build
-This folder process the raw data and make it available for analyses.
+This folder processes the raw data and makes them available for analyses.
 
 * GZlist <br>
 Number of GZ-certified places by city in Yamanashi Prefecture, and by facility
@@ -50,7 +50,7 @@ Dataset to create non-intervention scenario plots
 Dataset to implement robustness check (stayhome-rate, mobility, restraunts' views, school closure and gathering restriction dummy variables)
 
 ## 04_analyze
-This folder performs regression analysis and data visualization by using built data.
+This folder performs regression analyses and data visualization by using built data.
 
 * GZlist <br>
 Visualizing the cumulative number of the GZ-certified restaurants
