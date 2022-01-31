@@ -3,7 +3,7 @@ library(lubridate)
 
 # data load ----
 weather <- read_csv(here::here("03_build/GZ_covid/output/weather_pref.csv"))
-inflow <- read_csv(here::here("03_build/Controls/output/県別流入リスク.csv"))
+inflow <- read_csv(here::here("03_build/Controls/output/infectious_by_pref.csv"))
 Testdata <- read.csv(here::here("03_build/Controls/output/tests.csv")) 
 COVID_GZ <- read_csv(here::here("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.csv"))
 

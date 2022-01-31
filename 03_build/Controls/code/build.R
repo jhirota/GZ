@@ -153,7 +153,7 @@ Aggregate <- newmob6_47 %>%
   left_join(pop47,
             by = c("pref" = "pref_resid"))
 
-write_csv(Aggregate, here::here("03_build/Controls/output/県別流入リスク.csv"))
+write_csv(Aggregate, here::here("03_build/Controls/output/infectious_by_pref.csv"))
 
 
 ## Test data clean ----
