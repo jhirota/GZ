@@ -10,7 +10,7 @@ COVID_GZ <- read_csv(here::here("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.
 data_mobility <- here::here("02_bring/Vresas/data/mobility") %>% 
   list.files(full.names = T) %>% 
   lapply(read.csv)
-data_restaurant <- here::here("02_bring/Vresas/data/restaurant")%>% 
+data_restaurant <- here::here("02_bring/Vresas/data/restaurant") %>% 
   list.files(full.names = T) %>% 
   lapply(read.csv)
 
@@ -141,7 +141,6 @@ weekSIR <- left_join(VRweek,
          susceptible = pop_resid - cumcases) %>% 
   ungroup() 
   
-
 write_csv(weekSIR, here::here("03_build/weekSIR/output/weekSIR.csv"))
 
 # data for time series plot-------

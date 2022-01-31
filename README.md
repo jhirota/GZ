@@ -43,6 +43,10 @@ Cleaned data on number of COVID-19 tests, population, and infectious mobility fr
 * weekSIR <br>
 Dataset combined with 3 built data above by week
 
+* Postas <br>
+Dataset for analyzing economic effects (sales and number of customers) <br>
+Dataset for analyzing prevention effects (merge with weekSIR dataset)
+
 * Counterfactual <br>
 Dataset to create non-intervention scenario plots
 
