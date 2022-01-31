@@ -77,9 +77,7 @@ weekSIR2 <- weekSIR %>%
             by = c("week", "pref")) %>% 
   left_join(postas.cus2_week,
             by = c("week", "pref")) %>% 
-  mutate(lsales = log(sales),
-         lcustomers = log(customers),
-         sales_per = case_when(pref == "Yamanashi" ~ sales / 18,
+  mutate(sales_per = case_when(pref == "Yamanashi" ~ sales / 18,
                                pref == "Gunma" ~ sales / 100,
                                pref == "Tochigi" ~ sales / 58,
                                pref == "Ibaraki" ~ sales / 86,
@@ -91,7 +89,8 @@ weekSIR2 <- weekSIR %>%
                                    pref == "Ibaraki" ~ customers / 86,
                                    pref == "Nagano" ~ customers / 68,
                                    pref == "Shizuoka" ~ customers / 116),
-         avg_temp = C2F(avg_temp))
+         avg_temp = C2F(avg_temp)) %>% 
+  select(!c(sales, customers)) # condition for disclosure
 
 
 write_csv(weekSIR2, here::here("03_build/Postas/output/weekSIR2.csv"))
@@ -164,8 +163,6 @@ postas_day <- left_join(postas2,
             by = c("date", "pref")) %>% 
   mutate_at(vars(7:14), NA20) %>% 
   mutate(avg_temp = C2F(avg_temp),
-         lsales = log(sales),
-         lcustomers = log(customers),
          sales_per = case_when(pref == "Yamanashi" ~ sales / 18,
                                pref == "Gunma" ~ sales / 100,
                                pref == "Tochigi" ~ sales / 58,
@@ -193,29 +190,31 @@ postas_day1 <- left_join(x = postas_day,
                          y = dummy, 
                          by = c("date", "pref")) %>% 
   mutate(dummy_school_closure = replace_na(dummy_school_closure, 0),
-         dummy_gathering_restriction = replace_na(dummy_gathering_restriction, 0))
+         dummy_gathering_restriction = replace_na(dummy_gathering_restriction, 0)) %>% 
+  select(!c(sales, customers)) # condition for disclosure
 
 
 write_csv(postas_day1, here::here("03_build/Postas/output/postas_daily_data.csv"))
 
 # weekly data (2019-2021)
 
-postas_week2 <- postas_day %>% 
-  mutate(week = floor_date(date,
-                           "week",
-                           week_start = getOption("lubridate.week.start", 1))) %>% 
-  group_by(week, pref) %>% 
-  summarize(across(c(avg_temp, avg_rain),
-                   mean),
-            across(c(sales, customers),
-                   sum)) %>% 
-  mutate(avg_temp = C2F(avg_temp)) %>% 
-  ungroup() %>% 
-  left_join(weekSIR2 %>% select(week, pref, newcase_day, GZnew, cumGZ, emergency),
-            by = c("week", "pref")) %>% 
-  mutate_at(vars(7:10), NA20)
-    
-
-
-write_csv(postas_week2, "03_build/Postas/output/postas_weekly_data.csv")
+# postas_week2 <- postas_day %>% 
+#   mutate(week = floor_date(date,
+#                            "week",
+#                            week_start = getOption("lubridate.week.start", 1))) %>% 
+#   group_by(week, pref) %>% 
+#   summarize(across(c(avg_temp, avg_rain),
+#                    mean),
+#             across(c(sales, customers),
+#                    sum)) %>% 
+#   mutate(avg_temp = C2F(avg_temp)) %>% 
+#   ungroup() %>% 
+#   left_join(weekSIR2 %>% select(week, pref, newcase_day, GZnew, cumGZ, emergency),
+#             by = c("week", "pref")) %>% 
+#   mutate_at(vars(7:10), NA20) %>% 
+#   select(!c(sales, customers)) # condition for disclosure
+#     
+# 
+# 
+# write_csv(postas_week2, "03_build/Postas/output/postas_weekly_data.csv")
 
