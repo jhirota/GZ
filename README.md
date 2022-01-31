@@ -34,11 +34,11 @@ This folder process the raw data and make it available for analyses.
 * GZlist <br>
 Number of GZ-certified places by city in Yamanashi Prefecture, and by facility
 
-* Controls <br>
-Cleaned data on number of COVID-19 tests, weather, and infectious mobility from 47 prefectures in Japan into prefectures concerned
-
 * GZ_covid <br>
-Dataset on number of the GZ-certified restaurants and new infections cases by date
+Dataset on number of the GZ-certified restaurants and new infections cases by date with main control variables
+
+* Controls <br>
+Cleaned data on number of COVID-19 tests, population, and infectious mobility from 47 prefectures in Japan into prefectures concerned
 
 * weekSIR <br>
 Dataset combined with 3 built data above by week
@@ -47,7 +47,7 @@ Dataset combined with 3 built data above by week
 Dataset to create non-intervention scenario plots
 
 * Robust_check <br>
-Dataset to implement robustness check (stayhome-rate, mobility, restraunts' views etc.)
+Dataset to implement robustness check (stayhome-rate, mobility, restraunts' views, school closure and gathering restriction dummy variables)
 
 ## 04_analyze
 This folder performs regression analysis and data visualization by using built data.
