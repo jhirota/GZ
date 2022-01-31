@@ -10,63 +10,63 @@ We publish the data　and codes for analyses of the policy effects of the Yamana
 ### 02_bring
 All raw data used for analyses is stored here.
 
-* Google_mobility
+* Google_mobility <br>
 Human mobility data for each facility
-* Pop
+* Pop <br>
 Population data in each prefecture
-* Vresas
+* Vresas <br>
 Data on views of restraunt's websites and intra/inter prefectural human mobility 
-* Weather
+* Weather <br>
 Data on average temperature and rainfall
-* Covid_cases
+* Covid_cases <br>
 Data on new infection cases in each prefecture
-* Tests
+* Tests <br>
 Data on COVID-19 tests in each prefecture 
-* Stayhome_rate
+* Stayhome_rate <br>
 Data on changes in the amount of human mobility compared to normal human mobility
-* Dummy_vars
+* Dummy_vars <br>
 Data on dummy variables of gathering restriction and school closure
 
 
 ### 03_build
 This folder process the raw data and make it available for analysis.
 
-* GZlist
+* GZlist <br>
 Number of GZ-certified places by city in Yamanashi Prefecture, and by facility
 
-* Controls
+* Controls <br>
 Cleaned data on number of COVID-19 tests, weather, and infectious mobility from 47 prefectures in Japan into prefectures concerned
 
-* GZ_covid
+* GZ_covid <br>
 Dataset on number of GZ-certified restaurants and new infections cases by date
 
-* weekSIR
+* weekSIR <br>
 Dataset combined with 3 built data above by weeek
 
-* Counterfactual
+* Counterfactual <br>
 Dataset to create non-intervention scenario plots
 
-* Robust_check
+* Robust_check <br>
 Dataset to implement robustness check (stayhome-rate, mobility, restraunts' views etc.)
 
 ### 04_analyze
 This folder performs regression analysis and data visualization by using built data.
 
-* GZlist
+* GZlist <br>
 Visualizing the cumulative number of GZ-certified restaurants
-* Vresas
+* Vresas <br>
 Performing regression analyses on restraunts' views and human mobility
-* Google Mobility
+* Google Mobility <br>
 Performing regression analyses on human mobility in each facility
-* Counterfactual
+* Counterfactual <br>
 Visualizing the non-intervention scenario in terms of economic effects and infection prevention effects
-* Postas
+* Postas <br>
 Performing regression analyses on sales and the number of customers per restaurant
-* Covid
+* Covid <br>
 Performing regression analyses on the new infection cases
-* Stayhome_rate
+* Stayhome_rate <br>
 Performing regression analyses on the stay-home rate
-* Summary_stat
+* Summary_stat <br>
 Formatting summary statistics of key variables
 
 ### 05_report
