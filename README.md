@@ -78,7 +78,7 @@ Performing regression analyses on the new infection cases
 Performing regression analyses on the stay-home rate
 
 * Summary_stat <br>
-Making a table of summary statistics of key variables
+Creating a table of summary statistics of key variables
 
 ## 05_report
 This folder creates Supplementary Information document.
