@@ -1,7 +1,7 @@
 # Investigating the epidemiological and economic effects of a third-party certification for restaurants and bars with COVID-19 prevention measures
 
 ## About this repository
-We publish the data　and codes for analyses of the policy effects of the Yamanashi Green Zone Certification System, which was implemented as a countermeasure against new coronavirus infections in Yamanashi Prefecture since July 2020. The effects to be verified are (1) economic effects (increase or decrease in sales and number of customers per restaurant) and (2) infection control effects (increase or decrease in the number of new cases of novel coronavirus infection) resulting from the spread of the Green Zone Certification in restaurants and bars in Yamanashi Prefecture.
+We publish the data　and codes for analyses of the policy effects of the Yamanashi Green Zone Certification System, which was implemented as a countermeasure against COVID-19 infections in Yamanashi Prefecture since July 2020. The effects to be verified are (1) economic effects (increase or decrease in sales and number of customers per restaurant) and (2) infection prevention effects (increase or decrease in the number of new cases of COVID-19 infection) resulting from the spread of the Green Zone Certification in restaurants and bars in Yamanashi Prefecture.
 
 ## 01_admin
 * An outline of the folder structure for 02_bring, 03_build, and 04_analyze.
@@ -29,7 +29,7 @@ Data on dummy variables of gathering restriction and school closure
 
 
 ## 03_build
-This folder process the raw data and make it available for analysis.
+This folder process the raw data and make it available for analyses.
 
 * GZlist <br>
 Number of GZ-certified places by city in Yamanashi Prefecture, and by facility
@@ -54,21 +54,28 @@ This folder performs regression analysis and data visualization by using built d
 
 * GZlist <br>
 Visualizing the cumulative number of the GZ-certified restaurants
+
 * Vresas <br>
 Performing regression analyses on restraunts' views and human mobility
+
 * Google Mobility <br>
 Performing regression analyses on human mobility in each facility
+
 * Counterfactual <br>
 Visualizing the non-intervention scenario in terms of economic effects and infection prevention effects
+
 * Postas <br>
 Performing regression analyses on sales and the number of customers per restaurant
+
 * Covid <br>
 Performing regression analyses on the new infection cases
+
 * Stayhome_rate <br>
 Performing regression analyses on the stay-home rate
+
 * Summary_stat <br>
 Formatting summary statistics of key variables
 
 ## 05_report
-Reporting Supplementary Information
+This folder creates Supplementary Information document.
 
