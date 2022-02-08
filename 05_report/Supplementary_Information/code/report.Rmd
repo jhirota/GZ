@@ -28,7 +28,7 @@ geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm"
 
 A. Data 
 
-  1. COVID-19 policy dummies 
+  1. COVID-19 policy dummy variables 
   2. COVID-19 test cases 
   3. Restaurant website views 
   4. Mobility by residential type 
@@ -67,12 +67,12 @@ E. Treatment Effect
 
 Our data used for control variables come from multiple sources. We will list them one by one.
 
-## A.1  COVID-19 policy dummies
-The emergency declaration dummy was created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new coronavirus infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
+## A.1  COVID-19 policy dummy variables
+The emergency declaration dummy was created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
 
-School closure dummies were created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for new coronaviruses. The variable was set to 1 only when schools were closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
+School closure dummy variables were created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for COVID-19. The variable was set to 1 only when schools were closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
 
-Large-scale assembly dummies were created based on the governor's press conferences and updates on coronavirus in each prefecture. The criterion for variable 1 was defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and was set to 0 if either of these criteria was not met. In cases where the prefectural criteria were based on the guidelines of the respective industry, dummies were created based on the common guidelines of event-related industries. For the references, see excel file in the github repository [PERSISTENT WEB LINK TO DATASETS].
+Gathering restriction dummy variables were created based on the governor's press conferences and updates on COVID-19 in each prefecture. The criterion for variable 1 was defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and was set to 0 if either of these criteria was not met. In cases where the prefectural criteria were based on the guidelines of the respective industry, the dummies were created based on the common guidelines of event-related industries. For the references, see excel file in the github repository [PERSISTENT WEB LINK TO DATASETS].
 
 ## A.2  COVID-19 test cases
 In the analysis of the infection prevention effect, the number of COVID-19 test cases in each prefecture was added as a control variable. As of 2020, the number of tests in each prefecture varies in Japan, especially because of the capacity of each municipality to test. If the number of tests itself is small, the number of new infection cases may be underestimated. We referred to the data on the number of tests published on the website of each prefecture.

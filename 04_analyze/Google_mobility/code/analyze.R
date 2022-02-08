@@ -23,7 +23,7 @@ residence2 <- felm(residential ~ log(cumGZ + 1) + emergency + log(newcase_day + 
 Gmob <- stargazer(retrec1, retrec2, gropha1, gropha2, park1, park2,
                     station1, station2, work1, work2, residence1, residence2,
                     title = "Mobility type (Google Mobility) the Green Zone certification",
-                    dep.var.labels = c("retail and recreation", "grocery and pharmacy", "parks",
+                    dep.var.labels = c("retail/recreation", "grocery/pharmacy", "parks",
                                        "transit stations", "workplaces", "residential"),
                     digits = 3,
                     digits.extra = 0, 

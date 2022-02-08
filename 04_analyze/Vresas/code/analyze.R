@@ -25,8 +25,8 @@ mob3.1 <- felm(out_pref ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + lo
 mob3.2 <- felm(out_pref ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref + week | 0 | pref, data = weekSIR_rob)
 
 vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, mob3.1, mob3.2,
-                    dep.var.labels = c("incity","inpref","outpref"),
-                    title = "Inter-regional Mobility and the Green Zone certification",
+                    dep.var.labels = c("intracity","intercity","interprefectural"),
+                    title = "Inter-regional mobility and the Green Zone certification",
                     digits = 3,
                     digits.extra = 0,
                     type = "latex",
@@ -81,8 +81,8 @@ resview_yama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref == "Yamanashi"])
 resview_nonyama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref != "Yamanashi"])
 
 resview_reg <- stargazer(resview1, resview2, resview3,
-                        dep.var.labels = "Restaurants' View (percentage change) ",
-                        title = "Restaurants' View (percentage change) and the Green Zone certification",
+                        dep.var.labels = "Restaurants' view (percentage change) ",
+                        title = "Restaurants' view (percentage change) and the Green Zone certification",
                         digits = 3,
                         digits.extra = 0,
                         type = "latex",
