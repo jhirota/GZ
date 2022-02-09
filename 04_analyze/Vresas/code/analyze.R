@@ -81,8 +81,8 @@ resview_yama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref == "Yamanashi"])
 resview_nonyama_mean <- mean(weekSIR_rob$resview[weekSIR_rob$pref != "Yamanashi"])
 
 resview_reg <- stargazer(resview1, resview2, resview3,
-                        dep.var.labels = "Restaurants' view (percentage change) ",
-                        title = "Restaurants' view (percentage change) and the Green Zone certification",
+                        dep.var.labels = "Restaurant information views online (percentage change) ",
+                        title = "Restaurant information views online (percentage change) and the Green Zone certification",
                         digits = 3,
                         digits.extra = 0,
                         type = "latex",
@@ -93,9 +93,9 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                                              "Average rainfall, log",
                                              "School closure",
                                              "Gathering restriction"),
-                        add.lines=list(c("Restraurants' View Yamanashi mean", "",
+                        add.lines=list(c("The mean of dep. variable in Yamanashi Prefecture", "",
                                          round(resview_yama_mean, digits = 3)),
-                                       c("Restraurants' View Control mean", "",
+                                       c("The mean of dep. variable  in the control group", "",
                                          round(resview_nonyama_mean, digits = 3)),
                                        c("Prefecture FE", "X", "X", "X"),
                                        c("Week FE", "X", "X","X")),
@@ -106,8 +106,8 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                         notes.align = "l",
                         notes.append = FALSE)
 
-resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{14cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the percent change of the number of restaurant-website views compared to the 2019 baseline (V-RESAS). 
+resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{18cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percent change of the number of restaurant information views online compared to the 2019 baseline (V-RESAS). 
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.

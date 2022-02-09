@@ -1,5 +1,7 @@
 ---
 title: "Supplementary Information"
+subtitle: "Investigating the epidemiological and economic effects of a third–party certification for restaurants and bars with COVID–19 prevention measures"
+author: "Kazuya Hirokawa, Jumpei Hirota, Daiji Kawaguchi, Yusuke Masaki, Chiaki Onita"
 header-includes:
 - \usepackage{pdflscape}
 - \newcommand{\blandscape}{\begin{landscape}}
@@ -30,7 +32,7 @@ A. Data
 
   1. COVID-19 policy dummy variables 
   2. COVID-19 test cases 
-  3. Restaurant website views 
+  3. Restaurant information views online 
   4. Mobility by residential type 
   5. Mobility inflow and outflow by prefecture 
   6. Mobility by facility type 
@@ -49,7 +51,7 @@ D. Statistical Testing
   1. Infection Prevention Effects (2 week lag analysis)
   2. Infection Prevention Effects (1 week lag analysis)
   3. Economic Effects (Restaurants sales and customers)
-  4. Restaurant's view
+  4. Restaurant information views online
   5. Google Mobility 
   6. Inter-regional Mobility 
   7. Stay-home rate
@@ -59,7 +61,7 @@ E. Treatment Effect
   1. Comparison of Treatment and Control prefecture
   2. Comparison of policies in Treatment and Control prefecture
   3. List of Business suspension request
-  4. GZ Certification criteria
+  4. Yamanashi Green Zone Certification criteria
   
 \newpage
 
@@ -68,33 +70,30 @@ E. Treatment Effect
 Our data used for control variables come from multiple sources. We will list them one by one.
 
 ## A.1  COVID-19 policy dummy variables
-The emergency declaration dummy was created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
-
-School closure dummy variables were created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for COVID-19. The variable was set to 1 only when schools were closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
-
-Gathering restriction dummy variables were created based on the governor's press conferences and updates on COVID-19 in each prefecture. The criterion for variable 1 was defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and was set to 0 if either of these criteria was not met. In cases where the prefectural criteria were based on the guidelines of the respective industry, the dummies were created based on the common guidelines of event-related industries. For the references, see excel file in the github repository [PERSISTENT WEB LINK TO DATASETS].
+The emergency declaration dummy variable is created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
+The school closure dummy variable is created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for COVID-19. The variable was set to be 1 only when schools are closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
+The gathering restriction dummy variable is created based on the governor's press conferences and updates on COVID-19 in each prefecture. The criterion for variable 1 is defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and is set to be 0 if either of these criteria is not met. In cases where the prefectural criteria are based on the guidelines of the respective industry, the dummies are created based on the common guidelines of event-related industries. 
 
 ## A.2  COVID-19 test cases
-In the analysis of the infection prevention effect, the number of COVID-19 test cases in each prefecture was added as a control variable. As of 2020, the number of tests in each prefecture varies in Japan, especially because of the capacity of each municipality to test. If the number of tests itself is small, the number of new infection cases may be underestimated. We referred to the data on the number of tests published on the website of each prefecture.
+In the analysis of the infection prevention effect, the number of COVID-19 test cases in each prefecture is added as a control variable. As of 2020, the number of tests in each prefecture varies to significant degree in Japan, especially because of the capacity of each municipality to conduct COVID-19 tests. If the number of tests itself is small, the number of new infection cases may be underestimated. We referred to the data on the number of tests published on the website of each prefecture.
 
-## A.3  Restaurant website views
-The rate of increase in the number of restaurant website views per week was also used as another indicator to capture the business conditions of restaurants. This data is available on V-RESAS, published by the Cabinet Office. In this data, the rate of increase or decrease in the restaurant website views compared to the same week in 2019 is disclosed for each prefecture. The original data is held by Retty, Japan's largest word-of-mouth gourmet service operated by Retty, Inc..
+## A.3  Restaurant information views online
+The rate of increase in the number of restaurant information views online per week is also used as another indicator to capture the business conditions of restaurants. This data is available on V-RESAS, published by the Cabinet Office. In this data, the rate of increase or decrease in the restaurant information views online compared to the same week in 2019 is disclosed for each prefecture. The original data is held by Retty, Japan's largest word-of-mouth gourmet service operated by Retty, Inc..
 
 ## A.4  Mobility by residential type 
 In addition to the number of visitors to restaurants, we also used the human flow data published by V-RESAS to examine the impact on human flow in and across the prefectures. The weekly data shows the rate of increase or decrease in the mobility by residential type (within the municipality, within the prefecture, or from outside the prefecture) compared to the same week in 2019 for each prefecture. 
 
 ## A.5  Mobility inflow and outflow by prefecture
-We used Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. Agoop's human flow data is the aggregate data of users' GPS information held by Agoop. Agoop's human flow data is the aggregate data of GPS information of users held by Agoop, and it is the data that estimates the population of the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. Therefore, it is possible to grasp not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data was used to estimate the number of potentially infected people coming from other prefectures as shown in the SIR model above, rather than as an objective variable.
+We use Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. Agoop's human flow data is the aggregate data of users' GPS information held by Agoop. It is the data that estimates the population of the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. Therefore, it is possible to grasp not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data is used to estimate the number of potentially infectious mobility coming from other prefectures as shown in the susceptible–infectious–recovered (SIR) model, rather than as an objective variable.
 
 ## A.6  Mobility by facility type 
-For the mobility data, we also deployed the “COVID-19: Community Mobility Report” published by Google. The data reveals the rate of increase or decrease in human flow in six types of locations ("retail and entertainment," "grocery stores and pharmacies," "parks," "transfer stations," "workplaces," and "residences") by country and region/prefecture. The median value for each day of the week for the five-week period from January 3 to February 6, 2020 is used as the baseline for the rate of change. Thus, the daily data is the rate of change from the base values for each day of the week.
+For the mobility data, we also tap into the “COVID-19: Community Mobility Report” published by Google. The data reveals the rate of increase or decrease in human flow in six types of locations ("retail and recreation," "grocery and pharmacy," "parks," "transit stations," "workplaces," and "residential") by country and region/prefecture. The median value for each day of the week for the five-week period from January 3 to February 6, 2020 is used as the baseline for the rate of change. Thus, the daily data is the rate of change from the base values for each day of the week.
 
 ## A.7　Weather data
-For the weather data of temperature and precipitation, we used the daily weather observation data of observatories in each prefecture using the "Past Weather Data Search" of the Japan Meteorological Agency. When extracting the data from the database, several municipalities with observatories were chosen from several municipalities with the top population. In detail, Yamanashi Prefecture is represented by Kofu and Kawaguchiko; Nagano Prefecture by Nagano, Matsumoto, Ueda, and Iida; Shizuoka Prefecture by Hamamatsu, Shizuoka, and Fuji; Gunma Prefecture by Maebashi and Isesaki; Ibaraki Prefecture by Tsukuba, Mito, and Hitachi; and Tochigi Prefecture by Utsunomiya and Oyama.
-The average values of these municipalities was set as the representative location for each prefecture. For the values, the weekly precipitation total and the weekly average temperature was used as the representative respectively. 
+For the weather data of temperature and precipitation, we use the daily weather observation data of observatories in each prefecture using the "Past Weather Data Search" of the Japan Meteorological Agency. When extracting the data from the database, several municipalities with observatories are chosen from several municipalities with the top population. In detail, Yamanashi Prefecture is represented by Kofu and Kawaguchiko; Nagano Prefecture by Nagano, Matsumoto, Ueda, and Iida; Shizuoka Prefecture by Hamamatsu, Shizuoka, and Fuji; Gunma Prefecture by Maebashi and Isesaki; Ibaraki Prefecture by Tsukuba, Mito, and Hitachi; and Tochigi Prefecture by Utsunomiya and Oyama. The weather data for each prefecture is the average of the data for the municipalities belonging to each prefecture. Specifically, the average rainfall and the average temperature are used as the representative values. 
 
 ## A.8　Stay-home rate
-We used the data on stay-home rate as a robustness check in the economic impact analysis. The Mizuno Laboratory of the National Institute of Informatics and the Graduate University for Advanced Studies publishes the data on stay-home. The data is collected by age group and time, based on the population data estimated in real-time from the information of about 78 million base stations of DOCOMO, a major Japanese telecommunication company. They defined the number of people going out from residential areas as 
+We use the data on stay-home rate as a robustness check in the economic impact analysis. The Mizuno Laboratory of the National Institute of Informatics and the Graduate University for Advanced Studies publish the data on the stay-home rate. The data is collected by age group and time, based on the population data estimated in real-time from the information of about 78 million base stations of DOCOMO, a major Japanese telecommunication company. They define the number of people going out from residential areas as 
 $$The\ number\ of\ people\ going\ out =daytime\ population - nighttime\ population$$
 and
 $$The\ Stay-home\ rate $$
@@ -153,7 +152,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 \elandscape
 \newpage
 
-## D.4 Restaurants' view 
+## D.4 Restaurant information views online
 \input{../../../04_analyze/Vresas/output/resview_reg.tex}
 
 \newpage
@@ -190,7 +189,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 | Population (in thousands) | 811       | 3,644    | 2,049   | 1,942  | 1,934 | 2,860   |
 | Population density (/$km^2$)\ * | 4,668     | 5,267    | 4,244   | 3,997  | 4,691 | 4,570   |
 | Distance to Tokyo ($km$)    | 101.7     | 142.8    | 172.8   | 96.4   | 98.8  | 99.3    |
-Notes: Population and population density are from the 2019 and 2014 National Census, respectively. For distance to Tokyo, see "Distance between Prefectural Offices" by the Geospatial Information Authority of Japan. *In prefectures in the Tokyo metropolitan area that were excluded from the control group, population density is about two to three times that of Yamanashi. In particular, the population densities of Tokyo, Kanagawa, Saitama, and Chiba prefectures are 12,022, 8,979, 8,340, and 7,145 persons/$km^2$, respectively.
+Notes: Population and population density are from the 2019 and 2014 National Census, respectively. For distance to Tokyo, see "Distance between Prefectural Offices" by the Geospatial Information Authority of Japan. *In prefectures in the Tokyo metropolitan area that are excluded from the control group, population density is about two to three times that of Yamanashi. In particular, the population densities of Tokyo, Kanagawa, Saitama, and Chiba prefectures are 12,022, 8,979, 8,340, and 7,145 persons/$km^2$, respectively.
 
 
 \newpage
@@ -226,7 +225,7 @@ Notes: Prepared by the authors with reference to each prefecture’s official we
 
 \newpage
 
-## E.4 GZ Certification criteria 
+## E.4 Yamanashi Green Zone Certification criteria 
 Standards pertaining to measures for prevention of infectious diseases (Restaurant industry)
 
 ### E.4.1. Prevention of infectious diseases among visitors
