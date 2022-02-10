@@ -59,8 +59,8 @@ cat (table1, sep = "\n")
 write(table1, here::here("04_analyze/Covid/output/covid_reg.tex"))
 
 #p-value
-# stargazer(covid_50.0,  type="text", report=('vc*p'))
-# stargazer(covid_50.3,  type="text", report=('vc*p'))
+stargazer(covid_50.0,  type="text", report=('vc*p'))
+stargazer(covid_50.3,  type="text", report=('vc*p'))
 
 
 # lag1

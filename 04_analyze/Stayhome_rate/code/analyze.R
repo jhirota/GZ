@@ -102,6 +102,12 @@ table8[grepl("Note",table8)] <- table8.note
 cat (table8, sep = "\n")
 write(table8, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_male.tex"))
 
+
+#p-value
+stargazer(male40,  type="text", report=('vc*p'))
+stargazer(male50,  type="text", report=('vc*p'))
+stargazer(male60,  type="text", report=('vc*p'))
+
 # reg stay-home rate by age (female)---------
 female15 <- felm(F15 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_rob)
 female20 <- felm(F20 ~ log(cumGZ + 1) + emergency + log(newcase_day + 1) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date | 0 | pref, data = postas_rob)
@@ -152,3 +158,7 @@ table9[grepl("Note",table9)] <- table9.note
 cat (table9, sep = "\n")
 write(table9, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_female.tex"))
 
+#p-value
+stargazer(female60,  type="text", report=('vc*p'))
+stargazer(female70,  type="text", report=('vc*p'))
+# stargazer(female60,  type="text", report=('vc*p'))

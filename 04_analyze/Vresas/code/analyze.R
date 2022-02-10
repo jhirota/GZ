@@ -70,6 +70,10 @@ vresas_reg[grepl("Note",vresas_reg)] <- vresas_reg.note
 cat (vresas_reg, sep = "\n")
 write(vresas_reg, here::here("04_analyze/Vresas/output/vresas_mob_reg.tex"))
 
+#p-value
+stargazer(mob1.0,  type="text", report=('vc*p'))
+stargazer(mob2.0,  type="text", report=('vc*p'))
+stargazer(mob3.0,  type="text", report=('vc*p'))
 
 # Restaurant's view analysis------------
 
@@ -121,4 +125,5 @@ Gathering restriction is the dummy variable that takes the value 1 if the large-
 resview_reg[grepl("Note",resview_reg)] <- resview_reg.note
 cat (resview_reg, sep = "\n")
 write(resview_reg, here::here("04_analyze/Vresas/output/resview_reg.tex"))
+
 

@@ -59,3 +59,8 @@ Gathering restriction is the dummy variable that takes the value 1 if the large-
 Gmob[grepl("Note",Gmob)] <- Gmob.note
 cat (Gmob, sep = "\n")
 write(Gmob, here::here("04_analyze/Google_mobility/output/Google Mobility.tex"))
+
+#p-value
+stargazer(retrec1,  type="text", report=('vc*p'))
+stargazer(park1,  type="text", report=('vc*p'))
+stargazer(gropha1,  type="text", report=('vc*p'))
