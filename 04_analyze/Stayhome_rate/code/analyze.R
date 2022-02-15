@@ -159,6 +159,6 @@ cat (table9, sep = "\n")
 write(table9, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_female.tex"))
 
 #p-value
-stargazer(female60,  type="text", report=('vc*p'))
-stargazer(female70,  type="text", report=('vc*p'))
 # stargazer(female60,  type="text", report=('vc*p'))
+# stargazer(female70,  type="text", report=('vc*p'))
+stargazer(female50,  type="text", report=('vc*p'))

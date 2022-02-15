@@ -181,7 +181,7 @@ cofaplot_c <- FittedValue_c %>%
 write_csv(cofaplot_c, here::here("03_build/Counterfactual/output/customers_daily_data_for_plot.csv"))
 
 ## Findings (covid)--------
-
+# cofaplot <- read_csv(here::here("03_build/Counterfactual/output/cofa_covid.csv"))
 GZeffect <- cofaplot %>% 
   filter(week >= "2020-07-17" & week <= "2021-04-30") 
 
@@ -197,6 +197,7 @@ rate <- sum(diff, na.rm = TRUE) /
 rate 
 
 ## Findings (sales)---------
+# cofaplot_s <- read_csv(here::here("03_build/Counterfactual/output/sales_daily_data_for_plot.csv"))
 
 GZeffect_s <- cofaplot_s %>% 
   filter(date >= "2020-07-17" & date <= "2021-04-30") 
@@ -215,7 +216,7 @@ rates <- sum(diffs, na.rm = TRUE)/
 rates 
 
 ## Findings (customers)---------
-
+cofaplot_c <- read_csv(here::here("03_build/Counterfactual/output/customers_daily_data_for_plot.csv"))
 GZeffect_c <- cofaplot_c %>% 
   filter(date >= "2020-07-17" & date <= "2021-04-30") 
 
@@ -231,7 +232,6 @@ sum(diffc, na.rm = TRUE)/9.5
 ratec <- sum(diffc, na.rm = TRUE) /
   sum(GZeffect_c$customers_per[GZeffect_c$type == "counterfactual"], na.rm = TRUE)
 ratec 
-
 
 
 # Economic effects (weeky)-------
