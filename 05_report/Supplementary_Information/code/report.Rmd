@@ -24,19 +24,19 @@ geometry: "left=1.5cm,right=1.5cm,top=1.8cm,bottom=2cm"
    \hbox to\linewidth{%
      \hfil\thepage\hfil}\vss}}
 
-   In this online appendix, we summarize the sub-evidence for the main article. First, we present the data. Second, we describe the derivation of the estimating equation. Third, we cover basic statistics for each variable. Fourth, we cover regression tables for statistical testing. Finally, we provide supplementary information about the treatment effects.
+   In this online appendix, we summarize the sub-evidence for the main article. First, we describe the data. Second, we derive the estimation equation. Third, we list the basic statistics for each variable. Fourth, we present our regression results. Finally, we provide supplementary information about the treatment effects.
   
 # Table of Contents
 
 A. Data 
 
   1. COVID-19 policy dummy variables 
-  2. COVID-19 test cases 
-  3. Restaurant information views online 
-  4. Mobility by residential type 
-  5. Mobility inflow and outflow by prefecture 
-  6. Mobility by facility type 
-  7. Weather data 
+  2. COVID-19 test cases
+  3. Weather data 
+  4. Human mobility inflow and outflow by prefecture
+  5. Restaurant information views online 
+  6. Human mobility by facility type
+  7. Human mobility across regions 
   8. Stay-home rate 
 
 B. Estimation Equation
@@ -52,7 +52,7 @@ D. Statistical Testing
   2. Infection Prevention Effects (1 week lag analysis)
   3. Economic Effects (Restaurants sales and customers)
   4. Restaurant information views online
-  5. Google Mobility 
+  5. Human mobility by facility type  
   6. Inter-regional Mobility 
   7. Stay-home rate
 
@@ -67,42 +67,43 @@ E. Treatment Effect
 
 # A.   Data
 
-Our data used for control variables come from multiple sources. We will list them one by one.
+Our data used for control variables (A.1 - A.4) in the main analyses (D.1, D.3) and dependent variables (A.5 - A.8) in the robustness check (D.4-D.7) come from multiple sources. 
 
 ## A.1  COVID-19 policy dummy variables
-The emergency declaration dummy variable is created based on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
-The school closure dummy variable is created based on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for COVID-19. The variable was set to be 1 only when schools are closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
-The gathering restriction dummy variable is created based on the governor's press conferences and updates on COVID-19 in each prefecture. The criterion for variable 1 is defined as an event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and is set to be 0 if either of these criteria is not met. In cases where the prefectural criteria are based on the guidelines of the respective industry, the dummies are created based on the common guidelines of event-related industries. 
+For the emergency declaration dummy variable, we use data on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
+For the school closure dummy variable,  we use data on information of school closures for the national government and each prefecture in the time-series news archives on NHK's special website for COVID-19. The variable was set to be 1 only when schools are closed in the entire prefecture. For municipality or school-level closure, the variable is set to be 0.
+The gathering restriction dummy variable is created based on the governor's press conferences and updates on COVID-19 in each prefecture. The variable takes a value of one if there is a restriction on event capacity of 5,000 people or less and a capacity ratio of 50% or less in each prefecture, and takes a value of zero if either of these criteria is not met. In cases where the prefectural criteria are based on the guidelines of the respective industry, the dummies are created based on the common guidelines of event-related industries. 
 
 ## A.2  COVID-19 test cases
-In the analysis of the infection prevention effect, the number of COVID-19 test cases in each prefecture is added as a control variable. As of 2020, the number of tests in each prefecture varies to significant degree in Japan, especially because of the capacity of each municipality to conduct COVID-19 tests. If the number of tests itself is small, the number of new infection cases may be underestimated. We referred to the data on the number of tests published on the website of each prefecture.
+In the analysis of the infection prevention effect, we use the data on the number of COVID-19 test cases published by each prefecture. As of 2020, the number of tests in each prefecture varies greatly in Japan, particularly because of varying capacities for conducting tests across prefectures. If the number of tests itself is small, the number of new infection cases may be underestimated. 
 
-## A.3  Restaurant information views online
-The rate of increase in the number of restaurant information views online per week is also used as another indicator to capture the business conditions of restaurants. This data is available on V-RESAS, published by the Cabinet Office. In this data, the rate of increase or decrease in the restaurant information views online compared to the same week in 2019 is disclosed for each prefecture. The original data is held by Retty, Japan's largest word-of-mouth gourmet service operated by Retty, Inc..
+## A.3　Weather data
+For the weather data of temperature and precipitation, we use the daily weather observation data of observatories in each prefecture using the "Past Weather Data Search" of the Japan Meteorological Agency. The average rainfall and the average temperature are used as the representative values. When extracting the data from the database, several municipalities with observatories are chosen from several municipalities with the top population. In detail, Yamanashi Prefecture is represented by Kofu and Kawaguchiko; Nagano Prefecture by Nagano, Matsumoto, Ueda, and Iida; Shizuoka Prefecture by Hamamatsu, Shizuoka, and Fuji; Gunma Prefecture by Maebashi and Isesaki; Ibaraki Prefecture by Tsukuba, Mito, and Hitachi; and Tochigi Prefecture by Utsunomiya and Oyama. The weather data for each prefecture is the average of the data for the municipalities belonging to each prefecture.  
 
-## A.4  Mobility by residential type 
-In addition to the number of visitors to restaurants, we also used the human flow data published by V-RESAS to examine the impact on human flow in and across the prefectures. The weekly data shows the rate of increase or decrease in the mobility by residential type (within the municipality, within the prefecture, or from outside the prefecture) compared to the same week in 2019 for each prefecture. 
+## A.4  Human mobility inflow and outflow by prefecture
+We use Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. The data is drawn from users' GPS information held by Agoop. It is the data that calculates the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. The data provides information on not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data is used to estimate the number of potentially infectious mobility coming from other prefectures as shown in the susceptible–infectious–recovered (SIR) model, rather than as an objective variable.
 
-## A.5  Mobility inflow and outflow by prefecture
-We use Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. Agoop's human flow data is the aggregate data of users' GPS information held by Agoop. It is the data that estimates the population of the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. Therefore, it is possible to grasp not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data is used to estimate the number of potentially infectious mobility coming from other prefectures as shown in the susceptible–infectious–recovered (SIR) model, rather than as an objective variable.
+## A.5  Restaurant information views online
+We also use data on the rate of increase in the number of restaurant information views online per week, which is available on V-RESAS published by the Cabinet Office of Japan. The rate of increase or decrease in the restaurant information views online compared to the same week in 2019 is disclosed for each prefecture. The original data is held by Retty Inc., which operates Japan's largest word-of-mouth gourmet service. This data is used as the dependent variable in the robustness check (D.4 Restaurant information views online)
 
-## A.6  Mobility by facility type 
-For the mobility data, we also tap into the “COVID-19: Community Mobility Report” published by Google. The data reveals the rate of increase or decrease in human flow in six types of locations ("retail and recreation," "grocery and pharmacy," "parks," "transit stations," "workplaces," and "residential") by country and region/prefecture. The median value for each day of the week for the five-week period from January 3 to February 6, 2020 is used as the baseline for the rate of change. Thus, the daily data is the rate of change from the base values for each day of the week.
+## A.6  Human mobility by facility type 
+For the mobility data, we also use the “COVID-19: Community Mobility Report” published by Google. The data reveals the rate of increase or decrease in human flow in six types of locations ("retail and recreation," "grocery and pharmacy," "parks," "transit stations," "workplaces," and "residential") by country and region/prefecture. The median value for each day of the week for the five-week period from January 3 to February 6, 2020 is used as the baseline for the rate of change. Thus, the daily data is the rate of change from the base values for each day of the week.This data is used as the dependent variable in the robustness check (D.5 Human mobility by facility type)
 
-## A.7　Weather data
-For the weather data of temperature and precipitation, we use the daily weather observation data of observatories in each prefecture using the "Past Weather Data Search" of the Japan Meteorological Agency. When extracting the data from the database, several municipalities with observatories are chosen from several municipalities with the top population. In detail, Yamanashi Prefecture is represented by Kofu and Kawaguchiko; Nagano Prefecture by Nagano, Matsumoto, Ueda, and Iida; Shizuoka Prefecture by Hamamatsu, Shizuoka, and Fuji; Gunma Prefecture by Maebashi and Isesaki; Ibaraki Prefecture by Tsukuba, Mito, and Hitachi; and Tochigi Prefecture by Utsunomiya and Oyama. The weather data for each prefecture is the average of the data for the municipalities belonging to each prefecture. Specifically, the average rainfall and the average temperature are used as the representative values. 
+## A.7  Human mobility across regions 
+We also used human flow data on the rate of increase or decrease in the mobility by region (intracity, intercity, and interprefectural), compared to the same week in 2019 for each prefecture. This data is available on V-RESAS. This data is used as the dependent variable in the robustness check (D.6 Inter-regional Mobility) to examine the impact on human flow in and across the prefectures. 
 
 ## A.8　Stay-home rate
-We use the data on stay-home rate as a robustness check in the economic impact analysis. The Mizuno Laboratory of the National Institute of Informatics and the Graduate University for Advanced Studies publish the data on the stay-home rate. The data is collected by age group and time, based on the population data estimated in real-time from the information of about 78 million base stations of DOCOMO, a major Japanese telecommunication company. They define the number of people going out from residential areas as 
+We use the data on stay-home rate, which the Mizuno Laboratory of the National Institute of Informatics and the Graduate University for Advanced Studies publish. The data is collected by age group and time, based on the population data estimated in real-time from the information of about 78 million base stations of DOCOMO, a major Japanese telecommunication company. They define the number of people going out from residential areas as 
 $$The\ number\ of\ people\ going\ out =daytime\ population - nighttime\ population$$
 and
 $$The\ Stay-home\ rate $$
 $$ = \displaystyle 1-\frac{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ given\ day * average\ time\ spent\ out}{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:00\ on\ a\ normal\ day * average\ time\ spent\ out}$$
+This data is used in the robustness check (D.8 Stay-home rate).
 
 # B   Estimation equation 
-The epidemiological analysis is based on the SIR-applied fixed effect model. This section shows the process of how the equation is derived from the SIR model. 
+The epidemiological analyses are based on the SIR-applied fixed effect model. This section shows the process of how the equation ((1) in Methods in the main article) is derived from the SIR model. 
 
-The SIR model is the most basic mathematical model that captures the epidemic dynamics of infectious diseases that spread directly from person to person. The model estimates the infection status in three stages: Susceptible, Infectious, and Removed.
+The SIR model captures the epidemic dynamics of infectious diseases that spread directly from person to person. The model estimates the infection status in three stages: Susceptible, Infectious, and Removed.
 
 $$\frac{dI(t)}{dt}=\beta S(t)I(t)-\gamma I(t)$$
 
@@ -140,7 +141,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 
 \newpage
 
-## D.2 Infection Prevention Effects(1 week lag analysis)
+## D.2 Infection Prevention Effects (1 week lag analysis)
 \input{../../../04_analyze/Covid/output/covid_reg_lag1.tex}
 
 \newpage
@@ -158,7 +159,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 \newpage
 
 \blandscape
-## D.5 Google Mobility data
+## D.5 Human mobility by facility type 
 \input{../../../04_analyze/Google_mobility/output/Google Mobility.tex}
 \fillandplacepagenumber
 \elandscape
@@ -166,7 +167,7 @@ $$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln C
 \newpage
 
 \blandscape
-## D.6 V-RESAS 
+## D.6 Inter-regional Mobility
 \input{../../../04_analyze/Vresas/output/vresas_mob_reg.tex}
 \fillandplacepagenumber
 \elandscape

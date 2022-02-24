@@ -55,7 +55,7 @@ vresas_reg <- stargazer(mob1.0, mob1.1, mob1.2, mob2.0, mob2.1, mob2.2, mob3.0, 
                     notes.append = FALSE)
 
 vresas_reg.note <- "\\multicolumn{10}{l} {\\parbox[t]{20cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the percent change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
+The dependent variable is the percentage change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021. 
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
@@ -111,8 +111,8 @@ resview_reg <- stargazer(resview1, resview2, resview3,
                         notes.append = FALSE)
 
 resview_reg.note <- "\\multicolumn{4}{l} {\\parbox[t]{18cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the percent change of the number of restaurant information views online compared to the 2019 baseline (V-RESAS). 
-The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+The dependent variable is the percentage change in the number of restaurant information views online compared to the 2019 baseline (V-RESAS). 
+The unit of analysis is prefecture-week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
 Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
