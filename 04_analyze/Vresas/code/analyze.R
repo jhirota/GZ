@@ -59,13 +59,14 @@ The dependent variable is the percentage change in inter-regional human flow (wi
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021. 
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 vresas_reg[grepl("Note",vresas_reg)] <- vresas_reg.note
 cat (vresas_reg, sep = "\n")
 write(vresas_reg, here::here("04_analyze/Vresas/output/vresas_mob_reg.tex"))
@@ -115,13 +116,14 @@ The dependent variable is the percentage change in the number of restaurant info
 The unit of analysis is prefecture-week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 resview_reg[grepl("Note",resview_reg)] <- resview_reg.note
 cat (resview_reg, sep = "\n")
 write(resview_reg, here::here("04_analyze/Vresas/output/resview_reg.tex"))

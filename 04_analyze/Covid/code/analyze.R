@@ -39,21 +39,22 @@ table1 <- stargazer(covid_50.0, covid_50.1, covid_50.2, covid_50.3, covid_50.4,
                     table.placement = "H")
 
 table1.note <- "\\multicolumn{6}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the log-transformed value of the number of new infection cases (2 week lag) plus one. 
+The dependent variable is the log-transformed value of the number of new infection cases (2 week lag). 
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 66 weeks from the third week of January, 2020 to the third week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
-Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels plus one.
-Infectious, log is the log-transformed value of the number of potentially infected people plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels.
+Infectious, log is the log-transformed value of the number of potentially infected people.
 Susceptible, log is the log-transformed value of the total number of susceptible population.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-Tests (2 week lag), log is the log-transformed value of the number of COVID-19 tests plus one.
+Tests (2 week lag), log is the log-transformed value of the number of COVID-19 tests.
 Customers per restaurant, log is the log-transformed value of the number of customers per restaurant.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (New infection cases (2 week lag), log, Cumulative GZ-certified restaurants, log, Cumulative GZ-certified restaurants and hotels, log, Infectious, log, and Tests (2 week lag), log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 table1[grepl("Note",table1)] <- table1.note
 cat (table1, sep = "\n")
 write(table1, here::here("04_analyze/Covid/output/covid_reg.tex"))
@@ -97,21 +98,22 @@ table2 <- stargazer(covid_51.0, covid_51.1, covid_51.2, covid_51.3, covid_51.4,
                     table.placement = "H")
 
 table2.note <- "\\multicolumn{6}{l} {\\parbox[t]{15cm}{ \\textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
-The dependent variable is the log-transformed value of the number of new infection cases (1 week lag) plus one. 
+The dependent variable is the log-transformed value of the number of new infection cases (1 week lag). 
 The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 67 weeks from the third week of January, 2020 to the fourth week of April, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
-Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels plus one.
-Infectious, log is the log-transformed value of the number of potentially infected people plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels.
+Infectious, log is the log-transformed value of the number of potentially infected people.
 Susceptible, log is the log-transformed value of the total number of susceptible population.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-Tests (1 week lag), log is the log-transformed value of the number of COVID-19 tests plus one.
+Tests (1 week lag), log is the log-transformed value of the number of COVID-19 tests.
 Customers per restaurant, log is the log-transformed value of the number of customers per restaurant.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (New infection cases (1 week lag), log, Cumulative GZ-certified restaurants, log, Cumulative GZ-certified restaurants and hotels, log, Infectious, log, and Tests (1 week lag), log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 table2[grepl("Note",table2)] <- table2.note
 cat (table2, sep = "\n")
 write(table2, here::here("04_analyze/Covid/output/covid_reg_lag1.tex"))

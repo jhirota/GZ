@@ -41,13 +41,14 @@ The dependent variable is the night-time (from 8pm to 0am) stay-home rate, which
 The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 454 days from January 1st, 2020 to March 29th, 2021. 
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 table10[grepl("Note",table10)] <- table10.note
 cat (table10, sep = "\n")
 write(table10, here::here("04_analyze/Stayhome_rate/output/night_stayhome.tex"))
@@ -91,13 +92,14 @@ The dependent variable is the day-time (from 9 am to 6 pm) stay-home rate for ma
 The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 449 days from January 1st, 2020 to March 24th, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 table8[grepl("Note",table8)] <- table8.note
 cat (table8, sep = "\n")
 write(table8, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_male.tex"))
@@ -147,13 +149,14 @@ The dependent variable is the day-time (from 9 am to 6 pm) stay-home rate for fe
 The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted, and the period of analysis is for 449 days from January 1st, 2020 to March 24th, 2021.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants plus one.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases plus one.
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
 Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
 Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
-Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.}} \\\\"
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\\\"
 table9[grepl("Note",table9)] <- table9.note
 cat (table9, sep = "\n")
 write(table9, here::here("04_analyze/Stayhome_rate/output/SHR_by_age_female.tex"))

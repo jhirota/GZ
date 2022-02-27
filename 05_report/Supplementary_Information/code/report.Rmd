@@ -1,6 +1,6 @@
 ---
 title: "Supplementary Information"
-subtitle: "Investigating the epidemiological and economic effects of a third–party certification for restaurants and bars with COVID–19 prevention measures"
+subtitle: "Investigating the epidemiological and economic effects of a third–party certification for restaurants with COVID–19 prevention measures"
 author: "Kazuya Hirokawa, Jumpei Hirota, Daiji Kawaguchi, Yusuke Masaki, Chiaki Onita"
 header-includes:
 - \usepackage{pdflscape}
@@ -63,7 +63,7 @@ E. Treatment Effect
   3. List of Business suspension request
   4. Yamanashi Green Zone Certification criteria
   
-\newpage
+
 
 # A.   Data
 
