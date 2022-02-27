@@ -103,25 +103,25 @@ This data is used in the robustness check (D.8 Stay-home rate).
 # B   Estimation equation 
 The epidemiological analyses are based on the SIR-applied fixed effect model. This section shows the process of how the equation ((1) in Methods in the main article) is derived from the SIR model. 
 
-The SIR model captures the epidemic dynamics of infectious diseases that spread directly from person to person. The model estimates the infection status in three stages: Susceptible, Infectious, and Removed.
+The SIR model captures the epidemic dynamics of infectious diseases that spread directly from person to person. The model estimates the infection status in three stages: Susceptible, Infectious, and Removed. Susceptible refers to the state of being susceptible to infection, Infectious refers to the state of being infected, and Removed refers to the state of having recovered or gained immunity or having died.
 
 $$\frac{dI(t)}{dt}=\beta S(t)I(t)-\gamma I(t)$$
 
-$\beta$ denotes infectivity, and $\gamma$ denotes recovery rate. The above ordinary differential equation is a model that represents the number of population increases in the stage of infection, and can be rewritten as follows when estimating the number of newly infected people.
+$\beta$ denotes infectivity, and $\gamma$ denotes recovery or isolation rate. In other words, the rate of change of the Infectious population is dependent on the interactions between the Susceptible and Infectious populations, the infectivity of the virus, and the rate at which the Infectious move to the Removed population. We can obtain an expression for the number of new COVID-19 cases in a given time period by rewriting the ordinary differential equation as:
 
 $$COVID = \beta SI$$
 
-This multiplication can be converted into addition in logarithmic form.
+Taking logarithms on both sides, we get:
 
 $$ln(COVID) =ln\beta + lnS + lnI$$
 
-Previous studies have shown that the coefficients of the variables on the right-hand side of the equation tend not to be equal to one when the two sides are logarithmic. In addition, it has been shown that it is appropriate to add the infectivity common to all regions and time points as the intercept. Therefore, we transform the model by adding coefficients to the variables and the intercept as follows
+A previous study has shown that the model that assumes that the proportion of susceptible people who can be infected and the proportion of infectious people who can infect others are not equal to one, but vary depending on the situation, can more accurately estimate the number of newly infected people (Law, K.B., Peariasamy, K.M., Gill, B.S. et al 2020). Therefore, we transform the model by adding coefficients to the Susceptible and Infectious variables as follows
 
-$$ln(COVID) =\delta_0 + \delta_1 ln\beta + \delta_2 lnS + \delta_3 lnI$$
+$$ln(COVID) = ln\beta + \delta_2 lnS + \delta_3 lnI$$
 
 In order to adapt this basic estimation equation to changes in external circumstances that affect the infection cases, we add control variables such as economic activity variables and weather conditions. In addition, the purpose of the GZ certification policy that we want to estimate is to reduce the infectivity ($\beta$) that can be transferred from one infected person to another. Therefore, we redefine the infectivity ($\beta$) as follows to derive the main estimation model.
 $$ln\beta= \alpha_1lnGZ + u $$
-$$ln(COVID) = \delta_0 + \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
+$$ln(COVID) = \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
 
 # C   Basic Statistics
 
@@ -364,6 +364,11 @@ Describe in detail: _______________________________________________________
 
 
 ## Reference
+
+### Academic Article
+Law, K.B., Peariasamy, K.M., Gill, B.S. et al. Tracking the early depleting transmission dynamics of COVID-19 with a time-varying SIR model. Sci Rep 10, 21721 (2020). https://doi.org/10.1038/s41598-020-78739-8
+
+### Information by Media & Public Institutions
 
 1. Tottori Prefecture. Progress of the government's response. Special site for novel coronavirus infections. https://www.pref.tottori.lg.jp/289733.htm. (2021). 
 2. NHK. Record of all COVID-19 related articles. Special site for novel coronavirus infections. https://www3.nhk.or.jp/news/special/coronavirus/chronology/?mode=all&target=202003. (2021). 
