@@ -1,6 +1,6 @@
 ---
 title: "Supplementary Information"
-subtitle: "Investigating the epidemiological and economic effects of a third–party certification for restaurants with COVID–19 prevention measures"
+subtitle: "Investigating the epidemiological and economic effects of a third-party certification for restaurants with COVID-19 prevention measures"
 author: "Kazuya Hirokawa, Jumpei Hirota, Daiji Kawaguchi, Yusuke Masaki, Chiaki Onita"
 header-includes:
 - \usepackage{pdflscape}
@@ -67,7 +67,7 @@ E. Treatment Effect
 
 # A.   Data
 
-Our data used for control variables (A.1 - A.4) in the main analyses (D.1, D.3) and dependent variables (A.5 - A.8) in the robustness check (D.4-D.7) come from multiple sources. 
+Our data used for control variables (A.1–A.4) in the main analyses (D.1, D.3) and dependent variables (A.5–A.8) in the robustness check (D.4–D.7) come from multiple sources. 
 
 ## A.1  COVID-19 policy dummy variables
 For the emergency declaration dummy variable, we use data on the progress of the government's response as summarized by Tottori Prefecture on its website for new COVID-19 infections. The site lists the prefectures that are subject to the issuance, change, and cancellation of emergency declarations in chronological order. Based on this information, we determined whether each prefecture was under a state of emergency declaration at a certain time. 
@@ -81,7 +81,7 @@ In the analysis of the infection prevention effect, we use the data on the numbe
 For the weather data of temperature and precipitation, we use the daily weather observation data of observatories in each prefecture using the "Past Weather Data Search" of the Japan Meteorological Agency. The average rainfall and the average temperature are used as the representative values. When extracting the data from the database, several municipalities with observatories are chosen from several municipalities with the top population. In detail, Yamanashi Prefecture is represented by Kofu and Kawaguchiko; Nagano Prefecture by Nagano, Matsumoto, Ueda, and Iida; Shizuoka Prefecture by Hamamatsu, Shizuoka, and Fuji; Gunma Prefecture by Maebashi and Isesaki; Ibaraki Prefecture by Tsukuba, Mito, and Hitachi; and Tochigi Prefecture by Utsunomiya and Oyama. The weather data for each prefecture is the average of the data for the municipalities belonging to each prefecture.  
 
 ## A.4  Human mobility inflow and outflow by prefecture
-We use Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. The data is drawn from users' GPS information held by Agoop. It is the data that calculates the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. The data provides information on not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data is used to estimate the number of potentially infectious mobility coming from other prefectures as shown in the susceptible–infectious–recovered (SIR) model, rather than as an objective variable.
+We use Agoop's paid data for the human flow within each prefecture and the human flow from outside the prefecture into each prefecture. The data is drawn from users' GPS information held by Agoop. It is the data that calculates the entire human flow from a sample of the number of people who existed at a certain coordinate at a certain time. The data provides information on not only the total number of people in a prefecture, but also the movement of people from a specific prefecture to a specific prefecture/municipality. This data is used to estimate the number of potentially infectious mobility coming from other prefectures as shown in the susceptible-infectious-recovered (SIR) model, rather than as an objective variable.
 
 ## A.5  Restaurant information views online
 We also use data on the rate of increase in the number of restaurant information views online per week, which is available on V-RESAS published by the Cabinet Office of Japan. The rate of increase or decrease in the restaurant information views online compared to the same week in 2019 is disclosed for each prefecture. The original data is held by Retty Inc., which operates Japan's largest word-of-mouth gourmet service. This data is used as the dependent variable in the robustness check (D.4 Restaurant information views online)
@@ -201,9 +201,9 @@ Notes: Population and population density are from the 2019 and 2014 National Cen
 | Title of the certification policy                                      | Yamanashi Green Zone Certification | Fujinokuni Safety and Security Certification | Tochimaru Reliable Certification | Shinshu Safe Store Certification System     | Stop Covid-19! Countermeasure Certification System | Ibaraki's Amabie-chan                     |
 | Introduction date                                                      | May 2020                           | May 2021                                     | May 2021                         | April 2021                                  | July 2020                                          | June 2020                                 |
 | Third-party onsite inspection requirements                             | Yes                                | Yes                                          | Yes                              | Yes                                         | Yes                                                | Yes (from April 14, 2021)                 |
-| Subsidies on indoor infection control measures                         | From July 10, 2020                 | Only in Hamamatsu City                       | From January 22, 2021            | From September 15, 2020 - December 28, 2020 | Only in Maebashi City                              | From October 2, 2020 to December 31, 2020 |
-| Prefectural/municipal support on the introduction of delivery services | In certain cities                  | From April 17, 2020                          | From January 22, 2021            | From September 15, 2020 - December 28, 2020 | Only in Maebashi City                              | In certain cities                         |
-Notes: Prepared by the authors with reference to prefectures' press releases and newspaper articles. Gunma Prefecture introduced a certification system around the same time as Yamanashi, but the penetration rate remains 21.6% as of October 2020 (see Reference List 17-35). 
+| Subsidies on indoor infection control measures                         | From July 10, 2020                 | Only in Hamamatsu City                       | From January 22, 2021            | From September 15, 2020 – December 28, 2020 | Only in Maebashi City                              | From October 2, 2020 to December 31, 2020 |
+| Prefectural/municipal support on the introduction of delivery services | In certain cities                  | From April 17, 2020                          | From January 22, 2021            | From September 15, 2020 – December 28, 2020 | Only in Maebashi City                              | In certain cities                         |
+Notes: Prepared by the authors with reference to prefectures' press releases and newspaper articles. Gunma Prefecture introduced a certification system around the same time as Yamanashi, but the penetration rate remains 21.6% as of October 2020 (see Reference List 17–35). 
 
 \fillandplacepagenumber
 \elandscape
@@ -211,15 +211,15 @@ Notes: Prepared by the authors with reference to prefectures' press releases and
 \newpage
 \blandscape
 ## E.3  List of Business suspension request 
-|           | First Emergency Declaration \newline (April 2020 - May 2020)                                                                                         | Second Emergency Declaration \newline (January 2021 - March 2021)                                                              | Third Emergency Declaration \newline(April 2021 - June 2021)             |
+|           | First Emergency Declaration \newline (April 2020 – May 2020)                                                                                         | Second Emergency Declaration \newline (January 2021 – March 2021)                                                              | Third Emergency Declaration \newline(April 2021 – June 2021)             |
 | ----------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------  | ---------------------------------------------------------------- |
-| Yamanashi | April 20 - May 14　\newline　(business closure on bars and nightclubs) \newline May 15 - February 12 \newline (qualified facilities were individually exempted) | January 25 - February 7                                                                                               | No                                                               |
-| Shizuoka  | April 25 - May 17 \newline (bars and nightclubs only)                                                                                             | December 23 - January 5 \newline (only in Fuji City)                                                                        | May 19 - June 1 \newline (only in Kosai City)                          |
-| Tochigi   | April 18 - May 15 \newline (restriction on alcohol service hours only)                                                                            | January 8 - February 21 \newline (in specified cities until January 12)                                                     | No                                                               |
-| Nagano    | April 23 - May 15                                                                                                                           | January 18 - February 4 \newline (in specified cities)                                                                      | April 2 - 9 (Nagano City) \newline April 21 - 29 (in specified cities) |
-| Gunma     | April 18 - May 15                                                                                                                           | December 15 - March 1 \newline (in specified cities)                                                                        | May 8 - June 20                                                  |
-| Ibaraki   | April 18 - May 17 \newline (bars and nightclubs only)                                                                                             | November 30 - December 20, January 6 - 17 \newline (in specified cities) \newline January 18 - February 22 \newline (entire Prefecture) | April 22 - June 16 \newline (in specified cities)                      |
-Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 36-64). 
+| Yamanashi | April 20 – May 14　\newline　(business closure on bars and nightclubs) \newline May 15 – February 12 \newline (qualified facilities were individually exempted) | January 25 – February 7                                                                                               | No                                                               |
+| Shizuoka  | April 25 – May 17 \newline (bars and nightclubs only)                                                                                             | December 23 – January 5 \newline (only in Fuji City)                                                                        | May 19 – June 1 \newline (only in Kosai City)                          |
+| Tochigi   | April 18 – May 15 \newline (restriction on alcohol service hours only)                                                                            | January 8 – February 21 \newline (in specified cities until January 12)                                                     | No                                                               |
+| Nagano    | April 23 – May 15                                                                                                                           | January 18 – February 4 \newline (in specified cities)                                                                      | April 2 – 9 (Nagano City) \newline April 21 – 29 (in specified cities) |
+| Gunma     | April 18 – May 15                                                                                                                           | December 15 – March 1 \newline (in specified cities)                                                                        | May 8 – June 20                                                  |
+| Ibaraki   | April 18 – May 17 \newline (bars and nightclubs only)                                                                                             | November 30 – December 20, January 6 – 17 \newline (in specified cities) \newline January 18 – February 22 \newline (entire Prefecture) | April 22 – June 16 \newline (in specified cities)                      |
+Notes: Prepared by the authors with reference to each prefecture’s official website and newspapers (see Reference List 36–64). 
 
 \fillandplacepagenumber
 \elandscape
@@ -229,7 +229,7 @@ Notes: Prepared by the authors with reference to each prefecture’s official we
 ## E.4 Yamanashi Green Zone Certification criteria 
 Standards pertaining to measures for prevention of infectious diseases (Restaurant industry)
 
-### E.4.1. Prevention of infectious diseases among visitors
+### E.4.1 Prevention of infectious diseases among visitors
 (1) Store entry, order, and payment
 * Disinfection equipment shall be installed at the entrance of the store, and hand sanitization shall be indicated at the entrance.
 * When there is a queue due to waiting for a turn, etc., a minimum distance of 1 meter (2 meters if no mask is worn) shall be maintained between visitors.
@@ -284,7 +284,7 @@ Exclude cases where a small number of family members, elderly people with caregi
 * If there is a smoking area, reduce the number of people using it at one time, and keep a distance between people. If there is a smoking area, request that the three densities be avoided by reducing the number of people using the area at once, keeping a good distance between people, etc.
   + Size of the smoking space: _____ $m^2$   Maximum capacity: _____
 
-### E.4.2. Prevention of infectious diseases among employees
+### E.4.2 Prevention of infectious diseases among employees
 
 * Make sure to wear masks.
 * Take your temperature and check your physical condition before starting work.
@@ -297,7 +297,7 @@ Exclude cases where a small number of family members, elderly people with caregi
 * Employees' uniforms should be laundered regularly after work on the day in question.
   + Frequency of uniform washing: ________
 
-### E.4.3. Thorough hygiene management of facilities and equipment
+### E.4.3 Thorough hygiene management of facilities and equipment
 
 * For facilities subject to the Building Management Law*, check whether they meet the standards for air quality control based on the law, and if not, maintain and manage the ventilation equipment appropriately, including cleaning and maintenance.
   + * Law Concerning the Protection of Sanitary Environments in Buildings
@@ -340,12 +340,12 @@ Describe in detail: __________________________________________________________
 * Garbage, hand towels, etc. that may have food residue, snot, saliva, etc. on them should be sealed in plastic bags. sealed in a plastic bag for disposal.
 
 
-### E.4.4. Preparation and publication of checklists
+### E.4.4 Preparation and publication of checklists
 
 * Each facility or business operator shall prepare a checklist that specifies specific methods and procedures, frequency of cleaning and disinfection, spacing between people, etc., after assessing the risks in the facility, and disclose the daily checks using the checklist.
 
 
-### E.4.5. Policy for dealing with an outbreak of infection
+### E.4.5 Policy for dealing with an outbreak of infection
 
 * In the event that an employee of the facility is found to be infected, the facility will respond and cooperate with the public health center's instructions and investigations in a sincere and proactive manner, take measures to prevent the spread of infection from the facility, and if necessary, publicize information to prevent the spread of infection, such as business days when there is a possibility of infection.
 * Provide employees with training opportunities to ensure that they are taking appropriate actions to prevent the spread of infection, such as refraining from going to work if they are suspected of being infected until the test results are known.
@@ -363,7 +363,7 @@ Describe in detail: _______________________________________________________
 ---
 
 
-## Reference
+## References
 
 ### Academic Article
 Law, K.B., Peariasamy, K.M., Gill, B.S. et al. Tracking the early depleting transmission dynamics of COVID-19 with a time-varying SIR model. Sci Rep 10, 21721 (2020). https://doi.org/10.1038/s41598-020-78739-8
@@ -375,7 +375,7 @@ Law, K.B., Peariasamy, K.M., Gill, B.S. et al. Tracking the early depleting tran
 3. Yamanashi Prefecture. Statistical information on new coronavirus infections (outbreaks, testing status, number of consultations). https://www.pref.yamanashi.jp/koucho/coronavirus/info_coronavirus_emergencymeasures18.html. (2021).
 4. Shizuoka Prefecture. Shizuoka Prefecture Open Data: Trends of new coronavirus infections in the prefecture. https://opendata.pref.shizuoka.jp/dataset/8167.html. (2022).
 5. Nagano Prefecture. Trends of novel coronavirus infections in Nagano Prefecture. https://www.pref.nagano.lg.jp/hoken-shippei/kenko/kenko/kansensho/joho/corona-doko.html. (2022).
-6. Gunma Prefecture.Latest trends in the prefecture. https://stopcovid19.pref.gunma.jp/. (2022). 
+6. Gunma Prefecture. Latest trends in the prefecture. https://stopcovid19.pref.gunma.jp/. (2022). 
 7. Tochigi Prefecture. Outbreak and Testing Status of Novel Coronavirus Infections in Tochigi Prefecture. https://a01sa01to.com/opendata/covid19_ibaraki/test_people. (2022). 
 8. Asa. New Coronavirus Infections in Ibaraki Prefecture: Number of people tested (Prefectural Institute of Public Health and Mito City Public Health Center). https://a01sa01to.com/opendata/covid19_ibaraki/test_people. (2022). 
 9. Cabinet Office, Government of Japan. V-RESAS. https://v-resas.go.jp/. (2021). 
@@ -392,7 +392,7 @@ Law, K.B., Peariasamy, K.M., Gill, B.S. et al. Tracking the early depleting tran
 20. Toru City. Grant to support the catering industry in Toru City. https://www.city.tsuru.yamanashi.jp/soshiki/sangyo/shoko_t/6/11538.html. (2021).
 21. Kofu City. Ganbarou, Kofu! Delivery support grant (Kofu City food delivery service introduction support grant). https://www.city.kofu.yamanashi.jp/shoko/kofutakuhai/takuhai.html. (2021). 
 22. Shizuoka Prefecture. Subsidy for projects to promote the Fuji-no-Kuni Safety and Security Certification System  (restaurants). http://www.pref.shizuoka.jp/kinkyu/covid-19-anzen_anshin_ninsyo_hozyo.html. (2021). 
-23. Nihon Keizai Shimbun. novel coronavirus disease, Shizuoka Prefecture to subsidize small and medium-sized businesses for home delivery. https://www.nikkei.com/article/DGXMZO58203360X10C20A4L61000/. (2020). 
+23. Nihon Keizai Shimbun. Novel coronavirus disease, Shizuoka Prefecture to subsidize small and medium-sized businesses for home delivery. https://www.nikkei.com/article/DGXMZO58203360X10C20A4L61000/. (2020). 
 24. Tochigi Prefecture. Tochigi Prefecture subsidy for supporting measures against infectious diseases at local companies. https://www.tochigi-kansentaisaku.com/. (2021). 
 25. Nagano City. About subsidies for businesses supporting measures against the novel coronavirus. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
 26. Nagano Prefecture. Droplet prevention panels (acrylic panels) will be distributed free of charge to restaurants. https://www.city.nagano.nagano.jp/site/covid19-joho/456721.html. (2021).
@@ -424,14 +424,14 @@ Law, K.B., Peariasamy, K.M., Gill, B.S. et al. Tracking the early depleting tran
 52. Nagano Prefecture. List of FY2020 Governor's Press Conference. https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2020/index.html. (2020). 
 53. Chunichi Shimbun. Nagano Prefecture raises alert level to 5 in Iida City, asks restaurants to shorten hours. https://www.chunichi.co.jp/article/186685. (January 17, 2021).
 54. Chunichi Shimbun. Nagano Prefecture asks Matsumoto City to close restaurants and shorten working hours, and Hakuba Village is on "5" alert.  https://www.chunichi.co.jp/article/189000. (January 21, 2021). 
-55. NHK. Nagano Prefecture to ask restaurants and other establishments in Nagano City to shorten hours or close April 2-9. https://www3.nhk.or.jp/news/html/20210331/k10012948491000.html. (March 31, 2021). 
+55. NHK. Nagano Prefecture to ask restaurants and other establishments in Nagano City to shorten hours or close April 2–9. https://www3.nhk.or.jp/news/html/20210331/k10012948491000.html. (March 31, 2021). 
 56. Gunma Prefecture. Emergency Measures in Gunma Prefecture to Prevent the Spread of New Coronavirus Infection. https://www.pref.gunma.jp/contents/100152402.pdf. (2020). 
 57. Gunma Prefecture. FY2020 Governor’s press conferences. https://www.pref.gunma.jp/chiji/z90g_00188.html. (2020). 
 58. Gunma Prefecture. FY2021 Governor’s press conferences. https://www.pref.gunma.jp/chiji/o7000001.html. (2021). 
 59. Jomo Shimbun. Gunma Prefecture's own guidelines for lifting the suspension of operations: Four-step decision-making process based on internal and external conditions. https://www.jomo-news.co.jp/articles/-/21226. (May 12, 2020). 
 60. Jomo Shimbun. Restaurants in five cities in Gunma Prefecture asked to refrain from operating after 10 p.m. https://www.jomo-news.co.jp/articles/-/18894. (December 11, 2021). 
 61. Ibaraki Prefecture. New Coronavirus Infection Emergency measures in Ibaraki Prefecture. https://www.pref.ibaraki.jp/1saigai/2019-ncov/documents/200417kinkyujitaisochi.pdf. (2020).
-62. Ibaraki Prefecture. Changes in the Ibaraki version of Corona Next Stage. https://www.pref.ibaraki.jp/1saigai/2019-ncov/stagesuii.html. (2020-2021). 
+62. Ibaraki Prefecture. Changes in the Ibaraki version of Corona Next Stage. https://www.pref.ibaraki.jp/1saigai/2019-ncov/stagesuii.html. (2020–2021). 
 63. Ibaraki Prefecture. List of Governor’s press conferences in 2020 regarding the “novel coronavirus infection.” https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2020.html. (2020)
 64. Ibaraki Prefecture. List of Governor's press conferences (related to the novel coronavirus infection). https://www.pref.ibaraki.jp/1saigai/2019-ncov/kaiken2.html. (2021).
 65. Yamanashi Prefecture. Standards pertaining to measures to prevent infectious diseases (restaurant industry). (2020).
