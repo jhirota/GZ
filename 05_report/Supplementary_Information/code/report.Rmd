@@ -43,14 +43,14 @@ B. Estimation Equation
 
 C. Basic Statistics
 
-  1. Table: COVID-19 infection cases
-  2. Figure: The number of cumulative GZ-certified restaurants
+  1. Summary statistics of analysis
+  2. Cumulative number of the GZ-certified restaurants
   
 D. Statistical Testing 
 
-  1. Infection Prevention Effects (2 week lag analysis)
-  2. Infection Prevention Effects (1 week lag analysis)
-  3. Economic Effects (Restaurants sales and customers)
+  1. Infection prevention effects (2 week lag analysis)
+  2. Infection prevention effects (1 week lag analysis)
+  3. Economic effects (restaurants’ sales and the number of customers)
   4. Restaurant information views online
   5. Human mobility by facility type  
   6. Inter-regional Mobility 
@@ -136,18 +136,18 @@ $$ln(COVID) = \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
 
 # D   Statistical Testing 
 
-## D.1  Infection Prevention Effects
+## D.1  Infection prevention effects (2 week lag analysis)
 \input{../../../04_analyze/Covid/output/covid_reg.tex}
 
 \newpage
 
-## D.2 Infection Prevention Effects (1 week lag analysis)
+## D.2 Infection prevention effects (1 week lag analysis)
 \input{../../../04_analyze/Covid/output/covid_reg_lag1.tex}
 
 \newpage
 
 \blandscape
-## D.3  Economic Effects
+## D.3  Economic effects (restaurants’ sales and the number of customers)
 \input{../../../04_analyze/Postas/output/postas_pref_week.tex}
 \fillandplacepagenumber
 \elandscape
