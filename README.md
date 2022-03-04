@@ -55,13 +55,13 @@ Dataset to implement robustness check (stayhome-rate, mobility, restraunts' view
 
 
 ## 04_analyze
-This folder performs regression analyses and data visualization by using the build data in 03_build.
+This folder performs regression analyses and data visualization by using the built data in 03_build.
 
 * GZlist <br>
 Visualizing the cumulative number of the GZ-certified restaurants
 
 * Vresas <br>
-Performing regression analyses on restraunts' views and human mobility
+Performing regression analyses on restraunt information views online and human mobility
 
 * Google Mobility <br>
 Performing regression analyses on human mobility in each facility
@@ -73,7 +73,7 @@ Visualizing the non-intervention scenario in terms of economic effects and infec
 Performing regression analyses on sales and the number of customers per restaurant
 
 * Covid <br>
-Performing regression analyses on the new infection cases
+Performing regression analyses on the new COVID-19 cases
 
 * Stayhome_rate <br>
 Performing regression analyses on the stay-home rate
