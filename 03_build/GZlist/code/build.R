@@ -1,36 +1,37 @@
 library(tidyverse)
-library(jpndistrict)
-library(reshape2)
 library(lubridate)
 
-# GZall_list by week -------
+# data load ------
 
-#Not only food but hotels, wineries etc.
-GZall_list <- read_csv("02_bring/GZlist/data/GZlist.csv") %>% 
-  filter(Keido <= 139.5) %>% 
-  filter(Ido >= 35 & Ido <= 37) %>% 
+GZ <- read_csv(here::here("02_bring/GZlist/data/GZlist.csv"))
+
+
+# GZlist in all categories by week clean -------
+
+GZall_list <- GZ %>% 
+  filter(Keido <= 139.5,
+         Ido >= 35 & Ido <= 37) %>% 
   select(Date_approval, Type) %>% 
   mutate(Approved = 1,
          Date_approval = as.Date(Date_approval)) %>% 
   complete(Date_approval = seq.Date(min(Date_approval), max(Date_approval), by="day"),
            fill = list(Approved = 0)) %>% 
-  complete(Date_approval, Type, fill = list(Approved = 0, Type = "Food"))
-
-GZall_list$week <- lubridate::floor_date(GZall_list$Date_approval, "week",
-                               week_start = getOption("lubridate.week.start", 1))
-
-GZall_list2 <- GZall_list %>% 
+  complete(Date_approval, Type, fill = list(Approved = 0, Type = "Food")) %>% 
+  mutate(week = floor_date(Date_approval, "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
   group_by(week, Type) %>% 
   summarize(GZnew = sum(Approved)) %>% 
   ungroup() %>% 
-  complete(week, Type, fill = list(GZnew = 0))
+  complete(week, Type, fill = list(GZnew = 0)) %>% 
+  group_by(Type) %>% 
+  mutate(cumGZ = cumsum(GZnew)) %>% 
+  ungroup()
 
-GZall_list2$cumGZ <- ave(GZall_list2$GZnew, GZall_list2$Type, FUN = cumsum)
 
-write_csv(GZall_list2, "03_build/GZlist/output/GZalllist_week.csv")
+write_csv(GZall_list, here::here("03_build/GZlist/output/GZalllist_week.csv"))
 
 
-# GZ times series------------------
+# GZ list (Food category only) by week clean ------------------
 cities <- c("甲府市", "富士吉田市", "都留市","山梨市", "大月市", "韮崎市", "南アルプス市", "北杜市",
             "甲斐市", "笛吹市", "上野原市", "甲州市", "中央市", "市川三郷町", "早川町", "身延町",
             "南部町", "富士川町", "昭和町", "道志村", "西桂町", "忍野村", "山中湖村", "鳴沢村",
@@ -44,28 +45,8 @@ cityfunc <- function(x){
   return(x)
 }
 
-#Not only food but hotels, wineries etc.
-GZall_list <- read_csv("02_bring/GZlist/data/GZlist.csv") %>% 
-  filter(Keido <= 139.5) %>% 
-  filter(Ido >= 35 & Ido <= 37) %>% 
-  mutate(city = map(Address, cityfunc))
 
-t_GZall_list <- GZall_list %>% 
-  select(Date_approval, Type, city) %>%
-  count(Date_approval, city) %>% 
-  pivot_wider(names_from = city,
-              values_from = n,
-              values_fill = list(n = 0)) %>% 
-  pivot_longer(cols = !Date_approval,
-               names_to = "city",
-               values_to = "N")
-
-
-# write_csv(t_GZall_list, "03_build/GZlist/output/GZalllist_timeseries.csv")
-
-
-# Food only list
-GZlist <- read_csv("02_bring/GZlist/data/GZlist.csv") %>% 
+GZlist <- GZ %>% 
   filter(Keido <= 139.5,
          Ido >= 35 & Ido <= 37,
          Type == "Food") %>% 
@@ -82,7 +63,7 @@ t_GZlist <- GZlist %>%
                names_to = "city",
                values_to = "N")
 
-# write_csv(t_GZlist, "03_build/GZlist/output/GZlist_timeseries.csv")
+write_csv(t_GZlist, here::here("03_build/GZlist/output/GZlist_timeseries.csv"))
 
 
 

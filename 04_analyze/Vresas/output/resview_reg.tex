@@ -1,0 +1,59 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Restaurant information views online (percentage change) and the Green Zone certification} 
+  \label{} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{1pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{Restaurant information views online (percentage change) } \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log & 1.900$^{***}$ & 1.497$^{***}$ & 1.297$^{***}$ \\ 
+  & (0.252) & (0.253) & (0.308) \\ 
+  & & & \\ 
+ State of Emergency & $-$3.842$^{**}$ & $-$4.281$^{**}$ & $-$8.499$^{**}$ \\ 
+  & (1.164) & (1.390) & (2.792) \\ 
+  & & & \\ 
+ The number of new COVID-19 cases, log &  & $-$1.709$^{**}$ & $-$1.984$^{***}$ \\ 
+  &  & (0.449) & (0.466) \\ 
+  & & & \\ 
+ Average temperature, log &  & $-$25.388 & $-$24.386 \\ 
+  &  & (17.074) & (17.322) \\ 
+  & & & \\ 
+ Average rainfall, log &  & $-$0.372 & $-$0.517 \\ 
+  &  & (0.480) & (0.512) \\ 
+  & & & \\ 
+ School closure &  &  & 6.563$^{**}$ \\ 
+  &  &  & (2.242) \\ 
+  & & & \\ 
+ Gathering restriction &  &  & 4.808 \\ 
+  &  &  & (4.042) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+The mean of dep. variable in Yamanashi Prefecture &  & -21.052 &  \\ 
+The mean of dep. variable  in the control group &  & -22.641 &  \\ 
+Prefecture FE & X & X & X \\ 
+Week FE & X & X & X \\ 
+Observations & 408 & 408 & 408 \\ 
+R$^{2}$ & 0.947 & 0.950 & 0.953 \\ 
+Adjusted R$^{2}$ & 0.935 & 0.939 & 0.941 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\multicolumn{4}{l} {\parbox[t]{18cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percentage change in the number of restaurant information views online compared to the 2019 baseline (V-RESAS). 
+The unit of analysis is prefecture-week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+\end{tabular} 
+\end{table} 

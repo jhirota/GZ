@@ -1,211 +1,260 @@
 library(tidyverse)
 library(ggeffects)
+library(lubridate)
 
-# covid-19 counterfactual plot-----
-weekSIR3 <- read_csv("03_build/Postas/output/weekSIR3.csv") %>% 
-  arrange(week)
+# data load-----
+weekSIR2 <- read_csv(here::here("03_build/Postas/output/weekSIR2.csv"))
+postas_day1 <- read_csv(here::here("03_build/Postas/output/postas_daily_data.csv"))
 
-covidmodel <- lm(log(newcaset.2 + 1) ~ log(cumGZ + 1)  + log(agrgt_potecovid_lag2 + 1) + emergency +
-                   log(noftestst.2 + 1) + log(customers_per) + log(avg_temp_q) + log(rain + 1) + 
-                   factor(pref) + factor(week), data = weekSIR3)
+# Economic prevention effect ---------
+## fit data (covid)-------
+
+pred_covid <- function(data){
+  data <- data %>% arrange(week)
+  covidmodel <- lm(log(newcase_lead2+ 1) ~ log(cumGZ + 1) + log(infectious_l2 + 1) + log(susceptible) + emergency +
+                     log(tests_lead2 + 1) + factor(pref) + factor(week),
+                   data = data)
+  pred_value <- exp(fitted(covidmodel))
+  return(pred_value)
+} 
+
+FittedValue <- weekSIR2 %>% 
+  arrange(week) %>% 
+  mutate(pred_covid_lead2 = c(pred_covid(weekSIR2),
+                              rep(NA, nrow(weekSIR2) - length(pred_covid(weekSIR2))))) %>% 
+  filter(pref == "Yamanashi") %>% 
+  select(week, pred_covid_lead2)
 
 
-weekSIR3$pred_covid <- NA
-weekSIR3$pred_covid[1:nrow(weekSIR3)] <- exp(fitted(covidmodel))
 
-# counterfactual
-Yamapred <- rep(NA, 68)
-j <- 1
+## counter-factual data (covid)-------
 
-for (i in 1:nrow(weekSIR3)){
-  if (weekSIR3$pref[i] == "Yamanashi"){
-    pred <- ggpredict(covidmodel,
-                      terms = "cumGZ",
-                      type = "fe",
-                      condition = c(week = as.character(weekSIR3$week[i]),
-                                    pref = weekSIR3$pref[i],
-                                    noftestst.2 = weekSIR3$noftestst.2[i],
-                                    agrgt_potecovid_lag2 = weekSIR3$agrgt_potecovid_lag2[i],
-                                    avg_temp_q = weekSIR3$avg_temp_q[i],
-                                    rain = weekSIR3$rain[i],
-                                    customers_per = weekSIR3$customers_per[i],
-                                    emergency = weekSIR3$emergency[i]),
-                      back.transform = TRUE)
-    GZ0value <- pred %>% filter(x == 0)
-    Yamapred[j] <- GZ0value$predicted[1]
+covidmodel <- lm(log(newcase_lead2 + 1) ~ log(cumGZ + 1) + log(infectious_l2 + 1) + log(susceptible) + emergency +
+                        log(tests_lead2 + 1) + factor(pref) + factor(week),
+                      data = weekSIR2)
+CofaValue <- rep(NA, 68)
+j <- 3 #2weeklag
+
+predictiondata <- weekSIR2 %>% filter(week <= "2021-04-18")
+for (i in 1:nrow(predictiondata)){
+  if (predictiondata$pref[i] == "Yamanashi"){
+    pred_value <- ggpredict(covidmodel,
+                            terms = "cumGZ",
+                            type = "fe",
+                            condition = c(week = as.character(predictiondata$week[i]),
+                                          pref = predictiondata$pref[i],
+                                          tests_lead2 = predictiondata$tests_lead2[i],
+                                          infectious_l2 = predictiondata$infectious_l2[i],
+                                          susceptible = predictiondata$susceptible[i],
+                                          emergency = predictiondata$emergency[i]),
+                            back.transform = TRUE) %>% 
+      filter(x == 0)
+
+    CofaValue[j] <- pred_value$predicted[1]
     j <- j + 1
   }else{
   }
 }
 
-
-YamanashiTrend2 <- data.frame(week = levels(factor(weekSIR3$week)),
-                             nofcases = weekSIR3$newcaseday[weekSIR3$pref == "Yamanashi"],
-                             counterfactual = c(rep(NA, 2), Yamapred[1:66]),
-                             fitted = c(rep(NA,2), weekSIR3$pred_covid[weekSIR3$pref == "Yamanashi"][1:66]))
-
-
-
-Yamanashi1 <- YamanashiTrend2[,1:2]
-Yamanashi2 <- YamanashiTrend2[,c(1,3)]
-Yamanashi3 <- YamanashiTrend2[,c(1,4)]
-Yamanashi1$type <-"actual"
-Yamanashi2$type <- "counterfactual"
-Yamanashi3$type <- "fitted"
-names(Yamanashi2)[2] <- "nofcases"
-names(Yamanashi3)[2] <- "nofcases"
-
-newYamanashiTrend2 <- rbind(Yamanashi1, Yamanashi2, Yamanashi3) %>% 
-  arrange(week)
-newYamanashiTrend2$week <- as.Date(newYamanashiTrend$week)
-
-write.csv(newYamanashiTrend2, "03_build/Counterfactual/output/cofa_covid2.csv")
+cofaplot <- FittedValue %>% 
+  rename(fitted = pred_covid_lead2) %>% 
+  mutate(counterfactual = CofaValue,
+         fitted = lag(fitted, n = 2),
+         actual = weekSIR2 %>% 
+           filter(pref == "Yamanashi") %>% 
+           pull(newcase_day)) %>% 
+  pivot_longer(!week,
+               names_to = "type",
+               values_to = "nofcases")
 
 
+write_csv(cofaplot, here::here("03_build/Counterfactual/output/cofa_covid.csv"))
 
-# Economic effects counterfactual plot (daily) -------
 
-postas_day1 <- read_csv("03_build/Postas/output/postas_daily_data.csv")
+# Economic effects (daily)-------
 
-# same as dlmpostas2
-postas_model <- lm(log(sales_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain + factor(pref) + factor(date), data = postas_day1)
-#same as dlmpostas.cus2
-postas.cus_model <- lm(log(customers_per) ~ log(cumGZ + 1)  + log(newcase_day + 1) + emergency + avg_temp_q + sum_rain + factor(pref) + factor(date), data = postas_day1)
+## fit data (sales)----------
 
-postas_day1$pred_sales <- NA
-postas_day1$pred_sales[1:nrow(postas_day1)] <- exp(fitted(postas_model))
-postas_day1$pred_customers <- NA
-postas_day1$pred_customers[1:nrow(postas_day1)] <- exp(fitted(postas.cus_model))
+pred_sales <- function(data){
+  data <- data %>% arrange(date)
+  postas_model <- lm(log(sales_per) ~ log(cumGZ + 1) + emergency + factor(pref) + factor(date),
+                     data = postas_day1)
+  
+  pred_value <- exp(fitted(postas_model))
+  return(pred_value)
+} 
 
-# counterfactual
-Yamapred <- rep(NA, 912)
+FittedValue_s <- postas_day1 %>% 
+  arrange(date) %>% 
+  mutate(pred_sales = pred_sales(postas_day1)) %>% 
+  filter(pref == "Yamanashi") %>% 
+  select(date, pred_sales)
+
+## cofa data (sales) --------
+postas_model <- lm(log(sales_per) ~ log(cumGZ + 1) + emergency + factor(pref) + factor(date),
+                       data = postas_day1)
+
+CofaValue_s <- rep(NA, 851)
 j <- 1
-
-# takes time (20mins)
 for (i in 1:nrow(postas_day1)){
   if (postas_day1$pref[i] == "Yamanashi"){
-    pred <- ggpredict(postas_model,
-                      terms = "cumGZ",
-                      type = "fe",
-                      condition = c(date = as.character(postas_day1$date[i]),
-                                    pref = postas_day1$pref[i],
-                                    newcase_day = postas_day1$newcase_day[i],
-                                    avg_temp_q = postas_day1$avg_temp_q[i],
-                                    sum_rain = postas_day1$sum_rain[i],
-                                    emergency = postas_day1$emergency[i]),
-                      back.transform = TRUE)
-    GZ0value <- pred %>% filter(x == 0)
-    Yamapred[j] <- GZ0value$predicted[1]
+    pred_value <- ggpredict(postas_model,
+                            terms = "cumGZ",
+                            type = "fe",
+                            condition = c(date = as.character(postas_day1$date[i]),
+                                          pref = postas_day1$pref[i],
+                                          emergency = postas_day1$emergency[i]),
+                            back.transform = TRUE) %>% 
+      filter(x == 0)
+    
+    CofaValue_s[j] <- pred_value$predicted[1]
     j <- j + 1
   }else{
   }
 }
 
-Yamapred.cus <- rep(NA, 912)
+cofaplot_s <- FittedValue_s %>% 
+  rename(fitted = pred_sales) %>% 
+  mutate(counterfactual = CofaValue_s,
+         actual = postas_day1 %>% 
+           filter(pref == "Yamanashi") %>% 
+           pull(sales_per)) %>% 
+  pivot_longer(!date,
+               names_to = "type",
+               values_to = "sales_per")
+
+
+write_csv(cofaplot_s, here::here("03_build/Counterfactual/output/sales_daily_data_for_plot.csv"))
+
+## fit data (customers) --------
+
+pred_customers <- function(data){
+  data <- data %>% arrange(date)
+  postas.cus_model <- lm(log(customers_per) ~ log(cumGZ + 1) + emergency + factor(pref) + factor(date),
+                     data = data)
+  
+  pred_value <- exp(fitted(postas.cus_model))
+  return(pred_value)
+} 
+
+FittedValue_c <- postas_day1 %>% 
+  arrange(date) %>% 
+  mutate(pred_customers = pred_customers(postas_day1)) %>% 
+  filter(pref == "Yamanashi") %>% 
+  select(date, pred_customers)
+
+
+## cofa data (customers) ----
+
+postas.cus_model <- lm(log(customers_per) ~ log(cumGZ + 1) + emergency + factor(pref) + factor(date),
+                           data = postas_day1)
+
+CofaValue_c <- rep(NA, 851)
 j <- 1
-# takes time (20mins)
 for (i in 1:nrow(postas_day1)){
   if (postas_day1$pref[i] == "Yamanashi"){
-    pred <- ggpredict(postas.cus_model,
-                      terms = "cumGZ",
-                      type = "fe",
-                      condition = c(date = as.character(postas_day1$date[i]),
-                                    pref = postas_day1$pref[i],
-                                    newcase_day = postas_day1$newcase_day[i],
-                                    avg_temp_q = postas_day1$avg_temp_q[i],
-                                    sum_rain = postas_day1$sum_rain[i],
-                                    emergency = postas_day1$emergency[i]),
-                      back.transform = TRUE)
-    GZ0value.cus <- pred %>% filter(x == 0)
-    Yamapred.cus[j] <- GZ0value.cus$predicted[1]
+    pred_value <- ggpredict(postas.cus_model,
+                            terms = "cumGZ",
+                            type = "fe",
+                            condition = c(date = as.character(postas_day1$date[i]),
+                                          pref = postas_day1$pref[i],
+                                          emergency = postas_day1$emergency[i]),
+                            back.transform = TRUE) %>% 
+      filter(x == 0)
+    
+    CofaValue_c[j] <- pred_value$predicted[1]
     j <- j + 1
   }else{
   }
 }
 
-postas_day1$Sales_CofaGZ0 <- NA
-postas_day1$customers_CofaGZ0 <- NA
+cofaplot_c <- FittedValue_c %>% 
+  rename(fitted = pred_customers) %>% 
+  mutate(counterfactual = CofaValue_c,
+         actual = postas_day1 %>% 
+           filter(pref == "Yamanashi") %>% 
+           pull(customers_per)) %>% 
+  pivot_longer(!date,
+               names_to = "type",
+               values_to = "customers_per")
 
-postas_day1$Sales_CofaGZ0[postas_day1$pref == "Yamanashi"] <- Yamapred
-postas_day1$customers_CofaGZ0[postas_day1$pref == "Yamanashi"] <- Yamapred.cus
+write_csv(cofaplot_c, here::here("03_build/Counterfactual/output/customers_daily_data_for_plot.csv"))
 
-postas_day2 <- postas_day1
+## Findings (covid)--------
+# cofaplot <- read_csv(here::here("03_build/Counterfactual/output/cofa_covid.csv"))
+GZeffect <- cofaplot %>% 
+  filter(week >= "2020-07-17" & week <= "2021-04-30") 
 
-write.csv(postas_day2, "03_build/Counterfactual/output/postas_day2.csv", row.names = FALSE)
+diff <- GZeffect$nofcases[GZeffect$type == "fitted"] -
+  GZeffect$nofcases[GZeffect$type == "counterfactual"]
 
+## Approximately 848 new infection cases were prevented during the period (2020-07-17 to 2021-04-30)
+sum(diff, na.rm = TRUE)
 
-Yamanashi1 <- data.frame(date = levels(factor(postas_day2$date)),
-                         Sales = postas_day2$sales_per[postas_day2$pref == "Yamanashi"],
-                         type = "actual")
-Yamanashi2 <- data.frame(date = levels(factor(postas_day2$date)),
-                         Sales = postas_day2$Sales_CofaGZ0[postas_day2$pref == "Yamanashi"],
-                         type = "counterfactual")
-Yamanashi3 <- data.frame(date = levels(factor(postas_day2$date)),
-                         Sales = postas_day2$pred_sales[postas_day2$pref == "Yamanashi"],
-                         type = "fitted")
+## During the period (2020-07-17 to 2021-04-30), new infection cases decreased by approximately 45.3%. 
+rate <- sum(diff, na.rm = TRUE) / 
+  sum(GZeffect$nofcases[GZeffect$type == "counterfactual"], na.rm = TRUE)
+rate 
 
-YamanashiTrend <- rbind(Yamanashi1, Yamanashi2, Yamanashi3) %>%
-  arrange(date)
-YamanashiTrend$date <- as.Date(YamanashiTrend$date)
+## Findings (sales)---------
+# cofaplot_s <- read_csv(here::here("03_build/Counterfactual/output/sales_daily_data_for_plot.csv"))
 
-Yamanashi.cus1 <- data.frame(date = levels(factor(postas_day2$date)),
-                             customers = postas_day2$customers_per[postas_day2$pref == "Yamanashi"],
-                             type = "actual")
-Yamanashi.cus2 <- data.frame(date = levels(factor(postas_day2$date)),
-                             customers = postas_day2$customers_CofaGZ0[postas_day2$pref == "Yamanashi"],
-                             type = "counterfactual")
-Yamanashi.cus3 <- data.frame(date = levels(factor(postas_day2$date)),
-                             customers = postas_day2$pred_customers[postas_day2$pref == "Yamanashi"],
-                             type = "fitted")
+GZeffect_s <- cofaplot_s %>% 
+  filter(date >= "2020-07-17" & date <= "2021-04-30") 
 
-YamanashiTrend.cus <- rbind(Yamanashi.cus1, Yamanashi.cus2, Yamanashi.cus3) %>%
-  arrange(date)
-YamanashiTrend.cus$date <- as.Date(YamanashiTrend.cus$date)
+diffs <- GZeffect_s$sales_per[GZeffect_s$type == "fitted"] -
+  GZeffect_s$sales_per[GZeffect_s$type == "counterfactual"]
 
+## Approximately 3.21 million JPY in sale per restaurant was created during the period (2020-07-17 to 2021-04-30)
+sum(diffs, na.rm = TRUE)
+## Approximately 338 thousand JPY in monthly sale per restaurant was created during the period (2020-07-17 to 2021-04-30)
+sum(diffs, na.rm = TRUE)/9.5
 
+#During the period (2020-07-17 to 2021-04-30), sales increased by approximately 12.8%. 
+rates <- sum(diffs, na.rm = TRUE)/
+  sum(GZeffect_s$sales_per[GZeffect_s$type == "counterfactual"], na.rm = TRUE)
+rates 
 
-write.csv(YamanashiTrend, "03_build/Counterfactual/output/sales_daily_data_for_plot.csv", row.names = FALSE)
-write.csv(YamanashiTrend.cus, "03_build/Counterfactual/output/customers_daily_data_for_plot.csv", row.names = FALSE)
+## Findings (customers)---------
+cofaplot_c <- read_csv(here::here("03_build/Counterfactual/output/customers_daily_data_for_plot.csv"))
+GZeffect_c <- cofaplot_c %>% 
+  filter(date >= "2020-07-17" & date <= "2021-04-30") 
 
+diffc <- GZeffect_c$customers_per[GZeffect_c$type == "fitted"] -
+  GZeffect_c$customers_per[GZeffect_c$type == "counterfactual"]
 
-# Findings---------
-# sinceGZ <- YamanashiTrend %>% filter(date >= 18475) %>% filter(date <= 18747) #8月以降4月いっぱい
-# a <- sinceGZ$Sales[sinceGZ$type == "actual"] -
-#   sinceGZ$Sales[sinceGZ$type == "counterfactual"]
-# sum(a, na.rm = TRUE)##単純計算で調査期間の2020年8月-2021年4月で1店舗あたり267万円の売上
-# sum(a, na.rm = TRUE)/9 ##1店舗1月あたり最大29.6万円
-# rate <- sum(sinceGZ$Sales[sinceGZ$type == "actual"], na.rm = TRUE) /
-#   sum(sinceGZ$Sales[sinceGZ$type == "counterfactual"], na.rm = TRUE)
-# rate #調査期間の9ヶ月で11.0%増加させた。
+## Number of customers per restaurant increased by approximately 2909, during the period (2020-07-17 to 2021-04-30)
+sum(diffc, na.rm = TRUE)
+## 306 customers were created in a month
+sum(diffc, na.rm = TRUE)/9.5
 
-
-b <- YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "actual"] -
-  YamanashiTrend.cus$customers[YamanashiTrend.cus$type == "counterfactual"]
-sum(b, na.rm = TRUE) ##1店舗あたり2286人増加をもたらした。
+#During the period (2020-07-17 to 2021-04-30), number of customers increased by approximately 30.3% 
+ratec <- sum(diffc, na.rm = TRUE) /
+  sum(GZeffect_c$customers_per[GZeffect_c$type == "counterfactual"], na.rm = TRUE)
+ratec 
 
 
-# For postas counterfactual plot (daily) -------
-# counterfactual plot (week)--------
+# Economic effects (weeky)-------
 
-YamanashiTrend$week <- floor_date(YamanashiTrend$date,
-                                  "week",
-                                  week_start = getOption("lubridate.week.start", 1)) 
 
-YamanashiTrend_w <- YamanashiTrend %>% 
+cofaplot_sw <- cofaplot_s %>% 
+  mutate(week = floor_date(date,
+                           "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
   group_by(week, type) %>% 
-  summarize(Sales = sum(Sales)) %>% 
+  summarize(sales_per = sum(sales_per)) %>% 
+  ungroup()
+  
+  
+cofaplot_cw <- cofaplot_c %>% 
+  mutate(week = floor_date(date,
+                           "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
+  group_by(week, type) %>% 
+  summarize(customers_per = sum(customers_per)) %>% 
   ungroup()
 
-YamanashiTrend.cus$week <- floor_date(YamanashiTrend.cus$date,
-                                      "week",
-                                      week_start = getOption("lubridate.week.start", 1)) 
 
-YamanashiTrend.cus_w <- YamanashiTrend.cus %>% 
-  group_by(week, type) %>% 
-  summarize(customers = sum(customers)) %>% 
-  ungroup()
-
-
-write.csv(YamanashiTrend_w, "03_build/Counterfactual/output/sales_weekly_data_for_plot.csv", row.names = FALSE)
-write.csv(YamanashiTrend.cus_w, "03_build/Counterfactual/output/customers_weekly_data_for_plot.csv", row.names = FALSE)
+write_csv(cofaplot_sw, here::here("03_build/Counterfactual/output/sales_weekly_data_for_plot.csv"))
+write_csv(cofaplot_cw, here::here("03_build/Counterfactual/output/customers_weekly_data_for_plot.csv"))
 

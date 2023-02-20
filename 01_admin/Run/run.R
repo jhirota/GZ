@@ -1,11 +1,11 @@
 
 Run <- function(){
-  outline <- readxl::read_excel(here::here("01_admin/outline.xlsx"))
   build()
   analyze()
 }
 
 build <- function(){
+  outline <- readxl::read_excel(here::here("01_admin/outline.xlsx"))
   folders <- subset(outline, outline$Verb == "build")
   for (i in nrow(folders)) {
     source(here::here("03_build", folders$Folder[i], "code", "build.R"))
@@ -13,6 +13,7 @@ build <- function(){
 }
 
 analyze <- function(){
+  outline <- readxl::read_excel(here::here("01_admin/outline.xlsx"))
   foldersR <- subset(outline, (outline$Verb == "analyze" & outline$Script == "R"))
   for (i in nrow(foldersR)) {
     source(here::here("04_analyze", foldersR$Folder[i], "code", "analyze.R"))

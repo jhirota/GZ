@@ -1,0 +1,59 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Inter-regional mobility and the Green Zone certification} 
+  \label{} 
+\scriptsize 
+\begin{tabular}{@{\extracolsep{1pt}}lccccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{9}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-10} 
+\\[-1.8ex] & \multicolumn{3}{c}{intracity} & \multicolumn{3}{c}{intercity} & \multicolumn{3}{c}{interprefectural} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log & $-$0.115$^{***}$ & $-$0.106$^{***}$ & $-$0.109$^{***}$ & 0.224$^{**}$ & 0.177$^{*}$ & 0.204$^{*}$ & 1.055$^{***}$ & 1.132$^{***}$ & 0.788$^{***}$ \\ 
+  & (0.022) & (0.026) & (0.024) & (0.060) & (0.081) & (0.083) & (0.163) & (0.148) & (0.148) \\ 
+  & & & & & & & & & \\ 
+ State of Emergency & 0.630$^{**}$ & 0.589$^{**}$ & 0.533$^{**}$ & $-$5.249$^{***}$ & $-$5.128$^{***}$ & $-$4.586$^{***}$ & $-$0.125 & $-$0.212 & $-$7.466$^{*}$ \\ 
+  & (0.240) & (0.166) & (0.190) & (0.585) & (0.459) & (0.589) & (2.457) & (2.680) & (2.932) \\ 
+  & & & & & & & & & \\ 
+ The number of new COVID-19 cases, log &  & 0.050 & 0.046 &  & $-$0.254 & $-$0.220 &  & 0.424 & $-$0.050 \\ 
+  &  & (0.050) & (0.047) &  & (0.177) & (0.178) &  & (0.466) & (0.371) \\ 
+  & & & & & & & & & \\ 
+ Average temperature, log &  & $-$1.461 & $-$1.465 &  & 6.131 & 6.090 &  & $-$10.450 & $-$8.691 \\ 
+  &  & (1.701) & (1.705) &  & (3.778) & (3.707) &  & (16.018) & (16.521) \\ 
+  & & & & & & & & & \\ 
+ Average rainfall, log &  & 0.007 & 0.005 &  & $-$0.167 & $-$0.149 &  & 0.552 & 0.303 \\ 
+  &  & (0.107) & (0.108) &  & (0.317) & (0.319) &  & (0.735) & (0.743) \\ 
+  & & & & & & & & & \\ 
+ School closure &  &  & $-$0.124 &  &  & 0.231 &  &  & 11.736$^{***}$ \\ 
+  &  &  & (0.184) &  &  & (0.850) &  &  & (1.441) \\ 
+  & & & & & & & & & \\ 
+ Gathering restriction &  &  & 0.062 &  &  & $-$0.611 &  &  & 8.271$^{**}$ \\ 
+  &  &  & (0.145) &  &  & (0.354) &  &  & (3.190) \\ 
+  & & & & & & & & & \\ 
+\hline \\[-1.8ex] 
+Mean of Mobility in Yamanashi &  & 5.49 &  &  & -7.079 &  &  & -27.778 &  \\ 
+Mean of Mobility in Control &  & 5.165 &  &  & -7.584 &  &  & -27.881 &  \\ 
+Prefecture FE & X & X & X & X & X & X & X & X & X \\ 
+Week FE & X & X & X & X & X & X & X & X & X \\ 
+Observations & 408 & 408 & 408 & 408 & 408 & 408 & 408 & 408 & 408 \\ 
+R$^{2}$ & 0.980 & 0.980 & 0.980 & 0.963 & 0.963 & 0.963 & 0.942 & 0.943 & 0.949 \\ 
+Adjusted R$^{2}$ & 0.975 & 0.975 & 0.975 & 0.954 & 0.955 & 0.955 & 0.929 & 0.929 & 0.936 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\multicolumn{10}{l} {\parbox[t]{20cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the percentage change in inter-regional human flow (within a city, within a prefecture, and across prefectures) compared to the 2019 baseline (V-RESAS).
+The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 68 weeks from the third week of January, 2020 to the fifth week of April, 2021. 
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+\end{tabular} 
+\end{table} 

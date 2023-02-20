@@ -1,0 +1,58 @@
+
+\begin{table}[H] \centering 
+  \caption{The stay-home rate by male age group and the Green Zone certification} 
+  \label{} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{-11pt}}lccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{7}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-8} 
+\\[-1.8ex] & Male & Male & Male & Male & Male & Male & Male \\ 
+ & 15-19 y/o & 20s & 30s & 40s & 50s & 60s & 70s \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log & 0.003$^{**}$ & $-$0.002$^{**}$ & $-$0.003$^{***}$ & $-$0.002$^{***}$ & $-$0.002$^{***}$ & $-$0.003$^{*}$ & $-$0.003$^{**}$ \\ 
+  & (0.001) & (0.001) & (0.000) & (0.000) & (0.000) & (0.001) & (0.001) \\ 
+  & & & & & & & \\ 
+ State of Emergency & 0.003 & 0.011$^{**}$ & 0.020$^{***}$ & 0.013$^{***}$ & 0.011$^{***}$ & 0.028$^{***}$ & $-$0.018$^{*}$ \\ 
+  & (0.016) & (0.003) & (0.003) & (0.003) & (0.002) & (0.006) & (0.008) \\ 
+  & & & & & & & \\ 
+ The number of new COVID-19 cases, log & 0.001 & 0.004$^{**}$ & 0.003$^{*}$ & 0.002$^{*}$ & 0.002$^{*}$ & 0.000 & 0.005$^{**}$ \\ 
+  & (0.003) & (0.001) & (0.001) & (0.001) & (0.001) & (0.001) & (0.002) \\ 
+  & & & & & & & \\ 
+ Average temperature, log & 0.027 & $-$0.039 & $-$0.027 & $-$0.013 & $-$0.015 & $-$0.084 & $-$0.128$^{*}$ \\ 
+  & (0.050) & (0.024) & (0.039) & (0.039) & (0.027) & (0.048) & (0.062) \\ 
+  & & & & & & & \\ 
+ Average rainfall, log & 0.009$^{*}$ & 0.002$^{*}$ & 0.004$^{***}$ & 0.006$^{***}$ & 0.006$^{***}$ & 0.008$^{***}$ & 0.015$^{***}$ \\ 
+  & (0.004) & (0.001) & (0.000) & (0.001) & (0.001) & (0.001) & (0.002) \\ 
+  & & & & & & & \\ 
+ School closure & 0.007 & 0.019$^{*}$ & 0.017$^{**}$ & 0.007 & 0.012$^{**}$ & 0.024 & 0.024 \\ 
+  & (0.050) & (0.008) & (0.005) & (0.005) & (0.004) & (0.015) & (0.013) \\ 
+  & & & & & & & \\ 
+ Gathering restriction & 0.040$^{**}$ & 0.005 & 0.014$^{***}$ & 0.011$^{***}$ & 0.011$^{***}$ & 0.012$^{**}$ & 0.021$^{***}$ \\ 
+  & (0.013) & (0.004) & (0.003) & (0.002) & (0.002) & (0.003) & (0.004) \\ 
+  & & & & & & & \\ 
+\hline \\[-1.8ex] 
+Prefecture FE & X & X & X & X & X & X & X \\ 
+Day FE & X & X & X & X & X & X & X \\ 
+Observations & 2,694 & 2,694 & 2,694 & 2,694 & 2,694 & 2,694 & 2,694 \\ 
+R$^{2}$ & 0.925 & 0.931 & 0.950 & 0.964 & 0.964 & 0.959 & 0.947 \\ 
+Adjusted R$^{2}$ & 0.910 & 0.917 & 0.940 & 0.956 & 0.957 & 0.951 & 0.936 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\multicolumn{8}{l} {\parbox[t]{16cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the day-time (from 9 am to 6 pm) stay-home rate for males, which indicates the percentage of people who refrain from going out compared to the baseline value; the closer to 1, the more people refrain from going out, and the closer to 0, the more people go out. 
+The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 449 days from January 1st, 2020 to March 24th, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+\end{tabular} 
+\end{table} 

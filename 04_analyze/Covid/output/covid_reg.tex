@@ -1,0 +1,73 @@
+
+\begin{table}[H] \centering 
+  \caption{The COVID-19 new infection cases (2 week lag) and the Green Zone certification} 
+  \label{} 
+\scriptsize 
+\begin{tabular}{@{\extracolsep{1pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{New infection cases (2 week lag), log} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log & $-$0.088$^{***}$ & $-$0.105$^{***}$ & $-$0.107$^{***}$ &  & $-$0.126$^{***}$ \\ 
+  & (0.015) & (0.024) & (0.025) &  & (0.028) \\ 
+  & & & & & \\ 
+ Cumulative GZ-certified restaurants and hotels, log &  &  &  & $-$0.104$^{***}$ &  \\ 
+  &  &  &  & (0.024) &  \\ 
+  & & & & & \\ 
+ Infectious, log & 0.558$^{***}$ & 0.569$^{***}$ & 0.566$^{***}$ & 0.565$^{***}$ & 0.544$^{***}$ \\ 
+  & (0.048) & (0.045) & (0.040) & (0.040) & (0.042) \\ 
+  & & & & & \\ 
+ Susceptible, log & $-$45.353 & $-$45.843 & $-$44.997 & $-$61.487 & 32.518 \\ 
+  & (69.254) & (92.506) & (89.342) & (82.870) & (121.902) \\ 
+  & & & & & \\ 
+ State of Emergency & 0.030 & 0.141 & 0.085 & 0.096 & $-$0.183 \\ 
+  & (0.223) & (0.198) & (0.180) & (0.180) & (0.200) \\ 
+  & & & & & \\ 
+ Tests (2 week lag), log & 0.047$^{*}$ & 0.051$^{*}$ & 0.049$^{**}$ & 0.050$^{**}$ & 0.052$^{**}$ \\ 
+  & (0.021) & (0.021) & (0.019) & (0.019) & (0.018) \\ 
+  & & & & & \\ 
+ Customers per restaurant, log &  & 0.550 & 0.548 & 0.612 & 0.540 \\ 
+  &  & (0.419) & (0.449) & (0.446) & (0.480) \\ 
+  & & & & & \\ 
+ Average temperature, log &  &  & $-$0.342 & $-$0.344 & $-$0.317 \\ 
+  &  &  & (0.470) & (0.466) & (0.501) \\ 
+  & & & & & \\ 
+ Average rainfall, log &  &  & $-$0.107 & $-$0.104 & $-$0.115 \\ 
+  &  &  & (0.058) & (0.058) & (0.061) \\ 
+  & & & & & \\ 
+ School closure &  &  &  &  & $-$0.252 \\ 
+  &  &  &  &  & (0.275) \\ 
+  & & & & & \\ 
+ Gathering restriction &  &  &  &  & 0.336$^{**}$ \\ 
+  &  &  &  &  & (0.083) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Prefecture FE & X & X & X & X & X \\ 
+Week FE & X & X & X & X & X \\ 
+Observations & 396 & 396 & 396 & 396 & 396 \\ 
+R$^{2}$ & 0.929 & 0.930 & 0.930 & 0.930 & 0.931 \\ 
+Adjusted R$^{2}$ & 0.913 & 0.913 & 0.913 & 0.913 & 0.914 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\multicolumn{6}{l} {\parbox[t]{15cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the log-transformed value of the number of new infection cases (2 week lag). 
+The unit of analysis is prefecture and week, and the fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted, and the period of analysis is for 66 weeks from the third week of January, 2020 to the third week of April, 2021.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+Cumulative GZ-certified restaurants and hotels, log is the log-transformed value of the number of cumulative certified-GZ restaurants and hotels.
+Infectious, log is the log-transformed value of the number of potentially infected people.
+Susceptible, log is the log-transformed value of the total number of susceptible population.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+Tests (2 week lag), log is the log-transformed value of the number of COVID-19 tests.
+Customers per restaurant, log is the log-transformed value of the number of customers per restaurant.
+Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (New infection cases (2 week lag), log, Cumulative GZ-certified restaurants, log, Cumulative GZ-certified restaurants and hotels, log, Infectious, log, and Tests (2 week lag), log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+\end{tabular} 
+\end{table} 

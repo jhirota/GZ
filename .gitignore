@@ -9,35 +9,22 @@
 # DS_Store and swp
 *.DS_Store
 *.swp
+# tex
+*.aux
+*.log
+*.out
 
-# Analysis and data (not related to the essence of our reports)
-## common name
-Rt/
-Papilio_mobility/
-RENAME/
 
-## 02_bring
-MLIT/
-Agoop_add/
+# common name
+doc/
 
-#03_build
-GZ_covid_MLITmobility/
-Case_positive/
-GZlist/code/build2.R/
+####### Not available in public ##########
+02_bring/GZlist/data/
+02_bring/Postas/data/
+02_bring/Agoop/data/
+##########################################
 
-#04_analyze
-GZlist_mapping/
-Case_positive_plot/
-Covid_reg/
-Covid_reg_papilio/
-infectious_plot/
-04_analyze/weekSIR/
-Covid_reg_papilio_infectious/
-Comparison_coef/
-Appendix/
-Tradeoff_curve/
-coef_with_CI_plot2/
-Robustness/
+
 
 
 
