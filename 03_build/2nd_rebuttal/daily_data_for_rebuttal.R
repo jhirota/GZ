@@ -1,6 +1,7 @@
 library(lubridate)
 library(tidyverse)
 library(readxl)
+library(RcppRoll)
 
 # data load --------
 
@@ -60,10 +61,10 @@ NHK <- NHK %>%
 GZdata2 <- GZdata %>%
   group_by(Date_approval)%>%
   summarize(GZnew = sum(N))%>%
-  mutate(pref = "Yamanashi",
-         Date_approval = as.Date(Date_approval)) %>% 
+  mutate(Date_approval = as.Date(Date_approval)) %>% 
   ungroup() %>% 
   complete(Date_approval = seq.Date(min(Date_approval), max(Date_approval), by="day"), fill = list(GZnew = 0)) %>% 
+  mutate(pref = "Yamanashi") %>% 
   group_by(pref) %>% 
   mutate(cumGZ = cumsum(GZnew)) %>% 
   rename(date = Date_approval)
@@ -186,11 +187,7 @@ pop47 <- pop47 %>%
                                            長野県 = "Nagano",
                                            静岡県 = "Shizuoka")))
 
-## build infectious (merge population flow & newcases)
-
-date <- data %>% 
-  dplyr::select(date, pref)
-
+## build infectious (merge population flow & newcases)------
 
 date_list <- seq(as.Date("2019-12-30"), as.Date("2021-06-20"), by = "day")
 # 日付の一覧と都道府県の一覧を組み合わせてデータを作成
@@ -212,6 +209,25 @@ infectious_raw <- infectious_raw_bind %>%
   dplyr::summarise(sum_infectious = sum(infectious)) %>% 
   dplyr::ungroup()
 
+#generate cumulative number of infectious population
+infectious_sum2week_raw <- infectious_raw %>% 
+  dplyr::group_by(pref) %>% 
+  dplyr::mutate(infectious_cum = cumsum(sum_infectious)) 
+
+infectious_sum2week_lag <- infectious_sum2week_raw %>% 
+  dplyr::mutate(date = date + 15) %>%  #subtract cumulative infectious population of 15days ago
+  dplyr::rename(infectious_cum_15lag = infectious_cum) %>%  
+  dplyr::select(-sum_infectious)
+
+infectious_sum2week <- infectious_sum2week_raw %>% 
+  dplyr::left_join(., infectious_sum2week_lag, by = c("date", "pref")) %>% 
+  tidyr::replace_na(., list(infectious_cum_15lag = 0)) %>% 
+  dplyr::mutate(infectious_l2 = infectious_cum - infectious_cum_15lag - sum_infectious) %>% 
+  #subtract cumulative infectious population of 15days ago and new infectious population, 
+  #so that infectious_l2 denotes the total number of infectious population during the past 2 weeks.
+  dplyr::select(!c("infectious_cum",  "infectious_cum_15lag", "sum_infectious"))
+  
+
 # merge to build master data-----------
 data <- NHK %>% 
   dplyr::left_join(., GZdata2, by = c("date","pref")) %>% 
@@ -227,7 +243,8 @@ data <- NHK %>%
 
 
 data2 <- data %>% 
-  dplyr::mutate(susceptible = pop_resid - total_case) #calculate susceptible population
+  dplyr::mutate(susceptible = pop_resid - total_case) %>% #calculate susceptible population
+  dplyr::left_join(., infectious_sum2week, by = c("date", "pref"))
 
 
 
