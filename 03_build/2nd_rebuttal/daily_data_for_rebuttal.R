@@ -83,6 +83,16 @@ dummy <- dummy %>%
          date = day) %>% 
   mutate(date = as.Date(date))
 
+## weather
+C2F <- function(c){
+  f <- (9/5) * c + 32
+  return(f)
+}
+
+weather <- weather %>% 
+  dplyr::mutate(avg_temp = C2F(avg_temp))
+  
+
 ## test
 Testdata <- testdata %>% 
   select(Date, Pref, noftests) %>% 
