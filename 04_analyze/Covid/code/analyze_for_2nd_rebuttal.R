@@ -72,3 +72,110 @@ AIC(covid_l1_2_3_4_5)
 stargazer(covid_l2, covid_l1_2, covid_l1_2_3, covid_l1_2_3_4, covid_l1_2_3_4_5, covid_l4, type = "text")
 
 
+
+#daily data--------
+
+## load data
+dailySIR <- readr::read_csv("03_build/2nd_rebuttal/output/daily_data_SIR.csv")
+
+#build data for lag (daily data)-----
+gz_lags_daily <- dailySIR %>% 
+  dplyr::select(date, pref, newcase_lead8, GZnew, cumGZ)
+
+gz_lag1_daily <- gz_lags_daily %>% #lead cumGZ because conditioned for newcase_lead8 for the left hand side
+  dplyr::select(date, pref, cumGZ) %>% 
+  dplyr::mutate(date = date - 7) %>% 
+  dplyr::rename(cumGZ_l1 = cumGZ)
+
+gz_lag3_daily <- gz_lags_daily %>% #lead cumGZ because conditioned for newcase_lead8 for the left hand side
+  dplyr::select(date, pref, cumGZ) %>% 
+  dplyr::mutate(date = date + 7) %>% 
+  dplyr::rename(cumGZ_l3 = cumGZ) 
+
+gz_lag4_daily <- gz_lags_daily %>% #lead cumGZ because conditioned for newcase_lead8 for the left hand side
+  dplyr::select(date, pref, cumGZ) %>% 
+  dplyr::mutate(date = date + 14) %>% 
+  dplyr::rename(cumGZ_l4 = cumGZ) 
+
+gz_lag5_daily <- gz_lags_daily %>% #lead cumGZ because conditioned for newcase_lead8 for the left hand side
+  dplyr::select(date, pref, cumGZ) %>% 
+  dplyr::mutate(date = date + 21) %>% 
+  dplyr::rename(cumGZ_l5 = cumGZ) 
+
+dailySIR_lag <- dailySIR %>% 
+  dplyr::left_join(., gz_lag1_daily, by = c("date", "pref")) %>% 
+  dplyr::left_join(., gz_lag3_daily, by = c("date", "pref")) %>% 
+  dplyr::left_join(., gz_lag4_daily, by = c("date", "pref")) %>% 
+  dplyr::left_join(., gz_lag5_daily, by = c("date", "pref")) %>% 
+  tidyr::replace_na(., list(cumGZ_l1 = 0, cumGZ_l3 = 0, cumGZ_l4 = 0, cumGZ_l5 = 0)) %>% 
+  dplyr::select(date, prefcode, pref, newcase_day, GZnew, cumGZ, 
+                cumGZ_l1, cumGZ_l3, cumGZ_l4, cumGZ_l5, tidyselect::everything())
+
+#analyze
+
+##AIC-------
+covid_l2_daily <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+
+#cumGZ lag1 + lag2
+covid_l1_2_daily <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3
+covid_l1_2_3_daily <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3 + lag4
+covid_l1_2_3_4_daily <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(cumGZ_l4 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3 + lag4 + lag5
+covid_l1_2_3_4_5_daily <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(cumGZ_l4 + 1) + log(cumGZ_l5 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+
+AIC(covid_l2_daily)
+# AIC(covid_l4)
+AIC(covid_l1_2_daily)
+AIC(covid_l1_2_3_daily)
+AIC(covid_l1_2_3_4_daily)
+AIC(covid_l1_2_3_4_5_daily)
+
+stargazer(covid_l2_daily, covid_l1_2_daily, covid_l1_2_3_daily, covid_l1_2_3_4_daily, covid_l1_2_3_4_5_daily, type = "text")
+
+#AIC for different calculation------
+covid_l2_daily_rev <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+
+#cumGZ lag1 + lag2
+covid_l1_2_daily_rev <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3
+covid_l1_2_3_daily_rev <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3 + lag4
+covid_l1_2_3_4_daily_rev <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(cumGZ_l4 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+#lag1 + lag2 + lag3 + lag4 + lag5
+covid_l1_2_3_4_5_daily_rev <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(cumGZ_l4 + 1) + log(cumGZ_l5 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR_lag)
+
+AIC(covid_l2_daily_rev)
+# AIC(covid_l4)
+AIC(covid_l1_2_daily_rev)
+AIC(covid_l1_2_3_daily_rev)
+AIC(covid_l1_2_3_4_daily_rev)
+AIC(covid_l1_2_3_4_5_daily_rev)
+
+stargazer(covid_l2_daily_rev, covid_l1_2_daily_rev, covid_l1_2_3_daily_rev, covid_l1_2_3_4_daily_rev, covid_l1_2_3_4_5_daily_rev, type = "text")
+
+
+
+#regression--------
+
+##main specification
+covid_daily_l8 <- felm(log(newcase_lead8 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead8 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR)
+
+## lag14
+covid_daily_l14 <- felm(log(newcase_lead14 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead14 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR)
+
+## lag21
+covid_daily_l21 <- felm(log(newcase_lead21 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead21 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR)
+
+## lag28
+covid_daily_l28 <- felm(log(newcase_lead28 + 1) ~ log(cumGZ + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead28 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+date+weekday+weeknum | 0 | pref, data = dailySIR)
+
+
+stargazer(covid_daily_l8, covid_daily_l14, covid_daily_l21, covid_daily_l28, type = "text")
+AIC(covid_daily_l8)
+AIC(covid_daily_l14)
+AIC(covid_daily_l21)
+AIC(covid_daily_l28)
+
+
