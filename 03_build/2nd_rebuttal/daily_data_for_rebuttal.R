@@ -242,9 +242,31 @@ data <- NHK %>%
   dplyr::left_join(., pop47, by = c("pref" = "pref_resid"))
 
 
+# merge susceptible and infectious population
 data2 <- data %>% 
   dplyr::mutate(susceptible = pop_resid - total_case) %>% #calculate susceptible population
   dplyr::left_join(., infectious_sum2week, by = c("date", "pref"))
+
+# lag for newcases and test cases
+newcase_tests_lead8 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date + 8)) %>% 
+  dplyr::rename(newcase_lead8 = newcase_day,
+                tests_lead8 = noftests)
+
+newcase_tests_lead14 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date + 14)) %>% 
+  dplyr::rename(newcase_lead14 = newcase_day,
+                tests_lead14 = noftests)
+
+daily_data_SIR <- data2 %>% 
+  dplyr::left_join(., newcase_tests_lead8, by = c("date", "pref")) %>% 
+  tidyr::replace_na(., list(newcase_lead8 = 0, tests_lead8 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead14, by = c("date", "pref")) %>% 
+  tidyr::replace_na(., list(newcase_lead14 = 0, tests_lead14 = 0))
+
+write_csv(daily_data_SIR, here::here("03_build/2nd_rebuttal/output/daily_data_SIR.csv"))
 
 
 
