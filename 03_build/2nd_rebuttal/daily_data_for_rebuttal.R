@@ -1,5 +1,6 @@
 library(lubridate)
 library(tidyverse)
+library(readxl)
 
 # data load --------
 
@@ -10,17 +11,17 @@ emergency <- read_csv("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.csv")
 
 dummy <- read_excel("02_bring/Dummy_vars/data/Dummies_edited0125.xlsx")
 
-# GZdata_raw <- read_csv("02_bring/GZlist/data/GZlist.csv")
 GZdata <- read_csv("03_build/GZlist/output/GZlist_timeseries.csv")
+
+Agoop_list <- ("02_bring/Agoop/data") %>% 
+  list.files(full.names = T) %>% 
+  lapply(read.csv)
+pop47 <- read_csv("02_bring/Pop/data/Population_JPN.csv")
+covid47 <- read_csv("02_bring/Covid_cases/data/nhk_news_covid19_prefectures_daily_data(1).csv")
 
 postas <- read_csv("03_build/Postas/output/postas_daily_data.csv")
 
-# weather2019 <- read_csv("02_bring/Weather/data/weather_data_6pref2019_rev.csv")
-# weather2020 <- read_csv("02_bring/Weather/data/weather_data_6pref2020_rev.csv")
-
 weather <- read_csv("03_build/GZ_covid/output/weather_pref.csv")
-
-# daily_data_raw <- read_csv("03_build/GZ_covid/output/pref_bet_day_COVID_GZ.csv")
 
 testdata <- read.csv("02_bring/Tests/data/testmerge.csv")
 
@@ -99,6 +100,118 @@ Testdata <- testdata %>%
            pref,
            fill = list(noftests = 0)) 
 
+## agoop 
+cleanfunc <- function(data){
+  data <- data %>% 
+    rename(week = 1,
+           weekday_flag = 2,
+           daytime_flag = 3,
+           pref_resid = 6,
+           city = 7,
+           pref = 8) %>% 
+    group_by(week, pref, pref_resid, start_day, end_day) %>% 
+    summarize(sum_pop = sum(as.integer(population_inflow))) %>% 
+    ungroup()
+}
+
+cutfunc <- function(x){
+  str_split(x, "[:]")[[1]][2]
+}
+
+mob6_47 <- rbind(cleanfunc(Agoop_list[[1]]),
+                 cleanfunc(Agoop_list[[2]]),
+                 cleanfunc(Agoop_list[[3]]),
+                 cleanfunc(Agoop_list[[4]]),
+                 cleanfunc(Agoop_list[[5]]), 
+                 cleanfunc(Agoop_list[[6]]),
+                 cleanfunc(Agoop_list[[7]]),
+                 cleanfunc(Agoop_list[[8]]),
+                 cleanfunc(Agoop_list[[9]]),
+                 cleanfunc(Agoop_list[[10]]),
+                 cleanfunc(Agoop_list[[11]]),
+                 cleanfunc(Agoop_list[[12]])) %>% 
+  select(-week) %>% 
+  mutate(start_day = as.Date(ymd(start_day)),
+         end_day = as.Date(ymd(end_day)),
+         pref =  map(pref, cutfunc),
+         pref = as.character(pref) %>% str_replace_all(c(山梨県 = "Yamanashi",
+                                                            茨城県 = "Ibaraki",
+                                                            栃木県 = "Tochigi",
+                                                            群馬県 = "Gunma",
+                                                            長野県 = "Nagano",
+                                                            静岡県 = "Shizuoka")),
+         pref_resid = map(pref_resid, cutfunc),
+         pref_resid = as.character(pref_resid) %>% str_replace_all(c(山梨県 = "Yamanashi",
+                                                                        茨城県 = "Ibaraki",
+                                                                        栃木県 = "Tochigi",
+                                                                        群馬県 = "Gunma",
+                                                                        長野県 = "Nagano",
+                                                                        静岡県 = "Shizuoka"))) 
+
+
+## Covid data clean ----
+covid47 <- covid47 %>%
+  rename(date = 1,
+         pref_resid = 3,
+         newcase_resid = 4,
+         newdeath_resid = 6) %>% 
+  select(date, pref_resid, newcase_resid, newdeath_resid) %>% 
+  mutate(date = as.Date(date)) %>% 
+  mutate(week = floor_date(date, "week",
+                           week_start = getOption("lubridate.week.start", 1))) %>% 
+  # group_by(pref_resid, week) %>%  comment out because the unit of analysis here is daily.
+  # summarize(across(c(newcase_resid, newdeath_resid),
+  #                  sum)) %>%
+  # ungroup() %>% 
+  mutate(pref_resid = str_replace_all(pref_resid,
+                                      c(山梨県 = "Yamanashi",
+                                           茨城県 = "Ibaraki",
+                                           栃木県 = "Tochigi",
+                                           群馬県 = "Gunma",
+                                           長野県 = "Nagano",
+                                           静岡県 = "Shizuoka")))
+
+
+
+## Population data clean --------
+pop47 <- pop47 %>% 
+  rename(pref_resid = 1,
+         pop_resid = 2) %>% 
+  mutate(pop_resid = pop_resid * 1000,
+         pref_resid = str_replace_all(pref_resid,
+                                      c(山梨県 = "Yamanashi",
+                                           茨城県 = "Ibaraki",
+                                           栃木県 = "Tochigi",
+                                           群馬県 = "Gunma",
+                                           長野県 = "Nagano",
+                                           静岡県 = "Shizuoka")))
+
+## build infectious (merge population flow & newcases)
+
+date <- data %>% 
+  dplyr::select(date, pref)
+
+
+date_list <- seq(as.Date("2019-12-30"), as.Date("2021-06-20"), by = "day")
+# 日付の一覧と都道府県の一覧を組み合わせてデータを作成
+date_pref <- expand.grid(date = date_list, pref = unique(mob6_47$pref), pref_resid = unique(mob6_47$pref_resid))
+
+agoop_daily_raw <- date_pref %>% 
+  left_join(mob6_47, by = c("pref", "pref_resid")) %>% 
+  filter(date >= start_day, date <= end_day) 
+
+infectious_raw_bind <- agoop_daily_raw %>% 
+  dplyr::left_join(., covid47, by = c("date", "pref_resid")) %>% 
+  dplyr::select(-week) %>% 
+  tidyr::replace_na(., list(newcase_resid = 0, newdeath_resid = 0)) %>% 
+  dplyr::left_join(., pop47, by = c("pref_resid"))
+
+infectious_raw <- infectious_raw_bind %>% 
+  dplyr::mutate(infectious = sum_pop*newcase_resid/pop_resid) %>% 
+  dplyr::group_by(date, pref) %>% 
+  dplyr::summarise(sum_infectious = sum(infectious)) %>% 
+  dplyr::ungroup()
+
 # merge to build master data-----------
 data <- NHK %>% 
   dplyr::left_join(., GZdata2, by = c("date","pref")) %>% 
@@ -109,8 +222,12 @@ data <- NHK %>%
   dplyr::left_join(., dummy, by = c("date","pref")) %>% 
   tidyr::replace_na(., list(dummy_school_closure = 0, dummy_gathering_restriction = 0)) %>% 
   dplyr::left_join(., Testdata, by = c("date","pref")) %>% 
-  tidyr::replace_na(., list(noftests = 0)) 
+  tidyr::replace_na(., list(noftests = 0)) %>% 
+  dplyr::left_join(., pop47, by = c("pref" = "pref_resid"))
 
+
+data2 <- data %>% 
+  dplyr::mutate(susceptible = pop_resid - total_case) #calculate susceptible population
 
 
 
