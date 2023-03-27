@@ -258,24 +258,79 @@ data2 <- data %>%
   dplyr::left_join(., infectious_sum2week, by = c("date", "pref"))
 
 # lag for newcases and test cases
+
+newcase_tests_lead1 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 1)) %>% 
+  dplyr::rename(newcase_lead1 = newcase_day,
+                tests_lead1 = noftests)
+
+newcase_tests_lead7 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 7)) %>% 
+  dplyr::rename(newcase_lead7 = newcase_day,
+                tests_lead7 = noftests)
+
 newcase_tests_lead8 <- data %>% 
   dplyr::select(date, pref, newcase_day, noftests) %>% 
-  dplyr::mutate(date = as.Date(date + 8)) %>% 
+  dplyr::mutate(date = as.Date(date - 8)) %>% 
   dplyr::rename(newcase_lead8 = newcase_day,
                 tests_lead8 = noftests)
 
 newcase_tests_lead14 <- data %>% 
   dplyr::select(date, pref, newcase_day, noftests) %>% 
-  dplyr::mutate(date = as.Date(date + 14)) %>% 
+  dplyr::mutate(date = as.Date(date - 14)) %>% 
   dplyr::rename(newcase_lead14 = newcase_day,
                 tests_lead14 = noftests)
 
+newcase_tests_lead15 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 15)) %>% 
+  dplyr::rename(newcase_lead15 = newcase_day,
+                tests_lead15 = noftests)
+
+newcase_tests_lead21 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 21)) %>% 
+  dplyr::rename(newcase_lead21 = newcase_day,
+                tests_lead21 = noftests)
+
+newcase_tests_lead22 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 22)) %>% 
+  dplyr::rename(newcase_lead22 = newcase_day,
+                tests_lead22 = noftests)
+
+newcase_tests_lead28 <- data %>% 
+  dplyr::select(date, pref, newcase_day, noftests) %>% 
+  dplyr::mutate(date = as.Date(date - 28)) %>% 
+  dplyr::rename(newcase_lead28 = newcase_day,
+                tests_lead28 = noftests)
+
 daily_data_SIR <- data2 %>% 
   dplyr::left_join(., newcase_tests_lead8, by = c("date", "pref")) %>% 
-  tidyr::replace_na(., list(newcase_lead8 = 0, tests_lead8 = 0)) %>% 
+  # tidyr::replace_na(., list(newcase_lead8 = 0, tests_lead8 = 0)) %>% 
   dplyr::left_join(., newcase_tests_lead14, by = c("date", "pref")) %>% 
-  tidyr::replace_na(., list(newcase_lead14 = 0, tests_lead14 = 0))
+  # tidyr::replace_na(., list(newcase_lead14 = 0, tests_lead14 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead1, by = c("date", "pref")) %>% 
+  # tidyr::replace_na(., list(newcase_lead1 = 0, tests_lead1 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead7, by = c("date", "pref")) %>% 
+  # tidyr::replace_na(., list(newcase_lead7 = 0, tests_lead7 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead15, by = c("date", "pref")) %>% 
+  # tidyr::replace_na(., list(newcase_lead15 = 0, tests_lead15 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead21, by = c("date", "pref")) %>% 
+  # tidyr::replace_na(., list(newcase_lead21 = 0, tests_lead21 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead22, by = c("date", "pref")) %>% 
+  # tidyr::replace_na(., list(newcase_lead22 = 0, tests_lead22 = 0)) %>% 
+  dplyr::left_join(., newcase_tests_lead28, by = c("date", "pref"))
+  # tidyr::replace_na(., list(newcase_lead28 = 0, tests_lead28 = 0))
 
+## make day(曜日) and week dummy
+daily_data_SIR <- daily_data_SIR %>% 
+  dplyr::mutate(weekday = weekdays(date, abbreviate = TRUE),
+                weeknum = isoweek(date))
+
+#write
 write_csv(daily_data_SIR, here::here("03_build/2nd_rebuttal/output/daily_data_SIR.csv"))
 
 
