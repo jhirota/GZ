@@ -59,11 +59,21 @@ covid_l1_2_3_4 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 
 #lag1 + lag2 + lag3 + lag4 + lag5
 covid_l1_2_3_4_5 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ + 1) + log(cumGZ_l1 + 1) + log(cumGZ_l3 + 1) + log(cumGZ_l4 + 1) + log(cumGZ_l5 + 1) + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob_lag)
 
+#alone
+covid_l1 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ_l1 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob_lag)
+covid_l3 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ_l3 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob_lag)
 covid_l4 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ_l4 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob_lag)
-
+covid_l5 <- felm(log(newcase_lead2 + 1) ~ log(cumGZ_l5 + 1)  + log(infectious_l2 + 1) + log(susceptible + 1) + emergency + log(tests_lead2 + 1) + log(customers_per) + log(avg_temp) + log(avg_rain + 1) + dummy_school_closure + dummy_gathering_restriction| pref+week | 0 | pref, data = weekSIR_rob_lag)
 
 AIC(covid_l2)
+AIC(covid_l1)
+AIC(covid_l3)
 AIC(covid_l4)
+AIC(covid_l5)
+
+stargazer(covid_l2, covid_l1, covid_l3, covid_l4, covid_l5, type = "text")
+
+
 AIC(covid_l1_2)
 AIC(covid_l1_2_3)
 AIC(covid_l1_2_3_4)
