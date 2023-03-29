@@ -127,14 +127,22 @@ $$ln(COVID) = ln\beta + \delta_2 lnS + \delta_3 lnI$$
 In order to adapt this basic estimation equation to changes in external circumstances that affect the infection cases, we add control variables such as economic activity variables and weather conditions. In addition, the purpose of the GZ certification policy that we want to estimate is to reduce the infectivity ($\beta$) that can be transferred from one infected person to another. Therefore, we redefine the infectivity ($\beta$) as follows to derive the main estimation model.
 $$ln\beta= \alpha_1lnGZ + u $$
 $$ln(COVID) = \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
+\newpage
 
+\blandscape
 ## B.2 Model selection of the time lag for the policy effects (AIC)
-
 ### B.2.1 Model Selection (AIC) for Infection prevention effects: The COVID-19 new infection cases
-<!-- \input{../../../04_analyze/} -->
+\input{../../../04_analyze/Covid/output/covid_weekly_AIC.tex}
+\fillandplacepagenumber
+\elandscape
+\newpage
 
-### B.2.2 Model Selection (AIC) for Infection prevention effects: Unit of analysis weekly and daily
-<!-- \input{../../../04_analyze/} -->
+\blandscape
+### B.2.2 Model Selection (AIC) for Infection prevention effects: Unit of time series (Weekly and Daily)
+\input{../../../04_analyze/Covid/output/covid_weekly_and_daily_AIC.tex}
+\fillandplacepagenumber
+\elandscape
+\newpage
 
 ### B.2.3 Model Selection (AIC) for Economic effects: Restaurants' sales (POS) 
 \input{../../../04_analyze/Postas/output/postas_sales_AIC.tex}
