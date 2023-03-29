@@ -41,6 +41,9 @@ A. Data
 
 B. Estimation Equation
 
+  1. Derivation of the Epidemiological Equation from the SIR model
+  2. Model selection of the time lag for the policy effects (AIC)
+
 C. Basic Statistics
 
   1. Summary statistics of analysis
@@ -101,6 +104,8 @@ $$ = \displaystyle 1-\frac{Number\ of\ people\ who\ go\ out\ from\ 9:00\ to\ 18:
 This data is used in the robustness check (D.8 Stay-home rate).
 
 # B   Estimation equation 
+
+## B.1 Derivation of the Epidemiological Equation from the SIR model
 The epidemiological analyses are based on the SIR-applied fixed effect model. This section shows the process of how the equation ((1) in Methods in the main article) is derived from the SIR model. 
 
 The SIR model captures the epidemic dynamics of infectious diseases that spread directly from person to person. The model estimates the infection status in three stages: Susceptible, Infectious, and Removed. Susceptible refers to the state of being susceptible to infection, Infectious refers to the state of being infected, and Removed refers to the state of having recovered or gained immunity or having died.
@@ -122,6 +127,22 @@ $$ln(COVID) = ln\beta + \delta_2 lnS + \delta_3 lnI$$
 In order to adapt this basic estimation equation to changes in external circumstances that affect the infection cases, we add control variables such as economic activity variables and weather conditions. In addition, the purpose of the GZ certification policy that we want to estimate is to reduce the infectivity ($\beta$) that can be transferred from one infected person to another. Therefore, we redefine the infectivity ($\beta$) as follows to derive the main estimation model.
 $$ln\beta= \alpha_1lnGZ + u $$
 $$ln(COVID) = \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
+
+## B.2 Model selection of the time lag for the policy effects (AIC)
+
+### B.2.1 Model Selection (AIC) for Infection prevention effects: The COVID-19 new infection cases
+<!-- \input{../../../04_analyze/} -->
+
+### B.2.2 Model Selection (AIC) for Infection prevention effects: Unit of analysis weekly and daily
+<!-- \input{../../../04_analyze/} -->
+
+### B.2.3 Model Selection (AIC) for Economic effects: Restaurants' sales (POS) 
+\input{../../../04_analyze/Postas/output/postas_sales_AIC.tex}
+\newpage
+
+### B.2.4 Model Selection (AIC) for Economic effects: the number of Restaurants' customers (POS)
+\input{../../../04_analyze/Postas/output/postas_cus_AIC.tex}
+\newpage
 
 # C   Basic Statistics
 
