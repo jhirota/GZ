@@ -30,7 +30,7 @@
   &  &  &  &  &  & (0.003) \\ 
   & & & & & & \\ 
 \hline \\[-1.8ex] 
-AIC & -4916.9 & -4912.9 & -4905.6 & -4899.1 & -4892.4 & -4884 \\ 
+AIC & -4916.94 & -4912.92 & -4905.61 & -4899.11 & -4892.43 & -4883.96 \\ 
 Observations & 5,106 & 5,106 & 5,106 & 5,106 & 5,106 & 5,106 \\ 
 Adjusted R$^{2}$ & 0.922 & 0.922 & 0.922 & 0.922 & 0.922 & 0.922 \\ 
 \hline 
@@ -40,14 +40,14 @@ The dependent variable is the log-transformed value of POS sales per restaurant.
 The unit of analysis is prefecture and day, and the fixed effects are introduced in all models. 
 For the observations, six prefectures are targeted.
 The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level. The following variables are included as covariates: 
-State of Emergency dummy, The number of new COVID-19 cases, log, Average temperature, log, Average rainfall, log, School closure dummy, Gathering restriction dummy.
-Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+State of Emergency dummy, The number of new COVID-19 cases(log), Average temperature(log), Average rainfall(log), School closure dummy, Gathering restriction dummy.
+Cumulative GZ-certified restaurants(log) is the log-transformed value of the number of cumulative certified-GZ restaurants.
 State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
-The number of new COVID-19 cases, log is the log-transformed value of the daily number of infection cases.
-Average temperature, log is the log-transformed value of the mean temperature (Fahrenheit degrees).
-Average rainfall, log is the log-transformed value of the aggregated rainfall (in millimeters).
+The number of new COVID-19 cases(log) is the log-transformed value of the daily number of infection cases.
+Average temperature(log) is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall(log) is the log-transformed value of the aggregated rainfall (in millimeters).
 School closure is the dummy variable that takes the value 1 if the school closure is declared. 
 Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
-For the variables that take absolute value 0 (Cumulative GZ-certified restaurants, log, and The number of new COVID-19 cases, log), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+For the variables that take absolute value 0 (Cumulative GZ-certified restaurants(log), and The number of new COVID-19 cases(log)), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
 \end{tabular} 
 \end{table} 
