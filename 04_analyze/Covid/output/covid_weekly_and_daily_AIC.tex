@@ -1,0 +1,43 @@
+
+\begin{table}[!htbp] \centering 
+  \caption{Model Selection of the time lag (Weekly and Daily): The COVID-19 new infection cases and the Green Zone certification} 
+  \label{} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{1pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & New infection cases, log (Weekly) & New infection cases, log (Daily) \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ Cumulative GZ-certified restaurants, log (2weeks/14days lag) & $-$0.126$^{***}$ & $-$0.147$^{***}$ \\ 
+  & (0.028) & (0.035) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Unit of time series & Weekly & Daily \\ 
+AIC & 750.29 & 5561.76 \\ 
+Observations & 396 & 2,729 \\ 
+Adjusted R$^{2}$ & 0.914 & 0.812 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\multicolumn{3}{l} {\parbox[t]{20cm}{ \textit{Notes:} *p<0.1; **p<0.05; ***p<0.01
+The dependent variable is the log-transformed value of the number of new infection cases. 
+The unit of analysis is prefecture and week for the first column (1) and day for the second column (2). The fixed effects are introduced in all models. 
+For the observations, six prefectures are targeted.
+The values in parentheses are cluster-robust standard errors. Clustering is at the prefecture level.
+The following variables are included as covariates: Infectious(log), Susceptible(log), State of Emergency dummy, Tests(log), Customers per restaurant(log), 
+Average temperature(log), Average rainfall(log), School closure dummy, Gathering restriction dummy.
+Cumulative GZ-certified restaurants, log is the log-transformed value of the number of cumulative certified-GZ restaurants.
+Infectious(log) is the log-transformed value of the number of potentially infected people.
+Susceptible(log) is the log-transformed value of the total number of susceptible population.
+State of Emergency is the dummy variable that takes the value 1 if the state of emergency is declared. 
+Tests(log) is the log-transformed value of the number of COVID-19 tests.
+Customers per restaurant(log) is the log-transformed value of the number of customers per restaurant.
+Average temperature(log) is the log-transformed value of the mean temperature (Fahrenheit degrees).
+Average rainfall(log) is the log-transformed value of the aggregated rainfall (in millimeters).
+School closure is the dummy variable that takes the value 1 if the school closure is declared. 
+Gathering restriction is the dummy variable that takes the value 1 if the large-scale gathering restriction is declared.
+For the variables that take absolute value 0 (New infection cases(log), Cumulative GZ-certified restaurants, log, Infectious(log), and Tests(log)), we add value 1 before log-transforming to avoid the logarithm of 0.}} \\
+\end{tabular} 
+\end{table} 
