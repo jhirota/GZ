@@ -131,15 +131,15 @@ $$ln(COVID) = \alpha_1lnGZ + \delta_2lnS + \delta_3lnI + \delta_4ln Control +u$$
 
 \blandscape
 ## B.2 Model selection of the time lag for the policy effects (AIC)
-### B.2.1 Model Selection (AIC) for Infection prevention effects: The COVID-19 new infection cases
-\input{../../../04_analyze/Covid/output/covid_weekly_AIC.tex}
+### B.2.1 Model Selection (AIC) for Infection prevention effects: Unit of time series (Weekly and Daily)
+\input{../../../04_analyze/Covid/output/covid_weekly_and_daily_AIC.tex}
 \fillandplacepagenumber
 \elandscape
 \newpage
 
 \blandscape
-### B.2.2 Model Selection (AIC) for Infection prevention effects: Unit of time series (Weekly and Daily)
-\input{../../../04_analyze/Covid/output/covid_weekly_and_daily_AIC.tex}
+### B.2.2 Model Selection (AIC) for Infection prevention effects: The COVID-19 new infection cases
+\input{../../../04_analyze/Covid/output/covid_weekly_AIC.tex}
 \fillandplacepagenumber
 \elandscape
 \newpage
